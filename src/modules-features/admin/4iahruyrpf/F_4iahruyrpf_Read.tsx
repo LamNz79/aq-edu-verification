@@ -3,7 +3,7 @@ import { MyDataTable } from '@/components/DataDisplay/DataTable/MyDataTable';
 import { useQuery } from '@tanstack/react-query';
 import { MRT_ColumnDef } from 'mantine-react-table';
 import { useEffect, useMemo, useState } from 'react'
-import { Group, Text } from '@mantine/core';
+import { Checkbox, Group, Paper, Text } from '@mantine/core';
 import MyFieldset from '@/components/Inputs/Fieldset/MyFieldset';
 import { MyButton } from '@/components/Buttons/Button/MyButton';
 import F_4iahruyrpf_Create from './F_4iahruyrpf_Create';
@@ -14,39 +14,40 @@ import F_4iahruyrpf_Update from './F_4iahruyrpf_Update';
 
 
 interface I4iahruyrpfViewModal {
+    id: number;
     chon: boolean;
     stt: number;
     maLoai: string;
     tenLoai: string;
     ghiChu: string;
-    thaoTac: string;
+
 }
 
 const mockData: I4iahruyrpfViewModal[] = [
     {
+        id: 1,
         chon: false,
         stt: 1,
         maLoai: "QD",
         tenLoai: "Quyết định",
         ghiChu: "",
-        thaoTac: "Sửa / Xóa",
-    },
-    {
+      },
+      {
+        id: 2,
         chon: false,
         stt: 2,
         maLoai: "BC",
         tenLoai: "Báo cáo",
         ghiChu: "",
-        thaoTac: "Sửa / Xóa",
-    },
-    {
+      },
+      {
+        id: 3,
         chon: false,
         stt: 3,
         maLoai: "BB",
         tenLoai: "Biên bản",
         ghiChu: "",
-        thaoTac: "Sửa / Xóa",
-    },
+      },
 ];
 
 export default function F_4iahruyrpf_Read() {
@@ -60,28 +61,25 @@ export default function F_4iahruyrpf_Read() {
 
     useEffect(() => {
         if (evidenceUseQuery.data && evidenceUseQuery.data.length > 0) {
-            setSelectedRow([evidenceUseQuery.data[0].stt]);
+            setSelectedRow([evidenceUseQuery.data[0].id]);
         }
     }, [evidenceUseQuery.data]);
 
     const columns = useMemo<MRT_ColumnDef<I4iahruyrpfViewModal>[]>(() => [
-
-        { accessorKey: "chon", header: "Chọn" },
-        { accessorKey: "stt", header: "STT" },
         { accessorKey: "maLoai", header: "Mã loại minh chứng" },
         { accessorKey: "tenLoai", header: "Tên loại minh chứng" },
         { accessorKey: "ghiChu", header: "Ghi chú" },
-        { accessorKey: "thaoTac", header: "Thao tác" },
+
     ], []);
 
     if (evidenceUseQuery.isLoading) return <Text>Đang tải dữ liệu...</Text>;
     if (evidenceUseQuery.isError) return <Text color="red">Không có dữ liệu...</Text>;
 
     return (
-        <MyFieldset title='Danh mục loại minh chứng'>
+        <Paper><MyFieldset title='Danh mục loại minh chứng'>
             <MyDataTable
 
-                exportAble
+enableRowSelection
                 columns={columns}
                 data={evidenceUseQuery.data!}
                 renderTopToolbarCustomActions={() => (
@@ -90,6 +88,7 @@ export default function F_4iahruyrpf_Read() {
                         <F_4iahruyrpf_Create />
                         <MyButton crudType='delete' />
                         <MyButton crudType='import' />
+                        <MyButton crudType='export' />
 
                     </Group>
 
@@ -98,12 +97,13 @@ export default function F_4iahruyrpf_Read() {
                 renderRowActions={({ row }) => (
                     <MyCenterFull>
                         <F_4iahruyrpf_Update />
-                        <F_4iahruyrpf_Delete />
+                        <F_4iahruyrpf_Delete id={0} />
                     </MyCenterFull>
                 )
 
                 } />
 
-        </MyFieldset>
+        </MyFieldset></Paper>
+
     )
 }
