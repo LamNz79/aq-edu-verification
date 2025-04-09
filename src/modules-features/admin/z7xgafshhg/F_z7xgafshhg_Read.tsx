@@ -18,8 +18,6 @@ export interface I_z7xgafshhg {
     chuKyBaoCao?: string;
     ngayBatDau?: Date;
     donViChuTri?: string;
-    // nguoiCapNhat?: string;
-    // ngayCapNhat?: Date;
 }
 export default function F_z7xgafshhg() {
     const className = useQuery<I_z7xgafshhg[]>({
@@ -65,24 +63,21 @@ export default function F_z7xgafshhg() {
                     onChange = {(newValue: string | null) => {
                         if (newValue) setValue(newValue);
                     }}
-                    //style={{ backgroundColor: '#cce5ff', borderRadius: 4 }}
+                    styles={{
+                        input: {
+                          backgroundColor: '#B3DAB6',
+                          color: 'black', // hoặc white nếu bạn muốn chữ trắng
+                          border: '1px solid black',
+                        },
+                        dropdown: {
+                          backgroundColor: '#B3DAB6',
+                          
+                        },
+                      }}
                     />
                 )
             }
         },
-        // {
-        //     header: "Người cập nhật",
-        //     accessorKey: "nguoiCapNhat",
-        //     enableHiding: true,
-        //     size: 1 // thu nhỏ
-        // },
-        // {
-        //     header: "Ngày cập nhật",
-        //     accessorKey: "ngayCapNhat",
-        //     accessorFn: (row) => U0DateToDDMMYYYString(new Date(row.ngayCapNhat!)),
-        //     enableHiding: true,
-        //     size: 1
-        // }
     ], []);
     const exportConfig = {
         fields: [
@@ -103,12 +98,6 @@ export default function F_z7xgafshhg() {
                 enableRowSelection
                 columns={columns}
                 data={className.data!}
-                // initialState={{
-                //     columnVisibility: {
-                //         nguoiCapNhat: false,
-                //         ngayCapNhat: false
-                //     }
-                // }}
                 mantineTableBodyCellProps={({ cell }) => ({
                     style: {
                         backgroundColor: cell.column.id === "donViChuTri" ? "#B3DAB6" : "transparent"

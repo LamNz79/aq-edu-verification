@@ -3,12 +3,10 @@ import MyActionIconUpdate from '@/components/ActionIcons/ActionIconCRUD/MyAction
 import MySelect from '@/components/Combobox/Select/MySelect';
 import MyFieldset from '@/components/Inputs/Fieldset/MyFieldset';
 import MyTextInput from '@/components/Inputs/TextInput/MyTextInput';
-import { U0DateToDDMMYYYString } from '@/utils/date';
 import { DateTimePicker } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 import { useQuery } from '@tanstack/react-query';
-import { MRT_ColumnDef } from 'mantine-react-table';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 export interface I_b99o1d0u5q_Update {
     id: number;
     maTieuChuan: string;
@@ -27,39 +25,6 @@ export default function F_b99o1d0u5q_Delete({value}: {value: any}) {
             return mockData;
         }
     });
-    // const columns = useMemo<MRT_ColumnDef<I_b99o1d0u5q_Update>[]>(() => [
-    //     {
-    //         header: "Mã tiêu chuẩn",
-    //         accessorKey: "maTieuChuan"
-    //     },
-    //     {
-    //         header: "Mã tiêu chí",
-    //         accessorKey: "maTieuChi"
-    //     },
-    //     {
-    //         header: "Tên tiêu chí",
-    //         accessorKey: "tenTieuChi"
-    //     },
-    //     {
-    //         header: "Mô tả",
-    //         accessorKey: "moTa"
-    //     },
-    //     {
-    //         header: "Chu kỳ báo cáo",
-    //         accessorKey: "chuKyBaoCao"
-    //     },
-    //     {
-    //         header: "Ngày bắt đầu",
-    //         accessorKey: "ngayBatDau",
-    //         accessorFn(originalRow) {
-    //             return U0DateToDDMMYYYString(new Date(originalRow.ngayBatDau!));
-    //         },
-    //     },
-    //     {
-    //         header: "Ghi chú",
-    //         accessorKey: "ghiChu"
-    //     }
-    // ], []);
     if (className.isLoading) return "Đang tải dữ liệu...";
     if (className.error) return "Lỗi tải dữ liệu";
     const form_multiple_input = useForm({
@@ -96,12 +61,12 @@ export default function F_b99o1d0u5q_Delete({value}: {value: any}) {
                     placeholder="Tên tiêu chí"
                     required
                 />
-                {/* <MyTextInput
-                    label="Tên tiêu chí/ Eg"
-                    name="moTa"
+                <MyTextInput
+                    label="Tên tiêu chí Eg"
+                    name="tenTieuChiEg"
                     placeholder=""
                     //required
-                /> */}
+                />
                 <MyTextInput
                     label="Mô tả"
                     name="moTa"
@@ -119,6 +84,7 @@ export default function F_b99o1d0u5q_Delete({value}: {value: any}) {
                     onChange={setSelectedDate}
                     label="Ngày bắt đầu chu kỳ"
                     placeholder="Chọn ngày"
+                    valueFormat="DD/MM/YYYY"
                 />
                 <MyTextInput
                     label='Ghi chú'

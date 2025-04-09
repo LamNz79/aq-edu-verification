@@ -19,9 +19,6 @@ export interface I_b99o1d0u5q {
     chuKyBaoCao?: string;
     ngayBatDau?: Date;
     ghiChu?: string;
-    // nguoiCapNhat?: string;
-    // ngayCapNhat?: Date;
-    //thaoTac?: string;
 }
 
 export default function F_b99o1d0u5q() {
@@ -63,21 +60,6 @@ export default function F_b99o1d0u5q() {
             header: "Ghi chú",
             accessorKey: "ghiChu",
         },
-        // {
-        //     header: "Người cập nhật",
-        //     accessorKey: "nguoiCapNhat",
-        //     enableHiding: true,
-        //     size: 1
-        // },
-        // {
-        //     header: "Ngày cập nhật",
-        //     accessorKey: "ngayCapNhat",
-        //     accessorFn(originalRow) {
-        //         return U0DateToDDMMYYYString(new Date(originalRow.ngayCapNhat!));
-        //     },
-        //     enableHiding: true,
-        //     size: 1
-        // }
     ], []);
     if (className.isLoading) return "Đang tải dữ liệu...";
     if (className.error) return "Lỗi tải dữ liệu";
@@ -86,12 +68,6 @@ export default function F_b99o1d0u5q() {
             <MyDataTable
                 columns = {columns}
                 data = {className.data!}
-                // initialState={{
-                //     columnVisibility: {
-                //         nguoiCapNhat: false,
-                //         ngayCapNhat: false
-                //     }
-                // }}
                 enableRowActions
                 //enableEditing
                 renderRowActions={({ row }) => [
