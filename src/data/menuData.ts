@@ -40,7 +40,7 @@ export const menuData: I0LinkItem[] = [
   },
   {
     label: "Đơn vị chủ trì tiêu chuẩn",
-    link: "4-2",
+    link: "7gdid7o8tk",
   },
   {
     label: "Đơn vị chủ trì tiêu chí",
