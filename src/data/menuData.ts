@@ -32,7 +32,7 @@ export const menuData: I0LinkItem[] = [
   },
   {
     label: "Danh sách tiêu chí",
-    link: "4-2",
+    link: "b99o1d0u5q",
   },
   {
     label: "Chu kỳ kiểm định",
@@ -44,7 +44,7 @@ export const menuData: I0LinkItem[] = [
   },
   {
     label: "Đơn vị chủ trì tiêu chí",
-    link: "4-2",
+    link: "z7xgafshhg",
   },
   {
     label: "Danh sách minh chứng",
