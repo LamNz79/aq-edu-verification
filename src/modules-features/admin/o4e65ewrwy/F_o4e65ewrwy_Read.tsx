@@ -45,7 +45,7 @@ export default function F_o4e65ewrwy_Read()
                        agentCode:"K.CNTT",
                        agentName:"Khoa Công nghệ thông tin",
                        agentType:"Khoa",
-                       affiliatedOf:"",
+                       affiliatedOf:"Bộ môn cơ sở dữ liệu",
                        nguoiCapNhat: "Quản trị viên",
                        ngayCapNhat: new Date("2024-12-23")
                    },
@@ -54,7 +54,7 @@ export default function F_o4e65ewrwy_Read()
                     agentCode:"K.CNTT.DL",
                     agentName:"Bộ môn cơ sở dữ liệu",
                     agentType:"Bộ môn",
-                    affiliatedOf:"Khoa công nghệ thông tin",
+                    affiliatedOf:"Khoa Công nghệ thông tin",
                     nguoiCapNhat: "Quản trị viên",
                     ngayCapNhat: new Date("2024-12-23")
                 },
@@ -137,7 +137,7 @@ export default function F_o4e65ewrwy_Read()
                                         renderRowActions={({ row }) => (
                                             <MyCenterFull>
                                                 <F_o4e65ewrwy_Update data={row.original} />
-                                                <F_o4e65ewrwy_Delete id={row.original.id!} />
+                                                <F_o4e65ewrwy_Delete id={row.original.agentCode!} />
                                             </MyCenterFull>
                                         )}
                                         
