@@ -24,31 +24,31 @@ export const menuData: I0LinkItem[] = [
   },
   {
     label: "Danh sách Bộ tiêu chuẩn",
-    links: [],
+    link: "4-2",
   },
   {
     label: "Danh sách tiêu chuẩn",
-    links: [],
+    link: "4-2",
   },
   {
     label: "Danh sách tiêu chí",
-    links: [],
+    link: "4-2",
   },
   {
     label: "Chu kỳ kiểm định",
-    links: [],
+    link: "4-2",
   },
   {
     label: "Đơn vị chủ trì tiêu chuẩn",
-    links: [],
+    link: "4-2",
   },
   {
     label: "Đơn vị chủ trì tiêu chí",
-    links: [],
+    link: "4-2",
   },
   {
     label: "Danh sách minh chứng",
-    links: [],
+    link: "4-2",
   },
   {
     label: "Danh mục hệ thống",
