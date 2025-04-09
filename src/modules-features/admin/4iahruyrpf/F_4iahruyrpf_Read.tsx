@@ -98,8 +98,8 @@ export default function F_4iahruyrpf_Read() {
                     <MyCenterFull>
                         <F_4iahruyrpf_Update />
                         <F_4iahruyrpf_Delete
-                            id={row.original.id}
-                            maLoai={row.original.maLoai}
+                            id={row.original.maLoai!}
+                            // maLoai={row.original.maLoai}
                         />
 
                     </MyCenterFull>
