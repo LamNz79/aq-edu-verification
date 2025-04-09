@@ -12,6 +12,7 @@ import F_t2razyofo9_Update from "./F_t2razyofo9_Update";
 import F_t2razyofo9_Delete from "./F_t2razyofo9_Delete";
 import F_t2razyofo9_Create from "./F_t2razyofo9_Create";
 import { MyButton } from "@/components/Buttons/Button/MyButton";
+import MyButtonViewPDF from "@/components/Buttons/ButtonViewPDF/MyButtonViewPDF";
 
 // Interface định nghĩa dữ liệu
 export interface I_t2razyofo9 {
@@ -100,20 +101,13 @@ export default function F_t2razyofo9_Read() {
             },
             {
                 header: "File tiêu chuẩn",
-                accessorKey: "fileTieuChuan",
-                Cell: ({ cell }) => {
-                    const fileName = cell.getValue<string>();
+                accessorFn: (row) => {
                     return (
-                        <MyButton
-                            crudType="select"
-                            w={'100%'}
-                            h={'30px'}
-                            m={'2px'}
-                        >
-                            {fileName}
-                        </MyButton>
-                    );
-                },
+                        <MyCenterFull>
+                            <MyButtonViewPDF id={row.id} />
+                        </MyCenterFull>
+                    )
+                }
             },
             {
                 header: "Ghi chú",
