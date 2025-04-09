@@ -58,5 +58,6 @@ export const menuData: I0LinkItem[] = [
       { pageId: 1002, name: "", label: "Danh mục thang đánh giá", link: "", status: "Menu" },
     ],
   },
+ 
+]; 
 
-];

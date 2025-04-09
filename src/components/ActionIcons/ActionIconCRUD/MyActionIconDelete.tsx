@@ -56,10 +56,8 @@ export default function MyActionIconDelete({
             {...rest}
         >
             <Highlight  color="red" highlight={[contextData||""]}>
-            {'Bạn sắp xóa dữ liệu ${contextData}. Hành động này không thể hoàn tác. Bạn có chắc chắn muốn tiếp tục?'}
+            {`Bạn sắp xóa dữ liệu ${    contextData}. Hành động này không thể hoàn tác. Bạn có chắc chắn muốn tiếp tục?`}
             </Highlight>
-                
-        
             <Group grow>
                 <MyButton
                     crudType="delete"
