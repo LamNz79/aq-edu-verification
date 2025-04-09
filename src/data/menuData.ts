@@ -24,7 +24,7 @@ export const menuData: I0LinkItem[] = [
   },
   {
     label: "Danh sách Bộ tiêu chuẩn",
-    link: "4-2",
+    link: "t2razyofo9",
   },
   {
     label: "Danh sách tiêu chuẩn",
