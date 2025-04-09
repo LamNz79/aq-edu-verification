@@ -36,9 +36,7 @@ export default function F_o4e65ewrwy_Create({ onSubmit }: F_o4e65ewrwy_CreatePro
         validate: {
             agentCode: (value) => (value ? null : 'Mã đơn vị là bắt buộc'),
             agentName: (value) => (value ? null : 'Tên đơn vị là bắt buộc'),
-            agentType: (value) => (value ? null : 'Loại đơn vị là bắt buộc'),
-            affiliatedOf: (value) => (value ? null : 'Trực thuộc là bắt buộc'),
-            ghiChu: (value) => (value ? null : 'Ghi chú là bắt buộc'),
+            
         },
     });
 
