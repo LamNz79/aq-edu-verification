@@ -30,6 +30,13 @@ export default function F_t2razyofo9_Create() {
             ghiChu: "",
         },
         validate: {
+            maBoTieuChuan: (value) => (value ? null : 'Mã bộ tiêu chuẩn là bắt buộc'),
+            tenBoTieuChuan: (value) => (value ? null : 'Tên bộ tiêu chuẩn là bắt buộc'),
+            tenBoTieuChuanEg: (value) => (value ? null : 'Tên bộ tiêu chuẩn Eg là bắt buộc'),
+            toChucKiemDinh: (value) => (value ? null : 'Tổ chức kiểm định là bắt buộc'),
+            phienBan: (value) => (value ? null : 'Phiên bản là bắt buộc'),
+            namBanHanh: (value) => (value ? null : 'Năm ban hành là bắt buộc'),
+            fileTieuChuan: (value) => (value ? null : 'File tiêu chuẩn là bắt buộc'),
         },
     });
 

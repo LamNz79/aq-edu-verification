@@ -13,6 +13,7 @@ import F_t2razyofo9_Delete from "./F_t2razyofo9_Delete";
 import F_t2razyofo9_Create from "./F_t2razyofo9_Create";
 import { MyButton } from "@/components/Buttons/Button/MyButton";
 import MyButtonViewPDF from "@/components/Buttons/ButtonViewPDF/MyButtonViewPDF";
+import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData";
 
 // Interface định nghĩa dữ liệu
 export interface I_t2razyofo9 {
@@ -117,6 +118,38 @@ export default function F_t2razyofo9_Read() {
         ],
         []
     );
+    const exportConfig = {
+        fields: [
+            {
+                fieldName: "maBoTieuChuan",
+                header: "Mã bộ tiêu chuẩn"
+            },
+            {
+                fieldName: "tenBoTieuChuan",
+                header: "Tên bộ tiêu chuẩn"
+            },
+            {
+                fieldName: "toChucKiemDinh",
+                header: "Tổ chức kiểm định"
+            },
+            {
+                fieldName: "phienBan",
+                header: "Phiên bản"
+            },
+            {
+                fieldName: "namBanHanh",
+                header: "Năm ban hành"
+            },
+            {
+                fieldName: "fileTieuChuan",
+                header: "File tiêu chuẩn"
+            },
+            {
+                fieldName: "ghiChu",
+                header: "Ghi chú"
+            }
+        ]
+    };
 
     // Xử lý trạng thái tải dữ liệu
     if (examDetailData.isLoading) return "Đang tải dữ liệu...";
@@ -141,10 +174,13 @@ export default function F_t2razyofo9_Read() {
                             }
                             form={form_multiple}
                         ></AQButtonCreateByImportFile>
-                        <Button color="teal">Export</Button>
+                        <AQButtonExportData
+                            isAllData={true}
+                            objectName="dmTHPB"
+                            data={examDetailData.data!}
+                            exportConfig={exportConfig}
+                        />
                         <Button color="red">Xoá</Button>
-                        {/* <F_vnyrext6ag_ExamSelect /> */}
-
                     </>
                 )}
                 renderRowActions={({ row }) => {
