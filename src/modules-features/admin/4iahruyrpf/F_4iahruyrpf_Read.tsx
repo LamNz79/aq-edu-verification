@@ -31,23 +31,23 @@ const mockData: I4iahruyrpfViewModal[] = [
         maLoai: "QD",
         tenLoai: "Quyết định",
         ghiChu: "",
-      },
-      {
+    },
+    {
         id: 2,
         chon: false,
         stt: 2,
         maLoai: "BC",
         tenLoai: "Báo cáo",
         ghiChu: "",
-      },
-      {
+    },
+    {
         id: 3,
         chon: false,
         stt: 3,
         maLoai: "BB",
         tenLoai: "Biên bản",
         ghiChu: "",
-      },
+    },
 ];
 
 export default function F_4iahruyrpf_Read() {
@@ -79,7 +79,7 @@ export default function F_4iahruyrpf_Read() {
         <Paper><MyFieldset title='Danh mục loại minh chứng'>
             <MyDataTable
 
-enableRowSelection
+                enableRowSelection
                 columns={columns}
                 data={evidenceUseQuery.data!}
                 renderTopToolbarCustomActions={() => (
@@ -97,7 +97,11 @@ enableRowSelection
                 renderRowActions={({ row }) => (
                     <MyCenterFull>
                         <F_4iahruyrpf_Update />
-                        <F_4iahruyrpf_Delete id={0} />
+                        <F_4iahruyrpf_Delete
+                            id={row.original.id}
+                            maLoai={row.original.maLoai}
+                        />
+
                     </MyCenterFull>
                 )
 
