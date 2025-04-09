@@ -4,8 +4,7 @@ import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportDa
 import MyCenterFull from "@/components/CenterFull/MyCenterFull";
 import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
 import MyFlexColumn from "@/components/Layouts/FlexColumn/MyFlexColumn";
-import useQ_COEClass_GetAll from "@/hooks/query-hooks/COEClass/useQ_COEClass_GetAll";
-import { Button, Checkbox, Fieldset, Group } from "@mantine/core";
+import { Button, Checkbox, Group } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { IconTrash } from "@tabler/icons-react";
 import { MRT_ColumnDef } from "mantine-react-table";
@@ -42,7 +41,7 @@ export default function F_4ozfpuyh8g_Read() {
             xepLoaiTiengAnh: "",
             diem: 0,
             isNotAchieved: false,
-            note: ""
+            note: "",
         },
     });
 
@@ -58,7 +57,7 @@ export default function F_4ozfpuyh8g_Read() {
                     xepLoaiTiengAnh: "",
                     diem: 9,
                     isNotAchieved: false,
-                    note: ""
+                    note: "",
                 },
                 {
                     id: 2,
@@ -69,7 +68,7 @@ export default function F_4ozfpuyh8g_Read() {
                     isNotAchieved: false,
                     soLuongDaDangKy: 6,
                     laKhongThi: false,
-                    note: ""
+                    note: "",
                 },
                 {
                     id: 3,
@@ -78,7 +77,7 @@ export default function F_4ozfpuyh8g_Read() {
                     xepLoaiTiengAnh: "",
                     diem: 7,
                     isNotAchieved: false,
-                    note: ""
+                    note: "",
                 },
                 {
                     id: 4,
@@ -87,7 +86,7 @@ export default function F_4ozfpuyh8g_Read() {
                     xepLoaiTiengAnh: "",
                     diem: 6,
                     isNotAchieved: false,
-                    note: ""
+                    note: "",
                 },
                 {
                     id: 5,
@@ -96,7 +95,7 @@ export default function F_4ozfpuyh8g_Read() {
                     xepLoaiTiengAnh: "",
                     diem: 0,
                     isNotAchieved: true,
-                    note: ""
+                    note: "",
                 },
             ];
         },
@@ -114,9 +113,7 @@ export default function F_4ozfpuyh8g_Read() {
                 id: "isNotAchieved",
                 Cell: ({ row }) => {
                     const { isNotAchieved } = row.original;
-                    return (
-                        <Checkbox defaultChecked={isNotAchieved} />
-                    );
+                    return <Checkbox defaultChecked={isNotAchieved} />;
                 },
             },
         ],
@@ -126,18 +123,16 @@ export default function F_4ozfpuyh8g_Read() {
     const exportConfig = {
         fields: [
             { fieldName: "id", header: "STT" },
-            { fieldName: "codeClass", header: "Mã lớp" },
-            { fieldName: "nameClass", header: "Tên lớp" },
-            { fieldName: "courseCode", header: "Mã khóa" },
-            { fieldName: "courseName", header: "Tên khóa" },
-            { fieldName: "classSize", header: "Sĩ số lớp" },
-            { fieldName: "classList", header: "Danh sách lớp" },
-            { fieldName: "nguoiCapNhat", header: "Người cập nhật" },
-            { fieldName: "ngayCapNhat", header: "Ngày cập nhật" },
+            { fieldName: "thuTu", header: "Thứ tự" },
+            { fieldName: "danhGia", header: "Đánh giá" },
+            { fieldName: "xepLoaiTiengAnh", header: "Xếp loại tiếng Anh" },
+            { fieldName: "diem", header: "Điểm >=" },
+            { fieldName: "isNotAchieved", header: "Không đạt" },
         ],
     };
 
     if (ratingScaleQuery.isLoading) return "Loading...";
+    if (ratingScaleQuery.isError) return "Error..";
 
     return (
         <MyFlexColumn>
