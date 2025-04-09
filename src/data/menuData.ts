@@ -53,7 +53,7 @@ export const menuData: I0LinkItem[] = [
   {
     label: "Danh mục hệ thống",
     links: [
-      { pageId: 1000, name: "", label: "Danh mục đơn vị", link: "", status: "Menu" },
+      { pageId: 1000, name: "", label: "Danh mục đơn vị", link: "o4e65ewrwy", status: "Prototype" },
       { pageId: 1001, name: "List of evidence types", label: " Danh mục loại minh chứng", link: "4iahruyrpf", status: "Prototype" },
       { pageId: 1002, name: "", label: "Danh mục thang đánh giá", link: "", status: "Menu" },
     ],
