@@ -14,6 +14,7 @@ import F_5lrwp21o3u_Create from "./F_5lrwp21o3u_Create";
 import F_5lrwp21o3u_Delete, { F_5lrwp21o3u_Delete_Datarow } from "./F_5lrwp21o3u_Delete";
 import MyCenterFull from "@/components/CenterFull/MyCenterFull";
 import F_5lrwp21o3u_Update from "./F_5lrwp21o3u_Update";
+import { Checkbox, Flex } from "@mantine/core";
 
 interface IDandSachBoTieuChuanRead {
     cycleId: string; // Mã chu kỳ
@@ -117,6 +118,11 @@ export default function F_5lrwp21o3u_Read() {
         {
             header: 'Lặp lại',
             accessorKey: 'isRepeat',
+            Cell: ({ row }) => (
+                <Checkbox 
+                    defaultChecked={row.original.isRepeat}
+                />
+            ),
         },
         {
             header: 'Ghi chú',
@@ -135,7 +141,7 @@ export default function F_5lrwp21o3u_Read() {
 
     return(
         <>
-            <MyFieldset>
+            <MyFieldset title="Danh sách bộ tiêu chuẩn">
                 <MyDataTable
                     enableRowSelection={true}
                     columns={danhSachBoTieuChuanColumns}
