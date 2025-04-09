@@ -1,5 +1,4 @@
 'use client'
-import { Interface } from "readline";
 import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
 import { useQuery } from "@tanstack/react-query";
@@ -10,9 +9,6 @@ import { MyButton } from "@/components/Buttons/Button/MyButton";
 import F_b99o1d0u5q_Delete from "./F_b99o1d0u5q_Delete";
 import F_b99o1d0u5q_Update from "./F_b99o1d0u5q_Update";
 import MyCenterFull from "@/components/CenterFull/MyCenterFull";
-import AQButtonCreateByImportFile from "@/components/Buttons/ButtonCRUD/AQButtonCreateByImportFile";
-import MyFlexColumn from "@/components/Layouts/FlexColumn/MyFlexColumn";
-import { useForm } from "@mantine/form";
 import { Group } from "@mantine/core";
 export interface I_b99o1d0u5q {
     id?: number;
@@ -23,8 +19,8 @@ export interface I_b99o1d0u5q {
     chuKyBaoCao?: string;
     ngayBatDau?: Date;
     ghiChu?: string;
-    nguoiCapNhat?: string;
-    ngayCapNhat?: Date;
+    // nguoiCapNhat?: string;
+    // ngayCapNhat?: Date;
     //thaoTac?: string;
 }
 
@@ -67,21 +63,21 @@ export default function F_b99o1d0u5q() {
             header: "Ghi chú",
             accessorKey: "ghiChu",
         },
-        {
-            header: "Người cập nhật",
-            accessorKey: "nguoiCapNhat",
-            enableHiding: true,
-            size: 1
-        },
-        {
-            header: "Ngày cập nhật",
-            accessorKey: "ngayCapNhat",
-            accessorFn(originalRow) {
-                return U0DateToDDMMYYYString(new Date(originalRow.ngayCapNhat!));
-            },
-            enableHiding: true,
-            size: 1
-        }
+        // {
+        //     header: "Người cập nhật",
+        //     accessorKey: "nguoiCapNhat",
+        //     enableHiding: true,
+        //     size: 1
+        // },
+        // {
+        //     header: "Ngày cập nhật",
+        //     accessorKey: "ngayCapNhat",
+        //     accessorFn(originalRow) {
+        //         return U0DateToDDMMYYYString(new Date(originalRow.ngayCapNhat!));
+        //     },
+        //     enableHiding: true,
+        //     size: 1
+        // }
     ], []);
     if (className.isLoading) return "Đang tải dữ liệu...";
     if (className.error) return "Lỗi tải dữ liệu";
@@ -90,12 +86,12 @@ export default function F_b99o1d0u5q() {
             <MyDataTable
                 columns = {columns}
                 data = {className.data!}
-                initialState={{
-                    columnVisibility: {
-                        nguoiCapNhat: false,
-                        ngayCapNhat: false
-                    }
-                }}
+                // initialState={{
+                //     columnVisibility: {
+                //         nguoiCapNhat: false,
+                //         ngayCapNhat: false
+                //     }
+                // }}
                 enableRowActions
                 //enableEditing
                 renderRowActions={({ row }) => [

@@ -4,7 +4,7 @@ import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo, useState } from "react";
 import { U0DateToDDMMYYYString } from "@/utils/date";
 import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
-import { Button, Fieldset, Group } from "@mantine/core";
+import { Group } from "@mantine/core";
 import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData";
 import { MyButton } from "@/components/Buttons/Button/MyButton";
@@ -18,8 +18,8 @@ export interface I_z7xgafshhg {
     chuKyBaoCao?: string;
     ngayBatDau?: Date;
     donViChuTri?: string;
-    nguoiCapNhat?: string;
-    ngayCapNhat?: Date;
+    // nguoiCapNhat?: string;
+    // ngayCapNhat?: Date;
 }
 export default function F_z7xgafshhg() {
     const className = useQuery<I_z7xgafshhg[]>({
@@ -70,19 +70,19 @@ export default function F_z7xgafshhg() {
                 )
             }
         },
-        {
-            header: "Người cập nhật",
-            accessorKey: "nguoiCapNhat",
-            enableHiding: true,
-            size: 1 // thu nhỏ
-        },
-        {
-            header: "Ngày cập nhật",
-            accessorKey: "ngayCapNhat",
-            accessorFn: (row) => U0DateToDDMMYYYString(new Date(row.ngayCapNhat!)),
-            enableHiding: true,
-            size: 1
-        }
+        // {
+        //     header: "Người cập nhật",
+        //     accessorKey: "nguoiCapNhat",
+        //     enableHiding: true,
+        //     size: 1 // thu nhỏ
+        // },
+        // {
+        //     header: "Ngày cập nhật",
+        //     accessorKey: "ngayCapNhat",
+        //     accessorFn: (row) => U0DateToDDMMYYYString(new Date(row.ngayCapNhat!)),
+        //     enableHiding: true,
+        //     size: 1
+        // }
     ], []);
     const exportConfig = {
         fields: [
@@ -103,12 +103,12 @@ export default function F_z7xgafshhg() {
                 enableRowSelection
                 columns={columns}
                 data={className.data!}
-                initialState={{
-                    columnVisibility: {
-                        nguoiCapNhat: false,
-                        ngayCapNhat: false
-                    }
-                }}
+                // initialState={{
+                //     columnVisibility: {
+                //         nguoiCapNhat: false,
+                //         ngayCapNhat: false
+                //     }
+                // }}
                 mantineTableBodyCellProps={({ cell }) => ({
                     style: {
                         backgroundColor: cell.column.id === "donViChuTri" ? "#B3DAB6" : "transparent"

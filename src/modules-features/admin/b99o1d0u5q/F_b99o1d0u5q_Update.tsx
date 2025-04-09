@@ -1,12 +1,10 @@
 'use client'
 import MyActionIconUpdate from '@/components/ActionIcons/ActionIconCRUD/MyActionIconUpdate'
-import AQSelectTableByOpenModal from '@/components/Buttons/ButtonModal/AQSelectTableByOpenModal';
 import MySelect from '@/components/Combobox/Select/MySelect';
-import { MyDataTable } from '@/components/DataDisplay/DataTable/MyDataTable';
 import MyFieldset from '@/components/Inputs/Fieldset/MyFieldset';
 import MyTextInput from '@/components/Inputs/TextInput/MyTextInput';
 import { U0DateToDDMMYYYString } from '@/utils/date';
-import { DatePicker, DateTimePicker } from '@mantine/dates';
+import { DateTimePicker } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 import { useQuery } from '@tanstack/react-query';
 import { MRT_ColumnDef } from 'mantine-react-table';
@@ -29,39 +27,39 @@ export default function F_b99o1d0u5q_Delete({value}: {value: any}) {
             return mockData;
         }
     });
-    const columns = useMemo<MRT_ColumnDef<I_b99o1d0u5q_Update>[]>(() => [
-        {
-            header: "Mã tiêu chuẩn",
-            accessorKey: "maTieuChuan"
-        },
-        {
-            header: "Mã tiêu chí",
-            accessorKey: "maTieuChi"
-        },
-        {
-            header: "Tên tiêu chí",
-            accessorKey: "tenTieuChi"
-        },
-        {
-            header: "Mô tả",
-            accessorKey: "moTa"
-        },
-        {
-            header: "Chu kỳ báo cáo",
-            accessorKey: "chuKyBaoCao"
-        },
-        {
-            header: "Ngày bắt đầu",
-            accessorKey: "ngayBatDau",
-            accessorFn(originalRow) {
-                return U0DateToDDMMYYYString(new Date(originalRow.ngayBatDau!));
-            },
-        },
-        {
-            header: "Ghi chú",
-            accessorKey: "ghiChu"
-        }
-    ], []);
+    // const columns = useMemo<MRT_ColumnDef<I_b99o1d0u5q_Update>[]>(() => [
+    //     {
+    //         header: "Mã tiêu chuẩn",
+    //         accessorKey: "maTieuChuan"
+    //     },
+    //     {
+    //         header: "Mã tiêu chí",
+    //         accessorKey: "maTieuChi"
+    //     },
+    //     {
+    //         header: "Tên tiêu chí",
+    //         accessorKey: "tenTieuChi"
+    //     },
+    //     {
+    //         header: "Mô tả",
+    //         accessorKey: "moTa"
+    //     },
+    //     {
+    //         header: "Chu kỳ báo cáo",
+    //         accessorKey: "chuKyBaoCao"
+    //     },
+    //     {
+    //         header: "Ngày bắt đầu",
+    //         accessorKey: "ngayBatDau",
+    //         accessorFn(originalRow) {
+    //             return U0DateToDDMMYYYString(new Date(originalRow.ngayBatDau!));
+    //         },
+    //     },
+    //     {
+    //         header: "Ghi chú",
+    //         accessorKey: "ghiChu"
+    //     }
+    // ], []);
     if (className.isLoading) return "Đang tải dữ liệu...";
     if (className.error) return "Lỗi tải dữ liệu";
     const form_multiple_input = useForm({
@@ -74,12 +72,18 @@ export default function F_b99o1d0u5q_Delete({value}: {value: any}) {
     return (
         <MyActionIconUpdate form={form_multiple_input} onSubmit={() => {}}>
             <MyFieldset title="Chi tiết danh sách tiêu chí">
-                <MyTextInput
-                    label="Tiêu chuẩn"
-                    name="maTieuChuan"
-                    placeholder="Mã tiêu chuẩn"
-                    required
-                />
+                <MySelect
+                label="Tiêu chuẩn"
+                searchable
+                data={[
+                    { value: 'TC01', label: 'TC01 - Tổ chức và quản trị' },
+                    { value: 'TC02', label: 'TC02 - Đào tạo và học tập' },
+                    { value: 'TC03', label: 'TC03 - Nghiên cứu khoa học' },
+                ]}
+                value={form_multiple_input.values.maTieuChuan}
+                onChange={(val) => form_multiple_input.setFieldValue('maTieuChuan', val)}
+                error={form_multiple_input.errors.maTieuChuan}>
+                </MySelect>
                 <MyTextInput
                     label="Mã tiêu chí/ chỉ số"
                     name="maTieuChi"
@@ -102,7 +106,6 @@ export default function F_b99o1d0u5q_Delete({value}: {value: any}) {
                     label="Mô tả"
                     name="moTa"
                     placeholder="Mô tả"
-                    required
                 />
                 <MySelect defaultValue="6 tháng" label="Chu kỳ" data={[
                     { value: '3 tháng', label: '3 tháng' },
