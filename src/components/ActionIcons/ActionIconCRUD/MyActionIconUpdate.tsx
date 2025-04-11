@@ -50,7 +50,7 @@ export default function MyActionIconUpdate<T>({
             })}>
                 <MyFlexColumn>
                     {children}
-                    <MyButton type="submit" crudType="save" />
+                    <MyButton type="submit" crudType="update" />
                 </MyFlexColumn>
             </form>
         </MyActionIconModal>
