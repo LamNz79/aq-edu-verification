@@ -51,6 +51,10 @@ export const menuData: I0LinkItem[] = [
     link: "4-2",
   },
   {
+    label: "Phân công phụ trách mốc chuẩn",
+    link: "i3sm0z5ns4",
+  },
+  {
     label: "Danh mục hệ thống",
     links: [
       { pageId: 1000, name: "", label: "Danh mục đơn vị", link: "", status: "Menu" },
@@ -58,5 +62,5 @@ export const menuData: I0LinkItem[] = [
       { pageId: 1002, name: "Rating scale list", label: "Danh mục thang đánh giá", link: "4ozfpuyh8g", status: "Prototype" },
     ],
   },
-
+  
 ];
