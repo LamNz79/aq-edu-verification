@@ -1,5 +1,6 @@
 'use client'
 import MyActionIconUpdate from '@/components/ActionIcons/ActionIconCRUD/MyActionIconUpdate'
+import MyButtonCreate from '@/components/Buttons/ButtonCRUD/MyButtonCreate';
 import MySelect from '@/components/Combobox/Select/MySelect';
 import MyFieldset from '@/components/Inputs/Fieldset/MyFieldset';
 import MyTextInput from '@/components/Inputs/TextInput/MyTextInput';
@@ -16,34 +17,108 @@ export interface I_b99o1d0u5q_Update {
     ngayBatDau: Date;
     ghiChu: string;
 }
-export default function F_b99o1d0u5q_Delete({value}: {value: any}) {
+export default function F_b99o1d0u5q_Delete({ values }: { values?: any }) {
     const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
     const form_multiple_input = useForm({
-        initialValues: {
-            maTieuChuan: value.maTieuChuan,
-            maTieuChi: value.maTieuChi,
-            tenTieuChi: value.tenTieuChi,
-            tenTieuChiEg: value.tenTieuChiEg,
-            moTa: value.moTa,
-            chuKyBaoCao: value.chuKyBaoCao,
-            ngayBatDau: value.ngayBatDau,
-            ghiChu: value.ghiChu,
-        }
+        initialValues: values ? {
+            maTieuChuan: values.maTieuChuan,
+            maTieuChi: values.maTieuChi,
+            tenTieuChi: values.tenTieuChi,
+            tenTieuChiEg: values.tenTieuChiEg,
+            moTa: values.moTa,
+            chuKyBaoCao: values.chuKyBaoCao,
+            ngayBatDau: values.ngayBatDau,
+            ghiChu: values.ghiChu,
+        } :
+            {
+                maTieuChuan: "",
+                maTieuChi: "",
+                tenTieuChi: "",
+                tenTieuChiEg: "",
+                moTa: "",
+                chuKyBaoCao: "",
+                ngayBatDau: new Date(),
+                ghiChu: "",
+            }
     })
+    if (values) {
+        return (
+            <MyActionIconUpdate form={form_multiple_input} onSubmit={() => { }}>
+                <MyFieldset title="Chi tiết danh sách tiêu chí">
+                    <MySelect
+                        label="Tiêu chuẩn"
+                        searchable
+                        data={[
+                            { value: 'TC01', label: 'TC01 - Tổ chức và quản trị' },
+                            { value: 'TC02', label: 'TC02 - Đào tạo và học tập' },
+                            { value: 'TC03', label: 'TC03 - Nghiên cứu khoa học' },
+                        ]}
+                        value={form_multiple_input.values.maTieuChuan}
+                        onChange={(val) => form_multiple_input.setFieldValue('maTieuChuan', val)}
+                        error={form_multiple_input.errors.maTieuChuan}>
+                    </MySelect>
+                    <MyTextInput
+                        label="Mã tiêu chí/ chỉ số"
+                        name="maTieuChi"
+                        placeholder="Mã tiêu chí"
+                        required
+                    />
+                    <MyTextInput
+                        label="Tên tiêu chí/ chỉ số"
+                        name="tenTieuChi"
+                        placeholder="Tên tiêu chí"
+                        required
+                    />
+                    <MyTextInput
+                        label="Tên tiêu chí Eg"
+                        name="tenTieuChiEg"
+                        placeholder=""
+                    //required
+                    />
+                    <MyTextInput
+                        label="Mô tả"
+                        name="moTa"
+                        placeholder="Mô tả"
+                    />
+                    <MySelect defaultValue="6 tháng" label="Chu kỳ" data={[
+                        { value: '3 tháng', label: '3 tháng' },
+                        { value: '6 tháng', label: '6 tháng (mặc định)' },
+                        { value: '12 tháng', label: '12 tháng' },
+                        { value: 'Không chu kỳ', label: 'Không chu kỳ' },
+                    ]}>
+                    </MySelect>
+                    <DateTimePicker
+                        value={selectedDate}
+                        onChange={setSelectedDate}
+                        label="Ngày bắt đầu chu kỳ"
+                        placeholder="Chọn ngày"
+                        valueFormat="DD/MM/YYYY"
+                    />
+                    <MyTextInput
+                        label='Ghi chú'
+                        name='ghiChu'
+                        placeholder=""
+                    />
+
+
+                </MyFieldset>
+            </MyActionIconUpdate>
+        )
+    }
     return (
-        <MyActionIconUpdate form={form_multiple_input} onSubmit={() => {}}>
+        <MyButtonCreate form={form_multiple_input} onSubmit={() => { }}>
             <MyFieldset title="Chi tiết danh sách tiêu chí">
                 <MySelect
-                label="Tiêu chuẩn"
-                searchable
-                data={[
-                    { value: 'TC01', label: 'TC01 - Tổ chức và quản trị' },
-                    { value: 'TC02', label: 'TC02 - Đào tạo và học tập' },
-                    { value: 'TC03', label: 'TC03 - Nghiên cứu khoa học' },
-                ]}
-                value={form_multiple_input.values.maTieuChuan}
-                onChange={(val) => form_multiple_input.setFieldValue('maTieuChuan', val)}
-                error={form_multiple_input.errors.maTieuChuan}>
+                    label="Tiêu chuẩn"
+                    searchable
+                    data={[
+                        { value: 'TC01', label: 'TC01 - Tổ chức và quản trị' },
+                        { value: 'TC02', label: 'TC02 - Đào tạo và học tập' },
+                        { value: 'TC03', label: 'TC03 - Nghiên cứu khoa học' },
+                    ]}
+                    value={form_multiple_input.values.maTieuChuan}
+                    onChange={(val) => form_multiple_input.setFieldValue('maTieuChuan', val)}
+                    error={form_multiple_input.errors.maTieuChuan}>
                 </MySelect>
                 <MyTextInput
                     label="Mã tiêu chí/ chỉ số"
@@ -61,7 +136,7 @@ export default function F_b99o1d0u5q_Delete({value}: {value: any}) {
                     label="Tên tiêu chí Eg"
                     name="tenTieuChiEg"
                     placeholder=""
-                    //required
+                //required
                 />
                 <MyTextInput
                     label="Mô tả"
@@ -88,9 +163,9 @@ export default function F_b99o1d0u5q_Delete({value}: {value: any}) {
                     placeholder=""
                 />
 
-                
+
             </MyFieldset>
-        </MyActionIconUpdate>
+        </MyButtonCreate>
     )
+
 }
-  

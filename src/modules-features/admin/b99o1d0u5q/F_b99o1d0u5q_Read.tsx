@@ -28,13 +28,13 @@ export default function F_b99o1d0u5q_Read() {
             return mockData;
         }
     });
-    const columns = useMemo<MRT_ColumnDef<I_b99o1d0u5q>[]> ( ()=>[
+    const columns = useMemo<MRT_ColumnDef<I_b99o1d0u5q>[]>(() => [
         {
             header: "Mã tiêu chuẩn",
             accessorKey: "maTieuChuan"
         },
         {
-            header: "Mã tiêu chí",  
+            header: "Mã tiêu chí",
             accessorKey: "maTieuChi"
         },
         {
@@ -66,28 +66,26 @@ export default function F_b99o1d0u5q_Read() {
     return (
         <MyFieldset title="Danh sách tiêu chí">
             <MyDataTable
-                columns = {columns}
-                data = {className.data!}
+                columns={columns}
+                data={className.data!}
                 enableRowActions
                 //enableEditing
                 renderRowActions={({ row }) => (
                     <MyCenterFull>
-                         <F_b99o1d0u5q_Update value = {row.original}/>
-                         <F_b99o1d0u5q_Delete id = {row.original.id!}/>
+                        <F_b99o1d0u5q_Update values={row.original} />
+                        <F_b99o1d0u5q_Delete id={row.original.id!} />
                     </MyCenterFull>
                 )}
                 exportAble
-                renderTopToolbarCustomActions={({table}) => (
+                renderTopToolbarCustomActions={({ table }) => (
                     <Group>
-                        <MyButton crudType="create">
-                            Thêm 
-                        </MyButton>
+                        <F_b99o1d0u5q_Update />
                         <MyButton crudType="import">
                             Import
                         </MyButton>
                         <MyButton crudType="delete">
                             Xóa
-                        </MyButton>                    
+                        </MyButton>
                     </Group>
                 )}
 
@@ -101,7 +99,7 @@ const mockData: I_b99o1d0u5q[] = [
         maTieuChuan: "TC001",
         maTieuChi: "TC001",
         tenTieuChi: "TC001",
-        moTa:"" ,
+        moTa: "",
         chuKyBaoCao: "TC001",
         ngayBatDau: new Date("2021-01-01"),
         ghiChu: "TC001"
