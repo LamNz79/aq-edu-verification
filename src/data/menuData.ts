@@ -28,7 +28,7 @@ export const menuData: I0LinkItem[] = [
   },
   {
     label: "Danh sách tiêu chuẩn",
-    link: "4-2",
+    link: "yqdijiutfg",
   },
   {
     label: "Danh sách tiêu chí",
@@ -48,7 +48,7 @@ export const menuData: I0LinkItem[] = [
   },
   {
     label: "Danh sách minh chứng",
-    link: "4-2",
+    link: "nxiyjlnrik",
   },
   {
     label: "Danh mục hệ thống",
