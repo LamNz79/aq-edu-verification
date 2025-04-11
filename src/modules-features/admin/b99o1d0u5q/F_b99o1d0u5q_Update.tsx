@@ -2,16 +2,15 @@
 import MyActionIconUpdate from '@/components/ActionIcons/ActionIconCRUD/MyActionIconUpdate'
 import MyButtonCreate from '@/components/Buttons/ButtonCRUD/MyButtonCreate';
 import MySelect from '@/components/Combobox/Select/MySelect';
-import MyFieldset from '@/components/Inputs/Fieldset/MyFieldset';
 import MyTextInput from '@/components/Inputs/TextInput/MyTextInput';
 import { DateTimePicker } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 import { useState } from 'react';
-export interface I_b99o1d0u5q_Update {
-    id: number;
+export interface I_b99o1d0u5q {
     maTieuChuan: string;
     maTieuChi: string;
     tenTieuChi: string;
+    tenTieuChiEg: string;
     moTa: string;
     chuKyBaoCao: string;
     ngayBatDau: Date;
@@ -43,8 +42,7 @@ export default function F_b99o1d0u5q_Delete({ values }: { values?: any }) {
     })
     if (values) {
         return (
-            <MyActionIconUpdate form={form_multiple_input} onSubmit={() => { }}>
-                <MyFieldset title="Chi tiết danh sách tiêu chí">
+            <MyActionIconUpdate<I_b99o1d0u5q> title="Chi tiết danh sách tiêu chí" form={form_multiple_input} onSubmit={() => { }}>
                     <MySelect
                         label="Tiêu chuẩn"
                         searchable
@@ -99,15 +97,11 @@ export default function F_b99o1d0u5q_Delete({ values }: { values?: any }) {
                         name='ghiChu'
                         placeholder=""
                     />
-
-
-                </MyFieldset>
             </MyActionIconUpdate>
         )
     }
     return (
-        <MyButtonCreate form={form_multiple_input} onSubmit={() => { }}>
-            <MyFieldset title="Chi tiết danh sách tiêu chí">
+        <MyButtonCreate<I_b99o1d0u5q> title="Chi tiết danh sách tiêu chí" form={form_multiple_input} onSubmit={() => { }}>
                 <MySelect
                     label="Tiêu chuẩn"
                     searchable
@@ -162,9 +156,6 @@ export default function F_b99o1d0u5q_Delete({ values }: { values?: any }) {
                     name='ghiChu'
                     placeholder=""
                 />
-
-
-            </MyFieldset>
         </MyButtonCreate>
     )
 

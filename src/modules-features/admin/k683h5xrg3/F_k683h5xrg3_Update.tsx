@@ -44,44 +44,44 @@ export default function F_k683h5xrg3_Update() {
         <Form form = {form_multiple} onSubmit={() => {}}>
             <MyFlexColumn gap="md">
             <Grid>
-                <Grid.Col span={5}>
+                <Grid.Col span={6}>
                 <TextInput  label="Mã Module" placeholder="Nhập mã module" required />
                 </Grid.Col>
-                <Grid.Col span={5}>
+                <Grid.Col span={6}>
                 <TextInput label="Tên Module" placeholder="Nhập tên module" required />
                 </Grid.Col>
             </Grid>
             <Grid>
-                <Grid.Col span={10}>
+                <Grid.Col span={12}>
                     <TextInput label = "Tên đơn vị chủ quản" placeholder="Nhập tên đơn vị chủ quản" required />
                 </Grid.Col>
             </Grid>
             <Grid>
-                <Grid.Col span={3}>
+                <Grid.Col span={6}>
                     <TextInput label = "Email" placeholder="Nhập email" required />
                 </Grid.Col>
-                <Grid.Col span={3}>
+                <Grid.Col span={6}>
                 <TextInput label = "Số điện thoại" placeholder="Nhập số điện thoại" required />
                 </Grid.Col>
             </Grid>
             <Grid>
-                <Grid.Col span={3}>
+                <Grid.Col span={6}>
                     <DateInput label = "Ngày đăng ký" placeholder="Nhập ngày đăng ký" valueFormat="DD/MM/YYYY" required />
                 </Grid.Col>
-                <Grid.Col span={3}>
+                <Grid.Col span={6}>
                     <DateInput label = "Ngày hết hạn" placeholder="Nhập ngày hết hạn" valueFormat="DD/MM/YYYY" required />
                 </Grid.Col>
             </Grid>
             <Grid>
-                <Grid.Col span={3}>
+                <Grid.Col span={6}>
                     <UploadImage name="Favicon (16px x 16px)"/>
                 </Grid.Col>
-                <Grid.Col span={3}>
+                <Grid.Col span={6}>
                     <UploadImage name="Logo (330px x 115px)"/>
                 </Grid.Col>
             </Grid>
         <Grid>
-            <Grid.Col span={10}>
+            <Grid.Col span={12}>
                 <Group justify="flex-end" mt="md">
                     <MyButton crudType="save"/>
                 </Group>

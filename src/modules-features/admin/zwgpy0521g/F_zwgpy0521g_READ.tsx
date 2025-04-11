@@ -74,9 +74,8 @@ export default function F_zwgpy0521g_Read() {
                 columns = {columns}
                 renderTopToolbarCustomActions={({ table }) => (
                     <Group>
-                        <MyButton crudType="create">
-                            Thêm
-                        </MyButton>
+                        <F_zwgpy0521g_Update/>
+                        
                         <MyButton crudType="import">
                             import
                         </MyButton>
@@ -88,7 +87,7 @@ export default function F_zwgpy0521g_Read() {
                 exportAble
                 renderRowActions={({row})=>(
                     <MyCenterFull>
-                    <F_zwgpy0521g_Update value={row.original}/>
+                    <F_zwgpy0521g_Update values={row.original}/>
                     <F_zwgpy0521g_Delete id={row.original.id!}/>
                     </MyCenterFull>
                     )
