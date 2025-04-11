@@ -51,6 +51,10 @@ export const menuData: I0LinkItem[] = [
     link: "4-2",
   },
   {
+    label: "Danh sách mốc chuẩn",
+    link: "txn1uriow1",
+  },
+  {
     label: "Danh mục hệ thống",
     links: [
       { pageId: 1000, name: "", label: "Danh mục đơn vị", link: "", status: "Menu" },
