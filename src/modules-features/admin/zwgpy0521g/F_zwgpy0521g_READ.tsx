@@ -11,6 +11,7 @@ import F_zwgpy0521g_Update from "./F_zwgpy0521g_Update";
 import F_zwgpy0521g_Delete from "./F_zwgpy0521g_Delete";
 
 export interface I_zwgpy0521g {
+    id?: number;
     phanHe?: string;
     hostMailServer?: string;
     outgoingPort?: number;
@@ -21,7 +22,7 @@ export interface I_zwgpy0521g {
 }
 export default function F_zwgpy0521g_Read() {
     const className = useQuery<I_zwgpy0521g[]>({
-        queryKey: ["I_zwgpy0521g_data"],
+        queryKey: ["F_zwgpy0521g_Read"],
         queryFn: async () => {
             return mockData;
         }
@@ -88,7 +89,7 @@ export default function F_zwgpy0521g_Read() {
                 renderRowActions={({row})=>(
                     <MyCenterFull>
                     <F_zwgpy0521g_Update value={row.original}/>
-                    <F_zwgpy0521g_Delete id={row.original.userName!}/>
+                    <F_zwgpy0521g_Delete id={row.original.id!}/>
                     </MyCenterFull>
                     )
                 }

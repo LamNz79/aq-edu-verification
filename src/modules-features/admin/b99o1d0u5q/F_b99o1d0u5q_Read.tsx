@@ -21,9 +21,9 @@ export interface I_b99o1d0u5q {
     ghiChu?: string;
 }
 
-export default function F_b99o1d0u5q() {
+export default function F_b99o1d0u5q_Read() {
     const className = useQuery<I_b99o1d0u5q[]>({
-        queryKey: ["I_b99o1d0u5q_data"],
+        queryKey: ["F_b99o1d0u5q_Read"],
         queryFn: async () => {
             return mockData;
         }
@@ -70,12 +70,12 @@ export default function F_b99o1d0u5q() {
                 data = {className.data!}
                 enableRowActions
                 //enableEditing
-                renderRowActions={({ row }) => [
+                renderRowActions={({ row }) => (
                     <MyCenterFull>
                          <F_b99o1d0u5q_Update value = {row.original}/>
                          <F_b99o1d0u5q_Delete id = {row.original.id!}/>
                     </MyCenterFull>
-                ]}
+                )}
                 exportAble
                 renderTopToolbarCustomActions={({table}) => (
                     <Group>

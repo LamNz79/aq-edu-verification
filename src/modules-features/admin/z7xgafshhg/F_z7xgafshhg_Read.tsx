@@ -19,9 +19,9 @@ export interface I_z7xgafshhg {
     ngayBatDau?: Date;
     donViChuTri?: string;
 }
-export default function F_z7xgafshhg() {
+export default function F_z7xgafshhg_Read() {
     const className = useQuery<I_z7xgafshhg[]>({
-        queryKey: ["I_z7xgafshhg_data"],
+        queryKey: ["F_z7xgafshhg_Read"],
         queryFn: async () => {
             return mockData;
         }
