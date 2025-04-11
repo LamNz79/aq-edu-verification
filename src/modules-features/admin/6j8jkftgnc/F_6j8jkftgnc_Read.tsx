@@ -11,6 +11,7 @@ import F_6j8jkftgnc_Delete_Datarow from "./F_6j8jkftgnc_Delete_Datarow";
 import F_6j8jkftgnc_Create from "./F_6j8jkftgnc_Create";
 import F_6j8jkftgnc_Update from "./F_6j8jkftgnc_Update";
 import F_6j8jkftgnc_Delete_Topbar from "./F_6j8jkftgnc_Delete_Topbar";
+import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 
 interface F6j8jkftgnc_ReadProps {
     maBoDem: string; // mã bộ đếm
@@ -91,6 +92,7 @@ export default function F_6j8jkftgnc_Read() {
 
     return(
         <>
+            <MyFieldset title="Danh mục bộ đếm">
             <MyDataTable
                 columns={danhMucBoDemColumns}
                 data={danhMucBoDemQuery.data!}
@@ -121,6 +123,7 @@ export default function F_6j8jkftgnc_Read() {
                 </>
                 }
             />
+            </MyFieldset>
         </>
     );
 }
