@@ -5,7 +5,6 @@ import MyFieldset from '@/components/Inputs/Fieldset/MyFieldset';
 import MyTextInput from '@/components/Inputs/TextInput/MyTextInput';
 import { DateTimePicker } from '@mantine/dates';
 import { useForm } from '@mantine/form';
-import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 export interface I_b99o1d0u5q_Update {
     id: number;
@@ -19,19 +18,16 @@ export interface I_b99o1d0u5q_Update {
 }
 export default function F_b99o1d0u5q_Delete({value}: {value: any}) {
     const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
-    const className = useQuery<I_b99o1d0u5q_Update[]>({
-        queryKey: ["I_b99o1d0u5q_data"],
-        queryFn: async () => {
-            return mockData;
-        }
-    });
-    if (className.isLoading) return "Đang tải dữ liệu...";
-    if (className.error) return "Lỗi tải dữ liệu";
     const form_multiple_input = useForm({
         initialValues: {
             maTieuChuan: value.maTieuChuan,
             maTieuChi: value.maTieuChi,
             tenTieuChi: value.tenTieuChi,
+            tenTieuChiEg: value.tenTieuChiEg,
+            moTa: value.moTa,
+            chuKyBaoCao: value.chuKyBaoCao,
+            ngayBatDau: value.ngayBatDau,
+            ghiChu: value.ghiChu,
         }
     })
     return (
@@ -97,61 +93,4 @@ export default function F_b99o1d0u5q_Delete({value}: {value: any}) {
         </MyActionIconUpdate>
     )
 }
-const mockData: I_b99o1d0u5q_Update[] = [
-    {
-      id: 1,
-      maTieuChuan: "TC01",
-      maTieuChi: "TC11",
-      tenTieuChi:
-        "Tầm nhìn và sứ mạng của cơ sở giáo dục được xác định rõ ràng, phù hợp với định hướng phát triển và được công bố công khai.",
-      moTa: "",
-      chuKyBaoCao: "6 tháng",
-      ngayBatDau: new Date("2025-01-01"),
-      ghiChu: ""
-    },
-    {
-      id: 2,
-      maTieuChuan: "TC02",
-      maTieuChi: "TC12",
-      tenTieuChi:
-        "Cơ sở giáo dục xây dựng và phát triển văn hóa chất lượng, thể hiện qua các giá trị, niềm tin và hành vi của cán bộ, giảng viên, nhân viên và người học.",
-      moTa: "",
-      chuKyBaoCao: "6 tháng",
-      ngayBatDau: new Date("2025-01-01"),
-      ghiChu: ""
-    },
-    {
-      id: 3,
-      maTieuChuan: "TC03",
-      maTieuChi: "TC13",
-      tenTieuChi:
-        "Cơ sở giáo dục có các chính sách và biện pháp cụ thể để thúc đẩy và duy trì văn hóa chất lượng trong toàn bộ hoạt động.",
-      moTa: "",
-      chuKyBaoCao: "6 tháng",
-      ngayBatDau: new Date("2025-01-01"),
-      ghiChu: ""
-    },
-    {
-      id: 4,
-      maTieuChuan: "TC04",
-      maTieuChi: "TC14",
-      tenTieuChi:
-        "Cơ sở giáo dục thường xuyên đánh giá và cải tiến tầm nhìn, sứ mạng và văn hóa chất lượng để đáp ứng yêu cầu phát triển và hội nhập.",
-      moTa: "",
-      chuKyBaoCao: "6 tháng",
-      ngayBatDau: new Date("2025-01-01"),
-      ghiChu: ""
-    },
-    {
-      id: 5,
-      maTieuChuan: "TC05",
-      maTieuChi: "TC15",
-      tenTieuChi:
-        "Cơ sở giáo dục có cơ chế thu thập và phản hồi ý kiến từ các bên liên quan về tầm nhìn, sứ mạng và văn hóa chất lượng.",
-      moTa: "",
-      chuKyBaoCao: "6 tháng",
-      ngayBatDau: new Date("2025-01-01"),
-      ghiChu: ""
-    }
-  ];
   
