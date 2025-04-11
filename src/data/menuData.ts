@@ -48,7 +48,7 @@ export const menuData: I0LinkItem[] = [
   },
   {
     label: "Danh sách minh chứng",
-    link: "4-2",
+    link: "nxiyjlnrik",
   },
   {
     label: "Danh mục hệ thống",
