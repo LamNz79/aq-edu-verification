@@ -36,7 +36,7 @@ export const menuData: I0LinkItem[] = [
   },
   {
     label: "Chu kỳ kiểm định",
-    link: "4-2",
+    link: "5lrwp21o3u",
   },
   {
     label: "Đơn vị chủ trì tiêu chuẩn",
