@@ -6,7 +6,6 @@ import useS_Shared_FilterGrade from "@/modules-features/shared/F_Shared_FilterGr
 import { Fieldset, Group } from "@mantine/core"
 import { MRT_ColumnDef } from "mantine-react-table"
 import { useMemo } from "react"
-import F_nugmpmukta_Import from "./F_nugmpmukta_Import"
 import F_nugmpmukta_ViewUpdate from "./F_nugmpmukta_ViewUpdate/F_nugmpmukta_ViewUpdate"
 
 export default function F_nugmpmukta_Read() {
@@ -60,7 +59,7 @@ export default function F_nugmpmukta_Read() {
         data={query.data!}
         renderTopToolbarCustomActions={() => (
           <Group>
-            <F_nugmpmukta_Import />
+            {/* <F_nugmpmukta_Import /> */}
           </Group>
         )}
         renderRowActions={({ row }) => (
