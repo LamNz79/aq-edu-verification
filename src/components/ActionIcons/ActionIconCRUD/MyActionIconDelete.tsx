@@ -1,11 +1,10 @@
 import { MyButton } from "@/components/Buttons/Button/MyButton";
 import { utils_notification_show } from "@/utils/notification";
-import { Group, Text } from "@mantine/core";
+import { Group, Highlight } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ComponentProps, useState } from "react";
 import { MyActionIconModal } from "../ActionIconModal/MyActionIconModal";
-
 interface IActionIconDelete extends Omit<ComponentProps<typeof MyActionIconModal>, "disclosure"> {
     onSubmit: () => void;
     onSuccess?: () => void;
@@ -23,7 +22,7 @@ export default function MyActionIconDelete({
 }: IActionIconDelete) {
     const queryClient = useQueryClient();
     const disc = useDisclosure();
-    const loadingState = useState()
+    const loadingState = useState<boolean>()
 
 
     const mutation = useMutation({
@@ -44,10 +43,9 @@ export default function MyActionIconDelete({
             }
         },
     });
-    const title = `Bạn sắp xóa dữ liệu ${<Text c={'red'}>{contextData}</Text>}.
-    Hành động này không thể hoàn tác. Bạn có chắc chắn muốn tiếp tục? `
 
     function handleCLick() {
+        loadingState[1](true)
         mutation.mutate();
     }
     return (
@@ -56,9 +54,17 @@ export default function MyActionIconDelete({
             crudType="delete"
             {...rest}
         >
-            <Text>
-                {title}
-            </Text>
+            <Highlight
+                highlight={contextData || []}
+                color="red.6"
+                highlightStyles={{
+                    fontWeight: 700,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                }}
+            >
+                {`Bạn sắp xóa dữ liệu ${contextData || ""}. Hành động này không thể hoàn tác. Bạn có chắc chắn muốn tiếp tục?`}
+            </Highlight>
             <Group grow>
                 <MyButton
                     crudType="delete"
