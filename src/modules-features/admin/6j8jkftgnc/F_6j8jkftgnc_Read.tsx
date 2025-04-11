@@ -94,7 +94,7 @@ export default function F_6j8jkftgnc_Read() {
                 data={danhMucBoDemQuery.data!}
                 enableRowSelection={true}
                 enableRowNumbers={true}
-                renderTopToolbar={()=>
+                renderTopToolbarCustomActions={()=>
                 <>
                     <F_6j8jkftgnc_Create/>
                     <AQButtonCreateByImportFile 

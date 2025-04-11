@@ -88,7 +88,7 @@ export default function F_6j8jkftgnc_Create() {
 
     return (
     <>
-        <MyButtonModal disclosure={disclosure} crudType='create' modalSize={"auto"} title={modalName}>
+        <MyButtonModal disclosure={disclosure} crudType='create' title={modalName}>
             <MyTextInput label="Tên bộ đếm" {...form.getInputProps("tenBoDem")}/>
             <MyTextInput label="Mã bộ đếm" {...form.getInputProps("maBoDem")}/>
             <MySelect data={loaiNghiepVuSelectOption} label="Loại nghiệp vụ" {...form.getInputProps("loaiNghiepVu")}/>
