@@ -30,10 +30,10 @@ export default function F_nxiyjlnrik_Create() {
       tenMinhChung: "",
       moTa: "",
       fileMinhChung: "",
-      loaiMinhChung: "",
+      loaiMinhChung: "Báo cáo",
       donViBanHanh: "",
-      ngayBanHanh: undefined,
-      ngayHetHan: undefined,
+      ngayBanHanh: new Date(),
+      ngayHetHan: new Date(),
       ghiChu: "",
     },
     validate: {
@@ -62,6 +62,7 @@ export default function F_nxiyjlnrik_Create() {
     <MyButtonCreate
       disclosure={disc}
       form={form}
+      modalSize={"90%"}
       onSubmit={() => {}}
       objectName="Minh chứng"
     >

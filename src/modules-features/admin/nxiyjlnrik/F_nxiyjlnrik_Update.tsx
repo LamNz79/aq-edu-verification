@@ -49,7 +49,7 @@ export default function F_nxiyjlnrik_Update({
   });
 
   return (
-    <MyActionIconUpdate disclosure={disc} form={form} onSubmit={() => {}}>
+    <MyActionIconUpdate disclosure={disc} modalSize={"90%"} form={form} onSubmit={() => {}}>
       <Stack>
         <MyTextInput
           label="Mã minh chứng"
