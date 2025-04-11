@@ -7,8 +7,8 @@ import { Group, PasswordInput } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
-import F_zwgpy0521g_UPDATE from "./F_zwgpy0521g_Update";
-import F_zwgpy0521g_DELETE from "./F_zwgpy0521g_Delete";
+import F_zwgpy0521g_Update from "./F_zwgpy0521g_Update";
+import F_zwgpy0521g_Delete from "./F_zwgpy0521g_Delete";
 
 export interface I_zwgpy0521g {
     phanHe?: string;
@@ -19,7 +19,7 @@ export interface I_zwgpy0521g {
     userName?: string;
     password?: string;
 }
-export default function F_zwgpy0521g_READ() {
+export default function F_zwgpy0521g_Read() {
     const className = useQuery<I_zwgpy0521g[]>({
         queryKey: ["I_zwgpy0521g_data"],
         queryFn: async () => {
@@ -87,8 +87,8 @@ export default function F_zwgpy0521g_READ() {
                 exportAble
                 renderRowActions={({row})=>(
                     <MyCenterFull>
-                    <F_zwgpy0521g_UPDATE value={row.original}/>
-                    <F_zwgpy0521g_DELETE id={row.original.userName!}/>
+                    <F_zwgpy0521g_Update value={row.original}/>
+                    <F_zwgpy0521g_Delete id={row.original.userName!}/>
                     </MyCenterFull>
                     )
                 }

@@ -15,7 +15,7 @@ export interface I_zwgpy0521g {
     userName?: string;
     password?: string;
 }
-export default function F_zwgpy0521g_UPDATE({value}: {value: any}) {
+export default function F_zwgpy0521g_Update({value}: {value: any}) {
     const form_multiple = useForm<I_zwgpy0521g>({
         initialValues: {
             phanHe: value?.phanHe,
