@@ -36,7 +36,7 @@ export const menuData: I0LinkItem[] = [
   },
   {
     label: "Chu kỳ kiểm định",
-    link: "4-2",
+    link: "5lrwp21o3u",
   },
   {
     label: "Đơn vị chủ trì tiêu chuẩn",
@@ -55,8 +55,8 @@ export const menuData: I0LinkItem[] = [
     links: [
       { pageId: 999, name: "", label: "Cấu hình thông tin chủ quản", link: "k683h5xrg3", status: "Prototype" },
       { pageId: 1000, name: "", label: "Danh mục đơn vị", link: "", status: "Menu" },
-      { pageId: 1001, name: "List of evidence types", label: " Danh mục loại minh chứng", link: "4iahruyrpf", status: "Menu" },
-      { pageId: 1002, name: "", label: "Danh mục thang đánh giá", link: "", status: "Menu" },
+      { pageId: 1001, name: "List of evidence types", label: " Danh mục loại minh chứng", link: "4iahruyrpf", status: "Prototype" },
+      { pageId: 1002, name: "Rating scale list", label: "Danh mục thang đánh giá", link: "4ozfpuyh8g", status: "Prototype" },
       {pageId: 1003, name:"", label: "Danh mục cấu hình mail", link: "zwgpy0521g", status: "Prototype"},
     ],
   },
