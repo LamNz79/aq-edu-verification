@@ -9,12 +9,14 @@ import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo, useState } from "react";
 import F_6j8jkftgnc_Delete_Datarow from "./F_6j8jkftgnc_Delete_Datarow";
 import F_6j8jkftgnc_Create from "./F_6j8jkftgnc_Create";
+import F_6j8jkftgnc_Update from "./F_6j8jkftgnc_Update";
+import F_6j8jkftgnc_Delete_Topbar from "./F_6j8jkftgnc_Delete_Topbar";
 
 interface F6j8jkftgnc_ReadProps {
     maBoDem: string; // mã bộ đếm
     tenBoDem: string; // tên bộ đếm
     loaiNghiepVu: string; // loại nghiệp vụ
-    loadiDoiTuong: string; // loại đối tượng
+    loaiDoiTuong: string; // loại đối tượng
 }
 
 const mockData: F6j8jkftgnc_ReadProps[] = [
@@ -22,7 +24,7 @@ const mockData: F6j8jkftgnc_ReadProps[] = [
         maBoDem: 'HSTS',
         tenBoDem: 'Mã hồ sơ thí sinh',
         loaiNghiepVu: 'Hồ sơ thí sinh',
-        loadiDoiTuong: 'Toàn trường',
+        loaiDoiTuong: 'Toàn trường',
     }
 ]
 
@@ -109,12 +111,12 @@ export default function F_6j8jkftgnc_Read() {
                         isAllData={true}
                         objectName={'Danh sách bộ đếm'}
                     />
-                    <></>
+                    <F_6j8jkftgnc_Delete_Topbar/>
                 </>
                 }
                 renderRowActions={({ row }) => 
                 <>
-
+                    <F_6j8jkftgnc_Update data={row.original}/>
                     <F_6j8jkftgnc_Delete_Datarow id={row.original.maBoDem}/>
                 </>
                 }
