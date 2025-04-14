@@ -1,9 +1,6 @@
 'use client';
 
-import MyActionIconUpdate from "@/components/ActionIcons/ActionIconCRUD/MyActionIconUpdate";
-import MySelect from "@/components/Combobox/Select/MySelect";
-import MyDateInput from "@/components/Inputs/DateInput/MyDateInput";
-import MyTextInput from "@/components/Inputs/TextInput/MyTextInput";
+import {MyActionIconUpdate, MySelect, MyDateInput, MyTextInput } from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 

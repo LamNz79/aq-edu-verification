@@ -1,9 +1,6 @@
 'use client';
 
-import AQButtonCreateByImportFile from "@/components/Buttons/ButtonCRUD/AQButtonCreateByImportFile";
-import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData";
-import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
-import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
+import {AQButtonCreateByImportFile, AQButtonExportData, MyDataTable, MyFieldset,  } from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";

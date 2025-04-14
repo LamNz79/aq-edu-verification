@@ -1,9 +1,6 @@
 'use client';
 
-import MyButtonCreate from "@/components/Buttons/ButtonCRUD/MyButtonCreate";
-import MySelect from "@/components/Combobox/Select/MySelect";
-import MyDateInput from "@/components/Inputs/DateInput/MyDateInput";
-import MyTextInput from "@/components/Inputs/TextInput/MyTextInput";
+import {MyButtonCreate, MySelect, MyDateInput, MyTextInput } from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
