@@ -26,13 +26,10 @@ const form = useForm<I_4iahruyrpf>({
       
 
   return (
-    <MyButtonCreate form={form}  title="Chi tiết loại minh chứng" onSubmit={() => {}} objectName='Chi tiết loại minh chứng' modalSize={''}>
-  <Paper shadow="xs" p="lg">
+    <MyButtonCreate form={form}  title="Chi tiết loại minh chứng" onSubmit={() => {}} objectName='Chi tiết loại minh chứng' modalSize={'lg'}>
      <MyTextInput label='Mã loại minh chứng' {...form.getInputProps("maLoai")} />
      <MyTextInput label='Tên loại minh chứng' {...form.getInputProps("tenLoai")} />
      <MyTextInput label='Ghi chú' {...form.getInputProps("ghiChu")} /> 
-
-    </Paper>
     </MyButtonCreate>
   );
 }

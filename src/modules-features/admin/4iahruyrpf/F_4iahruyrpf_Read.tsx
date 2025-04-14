@@ -76,7 +76,7 @@ export default function F_4iahruyrpf_Read() {
     if (evidenceUseQuery.isError) return <Text color="red">Không có dữ liệu...</Text>;
 
     return (
-        <Paper><MyFieldset title='Danh mục loại minh chứng'>
+        <MyFieldset title='Danh mục loại minh chứng'>
             <MyDataTable
 
                 enableRowSelection
@@ -107,7 +107,7 @@ export default function F_4iahruyrpf_Read() {
 
                 } />
 
-        </MyFieldset></Paper>
+        </MyFieldset>
 
     )
 }
