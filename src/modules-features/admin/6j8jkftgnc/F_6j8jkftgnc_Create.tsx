@@ -111,11 +111,11 @@ export default function F_6j8jkftgnc_Create() {
     return (
     <>
         <MyButtonCreate form={form} disclosure={disclosure} crudType='create' title={modalName} onSubmit={() => { }}>
-            <MyTextInput label="Tên bộ đếm" {...form.getInputProps("tenBoDem")}/>
             <MyTextInput label="Mã bộ đếm" {...form.getInputProps("maBoDem")}/>
+            <MyTextInput label="Tên bộ đếm" {...form.getInputProps("tenBoDem")}/>
             <MySelect data={loaiNghiepVuQuery.data!} label="Loại nghiệp vụ" {...form.getInputProps("loaiNghiepVu")}/>
             <MySelect data={loaiDoiTuongQuery.data!} label="Loại đối tượng" {...form.getInputProps("loaiDoiTuong")}/>
-            <MySelect data={chuKyLapLaiQuery.data!} label="Chu ký lập lại" {...form.getInputProps("chuKyLapLai")}/>
+            <MySelect data={chuKyLapLaiQuery.data!} label="Chu kỳ lập lại" {...form.getInputProps("chuKyLapLai")}/>
             <MyTextInput label="Tiền tố" {...form.getInputProps("tienTo")}/>
             <MyTextInput label="Hậu tố" {...form.getInputProps("hauTo")}/>
             <MyTextInput label="Chiều dài" {...form.getInputProps("chieuDai")}/>
