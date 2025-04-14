@@ -1,8 +1,6 @@
 'use client';
 
-import MyButtonCreate from "@/components/Buttons/ButtonCRUD/MyButtonCreate";
-import MySelect from "@/components/Combobox/Select/MySelect";
-import MyTextInput from "@/components/Inputs/TextInput/MyTextInput";
+import {MyButtonCreate,MySelect, MyTextInput, } from "aq-fe-framework/components";
 import { Checkbox } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";

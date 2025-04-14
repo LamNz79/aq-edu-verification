@@ -1,11 +1,8 @@
 'use client';
 
-import MyActionIconUpdate from "@/components/ActionIcons/ActionIconCRUD/MyActionIconUpdate";
-import MySelect from "@/components/Combobox/Select/MySelect";
-import MyTextInput from "@/components/Inputs/TextInput/MyTextInput";
+import {MyActionIconUpdate, MySelect, MyTextInput} from "aq-fe-framework/components";
 import { Checkbox } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { useDisclosure } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
 
 interface I6j8jkftgnc_UpdateProps {
