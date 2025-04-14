@@ -4,7 +4,6 @@ import MyActionIconUpdate from "@/components/ActionIcons/ActionIconCRUD/MyAction
 import MySelect from "@/components/Combobox/Select/MySelect";
 import MyNumberInput from '@/components/Inputs/NumberInput/MyNumberInput';
 import MyTextInput from '@/components/Inputs/TextInput/MyTextInput';
-import { Select } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
