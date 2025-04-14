@@ -53,6 +53,10 @@ export const menuData: I0LinkItem[] = [
     link: "4-2",
   },
   {
+    label: "Phân công phụ trách mốc chuẩn",
+    link: "i3sm0z5ns4",
+  },
+  {
     label: "Danh mục hệ thống",
     links: [
       { pageId: 999, name: "", label: "Cấu hình thông tin chủ quản", link: "k683h5xrg3", status: "Prototype" },
@@ -62,5 +66,5 @@ export const menuData: I0LinkItem[] = [
       {pageId: 1003, name:"", label: "Danh mục cấu hình mail", link: "zwgpy0521g", status: "Prototype"},
     ],
   },
-
+  
 ];
