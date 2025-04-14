@@ -7,9 +7,9 @@ import { Modal, SimpleGrid } from "@mantine/core";
 import { IconInfoTriangle } from '@tabler/icons-react';
 import { useState } from "react";
 
-export default function F12_6Delete({ id }: { id: string }) {
+export default function F12_6Delete({ id, agentCode }: { id: number ,agentCode :string }) {
 
-    return <MyActionIconDelete contextData={id} title="Xác nhận xóa dữ liệu ?" onSubmit={() => { }} >
+    return <MyActionIconDelete contextData={agentCode} title="Xác nhận xóa dữ liệu ?" onSubmit={() => { }} >
     </MyActionIconDelete>
 }
 

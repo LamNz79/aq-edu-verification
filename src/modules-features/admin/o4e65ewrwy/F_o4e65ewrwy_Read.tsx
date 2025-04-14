@@ -37,7 +37,7 @@ export default function F_o4e65ewrwy_Read()
             importedData: []
         },
     });
-       const agentDirectoryQuery = useQuery<I_o4e65ewrwy[]>({
+       const ListOfagentDirectoryQuery = useQuery<I_o4e65ewrwy[]>({
                queryKey: [`ListOfagentDirectoryQuery`],
                queryFn: async () => [
                    {
@@ -62,14 +62,6 @@ export default function F_o4e65ewrwy_Read()
        
                ],
            });
-           const exportConfig = {
-            fields: [
-                { fieldName: "agentCode", header: "Mã đơn vị" },
-                { fieldName: "agentName", header: "Tên đơn vị" },
-                { fieldName: "agentType", header: "Loại đơn vị" },
-                { fieldName: "affiliatedOf", header: "Trực thuộc" },
-            ]
-            };
            const columns = useMemo<MRT_ColumnDef<I_o4e65ewrwy>[]>(() => [
                        
                        {
@@ -102,8 +94,8 @@ export default function F_o4e65ewrwy_Read()
                
                        },
                    ], []);
-                   if (agentDirectoryQuery.isLoading) return "Đang tải dữ liệu...";
-                   if (agentDirectoryQuery.isError) return "Không có dữ liệu...";
+                   if (ListOfagentDirectoryQuery.isLoading) return "Đang tải dữ liệu...";
+                   if (ListOfagentDirectoryQuery.isError) return "Không có dữ liệu...";
  
         return (
             <>
@@ -116,28 +108,19 @@ export default function F_o4e65ewrwy_Read()
                                 <MyDataTable
                                     enableRowSelection={true}
                                     columns={columns}
-                                    data={agentDirectoryQuery.data!}
+                                    data={ListOfagentDirectoryQuery.data!}
                                     renderTopToolbarCustomActions={() => 
                                     <>
                                     <>
                                     <F_o4e65ewrwy_Create onSubmit={() => { }} />
-                                    <AQButtonCreateByImportFile
-                                    setImportedData={setFileData}
-                                    onSubmit={() => { }}
-                                    form={form_multiple}
-                                    >
-                                    </AQButtonCreateByImportFile>
+                                    <MyButton crudType="import"></MyButton>
                                     </>
-                                    <AQButtonExportData
-                                            isAllData={true}
-                                            objectName="dsDanhMuc"
-                                            data={agentDirectoryQuery.data!}
-                                            exportConfig={exportConfig} />
+                                    <MyButton crudType="export"></MyButton>
                                             <Button color="red" leftSection={<IconTrash />}>Xóa</Button></>} 
                                         renderRowActions={({ row }) => (
                                             <MyCenterFull>
                                                 <F_o4e65ewrwy_Update data={row.original} />
-                                                <F_o4e65ewrwy_Delete id={row.original.agentCode!} />
+                                                <F_o4e65ewrwy_Delete id={row.original.id!} agentCode={row.original.agentCode!} />
                                             </MyCenterFull>
                                         )}
                                         

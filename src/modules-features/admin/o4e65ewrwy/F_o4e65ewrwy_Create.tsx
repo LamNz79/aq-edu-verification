@@ -42,11 +42,11 @@ export default function F_o4e65ewrwy_Create({ onSubmit }: F_o4e65ewrwy_CreatePro
 
     return (
         <MyButtonCreate title='Chi tiết danh mục đơn vị' form={form} onSubmit={() => onSubmit(form.values)} objectName='Chi tiết danh mục đơn vị' >
-            <MyTextInput label='Mã đơn vị *' {...form.getInputProps("agentCode")} />
-            <MyTextInput label='Tên đơn vị *' {...form.getInputProps("agentName")} />
-            <MySelect data={['Khoa', 'Bộ môn', 'Phòng', 'Trung tâm']} defaultValue="Khoa" label="Loại đơn vị" {...form.getInputProps("agentType")}/>
-            <MySelect data={['Khoa Công nghệ thông tin', 'Bộ môn cơ sở dữ liệu']} defaultValue="Khoa Công nghệ thông tin" label="Trực thuộc" {...form.getInputProps("affiliatedOf")}/>
-            <MyTextInput label='Ghi chú' {...form.getInputProps("ghiChu")} />
+            <MyTextInput label='Mã đơn vị ' withAsterisk {...form.getInputProps("agentCode")} />
+            <MyTextInput label='Tên đơn vị ' withAsterisk {...form.getInputProps("agentName")} />
+            <MySelect data={['Khoa', 'Bộ môn', 'Phòng', 'Trung tâm']} withAsterisk defaultValue="Khoa" label="Loại đơn vị" {...form.getInputProps("agentType")}/>
+            <MySelect data={['Khoa Công nghệ thông tin', 'Bộ môn cơ sở dữ liệu']} withAsterisk defaultValue="Khoa Công nghệ thông tin" label="Trực thuộc" {...form.getInputProps("affiliatedOf")}/>
+            <MyTextInput label='Ghi chú'  {...form.getInputProps("ghiChu")} />
         </MyButtonCreate>
     );
 }
