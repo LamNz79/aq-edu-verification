@@ -5,12 +5,10 @@ import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
 import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
-import { it } from "node:test";
 import { useMemo, useState } from "react";
 import F_i3sm0z5ns4_Delete from "./F_i3sm0z5ns4_Delete";
 import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData";
 import { MyButton } from "@/components/Buttons/Button/MyButton";
-import { useForm } from "@mantine/form";
 
 interface Ii3sm0z5ns4_ReadProps {
   maTieuChuan: string;
