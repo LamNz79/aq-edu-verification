@@ -95,7 +95,7 @@ export default function F_7gdid7o8tk_Read() {
         },
     });
 
-    const comboBoxData = [
+    const selectData = [
         {
             id: "1",
             tenDonVi: "Phòng tổ chức",
@@ -123,7 +123,7 @@ export default function F_7gdid7o8tk_Read() {
 
                     return (
                         <MySelect
-                            data={comboBoxData}
+                            data={selectData}
                             defaultValue={donViChuTri}
                         />
                     );
