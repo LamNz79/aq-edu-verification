@@ -40,11 +40,11 @@ const mockDonViPhuTrach: ISelectOption[] = [
 
 const mockNhanSuPhuTrach: ISelectOption[] = [
   {
-    label: "Nguyễn Văn A",
+    label: "Tô Ngọc Lâm",
     value: 1
   },
   {
-    label: "Nguyễn Văn B",
+    label: "Nguyễn Văn Bình",
     value: 2
   },
 ];
@@ -63,8 +63,8 @@ const mockData: Ii3sm0z5ns4_ReadProps[] = [
 
 export default function F_i3sm0z5ns4_Read() {
   //===initiate===
-    const [edited, setEdited] = useState<ISelectOption[]>([])
-
+  const [dvptEdited, dvptSetEdited] = useState<string|null>(null) // Đơn vị phụ trách
+  const [nsptEdited, nsptSetEdited] = useState<string|null>(null) // Nhân sự phụ trách
   //===pseudo data===
   const donViPhuTrachQuery = useQuery<ISelectOption[]>({
     queryKey: ["Fi3sm0z5ns4_DonViPhuTrach_Read"],
@@ -135,9 +135,9 @@ export default function F_i3sm0z5ns4_Read() {
         Cell: ({row}) => (
           <MySelect
             placeholder="Đơn vị phụ trách"
-            value={row.original.donViPhuTrach}
+            value={dvptEdited??row.original.donViPhuTrach}
             data={donViPhuTrachQuery.data!.map(item => item.label)}
-            onChange={(e) => console.log(e)}
+            onChange={dvptSetEdited}
           ></MySelect>
         ),
       },
@@ -147,15 +147,14 @@ export default function F_i3sm0z5ns4_Read() {
         Cell: ({row}) => (
           <MySelect
             placeholder="Nhân sự phụ trách"
-            
-            value={row.original.nhanSuPhuTrach}
+            value={nsptEdited??row.original.nhanSuPhuTrach}
             data={nhanSuPhuTrachQuery.data!.map((item) => item.label)}
-            onChange={(value, option) => console.log(value, option)}
+            onChange={nsptSetEdited}
           ></MySelect>
         ),
       },
     ],
-    [donViPhuTrachQuery, nhanSuPhuTrachQuery]
+    [dvptEdited, nsptEdited, donViPhuTrachQuery.data, nhanSuPhuTrachQuery.data]
   );
 
   //===query stage condition===
