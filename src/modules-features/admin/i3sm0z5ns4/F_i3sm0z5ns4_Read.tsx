@@ -1,14 +1,10 @@
 "use client";
 
-import MySelect from "@/components/Combobox/Select/MySelect";
-import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
-import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
+import { MySelect, MyDataTable, MyFieldset, AQButtonExportData, MyButton } from "aq-fe-framework/components";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo, useState } from "react";
 import F_i3sm0z5ns4_Delete from "./F_i3sm0z5ns4_Delete";
-import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData";
-import { MyButton } from "@/components/Buttons/Button/MyButton";
 
 interface Ii3sm0z5ns4_ReadProps {
   maTieuChuan: string;
