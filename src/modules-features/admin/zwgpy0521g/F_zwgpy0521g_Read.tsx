@@ -109,7 +109,7 @@ export default function F_zwgpy0521g_Read() {
         header: "Password",
         accessorKey: "password",
         Cell: ({ cell }) => (
-          <PasswordInput value={cell.getValue() as string} readOnly />
+          <>*********</>
         ),
       },
     ],

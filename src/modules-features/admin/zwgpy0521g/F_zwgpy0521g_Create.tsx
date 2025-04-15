@@ -5,6 +5,7 @@ import MyButtonCreate from "@/components/Buttons/ButtonCRUD/MyButtonCreate";
 import MySelect from "@/components/Combobox/Select/MySelect";
 import MyTextInput from "@/components/Inputs/TextInput/MyTextInput";
 import MyFlexColumn from "@/components/Layouts/FlexColumn/MyFlexColumn";
+import { PasswordInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 interface I_zwgpy0521g {
     phanHe?: string;
@@ -57,7 +58,7 @@ export default function F_zwgpy0521g_Create({values}: {values?: any}) {
                 <MyTextInput name="incomingPort" label="Incoming port" required />
                 <MyTextInput name="SSL" label="SSL" required />
                 <MyTextInput name="userName" label="Username" required />
-                <MyTextInput name="password" label="Password" required />
+                <PasswordInput name="password" label="Password" required />
             </MyFlexColumn>
         </MyButtonCreate>
     );

@@ -2,6 +2,7 @@
 
 import {MyActionIconUpdate,MySelect,MyTextInput,MyFlexColumn} from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
+import { PasswordInput } from "@mantine/core";
 interface I_zwgpy0521g {
     phanHe?: string;
     hostMailServer?: string;
@@ -45,7 +46,7 @@ export default function F_zwgpy0521g_Update({values}: {values?: any}) {
                 <MyTextInput name="incomingPort" label="Incoming port" required {...form.getInputProps("incomingPort")}/>
                 <MyTextInput name="SSL" label="SSL" required {...form.getInputProps("SSL")}/>
                 <MyTextInput name="userName" label="Username" required {...form.getInputProps("userName")}/>
-                <MyTextInput name="password" label="Password" required {...form.getInputProps("password")}/>
+                <PasswordInput name="password" label="Password" required {...form.getInputProps("password")}/>
             </MyFlexColumn>
         </MyActionIconUpdate>
     );
