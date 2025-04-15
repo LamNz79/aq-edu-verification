@@ -53,6 +53,10 @@ export const menuData: I0LinkItem[] = [
     link: "nxiyjlnrik",
   },
   {
+    label: "Danh sách mốc chuẩn",
+    link: "txn1uriow1",
+  },
+  {
     label: "Danh mục hệ thống",
     links: [
       { pageId: 999, name: "", label: "Cấu hình thông tin chủ quản", link: "k683h5xrg3", status: "Prototype" },
