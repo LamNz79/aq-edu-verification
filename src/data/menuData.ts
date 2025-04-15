@@ -62,5 +62,6 @@ export const menuData: I0LinkItem[] = [
       {pageId: 1003, name:"", label: "Danh mục cấu hình mail", link: "zwgpy0521g", status: "Prototype"},
     ],
   },
+ 
+]; 
 
-];
