@@ -62,7 +62,7 @@ export default function F_nxiyjlnrik_Create() {
     <MyButtonCreate
       disclosure={disc}
       form={form}
-      modalSize={"90%"}
+      modalSize={"xl"}
       onSubmit={() => {}}
       objectName="Minh chứng"
     >
