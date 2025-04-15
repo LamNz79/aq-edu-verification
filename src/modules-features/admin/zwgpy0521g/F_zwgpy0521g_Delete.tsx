@@ -1,8 +1,8 @@
 'use client'
-import MyActionIconDelete from "@/components/ActionIcons/ActionIconCRUD/MyActionIconDelete";
+import {MyActionIconDelete} from "aq-fe-framework/components";
 
-export default function F_zwgpy0521g_Delete({id}: {id: number}) {
+export default function F_zwgpy0521g_Delete({id}: {id: string}) {
     return (
-        <MyActionIconDelete onSubmit={()=>{}}/>
+        <MyActionIconDelete contextData={`Phân hệ ${id}`} onSubmit={()=>{}}/>
     );
 }
