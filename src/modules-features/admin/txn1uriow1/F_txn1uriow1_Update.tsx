@@ -1,6 +1,6 @@
 'use client';
 
-import {MyActionIconUpdate, MySelect, MyDateInput, MyTextInput } from "aq-fe-framework/components";
+import {MyActionIconUpdate, MySelect, MyDateInput, MyTextInput, MyTextArea } from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 
@@ -115,10 +115,10 @@ export default function F_txn1uriow1_Update({data}:{data:Itxn1uriow1_InputUpdate
             <MySelect data={maTieuChiChiSoQuery.data!} label="Mã tiêu chí/ chỉ số" {...form.getInputProps("maTieuChiChiSo")}/>
             <MyTextInput label="Mã mốc chuẩn" {...form.getInputProps("maMocChuan")}/>
             <MyTextInput label="Tên mốc chuẩn" {...form.getInputProps("tenMocChuan")}/>
-            <MyTextInput label="Mô tả" {...form.getInputProps("moTa")}/>
+            <MyTextArea label="Mô tả" {...form.getInputProps("moTa")}/>
             <MySelect data={chuKyQuery.data!} label="Chu kỳ" {...form.getInputProps("chuKy")}/>
             <MyDateInput label="Ngày bắt đầu chu kỳ" {...form.getInputProps("ngayBatDauChuKy")}></MyDateInput>
-            <MyTextInput label="Ghi chú" {...form.getInputProps("ghiChu")}/>
+            <MyTextArea label="Ghi chú" {...form.getInputProps("ghiChu")}/>
         </MyActionIconUpdate>
     );
 }
