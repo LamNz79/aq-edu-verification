@@ -36,6 +36,11 @@ export const menuData: I0LinkItem[] = [
     status: "Prototype"
   },
   {
+    label: "Danh sách mốc chuẩn",
+    link: "txn1uriow1",
+    status: "Prototype"
+  },
+  {
     label: "Chu kỳ kiểm định",
     link: "5lrwp21o3u",
   },
