@@ -1,6 +1,6 @@
 'use client';
 
-import {MyButtonCreate,MySelect, MyTextInput, } from "aq-fe-framework/components";
+import { MyButtonCreate, MySelect, MyTextInput, } from "aq-fe-framework/components";
 import { Checkbox } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
@@ -11,14 +11,14 @@ interface I6j8jkftgnc_CreateProps {
     tenBoDem: string; // tên bộ đếm
     loaiNghiepVu: string; // loại nghiệp vụ
     loaiDoiTuong: string; // loại đối tượng
-    chuKyLapLai: string; // Chu kỳ lập lại
+    chuKyLapLai: string; // Chu kỳ lặp lại
     tienTo: string; // Tiền tố
     hauTo: string; // Hậu tố
     chieuDai: string; // Chiều dài
     coDungSo0: boolean; // Có dùng số 0
 }
 
-interface selectBoxProps{
+interface selectBoxProps {
     label: string;
     value: string;
 }
@@ -47,11 +47,11 @@ const loaiDoiTuongSelectOption: selectBoxProps[] = [
 
 const chuKyLapLaiSelectOption: selectBoxProps[] = [
     {
-        label: "Không lập lại",
+        label: "Không lặp lại",
         value: "1",
     },
     {
-        label: "Lập lại",
+        label: "Lặp lại",
         value: "2",
     }
 ]
@@ -109,18 +109,18 @@ export default function F_6j8jkftgnc_Create() {
     if (chuKyLapLaiQuery.isError) return "Có lỗi xảy ra!";
 
     return (
-    <>
-        <MyButtonCreate form={form} disclosure={disclosure} crudType='create' title={modalName} onSubmit={() => { }}>
-            <MyTextInput label="Mã bộ đếm" {...form.getInputProps("maBoDem")}/>
-            <MyTextInput label="Tên bộ đếm" {...form.getInputProps("tenBoDem")}/>
-            <MySelect data={loaiNghiepVuQuery.data!} label="Loại nghiệp vụ" {...form.getInputProps("loaiNghiepVu")}/>
-            <MySelect data={loaiDoiTuongQuery.data!} label="Loại đối tượng" {...form.getInputProps("loaiDoiTuong")}/>
-            <MySelect data={chuKyLapLaiQuery.data!} label="Chu kỳ lập lại" {...form.getInputProps("chuKyLapLai")}/>
-            <MyTextInput label="Tiền tố" {...form.getInputProps("tienTo")}/>
-            <MyTextInput label="Hậu tố" {...form.getInputProps("hauTo")}/>
-            <MyTextInput label="Chiều dài" {...form.getInputProps("chieuDai")}/>
-            <Checkbox label="Có dùng số 0" {...form.getInputProps("coDungSo0", { type: 'checkbox' })} />
-        </MyButtonCreate>
-    </>
+        <>
+            <MyButtonCreate form={form} disclosure={disclosure} crudType='create' title={modalName} onSubmit={() => { }}>
+                <MyTextInput label="Mã bộ đếm" {...form.getInputProps("maBoDem")} />
+                <MyTextInput label="Tên bộ đếm" {...form.getInputProps("tenBoDem")} />
+                <MySelect data={loaiNghiepVuQuery.data!} label="Loại nghiệp vụ" {...form.getInputProps("loaiNghiepVu")} />
+                <MySelect data={loaiDoiTuongQuery.data!} label="Loại đối tượng" {...form.getInputProps("loaiDoiTuong")} />
+                <MySelect data={chuKyLapLaiQuery.data!} label="Chu kỳ lặp lại" {...form.getInputProps("chuKyLapLai")} />
+                <MyTextInput label="Tiền tố" {...form.getInputProps("tienTo")} />
+                <MyTextInput label="Hậu tố" {...form.getInputProps("hauTo")} />
+                <MyTextInput label="Chiều dài" {...form.getInputProps("chieuDai")} />
+                <Checkbox label="Có dùng số 0" {...form.getInputProps("coDungSo0", { type: 'checkbox' })} />
+            </MyButtonCreate>
+        </>
     );
 }

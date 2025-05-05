@@ -10,7 +10,7 @@ interface I6j8jkftgnc_UpdateProps {
     tenBoDem: string; // tên bộ đếm
     loaiNghiepVu: string; // loại nghiệp vụ
     loadiDoiTuong: string; // loại đối tượng
-    chuKyLapLai: string; // Chu kỳ lập lại
+    chuKyLapLai: string; // Chu kỳ lặp lại
     tienTo: string; // Tiền tố
     hauTo: string; // Hậu tố
     chieuDai: string; // Chiều dài
@@ -53,12 +53,12 @@ const loaiDoiTuongSelectOption: selectBoxProps[] = [
 
 const chuKyLapLaiSelectOption: selectBoxProps[] = [
     {
-        label: "Không lập lại",
-        value: "Không lập lại",
+        label: "Không lặp lại",
+        value: "Không lặp lại",
     },
     {
-        label: "Lập lại",
-        value: "Lập lại",
+        label: "Lặp lại",
+        value: "Lặp lại",
     }
 ]
 
@@ -119,7 +119,7 @@ export default function F_6j8jkftgnc_Update({data}: {data: I6j8jkftgnc_InputUpda
             <MyTextInput label="Tên bộ đếm" {...form.getInputProps("tenBoDem")}/>
             <MySelect data={loaiNghiepVuQuery.data!} label="Loại nghiệp vụ" {...form.getInputProps("loaiNghiepVu")}/>
             <MySelect data={loaiDoiTuongQuery.data!} label="Loại đối tượng" {...form.getInputProps("loaiDoiTuong")}/>
-            <MySelect data={chuKyLapLaiQuery.data!} label="Chu ký lập lại" {...form.getInputProps("chuKyLapLai")}/>
+            <MySelect data={chuKyLapLaiQuery.data!} label="Chu ký lặp lại" {...form.getInputProps("chuKyLapLai")}/>
             <MyTextInput label="Tiền tố" {...form.getInputProps("tienTo")}/>
             <MyTextInput label="Hậu tố" {...form.getInputProps("hauTo")}/>
             <MyTextInput label="Chiều dài" {...form.getInputProps("chieuDai")}/>
