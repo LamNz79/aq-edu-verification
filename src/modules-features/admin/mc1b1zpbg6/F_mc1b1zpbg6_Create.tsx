@@ -17,7 +17,7 @@ export interface IStandardSetForm {
     phienBan: string;
     namBanHanh: number;
     fileTieuChuan: File | null;
-    chuKyDanhGiaLai: number;
+    chuKyDanhGiaLai: string;
     ghiChu: string;
 }
 
@@ -31,9 +31,19 @@ export default function F_mc1b1zpbg6_Create() {
             phienBan: "",
             namBanHanh: new Date().getFullYear(),
             fileTieuChuan: null,
-            chuKyDanhGiaLai: 5,
+            chuKyDanhGiaLai: "5",
             ghiChu: "",
-        }
+        },
+        validate: {
+            maBoTieuChuan: (value) => value ? null : 'Vui lòng nhập mã bộ tiêu chuẩn',
+            tenBoTieuChuan: (value) => value ? null : 'Vui lòng nhập tên bộ tiêu chuẩn',
+            tenBoTieuChuanEg: (value) => value ? null : 'Vui lòng nhập tên tiếng Anh',
+            toChucKiemDinh: (value) => value ? null : 'Vui lòng nhập tổ chức kiểm định',
+            phienBan: (value) => value ? null : 'Vui lòng nhập phiên bản',
+            namBanHanh: (value) => value ? null : 'Vui lòng nhập năm ban hành',
+            chuKyDanhGiaLai: (value) => value ? null : 'Vui lòng nhập chu kỳ đánh giá lại',
+        },
+        validateInputOnBlur: false,
     });
 
     const handleSubmit = async (values: IStandardSetForm) => {
@@ -61,7 +71,7 @@ export default function F_mc1b1zpbg6_Create() {
             <MyTextInput required label='Phiên bản' {...form.getInputProps("phienBan")} />
             <MyNumberInput required label='Năm ban hành' {...form.getInputProps("namBanHanh")} />
             <FileInput label='File tiêu chuẩn' {...form.getInputProps("fileTieuChuan")} />
-            <MyNumberInput required label='Chu kỳ đánh giá lại (năm)' {...form.getInputProps("chuKyDanhGiaLai")} />
+            <MyTextInput required label='Chu kỳ đánh giá lại' {...form.getInputProps("chuKyDanhGiaLai")} />
             <MyTextArea label='Ghi chú' {...form.getInputProps("ghiChu")} />
         </MyButtonCreate>
     );

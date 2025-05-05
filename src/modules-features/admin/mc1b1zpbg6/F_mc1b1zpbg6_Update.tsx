@@ -17,7 +17,7 @@ export interface IStandardSet {
     phienBan: string;
     namBanHanh: number;
     fileTieuChuan: string;
-    chuKyDanhGiaLai: number;
+    chuKyDanhGiaLai: string;
     ghiChu: string;
 }
 
@@ -35,7 +35,17 @@ export default function F_mc1b1zpbg6_Update({ values }: { values: IStandardSet }
             currentFile: values.fileTieuChuan,
             chuKyDanhGiaLai: values.chuKyDanhGiaLai,
             ghiChu: values.ghiChu,
-        }
+        },
+        validate: {
+            maBoTieuChuan: (value) => value ? null : 'Vui lòng nhập mã bộ tiêu chuẩn',
+            tenBoTieuChuan: (value) => value ? null : 'Vui lòng nhập tên bộ tiêu chuẩn',
+            tenBoTieuChuanEg: (value) => value ? null : 'Vui lòng nhập tên tiếng Anh',
+            toChucKiemDinh: (value) => value ? null : 'Vui lòng nhập tổ chức kiểm định',
+            phienBan: (value) => value ? null : 'Vui lòng nhập phiên bản',
+            namBanHanh: (value) => value ? null : 'Vui lòng nhập năm ban hành',
+            chuKyDanhGiaLai: (value) => value ? null : 'Vui lòng nhập chu kỳ đánh giá lại',
+        },
+        validateInputOnBlur: false,
     });
 
     const handleSubmit = async (formValues: any) => {
@@ -65,7 +75,7 @@ export default function F_mc1b1zpbg6_Update({ values }: { values: IStandardSet }
                 placeholder={form.values.currentFile || "Chọn file"}
                 {...form.getInputProps("fileTieuChuan")}
             />
-            <MyNumberInput required label="Chu kỳ đánh giá lại (năm)" {...form.getInputProps("chuKyDanhGiaLai")} />
+            <MyTextInput required label="Chu kỳ đánh giá lại" {...form.getInputProps("chuKyDanhGiaLai")} />
             <MyTextArea label="Ghi chú" {...form.getInputProps("ghiChu")} />
         </MyActionIconUpdate>
     );

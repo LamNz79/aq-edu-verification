@@ -25,7 +25,7 @@ interface IStandardSet {
     phienBan: string;
     namBanHanh: number;
     fileTieuChuan: string;
-    chuKyDanhGiaLai: number;
+    chuKyDanhGiaLai: string; // Changed to string
     ghiChu: string;
 }
 
@@ -39,7 +39,7 @@ const mockData: IStandardSet[] = [
         phienBan: "4.0",
         namBanHanh: 2021,
         fileTieuChuan: "aun_qa_4.0.pdf",
-        chuKyDanhGiaLai: 5,
+        chuKyDanhGiaLai: "5", // Changed to string
         ghiChu: "Bộ tiêu chuẩn đánh giá chất lượng giáo dục đại học khu vực ASEAN",
     },
     {
@@ -51,7 +51,7 @@ const mockData: IStandardSet[] = [
         phienBan: "2022-2023",
         namBanHanh: 2022,
         fileTieuChuan: "abet_criteria.pdf",
-        chuKyDanhGiaLai: 6,
+        chuKyDanhGiaLai: "6", // Changed to string
         ghiChu: "Bộ tiêu chuẩn kiểm định chất lượng các chương trình kỹ thuật và công nghệ",
     },
 ];
