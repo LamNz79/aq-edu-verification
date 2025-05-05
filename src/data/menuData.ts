@@ -44,10 +44,12 @@ export const menuData: I0LinkItem[] = [
   {
     label: "Chu kỳ kiểm định",
     link: "5lrwp21o3u",
+    status: "Prototype"
   },
   {
     label: "Đơn vị chủ trì tiêu chuẩn",
     link: "7gdid7o8tk",
+    status: "Prototype"
   },
   {
     label: "Đơn vị chủ trì tiêu chí",
@@ -62,6 +64,7 @@ export const menuData: I0LinkItem[] = [
   {
     label: "Danh sách minh chứng",
     link: "nxiyjlnrik",
+    status: "Prototype"
   },
   {
     label: "Danh mục hệ thống",

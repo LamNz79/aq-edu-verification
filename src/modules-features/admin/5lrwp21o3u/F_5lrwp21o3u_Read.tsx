@@ -52,7 +52,7 @@ const mockDanhSachBoTieuChuan: IDandSachBoTieuChuanRead[] = [
         cycleName: 'Tự đánh giá',
         startDate: new Date('2028-01-01'),
         endDate: new Date('2028-06-30'),
-        isRepeat: true,
+        isRepeat: false,
         note: '',
     },
     {
@@ -116,7 +116,8 @@ export default function F_5lrwp21o3u_Read() {
             accessorKey: 'isRepeat',
             Cell: ({ row }) => (
                 <Checkbox 
-                    defaultChecked={row.original.isRepeat}
+                    checked={row.original.isRepeat}
+                    readOnly
                 />
             ),
         },

@@ -4,7 +4,6 @@ import AQButtonCreateByImportFile from "@/components/Buttons/ButtonCRUD/AQButton
 import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData";
 import MyCenterFull from "@/components/CenterFull/MyCenterFull";
 import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
-import MyFlexColumn from "@/components/Layouts/FlexColumn/MyFlexColumn";
 import { U0DateToDDMMYYYString } from "@/utils/date";
 import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
@@ -14,6 +13,7 @@ import F_nxiyjlnrik_Create from "./F_nxiyjlnrik_Create";
 import F_nxiyjlnrik_Update from "./F_nxiyjlnrik_Update";
 import F_nxiyjlnrik_Delete from "./F_nxiyjlnrik_Delete";
 import MyButtonViewPDF from "@/components/Buttons/ButtonViewPDF/MyButtonViewPDF";
+import { MyFieldset } from "aq-fe-framework/components";
 
 export interface I_nxiyjlnrik_Read {
   maMinhChung?: string; // Mã minh chứng
@@ -154,7 +154,7 @@ export default function F_nxiyjlnrik_Read() {
   if (query.isError) return "Không có dữ liệu...";
 
   return (
-    <MyFlexColumn title="Danh sách minh chứng">
+    <MyFieldset title="Danh sách minh chứng">
       <MyDataTable<I_nxiyjlnrik_Read>
         enableRowSelection={true}
         columns={columns}
@@ -187,6 +187,6 @@ export default function F_nxiyjlnrik_Read() {
           );
         }}
       />
-    </MyFlexColumn>
+    </MyFieldset>
   );
 }
