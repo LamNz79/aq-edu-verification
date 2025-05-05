@@ -32,19 +32,31 @@ export const menuData: I0LinkItem[] = [
   },
   {
     label: "Danh sách tiêu chí",
-    link: "4-2",
+    link: "b99o1d0u5q",
+    status: "Prototype"
+  },
+  {
+    label: "Danh sách mốc chuẩn",
+    link: "txn1uriow1",
+    status: "Prototype"
   },
   {
     label: "Chu kỳ kiểm định",
-    link: "4-2",
+    link: "5lrwp21o3u",
   },
   {
     label: "Đơn vị chủ trì tiêu chuẩn",
-    link: "4-2",
+    link: "7gdid7o8tk",
   },
   {
     label: "Đơn vị chủ trì tiêu chí",
-    link: "4-2",
+    link: "z7xgafshhg",
+    status: "Prototype"
+  },
+  {
+    label: "Phân công phụ trách mốc chuẩn",
+    link: "i3sm0z5ns4",
+    status: "Prototype"
   },
   {
     label: "Danh sách minh chứng",
@@ -53,10 +65,12 @@ export const menuData: I0LinkItem[] = [
   {
     label: "Danh mục hệ thống",
     links: [
-      { pageId: 1000, name: "", label: "Danh mục đơn vị", link: "", status: "Menu" },
+      { pageId: 999, name: "", label: "Cấu hình thông tin chủ quản", link: "k683h5xrg3", status: "Prototype" },
+      { pageId: 1000, name: "", label: "Danh mục đơn vị", link: "o4e65ewrwy", status: "Prototype" },
       { pageId: 1001, name: "List of evidence types", label: " Danh mục loại minh chứng", link: "4iahruyrpf", status: "Prototype" },
-      { pageId: 1002, name: "", label: "Danh mục thang đánh giá", link: "", status: "Menu" },
+      { pageId: 1002, name: "Rating scale list", label: "Danh mục thang đánh giá", link: "4ozfpuyh8g", status: "Prototype" },
+      {pageId: 1003, name:"", label: "Danh mục cấu hình mail", link: "zwgpy0521g", status: "Prototype"},
+      { pageId: 1006, name: "", label: "Danh mục bộ đếm", link: "6j8jkftgnc", status: "Prototype" },
     ],
   },
-
 ];

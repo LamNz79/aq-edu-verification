@@ -42,7 +42,7 @@ const mockData: I_nxiyjlnrik_Read[] = [
     donViBanHanh: "Trường THPT ABC",
     ngayBanHanh: new Date("2023-06-10"),
     ngayHetHan: new Date("2024-06-10"),
-    trangThai: "Hoạt động",
+    trangThai: "Còn hiệu lực",
     ghiChu: "Cần cập nhật thông tin vào tháng 12/2023",
   },
   {
@@ -56,7 +56,7 @@ const mockData: I_nxiyjlnrik_Read[] = [
     donViBanHanh: "Phòng Giáo dục và Đào tạo",
     ngayBanHanh: new Date("2023-08-15"),
     ngayHetHan: new Date("2024-08-15"),
-    trangThai: "Hoạt động",
+    trangThai: "Còn hiệu lực",
     ghiChu: "Đã được phê duyệt",
   },
   {
@@ -70,7 +70,7 @@ const mockData: I_nxiyjlnrik_Read[] = [
     donViBanHanh: "Sở Giáo dục và Đào tạo",
     ngayBanHanh: new Date("2023-09-30"),
     ngayHetHan: new Date("2024-09-30"),
-    trangThai: "Hoạt động",
+    trangThai: "Còn hiệu lực",
     ghiChu: "Cần bổ sung thêm minh chứng",
   },
 ];
@@ -99,7 +99,6 @@ export default function F_nxiyjlnrik_Read() {
       { header: "Mã minh chứng", accessorKey: "maMinhChung" },
       { header: "Tên minh chứng", accessorKey: "tenMinhChung" },
       { header: "Mô tả", accessorKey: "moTa" },
-      { header: "File minh chứng", accessorKey: "fileMinhChung" },
       {
         header: "File minh chứng",
         accessorFn: (row) => {
