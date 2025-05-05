@@ -5,6 +5,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ComponentProps, useState } from "react";
 import { MyActionIconModal } from "../ActionIconModal/MyActionIconModal";
+
 interface IActionIconDelete extends Omit<ComponentProps<typeof MyActionIconModal>, "disclosure"> {
     onSubmit: () => void;
     onSuccess?: () => void;
@@ -43,7 +44,6 @@ export default function MyActionIconDelete({
             }
         },
     });
-
     function handleCLick() {
         loadingState[1](true)
         mutation.mutate();
@@ -54,6 +54,7 @@ export default function MyActionIconDelete({
             crudType="delete"
             {...rest}
         >
+
             <Highlight
                 highlight={contextData || []}
                 color="red.6"
@@ -65,6 +66,7 @@ export default function MyActionIconDelete({
             >
                 {`Bạn sắp xóa dữ liệu ${contextData || ""}. Hành động này không thể hoàn tác. Bạn có chắc chắn muốn tiếp tục?`}
             </Highlight>
+
             <Group grow>
                 <MyButton
                     crudType="delete"
