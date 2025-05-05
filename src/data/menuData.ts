@@ -36,6 +36,11 @@ export const menuData: I0LinkItem[] = [
     status: "Prototype"
   },
   {
+    label: "Danh sách mốc chuẩn",
+    link: "txn1uriow1",
+    status: "Prototype"
+  },
+  {
     label: "Chu kỳ kiểm định",
     link: "5lrwp21o3u",
   },
@@ -49,8 +54,13 @@ export const menuData: I0LinkItem[] = [
     status: "Prototype"
   },
   {
+    label: "Phân công phụ trách mốc chuẩn",
+    link: "i3sm0z5ns4",
+    status: "Prototype"
+  },
+  {
     label: "Danh sách minh chứng",
-    link: "4-2",
+    link: "nxiyjlnrik",
   },
   {
     label: "Danh mục hệ thống",
@@ -63,5 +73,4 @@ export const menuData: I0LinkItem[] = [
       { pageId: 1006, name: "", label: "Danh mục Bộ đếm", link: "6j8jkftgnc", status: "Prototype" },
     ],
   },
-  
 ];
