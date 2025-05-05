@@ -11,10 +11,11 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { utils_date_dateToDDMMYYYString } from "@/utils/date";
-import F_vrdjnzpfmc_Create from "./F_vrdjnzpfmc_Create";
-import F_vrdjnzpfmc_Update from "./F_vrdjnzpfmc_Update";
-import F_vrdjnzpfmc_Delete from "./F_vrdjnzpfmc_Delete";
+import F_vrdjnzpfmc_CreateChiTietKy from "./F_vrdjnzpfmc_CreateChiTietKy";
+import F_vrdjnzpfmc_UpdateChiTietKy from "./F_vrdjnzpfmc_UpdateChiTietKy";
+import F_vrdjnzpfmc_DeleteChiTietKy from "./F_vrdjnzpfmc_DeleteChiTietKy";
 import { useForm } from "@mantine/form";
+import F_vrdjnzpfmc_CreateChuKy from "./F_vrdjnzpfmc_CreateChuKy";
 export interface F_vrdjnzpfmc {
   id?: number; // STT
   maChuKy?: string; // Mã chủ kỳ
@@ -123,7 +124,7 @@ export default function F_vrdjnzpfmc_Read() {
         renderTopToolbarCustomActions={({ table }) => {
           return (
             <>
-              <F_vrdjnzpfmc_Create />
+              <F_vrdjnzpfmc_CreateChiTietKy />
               <AQButtonCreateByImportFile
                 setImportedData={setImportData}
                 form={form_multiple}
@@ -137,15 +138,16 @@ export default function F_vrdjnzpfmc_Read() {
                 data={query.data!}
                 exportConfig={exportConfig}
               />
-              <MyButton crudType="delete" >Xóa</MyButton>
+              <MyButton crudType="delete">Xóa</MyButton>
+              <F_vrdjnzpfmc_CreateChuKy />
             </>
           );
         }}
         renderRowActions={({ row }) => {
           return (
             <MyCenterFull>
-              <F_vrdjnzpfmc_Update value={row.original} />
-              <F_vrdjnzpfmc_Delete
+              <F_vrdjnzpfmc_UpdateChiTietKy value={row.original} />
+              <F_vrdjnzpfmc_DeleteChiTietKy
                 id={row.original.maKy!}
                 context={row.original.maKy!}
               />
