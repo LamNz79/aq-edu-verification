@@ -3,6 +3,7 @@ import MyButtonCreate from "@/components/Buttons/ButtonCRUD/MyButtonCreate";
 import { useDisclosure } from "@mantine/hooks";
 import { useForm } from "@mantine/form";
 import {
+  MyActionIconUpdate,
   MyDateInput,
   MyFlexColumn,
   MyFlexRow,
@@ -12,12 +13,17 @@ import {
 } from "aq-fe-framework/components";
 import { F_vrdjnzpfmc } from "./F_vrdjnzpfmc_Read";
 
-export default function F_vrdjnzpfmc_Create() {
+export default function F_vrdjnzpfmc_Update({
+  value,
+}: {
+  value: F_vrdjnzpfmc;
+}) {
   const disc = useDisclosure();
   const form = useForm<F_vrdjnzpfmc>({
-    initialValues: {},
+    initialValues: {
+      ...value,
+    },
     validate: {
-      maKy: (value) => (value ? null : "Không được để trống"),
       tenKy: (value) => (value ? null : "Không được để trống"),
       ngayBatDauCapNhat: (value) => (value ? null : "Không được để trống"),
       ngayKetThucCapNhat: (value) => {
@@ -41,13 +47,7 @@ export default function F_vrdjnzpfmc_Create() {
   });
 
   return (
-    <MyButtonCreate
-      disclosure={disc}
-      form={form}
-      onSubmit={() => {}}
-      objectName="Chi tiết kỳ báo cáo"
-      modalSize={"lg"}
-    >
+    <MyActionIconUpdate modalSize="lg" disclosure={disc} form={form} onSubmit={() => {disc[1].close()}}>
       <MyFlexRow>
         <MySelect
           allowDeselect={false}
@@ -61,35 +61,23 @@ export default function F_vrdjnzpfmc_Create() {
       </MyFlexRow>
       <MyFlexRow justify="space-between">
         <MyFlexColumn>
-          <MyTextInput
-            withAsterisk
-            label="Mã kỳ"
-            {...form.getInputProps("maKy")}
-          />
+          <MyTextInput disabled label="Mã kỳ" {...form.getInputProps("maKy")} />
           <MyDateInput
-            withAsterisk
             label="Ngày bắt đầu cập nhật nội dung báo cáo"
             {...form.getInputProps("ngayBatDauCapNhat")}
           />
           <MyDateInput
-            withAsterisk
             label="Ngày bắt đầu tổng hợp mốc chuẩn"
             {...form.getInputProps("ngayBatDauTongHop")}
           />
         </MyFlexColumn>
         <MyFlexColumn>
-          <MyTextInput
-            withAsterisk
-            label="Tên kỳ"
-            {...form.getInputProps("tenKy")}
-          />
+          <MyTextInput label="Tên kỳ" {...form.getInputProps("tenKy")} />
           <MyDateInput
-            withAsterisk
             label="Ngày kết thúc cập nhật nội dung báo cáo"
             {...form.getInputProps("ngayKetThucCapNhat")}
           />
           <MyDateInput
-            withAsterisk
             label="Ngày kết thúc tổng hợp mốc chuẩn"
             {...form.getInputProps("ngayKetThucTongHop")}
           />
@@ -98,6 +86,6 @@ export default function F_vrdjnzpfmc_Create() {
       <MyFlexRow>
         <MyTextArea label="Ghi chú" {...form.getInputProps("ghiChu")} />
       </MyFlexRow>
-    </MyButtonCreate>
+    </MyActionIconUpdate>
   );
 }

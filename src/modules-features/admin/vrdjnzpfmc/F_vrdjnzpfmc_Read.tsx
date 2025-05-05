@@ -1,32 +1,42 @@
 "use client";
-import { MyFlexColumn } from "aq-fe-framework/components";
-import { Text } from "@mantine/core";
-import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
-import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
+import {
+  AQButtonCreateByImportFile,
+  AQButtonExportData,
+  MyButton,
+  MyCenterFull,
+  MyDataTable,
+  MyFieldset,
+} from "aq-fe-framework/components";
 import { useQuery } from "@tanstack/react-query";
-import { mock } from "node:test";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { utils_date_dateToDDMMYYYString } from "@/utils/date";
 import F_vrdjnzpfmc_Create from "./F_vrdjnzpfmc_Create";
-export interface F_vrdjnzpfmc_Read {
+import F_vrdjnzpfmc_Update from "./F_vrdjnzpfmc_Update";
+import F_vrdjnzpfmc_Delete from "./F_vrdjnzpfmc_Delete";
+import { useForm } from "@mantine/form";
+export interface F_vrdjnzpfmc {
   id?: number; // STT
   maChuKy?: string; // Mã chủ kỳ
   maKy?: string; // Mã kỳ
   tenKy?: string; // Tên kỳ
-  ngayBatDau?: Date; // Ngày bắt đầu
-  ngayKetThuc?: Date; // Ngày kết thúc
+  ngayBatDauCapNhat?: Date; // Ngày bắt đầu cập nhật
+  ngayKetThucCapNhat?: Date; // Ngày kết thúc cập nhật
+  ngayBatDauTongHop?: Date; // Ngày bắt đầu tổng hợp
+  ngayKetThucTongHop?: Date; // Ngày kết thúc tổng hợp
   ghiChu?: string; // Ghi chú
 }
 
-const mockData: F_vrdjnzpfmc_Read[] = [
+const mockData: F_vrdjnzpfmc[] = [
   {
     id: 1,
     maChuKy: "2023-2028",
     maKy: "2024.01",
     tenKy: "Kỳ 1 năm 2024",
-    ngayBatDau: new Date("2024-01-01"),
-    ngayKetThuc: new Date("2024-06-30"),
+    ngayBatDauCapNhat: new Date("2024-01-01"),
+    ngayKetThucCapNhat: new Date("2024-06-30"),
+    ngayBatDauTongHop: new Date("2024-01-01"),
+    ngayKetThucTongHop: new Date("2024-06-30"),
     ghiChu: "Ghi chú 1",
   },
   {
@@ -34,17 +44,25 @@ const mockData: F_vrdjnzpfmc_Read[] = [
     maChuKy: "2023-2028",
     maKy: "2024.02",
     tenKy: "Kỳ 2 năm 2024",
-    ngayBatDau: new Date("2024-07-01"),
-    ngayKetThuc: new Date("2024-12-31"),
+    ngayBatDauCapNhat: new Date("2024-07-01"),
+    ngayKetThucCapNhat: new Date("2024-12-31"),
+    ngayBatDauTongHop: new Date("2024-07-01"),
+    ngayKetThucTongHop: new Date("2024-12-31"),
     ghiChu: "Ghi chú 2",
   },
 ];
 export default function F_vrdjnzpfmc_Read() {
-  const query = useQuery<F_vrdjnzpfmc_Read[]>({
+  const [importData, setImportData] = useState(false);
+  const form_multiple = useForm<any>({
+    initialValues: {
+      importedData: [],
+    },
+  });
+  const query = useQuery<F_vrdjnzpfmc[]>({
     queryKey: ["F_vrdjnzpfmc_Read"],
     queryFn: async () => mockData,
   });
-  const columns = useMemo<MRT_ColumnDef<F_vrdjnzpfmc_Read>[]>(
+  const columns = useMemo<MRT_ColumnDef<F_vrdjnzpfmc>[]>(
     () => [
       {
         header: "Mã chu kỳ",
@@ -62,7 +80,7 @@ export default function F_vrdjnzpfmc_Read() {
         header: "Ngày bắt đầu",
         accessorFn(originalRow) {
           return utils_date_dateToDDMMYYYString(
-            new Date(originalRow.ngayBatDau!)
+            new Date(originalRow.ngayBatDauCapNhat!)
           );
         },
       },
@@ -70,7 +88,7 @@ export default function F_vrdjnzpfmc_Read() {
         header: "Ngày kết thúc",
         accessorFn(originalRow) {
           return utils_date_dateToDDMMYYYString(
-            new Date(originalRow.ngayKetThuc!)
+            new Date(originalRow.ngayKetThucCapNhat!)
           );
         },
       },
@@ -81,6 +99,17 @@ export default function F_vrdjnzpfmc_Read() {
     ],
     []
   );
+
+  const exportConfig = {
+    fields: [
+      { fieldName: "maChuKy", header: "Mã chu kỳ" },
+      { fieldName: "maKy", header: "Mã kỳ" },
+      { fieldName: "tenKy", header: "Tên kỳ" },
+      { fieldName: "ngayBatDauCapNhat", header: "Ngày bắt đầu" },
+      { fieldName: "ngayKetThucCapNhat", header: "Ngày kết thúc" },
+      { fieldName: "ghiChu", header: "Ghi chú" },
+    ],
+  };
   if (query.isLoading) return "Đang tải...";
   if (query.isError) return "Không có dữ liệu";
 
@@ -95,24 +124,32 @@ export default function F_vrdjnzpfmc_Read() {
           return (
             <>
               <F_vrdjnzpfmc_Create />
-              {/* <MyButton crudType="save" />
-                <AQButtonCreateByImportFile
-                  setImportedData={setImportData}
-                  form={form_multiple}
-                  onSubmit={() => {
-                    console.log(form_multiple.values);
-                  }}
-                >
-                  s
-                </AQButtonCreateByImportFile>
-                <AQButtonExportData
-                  isAllData={true}
-                  objectName="dsPLO"
-                  data={query.data!}
-                  exportConfig={exportConfig}
-                />
-                <F_rb55trm19d_Delete /> */}
+              <AQButtonCreateByImportFile
+                setImportedData={setImportData}
+                form={form_multiple}
+                onSubmit={() => {
+                  console.log(form_multiple.values);
+                }}
+              />
+              <AQButtonExportData
+                isAllData={true}
+                objectName="dsCapNhatKyBaoCao"
+                data={query.data!}
+                exportConfig={exportConfig}
+              />
+              <MyButton crudType="delete" >Xóa</MyButton>
             </>
+          );
+        }}
+        renderRowActions={({ row }) => {
+          return (
+            <MyCenterFull>
+              <F_vrdjnzpfmc_Update value={row.original} />
+              <F_vrdjnzpfmc_Delete
+                id={row.original.maKy!}
+                context={row.original.maKy!}
+              />
+            </MyCenterFull>
           );
         }}
       />
