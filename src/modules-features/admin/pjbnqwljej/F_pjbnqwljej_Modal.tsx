@@ -9,6 +9,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { MyButtonModal, MyDataTable } from 'aq-fe-framework/components';
 import { useEffect, useState } from 'react';
 import MyFlexColumn from '@/components/Layouts/FlexColumn/MyFlexColumn';
+import MyButtonViewPDF from '@/components/Buttons/ButtonViewPDF/MyButtonViewPDF';
 interface Evidence {
     code: string;              // Mã minh chứng
     name: string;              // Tên minh chứng
@@ -67,13 +68,13 @@ export default function F_rdrmqcfvux_Update({ data }: { data: F_pjbnqwljej_Read 
         },
         {
             header: "Xem file",
-            accessorFn: row => row.fileUrl,
-            id: "fileUrl",
-            // Cell: ({ cell }) => (
-            //     <a href={cell.getValue()} target="_blank" rel="noopener noreferrer">
-            //         Xem
-            //     </a>
-            // ),
+            enableSorting: false,
+            size: 90,
+            mantineTableBodyCellProps: {
+                align: 'center',
+            },
+            accessorFn: (row) =>
+                row.fileUrl == null || row.fileUrl == "" ? "" : <MyButtonViewPDF />,
         },
         {
             header: "Xem liên kết",
