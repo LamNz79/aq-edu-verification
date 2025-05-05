@@ -114,9 +114,9 @@ export default function F_6j8jkftgnc_Update({data}: {data: I6j8jkftgnc_InputUpda
 
 
     return (
-        <MyActionIconUpdate crudType='update' title={modalName} form={form} onSubmit={() => {}}>
-            <MyTextInput label="Tên bộ đếm" {...form.getInputProps("tenBoDem")}/>
+        <MyActionIconUpdate crudType='update' title={modalName} form={form} onSubmit={() => {}}> 
             <MyTextInput label="Mã bộ đếm" {...form.getInputProps("maBoDem")}/>
+            <MyTextInput label="Tên bộ đếm" {...form.getInputProps("tenBoDem")}/>
             <MySelect data={loaiNghiepVuQuery.data!} label="Loại nghiệp vụ" {...form.getInputProps("loaiNghiepVu")}/>
             <MySelect data={loaiDoiTuongQuery.data!} label="Loại đối tượng" {...form.getInputProps("loaiDoiTuong")}/>
             <MySelect data={chuKyLapLaiQuery.data!} label="Chu ký lập lại" {...form.getInputProps("chuKyLapLai")}/>
