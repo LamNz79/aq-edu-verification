@@ -1,8 +1,6 @@
 'use client';
 
-import MyActionIconUpdate from "@/components/ActionIcons/ActionIconCRUD/MyActionIconUpdate";
-import MyDateInput from "@/components/Inputs/DateInput/MyDateInput";
-import MyTextInput from "@/components/Inputs/TextInput/MyTextInput";
+import {MyActionIconUpdate,MyDateInput,MyTextInput} from "aq-fe-framework/components";
 import { Checkbox } from "@mantine/core";
 import { useForm } from "@mantine/form";
 

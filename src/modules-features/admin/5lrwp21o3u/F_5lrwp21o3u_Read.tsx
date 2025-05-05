@@ -1,10 +1,6 @@
 'use client';
 
-import { MyButton } from "@/components/Buttons/Button/MyButton";
-import AQButtonCreateByImportFile from "@/components/Buttons/ButtonCRUD/AQButtonCreateByImportFile";
-import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData";
-import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
-import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
+import { AQButtonCreateByImportFile, AQButtonExportData, MyDataTable,MyFieldset,MyCenterFull,} from "aq-fe-framework/components";
 import { U0DateToDDMMYYYString } from "@/utils/date";
 import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
@@ -13,9 +9,8 @@ import { useMemo, useState } from "react";
 import F_5lrwp21o3u_Create from "./F_5lrwp21o3u_Create";
 import F_5lrwp21o3u_Delete from "./F_5lrwp21o3u_Delete";
 import F_5lrwp21o3u_Delete_Datarow from "./F_5lrwp21o3u_Delete_Datarow";
-import MyCenterFull from "@/components/CenterFull/MyCenterFull";
 import F_5lrwp21o3u_Update from "./F_5lrwp21o3u_Update";
-import { Checkbox, Flex } from "@mantine/core";
+import { Checkbox } from "@mantine/core";
 
 interface IDandSachBoTieuChuanRead {
     cycleId: string; // Mã chu kỳ
