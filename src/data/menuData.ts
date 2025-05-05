@@ -49,12 +49,13 @@ export const menuData: I0LinkItem[] = [
     status: "Prototype"
   },
   {
-    label: "Danh sách minh chứng",
-    link: "nxiyjlnrik",
-  },
-  {
     label: "Phân công phụ trách mốc chuẩn",
     link: "i3sm0z5ns4",
+    status: "Prototype"
+  },
+  {
+    label: "Danh sách minh chứng",
+    link: "nxiyjlnrik",
   },
   {
     label: "Danh mục hệ thống",

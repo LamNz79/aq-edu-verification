@@ -4,7 +4,6 @@ import { MySelect, MyDataTable, MyFieldset, AQButtonExportData, MyButton } from 
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo, useState } from "react";
-import F_i3sm0z5ns4_Delete from "./F_i3sm0z5ns4_Delete";
 
 interface Ii3sm0z5ns4_ReadProps {
   maTieuChuan: string;
@@ -57,8 +56,8 @@ const mockData: Ii3sm0z5ns4_ReadProps[] = [
 
 export default function F_i3sm0z5ns4_Read() {
   //===initiate===
-  const [dvptEdited, dvptSetEdited] = useState<string|null>(null) // Đơn vị phụ trách
-  const [nsptEdited, nsptSetEdited] = useState<string|null>(null) // Nhân sự phụ trách
+  const [dvptEdited, dvptSetEdited] = useState<string | null>(null) // Đơn vị phụ trách
+  const [nsptEdited, nsptSetEdited] = useState<string | null>(null) // Nhân sự phụ trách
   //===pseudo data===
   const donViPhuTrachQuery = useQuery<ISelectOption[]>({
     queryKey: ["Fi3sm0z5ns4_DonViPhuTrach_Read"],
@@ -88,66 +87,38 @@ export default function F_i3sm0z5ns4_Read() {
     ],
   };
 
-//   const handleFieldChange = (row: Ii3sm0z5ns4_ReadProps, fieldName: keyof Ii3sm0z5ns4_ReadProps, fieldValue: string) => {
-//     if (fieldValue === undefined || fieldValue === null) fieldValue = "1"
-
-//     setEdited((prev) => {
-//         // Check if the row already exists in editedGSMethods
-//         const existingIndex = prev!.findIndex((item) => item.maTieuChuan === row.maTieuChuan);
-
-//         if (existingIndex !== -1) {
-//             // Update existing row
-//             const updatedMethods = [...prev!];
-//             updatedMethods[existingIndex] = {
-//                 ...updatedMethods[existingIndex],
-//                 [fieldName]: fieldValue
-//             };
-//             return updatedMethods;
-//         } else {
-//             // Add new modified row
-//             return [...prev!, {
-//                 ...row,
-//                 [fieldName]: fieldValue
-//             }];
-//         }
-//     });
-// };
-
   //===component===
-  const danhSachBoTieuChuanColumns = useMemo<
-    MRT_ColumnDef<Ii3sm0z5ns4_ReadProps>[]
-  >(
-    () => [
-      { accessorKey: "maTieuChuan", header: "Mã tiêu chuẩn" },
-      { accessorKey: "maTieuChi", header: "Mã tiêu chí" },
-      { accessorKey: "maMocChuan", header: "Mã mốc chuẩn" },
-      { accessorKey: "tenMocChuan", header: "Tên mốc chuẩn" },
-      { accessorKey: "ghiChu", header: "Ghi chú" },
-      {
-        accessorKey: "donViPhuTrach",
-        header: "Đơn vị phụ trách",
-        Cell: ({row}) => (
-          <MySelect
-            placeholder="Đơn vị phụ trách"
-            value={dvptEdited??row.original.donViPhuTrach}
-            data={donViPhuTrachQuery.data!.map(item => item.label)}
-            onChange={dvptSetEdited}
-          ></MySelect>
-        ),
-      },
-      {
-        accessorKey: "nhanSuPhuTrach",
-        header: "Nhân sự phụ trách",
-        Cell: ({row}) => (
-          <MySelect
-            placeholder="Nhân sự phụ trách"
-            value={nsptEdited??row.original.nhanSuPhuTrach}
-            data={nhanSuPhuTrachQuery.data!.map((item) => item.label)}
-            onChange={nsptSetEdited}
-          ></MySelect>
-        ),
-      },
-    ],
+  const danhSachBoTieuChuanColumns = useMemo<MRT_ColumnDef<Ii3sm0z5ns4_ReadProps>[]>(() => [
+    { accessorKey: "maTieuChuan", header: "Mã tiêu chuẩn" },
+    { accessorKey: "maTieuChi", header: "Mã tiêu chí" },
+    { accessorKey: "maMocChuan", header: "Mã mốc chuẩn" },
+    { accessorKey: "tenMocChuan", header: "Tên mốc chuẩn" },
+    { accessorKey: "ghiChu", header: "Ghi chú" },
+    {
+      accessorKey: "donViPhuTrach",
+      header: "Đơn vị phụ trách",
+      Cell: ({ row }) => (
+        <MySelect
+          placeholder="Đơn vị phụ trách"
+          value={dvptEdited ?? row.original.donViPhuTrach}
+          data={donViPhuTrachQuery.data!.map(item => item.label)}
+          onChange={dvptSetEdited}
+        ></MySelect>
+      ),
+    },
+    {
+      accessorKey: "nhanSuPhuTrach",
+      header: "Nhân sự phụ trách",
+      Cell: ({ row }) => (
+        <MySelect
+          placeholder="Nhân sự phụ trách"
+          value={nsptEdited ?? row.original.nhanSuPhuTrach}
+          data={nhanSuPhuTrachQuery.data!.map((item) => item.label)}
+          onChange={nsptSetEdited}
+        ></MySelect>
+      ),
+    },
+  ],
     [dvptEdited, nsptEdited, donViPhuTrachQuery.data, nhanSuPhuTrachQuery.data]
   );
 
@@ -179,7 +150,7 @@ export default function F_i3sm0z5ns4_Read() {
                 exportConfig={exportConfig}
                 objectName="danhSachBoTieuChuan"
               />
-              <F_i3sm0z5ns4_Delete />
+              <MyButton crudType="delete">Xóa</MyButton>
             </>
           )}
         />
