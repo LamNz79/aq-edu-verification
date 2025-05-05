@@ -27,7 +27,7 @@ export const menuData: I0LinkItem[] = [
   {
     label: "Quản lý Bộ tiêu chuẩn",
     links: [
-      { pageId: 31, name: "Standard list", label: "Danh sách Bộ tiêu chuẩn", link: "", status: "Default" },
+      { pageId: 31, name: "Standard list", label: "Danh sách Bộ tiêu chuẩn", link: "mc1b1zpbg6", status: "Prototype" },
       { pageId: 32, name: "Standard structure", label: "Cấu trúc bộ tiêu chuẩn", link: "", status: "Default" },
     ],
   },

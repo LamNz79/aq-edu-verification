@@ -1,0 +1,19 @@
+import { Text } from '@mantine/core';
+import baseAxios from '@/api/baseAxios';
+import MyActionIconDelete from '@/components/ActionIcons/ActionIconCRUD/MyActionIconDelete';
+import React from 'react';
+
+export default function F_mc1b1zpbg6_Delete({ id }: { id: string }) {
+    return (
+        <MyActionIconDelete
+            title="Xác nhận xóa bộ tiêu chuẩn"
+            contextData={id}
+            onSubmit={async () => {
+                await baseAxios.post('/Standards/Delete', {
+                    maBoTieuChuan: id,
+                    isEnabled: true,
+                });
+            }}
+        />
+    );
+}
