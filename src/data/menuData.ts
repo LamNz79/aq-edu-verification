@@ -29,6 +29,7 @@ export const menuData: I0LinkItem[] = [
   {
     label: "Danh sách tiêu chuẩn",
     link: "yqdijiutfg",
+    status: "Prototype"
   },
   {
     label: "Danh sách tiêu chí",

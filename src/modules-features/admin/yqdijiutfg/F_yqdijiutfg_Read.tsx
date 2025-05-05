@@ -1,10 +1,4 @@
 "use client";
-import { MyButton } from "@/components/Buttons/Button/MyButton";
-import AQButtonCreateByImportFile from "@/components/Buttons/ButtonCRUD/AQButtonCreateByImportFile";
-import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData";
-import MyCenterFull from "@/components/CenterFull/MyCenterFull";
-import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
-import MyFlexColumn from "@/components/Layouts/FlexColumn/MyFlexColumn";
 import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
@@ -12,6 +6,7 @@ import { useMemo, useState } from "react";
 import F_yqdijiutfg_Create from "./F_yqdijiutfg_Create";
 import F_yqdijiutfg_Update from "./F_yqdijiutfg_Update";
 import F_yqdijiutfg_Delete from "./F_yqdijiutfg_Delete";
+import { AQButtonCreateByImportFile, AQButtonExportData, MyButton, MyCenterFull, MyDataTable, MyFieldset } from "aq-fe-framework/components";
 
 export interface I_yqdijiutfg_Read {
     maTieuchuan?: string; // Mã tiêu chuẩn
@@ -64,17 +59,17 @@ export default function F_yqdijiutfg_Read() {
         () => [
             { header: "Mã tiêu chuẩn", accessorKey: "maTieuchuan" },
             { header: "Tên tiêu chuẩn", accessorKey: "tenTieuChuan" },
-            { header: "Tên tiêu chuẩn (English)", accessorKey: "tenTieuChuanEg" },
+            { header: "Tên tiêu chuẩn Eg", accessorKey: "tenTieuChuanEg" },
             { header: "Ghi chú", accessorKey: "ghiChu" },
         ],
-        [query.data]
+        []
     );
 
     const exportConfig = {
         fields: [
             { fieldName: "maTieuchuan", header: "Mã tiêu chuẩn" },
             { fieldName: "tenTieuChuan", header: "Tên tiêu chuẩn" },
-            { fieldName: "tenTieuChuanEg", header: "Tên tiêu chuẩn (English)" },
+            { fieldName: "tenTieuChuanEg", header: "Tên tiêu chuẩn Eg" },
             { fieldName: "ghiChu", header: "Ghi chú" },
         ],
     };
@@ -84,8 +79,8 @@ export default function F_yqdijiutfg_Read() {
     if (query.isError) return "Không có dữ liệu...";
 
     return (
-        <MyFlexColumn title="Danh sách tiêu chuẩn">
-            <MyDataTable<I_yqdijiutfg_Read>
+        <MyFieldset title="Danh sách tiêu chuẩn">
+            <MyDataTable
                 enableRowSelection={true}
                 columns={columns}
                 data={query.data!}
@@ -112,11 +107,11 @@ export default function F_yqdijiutfg_Read() {
                     return (
                         <MyCenterFull>
                             <F_yqdijiutfg_Update value={row.original} />
-                            <F_yqdijiutfg_Delete id={row.original.maTieuchuan!} />
+                            <F_yqdijiutfg_Delete id={row.original.maTieuchuan!} context={row.original.maTieuchuan!} />
                         </MyCenterFull>
                     );
                 }}
             />
-        </MyFlexColumn>
+        </MyFieldset>
     );
 }

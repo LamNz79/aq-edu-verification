@@ -37,19 +37,16 @@ export default function F_yqdijiutfg_Create() {
     >
       <MyTextInput
         label="Mã tiêu chuẩn"
-        placeholder="Nhập mã tiêu chuẩn"
         required
         {...form.getInputProps("maTieuchuan")}
       />
       <MyTextInput
         label="Tên tiêu chuẩn"
-        placeholder="Nhập tên tiêu chuẩn"
         required
         {...form.getInputProps("tenTieuChuan")}
       />
       <MyTextInput
-        label="Tên tiêu chuẩn (English)"
-        placeholder="Nhập tên tiêu chuẩn tiếng Anh"
+        label="Tên tiêu chuẩn Eg"
         {...form.getInputProps("tenTieuChuanEg")}
       />
       <MyTextArea
