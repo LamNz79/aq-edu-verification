@@ -5,6 +5,7 @@ import {
   MyDataTable,
   MyFieldset,
   AQButtonCreateByImportFile,
+  MyButton,
 } from "aq-fe-framework/components";
 import { Group, PasswordInput } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
@@ -14,7 +15,6 @@ import F_zwgpy0521g_Update from "./F_zwgpy0521g_Update";
 import F_zwgpy0521g_Delete from "./F_zwgpy0521g_Delete";
 import F_zwgpy0521g_Create from "./F_zwgpy0521g_Create";
 import { useForm } from "@mantine/form";
-import F_zwgpy0521g_Delete_DataTable from "./F_zwgpy0521g_Delete_datatable";
 
 interface I_zwgpy0521g_DanhMucCauHinhMail {
   id?: number;
@@ -142,7 +142,7 @@ export default function F_zwgpy0521g_Read() {
               exportConfig={exportConfig}
               objectName="danhSachCauHinhMail"
             />
-            <F_zwgpy0521g_Delete_DataTable />
+            <MyButton crudType='delete'>Xóa</MyButton>
           </Group>
         )}
         renderRowActions={({ row }) => (

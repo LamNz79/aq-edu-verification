@@ -1,6 +1,5 @@
 'use client'
 
-import MyActionIconUpdate from "@/components/ActionIcons/ActionIconCRUD/MyActionIconUpdate";
 import MyButtonCreate from "@/components/Buttons/ButtonCRUD/MyButtonCreate";
 import MySelect from "@/components/Combobox/Select/MySelect";
 import MyTextInput from "@/components/Inputs/TextInput/MyTextInput";
@@ -16,7 +15,7 @@ interface I_zwgpy0521g {
     userName?: string;
     password?: string;
 }
-export default function F_zwgpy0521g_Create({values}: {values?: any}) {
+export default function F_zwgpy0521g_Create({ values }: { values?: any }) {
     const form = useForm<I_zwgpy0521g>({
         initialValues: {
             phanHe: '',
@@ -32,25 +31,25 @@ export default function F_zwgpy0521g_Create({values}: {values?: any}) {
             hostMailServer: (value) => (value ? null : "Host mail server không được để trống"),
             outgoingPort: (value) => (value ? null : "Outgoing port không được để trống"),
             incomingPort: (value) => (value ? null : "Incoming port không được để trống"),
-            SSL: (value) => (value!==undefined ? null : "SSL không được để trống"),
+            SSL: (value) => (value !== undefined ? null : "SSL không được để trống"),
             userName: (value) => (value ? null : "Username không được để trống"),
             password: (value) => (value ? null : "Password không được để trống"),
         },
     });
 
     return (
-        <MyButtonCreate<I_zwgpy0521g> title="Danh mục cấu hình mail" form={form} onSubmit={() => {}}>
+        <MyButtonCreate<I_zwgpy0521g> title="Danh mục cấu hình mail" form={form} onSubmit={() => { }}>
             <MyFlexColumn>
-                <MySelect label="Phân hệ" searchable 
-                data = {
-                    [
-                        {value: "Toàn hệ thống", label: "Toàn hệ thống"},
-                        {value: "Tuyển sinh", label: "Tuyển sinh"},
-                        {value: "Sinh viên", label: "Sinh viên"},
-                        {value: "Khảo thí", label: "Khảo thí"},
-                    ]
+                <MySelect label="Phân hệ" searchable
+                    data={
+                        [
+                            { value: "Toàn hệ thống", label: "Toàn hệ thống" },
+                            { value: "Tuyển sinh", label: "Tuyển sinh" },
+                            { value: "Sinh viên", label: "Sinh viên" },
+                            { value: "Khảo thí", label: "Khảo thí" },
+                        ]
 
-                }
+                    }
                 >
                 </MySelect>
                 <MyTextInput name="hostMailServer" label="Host mail server" required />
