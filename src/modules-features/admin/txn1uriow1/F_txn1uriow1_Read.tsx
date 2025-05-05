@@ -1,14 +1,15 @@
 'use client';
 
-import {AQButtonCreateByImportFile, AQButtonExportData, MyDataTable, MyFieldset,  } from "aq-fe-framework/components";
+import { AQButtonCreateByImportFile, AQButtonExportData, MyButton, MyDataTable, MyFieldset, } from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo, useState } from "react";
 import F_txn1uriow1_Create from "./F_txn1uriow1_Create";
-import F_txn1uriow1_Delete_Topbar from "./F_txn1uriow1_Delete_Topbar";
-import F_txn1uriow1_Delete_Datarow from "./F_txn1uriow1_Delete_Datarow";
 import F_txn1uriow1_Update from "./F_txn1uriow1_Update";
+import F_txn1uriow1_Delete from "./F_txn1uriow1_Delete";
+import MyCenterFull from "@/components/CenterFull/MyCenterFull";
+import { Group } from "@mantine/core";
 
 interface Itxn1uriow1_ReadDanhSachMocChuan {
     maTieuChuan: string; // mã tiêu chuẩn
@@ -58,66 +59,66 @@ export default function F_txn1uriow1_Read() {
 
     //===config===
     const exportConfig = {
-        fields:[
+        fields: [
             {
-                fieldName: "maTieuChuan", 
+                fieldName: "maTieuChuan",
                 header: "Mã tiêu chuẩn"
             },
             {
-                fieldName: "maTieuChi", 
+                fieldName: "maTieuChi",
                 header: "Mã tiêu chí"
             },
             {
-                fieldName: "tenTieuChi", 
+                fieldName: "tenTieuChi",
                 header: "Tên tiêu chí"
             },
             {
-                fieldName: "maMocChuan", 
+                fieldName: "maMocChuan",
                 header: "Mã mốc chuẩn"
             },
             {
-                fieldName: "tenMocChuan", 
+                fieldName: "tenMocChuan",
                 header: "Tên mốc chuẩn"
             },
             {
-                fieldName: "moTa", 
+                fieldName: "moTa",
                 header: "Mô tả"
             },
             {
-                fieldName: "ghiChu", 
+                fieldName: "ghiChu",
                 header: "Ghi chú"
             },
         ]
     }
 
     //===function===
-    const danhMucBoDemColumns = useMemo<MRT_ColumnDef<Itxn1uriow1_ReadDanhSachMocChuan>[]>(() => [    
+    const danhMucBoDemColumns = useMemo<MRT_ColumnDef<Itxn1uriow1_ReadDanhSachMocChuan>[]>(() => [
         {
-            accessorKey: "maTieuChuan", 
+            accessorKey: "maTieuChuan",
             header: "Mã tiêu chuẩn"
         },
         {
-            accessorKey: "maTieuChi", 
+            accessorKey: "maTieuChi",
             header: "Mã tiêu chí"
         },
         {
-            accessorKey: "tenTieuChi", 
+            accessorKey: "tenTieuChi",
             header: "Tên tiêu chí"
         },
         {
-            accessorKey: "maMocChuan", 
+            accessorKey: "maMocChuan",
             header: "Mã mốc chuẩn"
         },
         {
-            accessorKey: "tenMocChuan", 
+            accessorKey: "tenMocChuan",
             header: "Tên mốc chuẩn"
         },
         {
-            accessorKey: "moTa", 
+            accessorKey: "moTa",
             header: "Mô tả"
         },
         {
-            accessorKey: "ghiChu", 
+            accessorKey: "ghiChu",
             header: "Ghi chú"
         },
     ], []);
@@ -125,40 +126,42 @@ export default function F_txn1uriow1_Read() {
     //===handlers===
     if (danhSachMocChuanQuery.isLoading) return "Đang tải...";
     if (danhSachMocChuanQuery.isError) return "Có lỗi xảy ra!";
-    
-    return(
+
+    return (
         <>
             <MyFieldset title="Danh sách mốc chuẩn">
-            <MyDataTable
-                columns={danhMucBoDemColumns}
-                data={danhSachMocChuanQuery.data!}
-                enableRowSelection={true}
-                enableRowNumbers={true}
-                renderTopToolbarCustomActions={()=>
-                <>
-                    <F_txn1uriow1_Create/>
-                    <AQButtonCreateByImportFile 
-                        setImportedData={setImportData}
-                        form={form}
-                        onSubmit={() => console.log(form.values) }
+                <MyDataTable
+                    columns={danhMucBoDemColumns}
+                    data={danhSachMocChuanQuery.data!}
+                    enableRowSelection={true}
+                    enableRowNumbers={true}
+                    renderTopToolbarCustomActions={() =>
+                        <>
+                            <F_txn1uriow1_Create />
+                            <AQButtonCreateByImportFile
+                                setImportedData={setImportData}
+                                form={form}
+                                onSubmit={() => console.log(form.values)}
 
-                    />
-                    <AQButtonExportData
-                        exportConfig={exportConfig}
-                        data={danhSachMocChuanQuery.data!}
-                        isAllData={true}
-                        objectName={'Danh sách mốc chuẩn'}
-                    />
-                    <F_txn1uriow1_Delete_Topbar/>
-                </>
-                }
-                renderRowActions={({ row }) => 
-                <>
-                    <F_txn1uriow1_Update data={row.original}/>
-                    <F_txn1uriow1_Delete_Datarow id={row.original.maTieuChuan}/>
-                </>
-                }
-            />
+                            />
+                            <AQButtonExportData
+                                exportConfig={exportConfig}
+                                data={danhSachMocChuanQuery.data!}
+                                isAllData={true}
+                                objectName={'Danh sách mốc chuẩn'}
+                            />
+                            <MyButton crudType="delete">Xóa</MyButton>
+                        </>
+                    }
+                    renderRowActions={({ row }) =>
+                        <>
+                            <Group>
+                                <F_txn1uriow1_Update data={row.original} />
+                                <F_txn1uriow1_Delete id={row.original.maTieuChuan} />
+                            </Group>
+                        </>
+                    }
+                />
             </MyFieldset>
         </>
     );
