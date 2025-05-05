@@ -50,7 +50,7 @@ export const menuData: I0LinkItem[] = [
   },
   {
     label: "Danh sách minh chứng",
-    link: "4-2",
+    link: "nxiyjlnrik",
   },
   {
     label: "Phân công phụ trách mốc chuẩn",
@@ -66,5 +66,4 @@ export const menuData: I0LinkItem[] = [
       {pageId: 1003, name:"", label: "Danh mục cấu hình mail", link: "zwgpy0521g", status: "Prototype"},
     ],
   },
-  
-];
+]; 
