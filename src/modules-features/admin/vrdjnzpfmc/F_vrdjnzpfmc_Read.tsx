@@ -1,3 +1,4 @@
+"use client";
 import { MyFlexColumn } from "aq-fe-framework/components";
 import { Text } from "@mantine/core";
 import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
@@ -7,7 +8,8 @@ import { mock } from "node:test";
 import { useMemo } from "react";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { utils_date_dateToDDMMYYYString } from "@/utils/date";
-export interface F_qlkbc_Read {
+import F_vrdjnzpfmc_Create from "./F_vrdjnzpfmc_Create";
+export interface F_vrdjnzpfmc_Read {
   id?: number; // STT
   maChuKy?: string; // Mã chủ kỳ
   maKy?: string; // Mã kỳ
@@ -17,7 +19,7 @@ export interface F_qlkbc_Read {
   ghiChu?: string; // Ghi chú
 }
 
-const mockData: F_qlkbc_Read[] = [
+const mockData: F_vrdjnzpfmc_Read[] = [
   {
     id: 1,
     maChuKy: "2023-2028",
@@ -37,12 +39,12 @@ const mockData: F_qlkbc_Read[] = [
     ghiChu: "Ghi chú 2",
   },
 ];
-export default function F_qlkbc_Read() {
-  const query = useQuery<F_qlkbc_Read[]>({
-    queryKey: ["F_qlkbc_Read"],
+export default function F_vrdjnzpfmc_Read() {
+  const query = useQuery<F_vrdjnzpfmc_Read[]>({
+    queryKey: ["F_vrdjnzpfmc_Read"],
     queryFn: async () => mockData,
   });
-  const columns = useMemo<MRT_ColumnDef<F_qlkbc_Read>[]>(
+  const columns = useMemo<MRT_ColumnDef<F_vrdjnzpfmc_Read>[]>(
     () => [
       {
         header: "Mã chu kỳ",
@@ -89,31 +91,30 @@ export default function F_qlkbc_Read() {
         columns={columns}
         enableRowNumbers={true}
         data={query.data!}
-        // renderTopToolbarCustomActions={({ table }) => {
-        //   return (
-        //     <>
-        //       <Group>
-        //         <MyButton crudType="save" />
-        //         <AQButtonCreateByImportFile
-        //           setImportedData={setImportData}
-        //           form={form_multiple}
-        //           onSubmit={() => {
-        //             console.log(form_multiple.values);
-        //           }}
-        //         >
-        //           s
-        //         </AQButtonCreateByImportFile>
-        //         <AQButtonExportData
-        //           isAllData={true}
-        //           objectName="dsPLO"
-        //           data={query.data!}
-        //           exportConfig={exportConfig}
-        //         />
-        //         <F_rb55trm19d_Delete />
-        //       </Group>
-        //     </>
-        //   );
-        // }}
+        renderTopToolbarCustomActions={({ table }) => {
+          return (
+            <>
+              <F_vrdjnzpfmc_Create />
+              {/* <MyButton crudType="save" />
+                <AQButtonCreateByImportFile
+                  setImportedData={setImportData}
+                  form={form_multiple}
+                  onSubmit={() => {
+                    console.log(form_multiple.values);
+                  }}
+                >
+                  s
+                </AQButtonCreateByImportFile>
+                <AQButtonExportData
+                  isAllData={true}
+                  objectName="dsPLO"
+                  data={query.data!}
+                  exportConfig={exportConfig}
+                />
+                <F_rb55trm19d_Delete /> */}
+            </>
+          );
+        }}
       />
     </MyFieldset>
   );
