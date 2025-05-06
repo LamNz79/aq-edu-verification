@@ -1,7 +1,7 @@
 import { I0LinkItem } from "@/components/Layouts/BasicAppShell/BasicAppShell";
 
 export const menuData: I0LinkItem[] = [
-  { pageId: 1, label: "Dashboard", link: "dashboard", status: "Default" },
+  { pageId: 1, label: "Dashboard", link: "obf4m08gkx", status: "Prototype" },
   {
     label: "Quản lý hệ thống",
     links: [
