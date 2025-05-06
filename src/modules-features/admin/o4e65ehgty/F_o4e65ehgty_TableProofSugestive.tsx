@@ -1,5 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { MyButton, MyButtonViewPDF, MyDataTable, MyFieldset } from "aq-fe-framework/components";
+import {
+  MyButton,
+  MyButtonViewPDF,
+  MyDataTable,
+  MyFieldset,
+} from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
 import F_o4e65ehgty_Proof_View from "./F_o4e65ehgty_Proof/F_o4e65ehgty_Proof_View";
@@ -42,7 +47,7 @@ export default function F_o4e65ehgty_TableProofSugestive() {
       {
         header: "Xem file",
         accessorKey: "file",
-        accessorFn: (row)  => <MyButtonViewPDF id={parseInt(row.id)} />,
+        accessorFn: (row) => <MyButtonViewPDF id={parseInt(row.id)} />,
         size: 60,
       },
       {
@@ -60,6 +65,20 @@ export default function F_o4e65ehgty_TableProofSugestive() {
           }
         },
       },
+      {
+        header: "Thao tác",
+        accessorKey: "action",
+        size: 60,
+        accessorFn: (row) => {
+          if (row.ngayHetHan && new Date(row.ngayHetHan) < new Date()) {
+            return (
+              <MyButton variant="transparent" crudType="default">
+                Hủy
+              </MyButton>
+            );
+          }
+        },
+      },
     ],
     [Q_data.data]
   );
@@ -69,26 +88,12 @@ export default function F_o4e65ehgty_TableProofSugestive() {
       <MyDataTable
         enableRowSelection
         columns={columns}
-        rowActionSize={20}
         data={Q_data.data ?? []}
         renderTopToolbarCustomActions={() => (
           <>
             <F_o4e65ehgty_Proof_View />
           </>
         )}
-        renderRowActions={(row) => {
-          const originalRow = row.row.original;
-          if (
-            originalRow.ngayHetHan &&
-            new Date(originalRow.ngayHetHan) < new Date()
-          ) {
-            return (
-              <MyButton variant="transparent" crudType="default">
-                Hủy
-              </MyButton>
-            );
-          }
-        }}
       />
     </MyFieldset>
   );

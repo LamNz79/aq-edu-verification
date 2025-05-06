@@ -65,50 +65,48 @@ export default function F_o4e65ehgty_TableProof() {
           }
         },
       },
+      {
+        header: "Thao tác",
+        accessorKey: "thaoTac",
+        size: 60,
+        accessorFn: (row) => {
+          if (row.ngayHetHan && new Date(row.ngayHetHan) > new Date()) {
+            return (
+              <MyButton variant="transparent" crudType="default">
+                Sử dụng
+              </MyButton>
+            );
+          } else {
+            return (
+              <MyButton variant="transparent" crudType="default">
+                Hủy
+              </MyButton>
+            );
+          }
+        },
+      },
     ],
     [Q_data.data]
   );
 
   return (
     <MyFieldset title="File minh chứng">
-      <Group align="start" style={{ height: "336px", overflowY: "auto" }}>
-        <MyDataTable
-          enableRowSelection={true}
-          enableRowNumbers={true}
-          mantineTableContainerProps={{
-            style: { maxHeight: "200px" },
-          }}
-          columns={columns}
-          data={Q_data.data ?? []}
-          rowActionSize={100}
-          renderTopToolbarCustomActions={() => (
-            <>
-              <MyButton crudType="default" color="green">
-                Sử dụng
-              </MyButton>
-            </>
-          )}
-          renderRowActions={(row) => {
-            const originalRow = row.row.original;
-            if (
-              originalRow.ngayHetHan &&
-              new Date(originalRow.ngayHetHan) > new Date()
-            ) {
-              return (
-                <MyButton variant="transparent" crudType="default">
-                  Sử dụng
-                </MyButton>
-              );
-            } else {
-              return (
-                <MyButton variant="transparent" crudType="default">
-                  Hủy
-                </MyButton>
-              );
-            }
-          }}
-        />
-      </Group>
+      <MyDataTable
+        enableRowSelection={true}
+        enableRowNumbers={true}
+        mantineTableContainerProps={{
+          style: { maxHeight: "200px" },
+        }}
+        columns={columns}
+        data={Q_data.data ?? []}
+        renderTopToolbarCustomActions={() => (
+          <>
+            <MyButton crudType="default" color="green">
+              Sử dụng
+            </MyButton>
+          </>
+        )}
+      />
     </MyFieldset>
   );
 }

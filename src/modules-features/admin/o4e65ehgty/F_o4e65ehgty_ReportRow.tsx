@@ -39,7 +39,7 @@ export default function F_o4e65ehgty_ReportRow({
             <Textarea
               value={item.content! || ""}
               autosize={false}
-              rows={17}
+              rows={16}
               style={{
                 overflowY: "auto",
                 resize: "none",
@@ -47,7 +47,7 @@ export default function F_o4e65ehgty_ReportRow({
               readOnly
             />
           </GridCol>
-          <GridCol span={6}>
+          <GridCol span={6} >
             <F_o4e65ehgty_TableProof />
           </GridCol>
         </Grid>
