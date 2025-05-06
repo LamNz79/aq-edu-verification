@@ -24,6 +24,16 @@ export interface I_x19IQVXguk_Read {
     dvcapnhat?: string;
     status?: string;
 }
+export interface I_x19IQVXguk_Read2 {
+    id?: number;
+    codetc?: string;
+    codetchi?: string;
+    codeyc?: string;
+    nd?: string;
+    usedate?: Date;
+    nguoisudung?: string;
+    dvsudung?: string;
+}
 
 // Component hiển thị bảng dữ liệu
 export default function F_x19IQVXguk_Read() {
@@ -44,6 +54,21 @@ export default function F_x19IQVXguk_Read() {
                 nguoicapnhat: "Tô Ngọc Bảo",
                 dvcapnhat: "Phòng Tổ chức",
                 status: "Còn hiệu lực",
+              }
+        ]
+    });
+    const query2 = useQuery<I_x19IQVXguk_Read2[]>({
+        queryKey: ["F_x19IQVXguk_Read3"],
+        queryFn: async () => [
+            {
+                id: 1,
+                codetc: "F120001",
+                codetchi: "Quyết định ban hành đề cương",
+                codeyc: "PDF",
+                nd: "Quyết định ban hành đề cương",
+                usedate: new Date("2025-01-12T12:05:25"),
+                nguoisudung: "Tô Ngọc Bảo",
+                dvsudung: "Phòng Tổ chức",
               }
         ]
     });
@@ -119,6 +144,21 @@ export default function F_x19IQVXguk_Read() {
         ],
         []
     );
+    const columns2 = useMemo<MRT_ColumnDef<I_x19IQVXguk_Read2>[]>(
+        () => [
+            { header: "Mã tiêu chuẩn", accessorKey: "codetc" },
+            { header: "code tiêu chí", accessorKey: "codetchi" },
+            { header: "Mã yêu cầu/ mốc chuẩn", accessorKey: "codeyc" },
+            { header: "Nội dung", accessorKey: "nd" },
+            { header: "Ngày cập nhật", accessorKey: "usedate", Cell: ({ row }) => {
+                const d = row.original.usedate;
+                return <>{d?.toLocaleString("vi-VN", { hour12: false })}</>; // hiển thị dạng: 01/01/2024, 12:05:25
+              }, },
+            { header: "Người sử dụng", accessorKey: "nguoisudung" },
+            { header: "Đơn vị sử dụng", accessorKey: "dvsudung" },
+        ],
+        []
+    );
     
     // Xử lí trạng thái dữ liệu
     if (query.isLoading) return "Đang tải dữ liệu...";
@@ -126,25 +166,39 @@ export default function F_x19IQVXguk_Read() {
 
     return (
         
-        <MyButtonModal disclosure={disclosure} label="xem chi tiết" modalSize={"90%"} title="Chi tiết kỳ báo cáo">
+        <><MyButtonModal disclosure={disclosure} label="xem chi tiết" modalSize={"90%"} title="Chi tiết kỳ báo cáo">
             <label htmlFor="">Mã minh chứng: MC00252</label>
             <label htmlFor=""><strong>Tên minh chứng: bộ đề cương chi tiết tất cả các môn học phần của CTĐT</strong></label>
             <label htmlFor="">Danh sách phiên bản file minh chứng</label>
             <MyDataTable
-            enableRowSelection={true}
-            enableRowNumbers={true}
-            columns={columns}
-            data={query.data!}
-            initialState={{
-                columnPinning: { right: ["print"] } // Cố định cột "In" bên phải
-            }}
-            renderTopToolbarCustomActions={() => (
-                <>
-                
-                </>
-            )}
-        />
+                enableRowSelection={true}
+                enableRowNumbers={true}
+                columns={columns}
+                data={query.data!}
+                initialState={{
+                    columnPinning: { right: ["print"] } // Cố định cột "In" bên phải
+                }}
+                renderTopToolbarCustomActions={() => (
+                    <>
+
+                    </>
+                )} />
+                 <label htmlFor="">Nội dung sử dụng</label>
+                <MyDataTable
+                    enableRowSelection={true}
+                    enableRowNumbers={true}
+                    columns={columns2}
+                    data={query2.data!}
+                    initialState={{
+                        columnPinning: { right: ["print"] } // Cố định cót "In" bên phải
+                    }}
+                    renderTopToolbarCustomActions={() => (
+                        <>
+
+                        </>
+                    )} />
         </MyButtonModal>
+            </>
         
     );
 }
