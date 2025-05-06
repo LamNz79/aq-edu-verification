@@ -1,6 +1,5 @@
 "use client";
 import MyCheckbox from "@/components/Checkbox/MyCheckbox";
-import MySelect from "@/components/Combobox/Select/MySelect";
 import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
 import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 import { Button, Group } from "@mantine/core";
@@ -15,8 +14,6 @@ import { utils_date_dateToDDMMYYYString } from "aq-fe-framework/utils";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
 import F_79t4hwd85i_Update from "./F_79t4hwd85i_Update";
-// import F_qh09auoxvx_CandidateList from "./F_qh09auoxvx_CandidateList";
-// import F_qh09auoxvx_Delete from "./F_qh09auoxvx_Delete";
 
 interface I_F_79t4hwd85i_Read {
   id?: number;
@@ -138,9 +135,7 @@ export default function F_79t4hwd85i_Read() {
         size: 150,
         enableEditing: false,
         Cell: ({ cell }) => {
-          return (
-              <F_79t4hwd85i_Update />
-          );
+          return <F_79t4hwd85i_Update />;
         },
       },
     ],
@@ -175,7 +170,6 @@ export default function F_79t4hwd85i_Read() {
               </Button>
             </Group>
           )}
-          
         />
       </MyFieldset>
     </MyFlexColumn>

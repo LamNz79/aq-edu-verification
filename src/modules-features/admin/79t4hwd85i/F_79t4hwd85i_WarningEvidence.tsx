@@ -1,7 +1,7 @@
 import { MyButtonModal } from "@/components/Buttons/ButtonModal/MyButtonModal";
 import { Flex, Group, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconCheck, IconUpload } from "@tabler/icons-react";
+import { IconUpload } from "@tabler/icons-react";
 import { MyButton } from "aq-fe-framework/components";
 
 interface F_79t4hwd85i_WarningEvidenceProps {
