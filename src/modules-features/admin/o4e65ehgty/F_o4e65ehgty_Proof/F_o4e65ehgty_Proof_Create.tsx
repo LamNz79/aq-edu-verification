@@ -23,6 +23,7 @@ export default function F_o4e65ehgty_Proof_Create() {
   return (
     <MyButtonCreate
       form={form}
+      label="Thêm minh chứng"
       onSubmit={() => {}}
       objectName="Minh chứng"
     >

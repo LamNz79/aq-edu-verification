@@ -1,9 +1,8 @@
 import { Accordion, Flex, Grid, Group, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconEdit } from "@tabler/icons-react";
 import {
-  MyActionIconModal,
   MyButton,
+  MyButtonCreate,
   MyFieldset,
 } from "aq-fe-framework/components";
 import { useState } from "react";
@@ -11,6 +10,7 @@ import F_o4e65ehgty_History from "./F_o4e65ehgty_History";
 import F_o4e65ehgty_ReportRow from "./F_o4e65ehgty_ReportRow";
 import F_o4e65ehgty_Synthetic from "./F_o4e65ehgty_Synthetic";
 import F_o4e65ehgty_TableProofSugestive from "./F_o4e65ehgty_TableProofSugestive";
+import { useForm } from "@mantine/form";
 export interface I_o4e65ehgty_Update {
   id: number;
   name?: string;
@@ -21,20 +21,20 @@ export interface I_o4e65ehgty_Update {
 }
 
 export default function F_o4e65ehgty_Update() {
+  const form = useForm();
   const disc = useDisclosure();
   const [openHistory, setOpenHistory] = useState(false);
 
   return (
-    <MyActionIconModal
-      modalSize={"full"}
-      variant="transparent"
+    <MyButtonCreate
+      modalSize={"100%"}
       title="Chi tiết kỳ báo cáo"
-      icon={
-        <Group color="yollow">
-          <IconEdit />
-        </Group>
-      }
+      variant="transparent"
+      label="Cập nhật"
       disclosure={disc}
+      onSubmit={() => {}}
+      form={form}
+      leftSection={<></>}
     >
       <Grid>
         <Grid.Col span={{ base: 12, lg: openHistory ? 8 : 12 }}>
@@ -44,17 +44,12 @@ export default function F_o4e65ehgty_Update() {
           </Flex>
           <MyFieldset
             title="Danh sách nội dung báo cáo"
-            style={{ maxHeight: "500px", overflowY: "auto" }}
+            style={{ height: "400px", maxHeight: "400px", overflowY: "auto" }}
           >
             <Accordion defaultValue={`item-${mockData[0].id}`}>
               {mockData &&
                 mockData.map((item, index) => {
-                  return (
-                    <F_o4e65ehgty_ReportRow
-                      item={item}
-                      key={item.name}
-                    />
-                  );
+                  return <F_o4e65ehgty_ReportRow item={item} key={item.name} />;
                 })}
             </Accordion>
           </MyFieldset>
@@ -82,7 +77,7 @@ export default function F_o4e65ehgty_Update() {
           </Grid.Col>
         )}
       </Grid>
-    </MyActionIconModal>
+    </MyButtonCreate>
   );
 }
 
