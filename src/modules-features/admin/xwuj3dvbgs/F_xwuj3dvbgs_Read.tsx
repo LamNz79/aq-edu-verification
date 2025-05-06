@@ -96,11 +96,11 @@ export default function F_xwuj3dvbgs_Read() {
             accessorKey: "criteriaCode",
         },
         {
-            header: "Mã yêu cầu",
+            header: "Mã yêu cầu/ mốc chuẩn",
             accessorKey: "requirementCode",
         },
         {
-            header: "Tên yêu cầu",
+            header: "Tên yêu cầu / mốc chuẩn",
             accessorKey: "requirementName",
         },
         {
@@ -108,7 +108,7 @@ export default function F_xwuj3dvbgs_Read() {
             accessorKey: "result",
         },
         {
-            header: "Ghi chú",
+            header: "Nội dung cần khắc phục/ cải tiến",
             accessorKey: "note",
         },
 
