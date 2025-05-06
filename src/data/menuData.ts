@@ -54,7 +54,7 @@ export const menuData: I0LinkItem[] = [
     label: "Báo cáo tự đánh giá",
     links: [
       { pageId: 61, name: "Draft report", label: "Soạn nội dung báo cáo", link: "", status: "Default" },
-      { pageId: 62, name: "Summary report", label: "Tổng hợp báo cáo mốc chuẩn", link: "", status: "Default" },
+      { pageId: 62, name: "Summary report", label: "Tổng hợp báo cáo mốc chuẩn", link: "o4e65ehgty", status: "Prototype" },
       { pageId: 63, name: "Export report", label: "Xuất báo cáo tự đánh giá", link: "", status: "Default" },
     ],
   },
