@@ -1,9 +1,10 @@
 "use client";
-import MyButtonCreate from "@/components/Buttons/ButtonCRUD/MyButtonCreate";
 import { useDisclosure } from "@mantine/hooks";
 import { useForm } from "@mantine/form";
+import { notifications } from "@mantine/notifications";
 import {
   MyButton,
+  MyButtonModal,
   MyDataTable,
   MyDateInput,
   MyFieldset,
@@ -11,18 +12,17 @@ import {
   MyFlexRow,
   MyNumberInput,
   MySelect,
-  MyTextArea,
-  MyTextInput,
 } from "aq-fe-framework/components";
 import { useMemo, useState } from "react";
 import { MRT_ColumnDef } from "mantine-react-table";
-import { utils_date_dateToDDMMYYYString } from "@/utils/date";
+import { IconPlus } from "@tabler/icons-react";
 
 export interface F_vrdjnzpfmc_CreateChuKy {
   maChuKy?: string; // Mã chu kỳ
   soNam?: number; // Số năm của 1 chu kỳ
   namBatDau?: number; // Năm bắt đầu chu kỳ
   soKyCapNhat?: number; // Số kỳ cập nhật đánh giá trong một năm
+  dsChiTietChuKy: F_vrdjnzpfmc_CreateChiTietChuKy[]; // Danh sách chi tiết chu kỳ
 }
 
 export interface F_vrdjnzpfmc_CreateChiTietChuKy {
@@ -33,16 +33,80 @@ export interface F_vrdjnzpfmc_CreateChiTietChuKy {
   ngayKetThucTongHop?: Date; // Ngày kết thúc tổng hợp mốc chuẩn
 }
 export default function F_vrdjnzpfmc_CreateChuKy() {
-  const [dsKy, setDsKy] = useState<F_vrdjnzpfmc_CreateChiTietChuKy[]>([]);
   const disc = useDisclosure();
   const form = useForm<F_vrdjnzpfmc_CreateChuKy>({
-    initialValues: {},
+    initialValues: {
+      dsChiTietChuKy: [],
+    },
     validate: {
       soNam: (value) => (value ? null : "Không được để trống"),
       namBatDau: (value) => (value ? null : "Không được để trống"),
       soKyCapNhat: (value) => (value ? null : "Không được để trống"),
+      dsChiTietChuKy: {
+        ngayBatDauCapNhat: (value, values, path) => {
+          const index = parseInt(path.split(".")[1]);
+          const item = values.dsChiTietChuKy[index];
+          if (!value) {
+            return "Vui lòng chọn ngày bắt đầu cập nhật";
+          }
+          if (
+            value &&
+            item.ngayKetThucCapNhat &&
+            value > item.ngayKetThucCapNhat
+          ) {
+            return "Ngày bắt đầu cập nhật phải nhỏ hơn ngày kết thúc cập nhật";
+          }
+          return null;
+        },
+        ngayKetThucCapNhat: (value, values, path) => {
+          const index = parseInt(path.split(".")[1]);
+          const item = values.dsChiTietChuKy[index];
+          if (!value) {
+            return "Vui lòng chọn ngày kết thúc cập nhật";
+          }
+          if (
+            value &&
+            item.ngayBatDauCapNhat &&
+            value < item.ngayBatDauCapNhat
+          ) {
+            return "Ngày kết thúc cập nhật phải lớn hơn ngày bắt đầu cập nhật";
+          }
+          return null;
+        },
+        ngayBatDauTongHop: (value, values, path) => {
+          const index = parseInt(path.split(".")[1]);
+          const item = values.dsChiTietChuKy[index];
+          if (!value) {
+            return "Vui lòng chọn ngày bắt đầu tổng hợp";
+          }
+          if (
+            value &&
+            item.ngayKetThucTongHop &&
+            value > item.ngayKetThucTongHop
+          ) {
+            return "Ngày bắt đầu tổng hợp phải nhỏ hơn ngày kết thúc tổng hợp";
+          }
+          return null;
+        },
+        ngayKetThucTongHop: (value, values, path) => {
+          const index = parseInt(path.split(".")[1]);
+          const item = values.dsChiTietChuKy[index];
+          if (!value) {
+            return "Vui lòng chọn ngày kết thúc tổng hợp";
+          }
+          if (
+            value &&
+            item.ngayBatDauTongHop &&
+            value < item.ngayBatDauTongHop
+          ) {
+            return "Ngày kết thúc tổng hợp phải lớn hơn ngày bắt đầu tổng hợp";
+          }
+          return null;
+        },
+      },
     },
   });
+
   const handleConfirm = () => {
     const soKy = form.values.soKyCapNhat;
     if (soKy) {
@@ -56,9 +120,50 @@ export default function F_vrdjnzpfmc_CreateChuKy() {
           ngayKetThucTongHop: undefined,
         });
       }
-      setDsKy(newDsKy);
+      form.setFieldValue("dsChiTietChuKy", newDsKy);
     }
   };
+
+  const handleCreateChuKy = async () => {
+    try {
+      if (form.validate().hasErrors) {
+        return;
+      }
+
+      // Prepare data for API
+      const chuKyData = {
+        ...form.values,
+        dsChiTietChuKy: form.values.dsChiTietChuKy.map((ky) => ({
+          ...ky,
+          ngayBatDauCapNhat: ky.ngayBatDauCapNhat?.toISOString(),
+          ngayKetThucCapNhat: ky.ngayKetThucCapNhat?.toISOString(),
+          ngayBatDauTongHop: ky.ngayBatDauTongHop?.toISOString(),
+          ngayKetThucTongHop: ky.ngayKetThucTongHop?.toISOString(),
+        })),
+      };
+
+      // TODO: Add API call here
+      // const response = await api.createChuKy(chuKyData);
+      
+      notifications.show({
+        title: "Thành công",
+        message: "Tạo chu kỳ thành công",
+        color: "green",
+      });
+      
+      // Reset form to initial values
+      form.reset();
+      disc[1].close();
+    } catch (error) {
+      console.error("Error creating chu ky:", error);
+      notifications.show({
+        title: "Lỗi",
+        message: "Có lỗi xảy ra khi tạo chu kỳ",
+        color: "red",
+      });
+    }
+  };
+
   const columns = useMemo<MRT_ColumnDef<F_vrdjnzpfmc_CreateChiTietChuKy>[]>(
     () => [
       {
@@ -69,42 +174,78 @@ export default function F_vrdjnzpfmc_CreateChuKy() {
         accessorKey: "ngayBatDauCapNhat",
         header: "Ngày bắt đầu cập nhật nội dung báo cáo",
         Cell: ({ row }) => {
-          return <MyDateInput value={row.original.ngayBatDauCapNhat} />;
+          const index = form.values.dsChiTietChuKy.findIndex(
+            (item) => item.ky === row.original.ky
+          );
+          return (
+            <MyDateInput
+              {...form.getInputProps(
+                `dsChiTietChuKy.${index}.ngayBatDauCapNhat`
+              )}
+            />
+          );
         },
       },
       {
         accessorKey: "ngayKetThucCapNhat",
         header: "Ngày kết thúc cập nhật nội dung báo cáo",
         Cell: ({ row }) => {
-          return <MyDateInput value={row.original.ngayKetThucCapNhat} />;
+          const index = form.values.dsChiTietChuKy.findIndex(
+            (item) => item.ky === row.original.ky
+          );
+          return (
+            <MyDateInput
+              {...form.getInputProps(
+                `dsChiTietChuKy.${index}.ngayKetThucCapNhat`
+              )}
+            />
+          );
         },
       },
       {
         accessorKey: "ngayBatDauTongHop",
         header: "Ngày bắt đầu tổng hợp mốc chuẩn",
         Cell: ({ row }) => {
-          return <MyDateInput value={row.original.ngayBatDauTongHop} />;
+          const index = form.values.dsChiTietChuKy.findIndex(
+            (item) => item.ky === row.original.ky
+          );
+          return (
+            <MyDateInput
+              {...form.getInputProps(
+                `dsChiTietChuKy.${index}.ngayBatDauTongHop`
+              )}
+            />
+          );
         },
       },
       {
         accessorKey: "ngayKetThucTongHop",
         header: "Ngày kết thúc tổng hợp mốc chuẩn",
         Cell: ({ row }) => {
-          return <MyDateInput value={row.original.ngayKetThucTongHop} />;
+          const index = form.values.dsChiTietChuKy.findIndex(
+            (item) => item.ky === row.original.ky
+          );
+          return (
+            <MyDateInput
+              {...form.getInputProps(
+                `dsChiTietChuKy.${index}.ngayKetThucTongHop`
+              )}
+            />
+          );
         },
       },
     ],
-    []
+    [form]
   );
 
   return (
-    <MyButtonCreate
+    <MyButtonModal
       disclosure={disc}
-      form={form}
-      onSubmit={() => {}}
-      objectName="chu kỳ cập nhật báo cáo"
+      title="Tạo chu kỳ cập nhật báo cáo"
       modalSize={"90%"}
       label="Tạo chu kỳ"
+      leftSection={<IconPlus />}
+      color="blue"
     >
       <MyFlexColumn gap="md" style={{ height: "100%" }}>
         <MyFlexRow>
@@ -150,10 +291,10 @@ export default function F_vrdjnzpfmc_CreateChuKy() {
           >
             <div style={{ height: "calc(100% - 40px)" }}>
               <MyDataTable
-                enableRowSelection={true}
+                enableRowSelection={false}
                 columns={columns}
                 enableRowNumbers={false}
-                data={dsKy}
+                data={form.values.dsChiTietChuKy}
                 enableColumnResizing
                 enablePagination={false}
                 enableBottomToolbar={false}
@@ -167,7 +308,15 @@ export default function F_vrdjnzpfmc_CreateChuKy() {
             </div>
           </MyFieldset>
         </MyFlexRow>
+        <MyFlexRow justify="flex-end" gap="md">
+          <MyButton crudType="create" onClick={handleCreateChuKy}>
+            Tạo chu kỳ
+          </MyButton>
+          <MyButton crudType="cancel" onClick={() => disc[1].close()}>
+            Hủy
+          </MyButton>
+        </MyFlexRow>
       </MyFlexColumn>
-    </MyButtonCreate>
+    </MyButtonModal>
   );
 }
