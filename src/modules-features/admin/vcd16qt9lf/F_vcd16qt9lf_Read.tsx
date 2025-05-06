@@ -14,6 +14,7 @@ import { useState } from "react";
 import { initialize } from "next/dist/server/lib/render-server"
 import { useForm } from "@mantine/form"
 import MySelect from "@/components/Combobox/Select/MySelect"
+import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData"
 export interface I_vcd16qt9lf {
     id?: number; // STT
     standardCode?: string; // Mã tiêu chuẩn
@@ -25,6 +26,17 @@ export interface I_vcd16qt9lf {
     nguoiCapNhat?: string;
     ngayCapNhat?: Date | undefined;
 }
+
+const exportConfig = {
+    fields: [
+        { fieldName: "standardCode", fieldLabel: "Mã tiêu chuẩn", header: "Mã tiêu chuẩn" },
+        { fieldName: "criteriaCode", fieldLabel: "Mã tiêu chí", header: "Mã tiêu chí" },
+        { fieldName: "requirementCode", fieldLabel: "Mã yêu cầu", header: "Mã yêu cầu" },
+        { fieldName: "requirementName", fieldLabel: "Tên yêu cầu", header: "Tên yêu cầu" },
+        { fieldName: "result", fieldLabel: "Kết quả", header: "Kết quả" },
+        { fieldName: "note", fieldLabel: "Ghi chú", header: "Ghi chú" },
+    ]
+};
 
 export default function F_vcd16qt9lf_Read() {
 
@@ -89,7 +101,7 @@ export default function F_vcd16qt9lf_Read() {
                         { value: "Cần cải tiến", label: "Đạt (cần cải tiến)" },
                     ]}
                     defaultValue={cell.getValue<string>()}
-                    //{...resultForm.getInputProps("result")}
+                //{...resultForm.getInputProps("result")}
                 />
             ),
         },
@@ -99,7 +111,7 @@ export default function F_vcd16qt9lf_Read() {
             Cell: ({ cell, row, table }) => (
                 <MyTextInput
                     defaultValue={cell.getValue<string>()}
-                    //{...resultForm.getInputProps("note")}
+                //{...resultForm.getInputProps("note")}
                 />
             ),
         },
@@ -136,7 +148,12 @@ export default function F_vcd16qt9lf_Read() {
                                             <>
                                             </>
                                             <Button color="green" >Lưu</Button>
-                                            <MyButton crudType="export"></MyButton>
+                                            <AQButtonExportData
+                                                isAllData={true}
+                                                objectName="dmTHPB"
+                                                data={ListOfresultQuery.data!}
+                                                exportConfig={exportConfig}
+                                            />
                                             <Button color="red" leftSection={<IconTrash />}>Xóa</Button></>}
 
                                 />
