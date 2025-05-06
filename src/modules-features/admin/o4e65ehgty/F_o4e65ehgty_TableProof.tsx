@@ -97,6 +97,11 @@ export default function F_o4e65ehgty_TableProof() {
         mantineTableContainerProps={{
           style: { maxHeight: "200px" },
         }}
+        initialState={{
+          columnSizing: {
+            "mrt-row-numbers": 60,
+          },
+        }}
         columns={columns}
         data={Q_data.data ?? []}
         renderTopToolbarCustomActions={() => (
