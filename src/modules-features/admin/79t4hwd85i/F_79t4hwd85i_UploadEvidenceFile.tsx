@@ -1,10 +1,11 @@
+import MyFileInput from "@/components/Inputs/FileInput/MyFileInput";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { IconCalendarWeek, IconSearch } from "@tabler/icons-react";
 import {
   MyButtonCreate,
   MyDateInput,
-  MyTextInput
+  MyTextInput,
 } from "aq-fe-framework/components";
 
 interface F_79t4hwd85i_UploadEvidenceFile {
@@ -12,7 +13,7 @@ interface F_79t4hwd85i_UploadEvidenceFile {
   tenFile?: string;
   ngayHieuLuc?: Date;
   ngayHetHan?: Date;
-  upLoad?: string;
+  upLoad?: File;
   link?: string;
 }
 
@@ -29,7 +30,7 @@ export default function F_79t4hwd85i_UploadEvidenceFile({
       tenFile: "",
       ngayHieuLuc: undefined,
       ngayHetHan: undefined,
-      upLoad: "",
+      upLoad: undefined,
       link: "",
     },
     validate: {
@@ -61,8 +62,7 @@ export default function F_79t4hwd85i_UploadEvidenceFile({
         {...form.getInputProps("ngayHetHan")}
         rightSection={<IconCalendarWeek size={16} />}
       />
-      <MyTextInput
-        leftSection={<IconSearch size={16} />}
+      <MyFileInput
         label="Upload"
         {...form.getInputProps("upLoad")}
       />
