@@ -55,10 +55,10 @@ export const menuData: I0LinkItem[] = [
     links: [
       { pageId: 61, name: "Draft report", label: "Soạn nội dung báo cáo", link: "", status: "Default" },
       { pageId: 62, name: "Summary report", label: "Tổng hợp báo cáo mốc chuẩn", link: "", status: "Default" },
-      { pageId: 63, name: "Export report", label: "Xuất báo cáo tự đánh giá", link: "", status: "Default" },
+      { pageId: 63, name: "Export report", label: "Xuất báo cáo tự đánh giá", link: "k25w91d9v2", status: "Prototype" },
     ],
   },
-
+ 
   {
     label: "Khắc phục/ cải tiến kết quả đánh giá",
     links: [
