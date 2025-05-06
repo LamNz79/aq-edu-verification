@@ -63,7 +63,7 @@ export const menuData: I0LinkItem[] = [
     label: "Khắc phục/ cải tiến kết quả đánh giá",
     links: [
       { pageId: 71, name: "Evaluation result", label: "Ghi nhận kết quả đánh giá", link: "", status: "Default" },
-      { pageId: 72, name: "Improvement plan", label: "Kế hoạch khắc phục/ cải tiến", link: "", status: "Default" },
+      { pageId: 72, name: "Improvement plan", label: "Kế hoạch khắc phục/ cải tiến", link: "xwuj3dvbgs", status: "Prototype" },
       { pageId: 73, name: "Monitoring improvements", label: "Theo dõi thực hiện khắc phục/ cải tiến", link: "", status: "Default" },
     ],
   },
