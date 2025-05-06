@@ -62,11 +62,11 @@ export default function F_x19IQVXguk_Read() {
         queryFn: async () => [
             {
                 id: 1,
-                codetc: "F120001",
-                codetchi: "Quyết định ban hành đề cương",
-                codeyc: "PDF",
-                nd: "Quyết định ban hành đề cương",
-                usedate: new Date("2025-01-12T12:05:25"),
+                codetc: "TC001",
+                codetchi: "TC01.01",
+                codeyc: "MC0125",
+                nd: "Bộ đề cương",
+                usedate: new Date("2025-03-01T15:08:23"),
                 nguoisudung: "Tô Ngọc Bảo",
                 dvsudung: "Phòng Tổ chức",
               }
@@ -100,7 +100,7 @@ export default function F_x19IQVXguk_Read() {
 
             },
             {
-                header: "Link file",
+                header: "Link",
                 fieldName: "filelink",
             },
             {
@@ -133,7 +133,7 @@ export default function F_x19IQVXguk_Read() {
             { header: "Ngày hiệu lực", accessorKey: "effect_date", Cell: ({ row }) => <>{row.original.effect_date?.toLocaleDateString()}</> },
             { header: "Ngày hết hạn", accessorKey: "end_date", Cell: ({ row }) => <>{row.original.end_date?.toLocaleDateString()}</> },
             { header: "Xem file", accessorKey: "viewfile", Cell: ({ row }) => <MyButtonViewPDF label="Xem" /> },
-            { header: "Link file", accessorKey: "filelink", Cell: ({ row }) => <MyButtonViewPDF label="Xem" /> },
+            { header: "Link", accessorKey: "filelink", Cell: ({ row }) => <MyButtonViewPDF label="Xem" /> },
             { header: "Ngày cập nhật", accessorKey: "update_date", Cell: ({ row }) => {
                 const d = row.original.update_date;
                 return <>{d?.toLocaleString("vi-VN", { hour12: false })}</>; // hiển thị dạng: 01/01/2024, 12:05:25
@@ -147,10 +147,10 @@ export default function F_x19IQVXguk_Read() {
     const columns2 = useMemo<MRT_ColumnDef<I_x19IQVXguk_Read2>[]>(
         () => [
             { header: "Mã tiêu chuẩn", accessorKey: "codetc" },
-            { header: "code tiêu chí", accessorKey: "codetchi" },
+            { header: "Mã tiêu chí", accessorKey: "codetchi" },
             { header: "Mã yêu cầu/ mốc chuẩn", accessorKey: "codeyc" },
             { header: "Nội dung", accessorKey: "nd" },
-            { header: "Ngày cập nhật", accessorKey: "usedate", Cell: ({ row }) => {
+            { header: "Ngày sử dụng", accessorKey: "usedate", Cell: ({ row }) => {
                 const d = row.original.usedate;
                 return <>{d?.toLocaleString("vi-VN", { hour12: false })}</>; // hiển thị dạng: 01/01/2024, 12:05:25
               }, },

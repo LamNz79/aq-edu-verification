@@ -124,9 +124,9 @@ export default function F_x19IQVXguk_Read() {
                 return <>{d?.toLocaleString("vi-VN", { hour12: false })}</>; // hiển thị dạng: 01/01/2024, 12:05:25
               }, },
             { header: "Người cập nhật", accessorKey: "nguoicapnhat" },
-            { header: " đơn vị cập nhật", accessorKey: "dvcapnhat" },
+            { header: "Đơn vị cập nhật", accessorKey: "dvcapnhat" },
             { header: "Trạng thái", accessorKey: "status" },
-            { header: "Xem", accessorFn: (row) => <F_x19IQVXguk_Detail data={row.original} /> },
+            { header: "Xem chi tiết", accessorFn: (row) => <F_x19IQVXguk_Detail data={row.original} /> },
             { header: "Upload file minh chứng", accessorFn: (row) => <F_x19IQVXguk_Upload data={row.original} /> },
         ],
         []
