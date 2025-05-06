@@ -1,4 +1,3 @@
-import MyButtonCreate from "@/components/Buttons/ButtonCRUD/MyButtonCreate";
 import MyCheckbox from "@/components/Checkbox/MyCheckbox";
 import {
   Accordion,
@@ -10,21 +9,17 @@ import {
   Text,
   Textarea,
 } from "@mantine/core";
-import { useForm } from "@mantine/form";
-import { useDisclosure } from "@mantine/hooks";
 import { IconCheck } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
 import {
   MyButtonViewPDF,
   MyDataTable,
   MyFieldset,
-  MyFlexColumn,
-  MyTextEditor,
+  MyFlexColumn
 } from "aq-fe-framework/components";
 import { utils_date_dateToDDMMYYYString } from "aq-fe-framework/utils";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
-import F_79t4hwd85i_EvidenceList from "./F_79t4hwd85i_EvidenceList";
 
 interface I_FileMinhChung {
   id?: number;

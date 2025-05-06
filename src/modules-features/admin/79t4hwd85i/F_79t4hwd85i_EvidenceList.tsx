@@ -186,7 +186,7 @@ export default function F_79t4hwd85i_EvidenceList() {
           <Group>
             <AQButtonExportData
               isAllData={true}
-              objectName="dsClass"
+              objectName="dsMinhChung"
               data={danhSachFileMinhChung.data!}
               exportConfig={exportConfig}
             />
