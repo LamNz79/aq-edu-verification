@@ -1,14 +1,11 @@
 import MyButtonCreate from "@/components/Buttons/ButtonCRUD/MyButtonCreate";
-import {
-  Button,
-  Grid,
-  Group
-} from "@mantine/core";
+import { Button, Grid, Group } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
 import {
   MyButtonViewPDF,
+  MyCenterFull,
   MyDataTable,
   MyFieldset,
   MyFlexColumn,
@@ -93,37 +90,31 @@ export default function F_79t4hwd85i_Update() {
         header: "Ngày hiệu lực",
         accessorKey: "ngayHieuLuc",
         accessorFn: (originalRow) =>
-          originalRow.ngayHieuLuc
-            ? utils_date_dateToDDMMYYYString(originalRow.ngayHieuLuc)
-            : "",
+          originalRow.ngayHieuLuc ? utils_date_dateToDDMMYYYString(originalRow.ngayHieuLuc) : "",
       },
       {
         header: "Ngày hết hạn",
         accessorKey: "ngayHetHan",
         accessorFn: (originalRow) =>
-          originalRow.ngayHetHan
-            ? utils_date_dateToDDMMYYYString(originalRow.ngayHetHan)
-            : "",
+          originalRow.ngayHetHan ? utils_date_dateToDDMMYYYString(originalRow.ngayHetHan) : "",
       },
       {
         header: "Xem file",
         accessorKey: "xemfile",
         accessorFn: (originalRow) => (
-          <MyButtonViewPDF
-            label="Xem"
-            src="https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf"
-          />
+          <MyCenterFull>
+            <MyButtonViewPDF
+              label="Xem"
+              src="https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf"
+            />
+          </MyCenterFull>
         ),
       },
       {
         header: "Xem liên kết",
         accessorKey: "lienKet",
         Cell: ({ cell }) => (
-          <a
-            href={cell.getValue<string>()}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={cell.getValue<string>()} target="_blank" rel="noopener noreferrer">
             {cell.getValue<string>()}
           </a>
         ),
@@ -141,7 +132,9 @@ export default function F_79t4hwd85i_Update() {
           return trangThai === "Còn hạn" ? (
             ""
           ) : (
-            <Button variant="transparent">Huỷ</Button>
+            <MyCenterFull>
+              <Button variant="transparent">Huỷ</Button>
+            </MyCenterFull>
           );
         },
       },

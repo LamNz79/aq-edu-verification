@@ -5,11 +5,10 @@ import {
   AQButtonExportData,
   MyButtonModal,
   MyButtonViewPDF,
-  MyDataTable
+  MyCenterFull,
+  MyDataTable,
 } from "aq-fe-framework/components";
-import {
-  utils_date_dateToDDMMYYYString
-} from "aq-fe-framework/utils";
+import { utils_date_dateToDDMMYYYString } from "aq-fe-framework/utils";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
 import F_79t4hwd85i_AddEvidence from "./F_79t4hwd85i_AddEvidence";
@@ -78,40 +77,39 @@ export default function F_79t4hwd85i_EvidenceList() {
         header: "Xem file",
         accessorKey: "xemfile",
         accessorFn: (originalRow) => (
-          <MyButtonViewPDF
-            label="Xem"
-            src="https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf"
-          />
+          <MyCenterFull>
+            <MyButtonViewPDF
+              label="Xem"
+              src="https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf"
+            />
+          </MyCenterFull>
         ),
       },
       {
         header: "Link file",
         accessorKey: "linkFile",
-        accessorFn: (originalRow) => <Button variant="transparent">Xem</Button>,
+        accessorFn: (originalRow) => (
+          <MyCenterFull>
+            <Button variant="transparent">Xem</Button>
+          </MyCenterFull>
+        ),
       },
       {
         header: "Ngày hiệu lực",
         accessorKey: "ngayHieuLuc",
         accessorFn: (originalRow) =>
-          originalRow.ngayHieuLuc
-            ? utils_date_dateToDDMMYYYString(originalRow.ngayHieuLuc)
-            : "",
+          originalRow.ngayHieuLuc ? utils_date_dateToDDMMYYYString(originalRow.ngayHieuLuc) : "",
       },
       {
         header: "Ngày hết hạn",
         accessorKey: "ngayHetHan",
         accessorFn: (originalRow) =>
-          originalRow.ngayHetHan
-            ? utils_date_dateToDDMMYYYString(originalRow.ngayHetHan)
-            : "",
+          originalRow.ngayHetHan ? utils_date_dateToDDMMYYYString(originalRow.ngayHetHan) : "",
       },
       {
         header: "Ngày cập nhật",
         accessorKey: "ngayCapNhat",
-        accessorFn: (originalRow) =>
-          originalRow.ngayCapNhat
-            ? originalRow.ngayCapNhat
-            : "",
+        accessorFn: (originalRow) => (originalRow.ngayCapNhat ? originalRow.ngayCapNhat : ""),
       },
       {
         header: "Người cập nhật",
@@ -128,33 +126,41 @@ export default function F_79t4hwd85i_EvidenceList() {
       {
         header: "Xem chi tiết",
         accessorKey: "xemChiTiet",
-        accessorFn: (originalRow) => <Button variant="transparent">Xem</Button>,
+        accessorFn: (originalRow) => (
+          <MyCenterFull>
+            <Button variant="transparent">Xem</Button>
+          </MyCenterFull>
+        ),
       },
       {
         header: "Thao tác",
         accessorKey: "suDung",
         Cell: ({ cell }) => (
-          <F_79t4hwd85i_WarningEvidence
-            code={cell.row.original.maFileMinhChung!}
-            expireDate={
-              cell.row.original.ngayHetHan && cell.row.original.ngayHieuLuc
-                ? Math.floor(
-                    (cell.row.original.ngayHetHan.getTime() -
-                      cell.row.original.ngayHieuLuc.getTime()) /
-                      (1000 * 60 * 60 * 24)
-                  )
-                : 0
-            }
-            disEvidenceList={dis}
-            disUploadEvidenceFile={disUploadEvidenceFile}
-          />
+          <MyCenterFull>
+            <F_79t4hwd85i_WarningEvidence
+              code={cell.row.original.maFileMinhChung!}
+              expireDate={
+                cell.row.original.ngayHetHan && cell.row.original.ngayHieuLuc
+                  ? Math.floor(
+                      (cell.row.original.ngayHetHan.getTime() -
+                        cell.row.original.ngayHieuLuc.getTime()) /
+                        (1000 * 60 * 60 * 24)
+                    )
+                  : 0
+              }
+              disEvidenceList={dis}
+              disUploadEvidenceFile={disUploadEvidenceFile}
+            />
+          </MyCenterFull>
         ),
       },
       {
         header: "Upload File mới",
         accessorKey: "uploadFile",
         Cell: () => (
-          <F_79t4hwd85i_UploadEvidenceFile disclosure={disUploadEvidenceFile} />
+          <MyCenterFull>
+            <F_79t4hwd85i_UploadEvidenceFile disclosure={disUploadEvidenceFile} />
+          </MyCenterFull>
         ),
       },
     ],

@@ -1,9 +1,6 @@
 import MyTextArea from "@/components/Inputs/TextArea/MyTextArea";
 import { useForm } from "@mantine/form";
-import {
-  MyButtonCreate,
-  MyTextInput
-} from "aq-fe-framework/components";
+import { MyButtonCreate, MyTextInput } from "aq-fe-framework/components";
 
 interface F_79t4hwd85i_AddEvidence {
   maMinhChung?: string;
@@ -27,7 +24,6 @@ export default function F_79t4hwd85i_AddEvidence() {
   return (
     <MyButtonCreate
       label="Thêm minh chứng"
-      modalSize={"40%"}
       title="Chi tiết minh chứng"
       onSubmit={() => {}}
       form={form}

@@ -1,14 +1,5 @@
 import MyCheckbox from "@/components/Checkbox/MyCheckbox";
-import {
-  Accordion,
-  Box,
-  Button,
-  Flex,
-  Grid,
-  Group,
-  Text,
-  Textarea,
-} from "@mantine/core";
+import { Accordion, Box, Button, Flex, Grid, Group, Text, Textarea } from "@mantine/core";
 import {
   IconCheck,
   IconSquareCheckFilled,
@@ -18,6 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import {
   MyButton,
   MyButtonViewPDF,
+  MyCenterFull,
   MyDataTable,
   MyFieldset,
   MyFlexColumn,
@@ -142,37 +134,31 @@ export default function F_79t4hwd85i_History() {
         header: "Ngày hiệu lực",
         accessorKey: "ngayHieuLuc",
         accessorFn: (originalRow) =>
-          originalRow.ngayHieuLuc
-            ? utils_date_dateToDDMMYYYString(originalRow.ngayHieuLuc)
-            : "",
+          originalRow.ngayHieuLuc ? utils_date_dateToDDMMYYYString(originalRow.ngayHieuLuc) : "",
       },
       {
         header: "Ngày hết hạn",
         accessorKey: "ngayHetHan",
         accessorFn: (originalRow) =>
-          originalRow.ngayHetHan
-            ? utils_date_dateToDDMMYYYString(originalRow.ngayHetHan)
-            : "",
+          originalRow.ngayHetHan ? utils_date_dateToDDMMYYYString(originalRow.ngayHetHan) : "",
       },
       {
         header: "Xem file",
         accessorKey: "xemfile",
         accessorFn: (originalRow) => (
-          <MyButtonViewPDF
-            label="Xem"
-            src="https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf"
-          />
+          <MyCenterFull>
+            <MyButtonViewPDF
+              label="Xem"
+              src="https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf"
+            />
+          </MyCenterFull>
         ),
       },
       {
         header: "Xem liên kết",
         accessorKey: "lienKet",
         Cell: ({ cell }) => (
-          <a
-            href={cell.getValue<string>()}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={cell.getValue<string>()} target="_blank" rel="noopener noreferrer">
             {cell.getValue<string>()}
           </a>
         ),
@@ -188,9 +174,13 @@ export default function F_79t4hwd85i_History() {
         accessorFn: (originalRow) => {
           const trangThai = originalRow.trangThai;
           return trangThai === "Còn hạn" ? (
-            <Button variant="transparent">Sử dụng</Button>
+            <MyCenterFull>
+              <Button variant="transparent">Sử dụng</Button>
+            </MyCenterFull>
           ) : (
-            <Button variant="transparent">Huỷ</Button>
+            <MyCenterFull>
+              <Button variant="transparent">Huỷ</Button>
+            </MyCenterFull>
           );
         },
       },
@@ -220,23 +210,15 @@ export default function F_79t4hwd85i_History() {
         >
           <Accordion
             w={"100%"}
-            defaultValue={
-              danhSachLichSuCapNhat.data?.length ? `item-0` : undefined
-            }
+            defaultValue={danhSachLichSuCapNhat.data?.length ? `item-0` : undefined}
           >
             {danhSachLichSuCapNhat.data?.map((item, index) => (
               <Accordion.Item value={`item-${index}`} key={index}>
                 <Accordion.Control>
-                  <Flex
-                    gap={20}
-                    justify="space-between"
-                    align="center"
-                    w={"40%"}
-                  >
+                  <Flex gap={20} justify="space-between" align="center" w={"40%"}>
                     <MyFlexColumn gap={0}>
                       <Text size="sm">
-                        Cập nhật ngày{" "}
-                        {utils_date_dateToDDMMYYYString(item.ngayCapNhat!)}
+                        Cập nhật ngày {utils_date_dateToDDMMYYYString(item.ngayCapNhat!)}
                       </Text>
                     </MyFlexColumn>
                     <Group gap={10} align="center">
