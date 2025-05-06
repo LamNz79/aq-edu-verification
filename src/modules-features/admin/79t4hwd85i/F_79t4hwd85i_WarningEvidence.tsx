@@ -31,11 +31,11 @@ export default function F_79t4hwd85i_WarningEvidence({
         <Group gap={4}>
           <Text>
             File minh chứng{" "}
-            <Text fw={600} span c="red">
+            <Text  span >
               {code}
             </Text>{" "}
             mà bạn chọn sẽ hết hạn sau{" "}
-            <Text fw={600} span c="red" td="underline">
+            <Text fw={600} span c="blue" td="underline">
               {expireDate}
             </Text>{" "}
             ngày nữa.

@@ -9,13 +9,18 @@ import {
   Text,
   Textarea,
 } from "@mantine/core";
-import { IconCheck } from "@tabler/icons-react";
+import {
+  IconCheck,
+  IconSquareCheckFilled,
+  IconSquareRoundedMinusFilled,
+} from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
 import {
+  MyButton,
   MyButtonViewPDF,
   MyDataTable,
   MyFieldset,
-  MyFlexColumn
+  MyFlexColumn,
 } from "aq-fe-framework/components";
 import { utils_date_dateToDDMMYYYString } from "aq-fe-framework/utils";
 import { MRT_ColumnDef } from "mantine-react-table";
@@ -33,6 +38,7 @@ interface I_FileMinhChung {
 }
 
 interface I_F_79t4hwd85i_HistoryReport {
+  trangThai?: boolean;
   mocChuan?: string;
   noiDung?: string;
   ngayCapNhat?: Date;
@@ -46,6 +52,7 @@ interface I_F_79t4hwd85i_History {
 
 const mockDataHistoryReport: I_F_79t4hwd85i_HistoryReport[] = [
   {
+    trangThai: true,
     mocChuan: "CDT của CTDT được phổ biến đến các BLQ",
     noiDung: `4.2.a) Phương pháp dạy và học gắn lý thuyết với thực hành, thực tiễn nghề nghiệp.
 4.2.b) Sử dụng các tình huống, ví dụ thực tế, bài tập tình huống trong quá trình giảng dạy.
@@ -77,6 +84,7 @@ const mockDataHistoryReport: I_F_79t4hwd85i_HistoryReport[] = [
     ],
   },
   {
+    trangThai: true,
     mocChuan: "CDT của CTDT được phổ biến đến các BLQ",
     noiDung: `4.2.a) Phương pháp dạy và học gắn lý thuyết với thực hành, thực tiễn nghề nghiệp.
 4.2.b) Sử dụng các tình huống, ví dụ thực tế, bài tập tình huống trong quá trình giảng dạy.
@@ -215,7 +223,6 @@ export default function F_79t4hwd85i_History() {
             defaultValue={
               danhSachLichSuCapNhat.data?.length ? `item-0` : undefined
             }
-            variant="contained"
           >
             {danhSachLichSuCapNhat.data?.map((item, index) => (
               <Accordion.Item value={`item-${index}`} key={index}>
@@ -234,7 +241,11 @@ export default function F_79t4hwd85i_History() {
                     </MyFlexColumn>
                     <Group gap={10} align="center">
                       <Text size="sm">{item.nguoiCapNhat}</Text>
-                      <MyCheckbox checked={true} onChange={() => {}} />
+                      {item.trangThai ? (
+                        <IconSquareCheckFilled color="green" />
+                      ) : (
+                        <IconSquareRoundedMinusFilled color="red" />
+                      )}
                     </Group>
                   </Flex>
                 </Accordion.Control>
@@ -269,12 +280,9 @@ export default function F_79t4hwd85i_History() {
                           }}
                           renderTopToolbarCustomActions={({ table }) => (
                             <Group>
-                              <Button
-                                leftSection={<IconCheck size={16} />}
-                                color="indigo"
-                              >
+                              <MyButton crudType="default" color="green">
                                 Sử dụng
-                              </Button>
+                              </MyButton>
                             </Group>
                           )}
                         />
