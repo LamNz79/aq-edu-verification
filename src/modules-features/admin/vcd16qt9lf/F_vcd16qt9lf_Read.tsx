@@ -86,7 +86,7 @@ export default function F_vcd16qt9lf_Read() {
                     data={[
                         { value: "Đạt", label: "Đạt" },
                         { value: "Không đạt", label: "Không đạt" },
-                        { value: "Cần cải tiến", label: "Cần cải tiến" },
+                        { value: "Cần cải tiến", label: "Đạt (cần cải tiến)" },
                     ]}
                     defaultValue={cell.getValue<string>()}
                     //{...resultForm.getInputProps("result")}
