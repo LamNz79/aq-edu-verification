@@ -1,13 +1,14 @@
-import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 import { Flex, Skeleton, Tabs, Text } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
-import { MyButton } from "aq-fe-framework/components";
+import { MyButton, MyFieldset } from "aq-fe-framework/components";
 
 interface I_o4e65ehgty_History {
   turnOff?: () => void;
 }
 
-export default function F_o4e65ehgty_History({ turnOff }: I_o4e65ehgty_History) {
+export default function F_o4e65ehgty_History({
+  turnOff,
+}: I_o4e65ehgty_History) {
   return (
     <Tabs defaultValue="1" w={"full"}>
       <Flex justify={"space-between"}>

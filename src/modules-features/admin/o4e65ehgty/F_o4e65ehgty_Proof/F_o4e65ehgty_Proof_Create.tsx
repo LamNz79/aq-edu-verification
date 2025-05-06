@@ -1,7 +1,5 @@
-import MyTextArea from "@/components/Inputs/TextArea/MyTextArea";
 import { useForm } from "@mantine/form";
-import { MyButtonCreate } from "aq-fe-framework/components";
-import MyTextInput from "@/components/Inputs/TextInput/MyTextInput";
+import { MyButtonCreate, MyTextArea, MyTextInput } from "aq-fe-framework/components";
 
 interface I_o4e65ehgty_Proof_Create {
   code?: string;

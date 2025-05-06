@@ -1,12 +1,12 @@
 "use client";
 
-import MyCheckbox from "@/components/Checkbox/MyCheckbox";
 import { useQuery } from "@tanstack/react-query";
 import {
   AQButtonExportData,
   MyButton,
   MyDataTable,
   MyFieldset,
+  MyCheckbox
 } from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";

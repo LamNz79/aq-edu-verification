@@ -1,11 +1,11 @@
-import MyDateInput from "@/components/Inputs/DateInput/MyDateInput";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import {
   MyButtonModal,
-  MyFileInput
+  MyDateInput,
+  MyFileInput,
+  MyTextInput,
 } from "aq-fe-framework/components";
-import MyTextInput from "@/components/Inputs/TextInput/MyTextInput";
 
 interface F_o4e65ehgty_Proof_Upload {
   code?: string;
