@@ -73,7 +73,11 @@ export default function F_o4e65ehgty_TableProof() {
     <MyFieldset title="File minh chứng">
       <Group align="start" style={{ height: "336px", overflowY: "auto" }}>
         <MyDataTable
-          enableRowSelection
+          enableRowSelection={true}
+          enableRowNumbers={true}
+          mantineTableContainerProps={{
+            style: { maxHeight: "200px" },
+          }}
           columns={columns}
           data={Q_data.data ?? []}
           rowActionSize={100}

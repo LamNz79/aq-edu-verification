@@ -1,4 +1,4 @@
-import { Flex, Grid, Group, Text } from "@mantine/core";
+import { Accordion, Flex, Grid, Group, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconEdit } from "@tabler/icons-react";
 import {
@@ -12,7 +12,9 @@ import F_o4e65ehgty_ReportRow from "./F_o4e65ehgty_ReportRow";
 import F_o4e65ehgty_Synthetic from "./F_o4e65ehgty_Synthetic";
 import F_o4e65ehgty_TableProofSugestive from "./F_o4e65ehgty_TableProofSugestive";
 export interface I_o4e65ehgty_Update {
+  id: number;
   name?: string;
+  content?: string;
   nguoiCapNhat?: string;
   ngayCapNhat?: string;
   trangThai?: boolean;
@@ -44,16 +46,17 @@ export default function F_o4e65ehgty_Update() {
             title="Danh sách nội dung báo cáo"
             style={{ maxHeight: "500px", overflowY: "auto" }}
           >
-            {mockData &&
-              mockData.map((item, index) => {
-                return (
-                  <F_o4e65ehgty_ReportRow
-                    item={item}
-                    key={item.name}
-                    isFirstRow={index === 0}
-                  />
-                );
-              })}
+            <Accordion defaultValue={`item-${mockData[0].id}`}>
+              {mockData &&
+                mockData.map((item, index) => {
+                  return (
+                    <F_o4e65ehgty_ReportRow
+                      item={item}
+                      key={item.name}
+                    />
+                  );
+                })}
+            </Accordion>
           </MyFieldset>
           <Group>
             <MyButton
@@ -85,33 +88,39 @@ export default function F_o4e65ehgty_Update() {
 
 const mockData: I_o4e65ehgty_Update[] = [
   {
+    id: 1,
     name: "Kế hoạch tổ chức thực hành, thực tập, tham quan thực tế",
+    content:
+      "4.2 a) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế, 3.2 b) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế",
     nguoiCapNhat: "Tô Ngọc Lan",
     ngayCapNhat: "2025-02-24",
     trangThai: true,
   },
   {
+    id: 22,
     name: "Báo cáo kết quả nghiên cứu khoa học",
+    content:
+      "4.2 a) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế, 3.2 b) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế",
     nguoiCapNhat: "Nguyễn Văn A",
     ngayCapNhat: "2025-02-25",
     trangThai: true,
   },
   {
+    id: 3,
     name: "Kế hoạch phát triển đội ngũ giảng viên",
+    content:
+      "4.2 a) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế, 3.2 b) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế",
     nguoiCapNhat: "Trần Thị B",
     ngayCapNhat: "2025-02-26",
     trangThai: false,
   },
   {
+    id: 4,
     name: "Báo cáo đánh giá chất lượng giảng dạy",
+    content:
+      "4.2 a) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế, 3.2 b) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế",
     nguoiCapNhat: "Lê Văn C",
     ngayCapNhat: "2025-02-27",
     trangThai: true,
-  },
-  {
-    name: "Kế hoạch quản lý chương trình đào tạo",
-    nguoiCapNhat: "Phạm Thị D",
-    ngayCapNhat: "2025-02-28",
-    trangThai: false,
   },
 ];
