@@ -57,6 +57,20 @@ export default function F_grtzbp3rjk_StandardCarryRead() {
                 ngayCapNhat: new Date("2024-12-23")
             },
 
+            {
+                maTieuChuan: "TC01",
+                maTieuChi: "TC1.3",
+                tenTieuChi: "Chuẩn đầu ra của chương trình đào tạo được xây dựng rõ ràng",
+                maYeuCau: "M001",
+                tenYeuCau: "CDR của CTDT được phổ biến đến các BLQ; giảng viên và NH hiểu rõ về CDR của CTDT",
+                ketQua: "Không đạt",
+                noiDungCaiTien: "Minh chứng chưa đúng nội dung báo cáo",
+                nguoiPhuTrach: "Tô Ngọc Linh",
+                donViPhuTrach: "Phòng đào tạo",
+                nguoiCapNhat: "Quản trị viên",
+                ngayCapNhat: new Date("2024-12-23")
+            },
+
 
         ],
     });

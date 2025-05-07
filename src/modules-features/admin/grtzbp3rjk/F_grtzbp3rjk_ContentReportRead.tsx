@@ -50,6 +50,17 @@ export default function F_grtzbp3rjk_ContentReportRead() {
                 nguoiCapNhat: "Quản trị viên",
                 ngayCapNhat: new Date("2024-12-23")
             },
+            {
+                maTieuChuan: "TC01",
+                maTieuChi: "TC1.3",
+                maYeuCau: "M001",
+                tenYeuCau: "CDR của CTDT được phổ biến đến các BLQ; giảng viên và NH hiểu rõ về CDR của CTDT",
+                noiDungCaiTien: "Quy chế chi tiêu nội bộ, chính sách lương, thưởng phụ cấp",
+                nguoiPhuTrach: "Tô Ngọc Linh",
+                donViPhuTrach: "Phòng đào tạo",
+                nguoiCapNhat: "Quản trị viên",
+                ngayCapNhat: new Date("2024-12-23")
+            },
         ],
     });
 
