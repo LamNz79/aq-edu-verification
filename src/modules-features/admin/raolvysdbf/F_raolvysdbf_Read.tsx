@@ -37,9 +37,9 @@ const mockData: Iraolvysdbf_ReadProps[] = [
   {
     maTieuChuan: "TC02",
     maTieuChi: "TC2.1",
-    tenTieuChi: "Tiêu chí chất lượng", // Added new field
+    tenTieuChi: "Chuẩn đầu ra của chương trình đào tạo được xây dựng rõ ràng, phù hợp với sứ mạng, tầm nhìn và mục tiêu chiến lược của từng sơ sở đào tạo và được phổ biến đến các bên liên quan", // Added new field
     maMocChuan: "M001",
-    tenMocChuan: "Cấu trúc pla pla",
+    tenMocChuan: "Chuẩn đầu ra của CTDT được xây dựng. ra soát và điều chỉnh theo quy trình định trước, trong đó có sự tham gia của các BLQ",
     donViPhuTrach: "Phòng đào tạo",
     nhanSuPhuTrach: "Tô Ngọc Lâm",
   },
