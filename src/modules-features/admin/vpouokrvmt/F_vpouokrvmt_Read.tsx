@@ -6,6 +6,7 @@ import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo, useState } from "react";
+import { utils_date_dateToDDMMYYYString } from "@/utils/date";
 import F_vpouokrvmt_Create from "./F_vpouokrvmt_Create";
 import F_vpouokrvmt_Delete from "./F_vpouokrvmt_Delete";
 import F_vpouokrvmt_Update from "./F_vpouokrvmt_Update";
@@ -112,11 +113,11 @@ export default function F_vpouokrvmt_Read() {
         },
         {
             header: 'Thời gian bắt đầu',
-            accessorFn: (row) => U0DateToDDMMYYYString(new Date(row.startDate!)),
+            accessorFn: (row) => utils_date_dateToDDMMYYYString(row.startDate!),
         },
         {
             header: 'Thời gian kết thúc',
-            accessorFn: (row) => U0DateToDDMMYYYString(new Date(row.endDate!)),
+            accessorFn: (row) => utils_date_dateToDDMMYYYString(row.endDate!),
         },
         {
             header: 'Ghi chú',
@@ -129,7 +130,7 @@ export default function F_vpouokrvmt_Read() {
 
     return(
         <>
-            <MyFieldset title="Danh sách bộ tiêu chuẩn">
+            <MyFieldset title="Danh sách lộ trình">
                 <MyDataTable
                     enableRowSelection={true}
                     columns={columns}

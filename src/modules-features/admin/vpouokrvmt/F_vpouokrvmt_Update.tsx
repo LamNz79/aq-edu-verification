@@ -1,6 +1,7 @@
+// F_vpouokrvmt_Update.tsx
 'use client';
 
-import {MyActionIconUpdate, MyDateInput, MyTextArea, MyTextInput} from "aq-fe-framework/components";
+import {MyActionIconUpdate, MyDateInput, MySelect, MyTextArea, MyTextInput} from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
 
 interface I_vpouokrvmt_Update {
@@ -17,17 +18,28 @@ export default function F_vpouokrvmt_Update({data}: {data: I_vpouokrvmt_Update})
     const form = useForm<I_vpouokrvmt_Update>({
         initialValues: data,
         validate: {
-            cycleId: (value) => value ? null : 'Không được để trống',
-            cycleIdRoute: (value) => value ? null : 'Không được để trống',
-            cycleRouteName: (value) => value ? null : 'Không được để trống',
-            // startDate: (value) => value ? null : 'Không được để trống',
-            // endDate: (value) => value ? null : 'Không được để trống',
+            startDate: (value) => value ? null : 'Không được để trống',
+            endDate: (value, values) => {
+                if (!value) return 'Không được để trống';
+                if (!values.startDate) return null;
+                return value > values.startDate ? null : 'Ngày kết thúc phải lớn hơn ngày bắt đầu';
+            }
         }
     });
 
+    const cycleOptions = [
+        { value: '2023-2028', label: '2023-2028' },
+        { value: '2028-2033', label: '2028-2033' },
+    ];
+
     return (
-        <MyActionIconUpdate  title="Chi tiết lộ trình" form={form} onSubmit={async() => { }}>
-            <MyTextInput label='Mã chu kỳ' {...form.getInputProps("cycleId")} />
+        <MyActionIconUpdate title="Chi tiết lộ trình" form={form} onSubmit={async() => { }}>
+            <MyTextInput label='Thứ tự' type="number" {...form.getInputProps("order")} />
+            <MySelect
+                label='Mã chu kỳ'
+                data={cycleOptions}
+                {...form.getInputProps("cycleId")}
+            />
             <MyTextInput label='Mã lộ trình' {...form.getInputProps("cycleIdRoute")} />
             <MyTextInput label='Tên lộ trình' {...form.getInputProps("cycleRouteName")} />
             <MyDateInput label='Thời gian bắt đầu' {...form.getInputProps("startDate")} />
