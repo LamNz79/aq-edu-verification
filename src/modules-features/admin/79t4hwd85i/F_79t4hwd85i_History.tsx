@@ -166,11 +166,13 @@ export default function F_79t4hwd85i_History() {
       {
         header: "Trạng thái",
         accessorKey: "trangThai",
+        size: 150,
       },
 
       {
         header: "Thao tác",
-        accessorKey: "suDung",
+        accessorKey: "thaoTac",
+        size: 140,
         accessorFn: (originalRow) => {
           const trangThai = originalRow.trangThai;
           return trangThai === "Còn hạn" ? (
@@ -204,7 +206,7 @@ export default function F_79t4hwd85i_History() {
           h={"452px"}
           style={{
             maxHeight: "500px",
-            overflowY: "auto",
+            overflowY: "scroll",
             overflowX: "hidden",
           }}
         >
@@ -256,9 +258,10 @@ export default function F_79t4hwd85i_History() {
                             columnSizing: {
                               "mrt-row-numbers": 60,
                             },
+                            columnPinning: { right: ["trangThai", "thaoTac"] }
                           }}
                           mantineTableContainerProps={{
-                            style: { maxHeight: "142px" },
+                            style: { maxHeight: "142px", overflowY: "scroll" },
                           }}
                           renderTopToolbarCustomActions={({ table }) => (
                             <Group>

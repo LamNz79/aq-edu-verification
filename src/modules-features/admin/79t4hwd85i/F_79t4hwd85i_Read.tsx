@@ -157,6 +157,7 @@ export default function F_79t4hwd85i_Read() {
           columns={columns}
           enableRowSelection={true}
           enableRowNumbers={true}
+          initialState={{ columnPinning: { right: ["daCapNhat", "thaoTac"] } }}
           renderTopToolbarCustomActions={({ table }) => (
             <Group>
               <AQButtonExportData

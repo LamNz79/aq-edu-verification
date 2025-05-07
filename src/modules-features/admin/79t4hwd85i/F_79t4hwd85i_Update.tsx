@@ -122,11 +122,13 @@ export default function F_79t4hwd85i_Update() {
       {
         header: "Trạng thái",
         accessorKey: "trangThai",
+        size: 150,
       },
 
       {
         header: "Thao tác",
-        accessorKey: "suDung",
+        accessorKey: "thaoTac",
+        size: 140,
         accessorFn: (originalRow) => {
           const trangThai = originalRow.trangThai;
           return trangThai === "Còn hạn" ? (
@@ -176,7 +178,8 @@ export default function F_79t4hwd85i_Update() {
                 columns={columns}
                 enableRowSelection={true}
                 enableRowNumbers={true}
-                mantineTableContainerProps={{ style: { maxHeight: "220px" } }}
+                initialState={{ columnPinning: { right: ["trangThai", "thaoTac"] } }}
+                mantineTableContainerProps={{ style: { maxHeight: "220px",  overflowY: "scroll" } }}
                 renderTopToolbarCustomActions={({ table }) => (
                   <Group>
                     <F_79t4hwd85i_EvidenceList />
