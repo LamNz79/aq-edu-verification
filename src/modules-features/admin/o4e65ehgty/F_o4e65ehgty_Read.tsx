@@ -12,6 +12,7 @@ import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
 import F_o4e65ehgty_Update from "./F_o4e65ehgty_Update";
 import { utils_date_dateToDDMMYYYString } from "@/utils/date";
+import { Center } from "@mantine/core";
 
 interface I_o4e65ehgty_Read {
   id?: string; // ID
@@ -69,14 +70,20 @@ export default function F_o4e65ehgty_Read() {
       },
       {
         header: "Đã cập nhật",
+        accessorKey: "daCapNhat",
+        size: 140,
         accessorFn: (row) => {
-          return <MyCheckbox checked={row.daCapNhat} readOnly />;
+          return (
+            <Center>
+              <MyCheckbox checked={row.daCapNhat} readOnly />
+            </Center>
+          );
         },
       },
-      { header: "Người cập nhật", accessorKey: "nguoiCapNhat" },
       {
-        header: "Ngày cập nhật",
-        accessorKey: "ngayCapNhat",
+        header: "Thao tác",
+        accessorKey: "thaoTac",
+        accessorFn: (row) => <F_o4e65ehgty_Update />,
       },
     ],
     []
@@ -109,6 +116,7 @@ export default function F_o4e65ehgty_Read() {
         enableRowSelection
         rowActionSize={20}
         data={Q_data.data ?? []}
+        initialState={{ columnPinning: { right: ["daCapNhat", "thaoTac"] } }}
         renderTopToolbarCustomActions={() => (
           <>
             <AQButtonExportData
@@ -120,7 +128,6 @@ export default function F_o4e65ehgty_Read() {
             <MyButton crudType="delete">Xóa</MyButton>
           </>
         )}
-        renderRowActions={() => <F_o4e65ehgty_Update />}
       />
     </MyFieldset>
   );
@@ -128,12 +135,12 @@ export default function F_o4e65ehgty_Read() {
 
 const MockData: I_o4e65ehgty_Read[] = [
   {
-    maTieuChuan: "TC001",
-    maTieuChi: "TC001.1",
-    maYeuCauMocChuan: "YCMC001",
-    tenYeuCau: "Đánh giá chất lượng giảng dạy",
-    minhChungGoiY: "Báo cáo kết quả khảo sát sinh viên",
-    nguoiPhuTrach: "Nguyễn Văn A",
+    maTieuChuan: "TC01",
+    maTieuChi: "TC1.1",
+    maYeuCauMocChuan: "M001",
+    tenYeuCau: "Chuẩn đầu ra của CTDT được xây dựng, rà soát và điều chỉnh theo quy định trước, trong đó có sự tham gia của các BLQ",
+    minhChungGoiY: "Kế hoạch thực tập toàn khóa",
+    nguoiPhuTrach: "Tô Ngọc Bảo",
     ngayBatDau: "2025-01-01",
     ngayKetThuc: "2025-04-30",
     daCapNhat: false,
@@ -141,12 +148,12 @@ const MockData: I_o4e65ehgty_Read[] = [
     ngayCapNhat: "",
   },
   {
-    maTieuChuan: "TC002",
-    maTieuChi: "TC002.1",
-    maYeuCauMocChuan: "YCMC002",
-    tenYeuCau: "Quản lý chương trình đào tạo",
-    minhChungGoiY: "Hồ sơ chương trình đào tạo",
-    nguoiPhuTrach: "Trần Thị B",
+    maTieuChuan: "TC02",
+    maTieuChi: "TC1.22",
+    maYeuCauMocChuan: "M002",
+    tenYeuCau: "CDR của CTDT được phát triển rõ ràng, phù hợp với mục tiêu CTDT, sứ mạng, tầm nhìn và chiến lược của CSDT",
+    minhChungGoiY: "Kế hoạch thực tập toàn khóa",
+    nguoiPhuTrach: "Tô Ngọc Bảo",
     ngayBatDau: "2025-02-01",
     ngayKetThuc: "2025-03-30",
     daCapNhat: true,
@@ -154,12 +161,12 @@ const MockData: I_o4e65ehgty_Read[] = [
     ngayCapNhat: "2025-12-15",
   },
   {
-    maTieuChuan: "TC003",
-    maTieuChi: "TC003.1",
-    maYeuCauMocChuan: "YCMC003",
-    tenYeuCau: "Đảm bảo chất lượng nghiên cứu khoa học",
-    minhChungGoiY: "Danh sách công bố khoa học",
-    nguoiPhuTrach: "Lê Văn C",
+    maTieuChuan: "TC033",
+    maTieuChi: "TC1.233",
+    maYeuCauMocChuan: "M003",
+    tenYeuCau: "CDT của CTDT được phổ biến đến các BLQ, giảng viên và NH hiểu rõ về CDT của CTDT",
+    minhChungGoiY: "Kế hoạch thực tập toàn khóa",
+    nguoiPhuTrach: "Tô Ngọc Bảo",
     ngayBatDau: "2025-03-01",
     ngayKetThuc: "2025-05-31",
     daCapNhat: false,

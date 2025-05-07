@@ -35,7 +35,7 @@ export function utils_date_FormatToDateTimetring(date: Date) {
   const hour = String(date.getHours()).padStart(2, "0");
   const minute = String(date.getMinutes()).padStart(2, "0");
   const second = String(date.getSeconds()).padStart(2, "0");
-  return `${day}/${month}/${year} - ${hour}:${minute}:${second}`;
+  return `${day}/${month}/${year} ${hour}:${minute}:${second}`;
 }
 
 export default function F_o4e65ehgty_Proof_View() {
@@ -50,14 +50,13 @@ export default function F_o4e65ehgty_Proof_View() {
   const columns = useMemo<MRT_ColumnDef<I_o4e65ehgty_ProofView>[]>(
     () => [
       { header: "Mã minh chứng", accessorKey: "ma" },
-      { header: "Tên minh chứng", accessorKey: "ten", size: 300 },
+      { header: "Tên minh chứng", accessorKey: "ten" },
       { header: "Mã file", accessorKey: "maFile", size: 60 },
-      { header: "Tên file", accessorKey: "tenFile" },
+      { header: "Tên file", accessorKey: "tenFile", size: 300 },
       {
         header: "Xem file",
         accessorKey: "file",
         accessorFn: (row) => <MyButtonViewPDF id={parseInt(row.id)} />,
-        size: 60,
       },
       {
         header: "Link file",
@@ -116,11 +115,13 @@ export default function F_o4e65ehgty_Proof_View() {
       },
       {
         header: "Thao tác",
+        accessorKey: "thaoTac",
         accessorFn: (row) => <F_o4e65ehgty_Proof_Use data={row} />,
         size: 60,
       },
       {
         header: "Upload File mới",
+        accessorKey: "upload",
         accessorFn: () => <F_o4e65ehgty_Proof_Upload />,
       },
     ],
@@ -158,6 +159,7 @@ export default function F_o4e65ehgty_Proof_View() {
         enableRowSelection
         columns={columns}
         rowActionSize={20}
+        initialState={{ columnPinning: { right: ["thaoTac", "upload"] } }}
         data={Q_data.data ?? []}
         renderTopToolbarCustomActions={() => (
           <>
@@ -179,37 +181,13 @@ const MockData: I_o4e65ehgty_ProofView[] = [
   {
     id: "1",
     ma: "CODE-2",
-    ten: "Báo cáo kết quả nghiên cứu khoa học năm 2024",
+    ten: "Tầm nhìn",
     maFile: "MD-23",
-    tenFile: "Quyết định số 432",
+    tenFile: "Quyết định xác định tầm nhìn chiến lược 5 năm tới",
     ngayHieuLuc: "2025-01-15",
     ngayHetHan: "2025-12-15",
-    nguoiCapNhat: "Nguyễn Văn A",
+    nguoiCapNhat: "Tô Ngọc Bảo",
     ngayCapNhat: "2025-01-10",
-    donViCapNhat: "Phòng Khoa học Công nghệ",
-  },
-  {
-    id: "2",
-    ma: "CODE-3",
-    ten: "Báo cáo kết quả nghiên cứu khoa học năm 2023",
-    maFile: "MD-24",
-    tenFile: "Quyết định số 432",
-    ngayHieuLuc: "2025-01-15",
-    ngayHetHan: "2025-04-31",
-    nguoiCapNhat: "Trần Thị B",
-    ngayCapNhat: "2025-01-12",
-    donViCapNhat: "Phòng Đào tạo",
-  },
-  {
-    id: "3",
-    ma: "CODE-4",
-    ten: "Báo cáo kết quả nghiên cứu khoa học năm 2022",
-    maFile: "MD-25",
-    tenFile: "Quyết định số 432",
-    ngayHieuLuc: "2025-01-15",
-    ngayHetHan: "2025-03-15",
-    nguoiCapNhat: "Lê Văn C",
-    ngayCapNhat: "2025-01-14",
-    donViCapNhat: "Phòng Quản lý Khoa học",
+    donViCapNhat: "Phòng Tổ chức",
   },
 ];

@@ -88,37 +88,56 @@ const mockData: I_o4e65ehgty_Update[] = [
   {
     id: 1,
     name: "Kế hoạch tổ chức thực hành, thực tập, tham quan thực tế",
-    content:
-      "4.2 a) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế, 3.2 b) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế",
+    content: `   4.2 a) Phương pháp dạy và học gắn lý thuyết với thực hành, thực tiễn nghề nghiệp,   
+    4.2 b) Sử dụng các tình huống, ví dụ thực tế, bài tập tình huống trong quá tình giảng dạy
+    4.2 c) Tổ chức các hoạt động tham quan thực tế, thực hành, thực tập doanh nghiệp/cơ sở liên quan
+    4.2 d) Khuyến khích mời các chuyên gia, nhà quản lý thực tiễn tham gia giảng dạy, báo cáo chuyên đề`,
     nguoiCapNhat: "Tô Ngọc Lan",
     ngayCapNhat: "2025-02-24",
     trangThai: true,
   },
   {
     id: 22,
-    name: "Báo cáo kết quả nghiên cứu khoa học",
-    content:
-      "4.2 a) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế, 3.2 b) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế",
-    nguoiCapNhat: "Nguyễn Văn A",
+    name: "Đề cương chi tiết tất cả học phần trong CTDT được xây dựng đầy đủ theo quy định thông tin chung",
+    content: `    4.2 a) Phương pháp dạy và học gắn lý thuyết với thực hành, thực tiễn nghề nghiệp, 
+    4.2 b) Sử dụng các tình huống, ví dụ thực tế, bài tập tình huống trong quá tình giảng dạy
+    4.2 c) Tổ chức các hoạt động tham quan thực tế, thực hành, thực tập doanh nghiệp/cơ sở liên quan
+    4.2 d) Khuyến khích mời các chuyên gia, nhà quản lý thực tiễn tham gia giảng dạy, báo cáo chuyên đề`,
+    nguoiCapNhat: "Tô Ngọc Linh",
     ngayCapNhat: "2025-02-25",
     trangThai: true,
   },
   {
     id: 3,
-    name: "Kế hoạch phát triển đội ngũ giảng viên",
-    content:
-      "4.2 a) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế, 3.2 b) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế",
-    nguoiCapNhat: "Trần Thị B",
+    name: "Đề cương chi tiết tất cả học phần trong CTDT được xây dựng đầy đủ theo quy định mục tiêu học phần",
+    content: `    4.2 a) Phương pháp dạy và học gắn lý thuyết với thực hành, thực tiễn nghề nghiệp, 
+    4.2 b) Sử dụng các tình huống, ví dụ thực tế, bài tập tình huống trong quá tình giảng dạy
+    4.2 c) Tổ chức các hoạt động tham quan thực tế, thực hành, thực tập doanh nghiệp/cơ sở liên quan
+    4.2 d) Khuyến khích mời các chuyên gia, nhà quản lý thực tiễn tham gia giảng dạy, báo cáo chuyên đề`,
+    nguoiCapNhat: "Tô Ngọc Ly",
     ngayCapNhat: "2025-02-26",
-    trangThai: false,
+    trangThai: true,
   },
   {
     id: 4,
-    name: "Báo cáo đánh giá chất lượng giảng dạy",
-    content:
-      "4.2 a) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế, 3.2 b) Phương pháp tổ chức thực hành, thực tập, tham quan thực tế",
-    nguoiCapNhat: "Lê Văn C",
+    name: "Đề cương chi tiết tất cả học phần trong CTDT được xây dựng đầy đủ theo quy định CĐR học phần",
+    content: `    4.2 a) Phương pháp dạy và học gắn lý thuyết với thực hành, thực tiễn nghề nghiệp, 
+    4.2 b) Sử dụng các tình huống, ví dụ thực tế, bài tập tình huống trong quá tình giảng dạy
+    4.2 c) Tổ chức các hoạt động tham quan thực tế, thực hành, thực tập doanh nghiệp/cơ sở liên quan
+    4.2 d) Khuyến khích mời các chuyên gia, nhà quản lý thực tiễn tham gia giảng dạy, báo cáo chuyên đề`,
+    nguoiCapNhat: "Tô Ngọc Loan",
     ngayCapNhat: "2025-02-27",
     trangThai: true,
+  },
+  {
+    id: 5,
+    name: "Đề cương chi tiết tất cả học phần trong CTDT được xây dựng đầy đủ theo quy định nội dung chi tiết",
+    content: `    4.2 a) Phương pháp dạy và học gắn lý thuyết với thực hành, thực tiễn nghề nghiệp, 
+    4.2 b) Sử dụng các tình huống, ví dụ thực tế, bài tập tình huống trong quá tình giảng dạy,
+    4.2 c) Tổ chức các hoạt động tham quan thực tế, thực hành, thực tập doanh nghiệp/cơ sở liên quan,
+    4.2 d) Khuyến khích mời các chuyên gia, nhà quản lý thực tiễn tham gia giảng dạy, báo cáo chuyên đề`,
+    nguoiCapNhat: "Tô Ngọc Châu",
+    ngayCapNhat: "2025-02-27",
+    trangThai: false,
   },
 ];

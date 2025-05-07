@@ -70,7 +70,7 @@ export default function F_o4e65ehgty_TableProofSugestive() {
       },
       {
         header: "Thao tác",
-        accessorKey: "action",
+        accessorKey: "thaoTac",
         size: 60,
         accessorFn: (row) => {
           if (row.ngayHetHan && new Date(row.ngayHetHan) < new Date()) {
@@ -90,6 +90,7 @@ export default function F_o4e65ehgty_TableProofSugestive() {
     <MyFieldset title="Minh chứng gợi ý">
       <MyDataTable
         enableRowSelection
+        initialState={{ columnPinning: { right: ["trangThai", "thaoTac"] } }}
         columns={columns}
         data={Q_data.data ?? []}
         renderTopToolbarCustomActions={() => (
@@ -105,26 +106,18 @@ export default function F_o4e65ehgty_TableProofSugestive() {
 const MockData: I_o4e65ehgty_TableProofSugestive[] = [
   {
     id: "1",
-    ma: "CODE-2",
-    ten: "Báo cáo kết quả nghiên cứu khoa học năm 2024",
+    ma: "MC0001",
+    ten: "Hình ảnh hoạt động",
     maFile: "MD-23",
     ngayHieuLuc: "2025-01-15",
     ngayHetHan: "2025-12-15",
   },
   {
     id: "2",
-    ma: "CODE-3",
-    ten: "Báo cáo kết quả nghiên cứu khoa học năm 2023",
+    ma: "MC0002",
+    ten: "Video hoạt động",
     maFile: "MD-24",
     ngayHieuLuc: "2025-01-15",
     ngayHetHan: "2025-04-31",
-  },
-  {
-    id: "1",
-    ma: "CODE-2",
-    ten: "Báo cáo kết quả nghiên cứu khoa học năm 2024",
-    maFile: "MD-23",
-    ngayHieuLuc: "2025-01-15",
-    ngayHetHan: "2025-12-15",
   },
 ];

@@ -39,7 +39,7 @@ export default function F_o4e65ehgty_ReportRow({
             <Textarea
               value={item.content! || ""}
               autosize={false}
-              rows={16}
+              rows={14}
               style={{
                 overflowY: "auto",
                 resize: "none",
