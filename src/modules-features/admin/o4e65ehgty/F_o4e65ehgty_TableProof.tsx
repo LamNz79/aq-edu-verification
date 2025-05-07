@@ -92,7 +92,11 @@ export default function F_o4e65ehgty_TableProof() {
   );
 
   return (
-    <MyFieldset title="File minh chứng">
+    <MyFieldset
+      title="File minh chứng"
+      h={"320px"}
+      style={{ overflowY: "auto" }}
+    >
       <MyDataTable
         enableRowSelection={true}
         enableRowNumbers={true}

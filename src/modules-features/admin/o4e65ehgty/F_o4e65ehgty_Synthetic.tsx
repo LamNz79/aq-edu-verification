@@ -4,7 +4,7 @@ import { MyFieldset } from "aq-fe-framework/components";
 export default function F_o4e65ehgty_Synthetic() {
   return (
     <MyFieldset
-      h={"380px"}
+      h={"320px"}
       title="Tổng hợp báo cáo yêu cầu/ mốc chuẩn"
       style={{ overflowY: "auto" }}
     >
@@ -13,6 +13,13 @@ export default function F_o4e65ehgty_Synthetic() {
       <Skeleton height={20} mt={6} />
       <Skeleton height={20} mt={6} width="80%" />
       <Skeleton height={20} mt={6} width="70%" />
+      <Skeleton height={20} mt={6} width="50%" />
+      <Skeleton height={20} mt={6} />
+      <Skeleton height={20} mt={6} width="80%" />
+      <Skeleton height={20} mt={6} width="70%" />
+      <Skeleton height={20} mt={6} width="50%" />
+      <Skeleton height={20} mt={6} width="50%" />
+      <Skeleton height={20} mt={6} width="50%" />
       <Skeleton height={20} mt={6} width="50%" />
     </MyFieldset>
   );
