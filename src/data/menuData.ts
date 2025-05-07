@@ -1,7 +1,7 @@
 import { I0LinkItem } from "@/components/Layouts/BasicAppShell/BasicAppShell";
 
 export const menuData: I0LinkItem[] = [
-  { pageId: 1, label: "Dashboard", link: "dashboard", status: "Default" },
+  { pageId: 1, label: "Dashboard", link: "obf4m08gkx", status: "Prototype" },
   {
     label: "Quản lý hệ thống",
     links: [
@@ -27,8 +27,8 @@ export const menuData: I0LinkItem[] = [
   {
     label: "Quản lý Bộ tiêu chuẩn",
     links: [
-      { pageId: 31, name: "Standard list", label: "Danh sách Bộ tiêu chuẩn", link: "", status: "Default" },
-      { pageId: 32, name: "Standard structure", label: "Cấu trúc bộ tiêu chuẩn", link: "", status: "Default" },
+      { pageId: 31, name: "Standard list", label: "Danh sách Bộ tiêu chuẩn", link: "mc1b1zpbg6", status: "Prototype" },
+      { pageId: 32, name: "Standard structure", label: "Cấu trúc bộ tiêu chuẩn", link: "po2maj8sm7", status: "Prototype" },
     ],
   },
 
@@ -37,8 +37,8 @@ export const menuData: I0LinkItem[] = [
     links: [
       { pageId: 41, name: "Inspection cycle", label: "Chu kỳ kiểm định", link: "5lrwp21o3u", status: "Prototype" },
       { pageId: 42, name: "Preparation roadmap", label: "Lộ trình chuẩn bị", link: "", status: "Default" },
-      { pageId: 43, name: "Report management", label: "Quản lý kỳ báo cáo", link: "", status: "Default" },
-      { pageId: 44, name: "Assignment", label: "Phân công phụ trách mốc chuẩn", link: "i3sm0z5ns4", status: "Prototype" },
+      { pageId: 43, name: "Report management", label: "Quản lý kỳ báo cáo", link: "vrdjnzpfmc", status: "Prototype" },
+      { pageId: 44, name: "Assignment", label: "Phân công phụ trách mốc chuẩn", link: "raolvysdbf", status: "Prototype" },
       { pageId: 45, name: "Recurring tasks", label: "Thiết lập nhiệm vụ báo cáo định kỳ", link: "grtzbp3rjk", status: "Prototype" },
     ],
   },
@@ -53,7 +53,7 @@ export const menuData: I0LinkItem[] = [
   {
     label: "Báo cáo tự đánh giá",
     links: [
-      { pageId: 61, name: "Draft report", label: "Soạn nội dung báo cáo", link: "", status: "Default" },
+      { pageId: 61, name: "Draft report", label: "Soạn nội dung báo cáo", link: "79t4hwd85i", status: "Prototype" },
       { pageId: 62, name: "Summary report", label: "Tổng hợp báo cáo mốc chuẩn", link: "", status: "Default" },
       { pageId: 63, name: "Export report", label: "Xuất báo cáo tự đánh giá", link: "", status: "Default" },
     ],
@@ -62,8 +62,8 @@ export const menuData: I0LinkItem[] = [
   {
     label: "Khắc phục/ cải tiến kết quả đánh giá",
     links: [
-      { pageId: 71, name: "Evaluation result", label: "Ghi nhận kết quả đánh giá", link: "", status: "Default" },
-      { pageId: 72, name: "Improvement plan", label: "Kế hoạch khắc phục/ cải tiến", link: "", status: "Default" },
+      { pageId: 71, name: "Evaluation result", label: "Ghi nhận kết quả đánh giá", link: "vcd16qt9lf", status: "Prototype" },
+      { pageId: 72, name: "Improvement plan", label: "Kế hoạch khắc phục/ cải tiến", link: "xwuj3dvbgs", status: "Prototype" },
       { pageId: 73, name: "Monitoring improvements", label: "Theo dõi thực hiện khắc phục/ cải tiến", link: "", status: "Default" },
     ],
   },
@@ -80,8 +80,8 @@ export const menuData: I0LinkItem[] = [
     links: [
       { pageId: 999, name: "", label: "Cấu hình thông tin chủ quản", link: "k683h5xrg3", status: "Prototype" },
       { pageId: 1000, name: "", label: "Danh mục đơn vị", link: "o4e65ewrwy", status: "Prototype" },
-      { pageId: 1001, name: "List of evidence types", label: " Danh mục loại minh chứng", link: "4iahruyrpf", status: "Prototype" },
-      { pageId: 1002, name: "Rating scale list", label: "Danh mục thang đánh giá", link: "4ozfpuyh8g", status: "Prototype" },
+      // { pageId: 1001, name: "List of evidence types", label: " Danh mục loại minh chứng", link: "4iahruyrpf", status: "Prototype" },
+      // { pageId: 1002, name: "Rating scale list", label: "Danh mục thang đánh giá", link: "4ozfpuyh8g", status: "Prototype" },
       { pageId: 1003, name:"", label: "Danh mục cấu hình mail", link: "zwgpy0521g", status: "Prototype"},
       { pageId: 1006, name: "", label: "Danh mục bộ đếm", link: "6j8jkftgnc", status: "Prototype" },
     ],
