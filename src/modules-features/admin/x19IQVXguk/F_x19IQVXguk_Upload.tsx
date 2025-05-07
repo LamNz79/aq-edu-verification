@@ -21,16 +21,22 @@ export interface I_x19IQVXguk {
 export default function F_x19IQVXguk_Create() {
     const form = useForm<I_x19IQVXguk>({
         initialValues: {
-            code: "", 
-            name: "", 
-            effect_date: new Date(), 
-            end_date: new Date(),
-            viewfile: undefined,
-            filelink: "",
+          code: "", 
+          name: "", 
+          effect_date: new Date(), 
+          end_date: new Date(),
+          viewfile: undefined,
+          filelink: "",
         },
         validate: {
-        },
-    });
+            effect_date: (value: Date | undefined) => {
+                if (value !== undefined && form.values.end_date !== undefined && value > form.values.end_date) {
+                  return 'Ngày hiệu lực phải nhỏ hơn ngày hết hạn';
+                }
+                return null;
+              }
+          },
+      });
 
    
     function setUploadedFile(file: File[]): void {

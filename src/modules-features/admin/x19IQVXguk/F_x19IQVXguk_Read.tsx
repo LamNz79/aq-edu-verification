@@ -36,7 +36,7 @@ export interface I_x19IQVXguk_Read {
 export default function F_x19IQVXguk_Read() {
     // Query lấy dữ liệu từ server
     const query = useQuery<I_x19IQVXguk_Read[]>({
-        queryKey: ["F_x19IQVXguk_Read"],
+        queryKey: ["khominhchung"],
         queryFn: async () => [
             {
                 id: 1,
