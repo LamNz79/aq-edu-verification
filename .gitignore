@@ -43,3 +43,4 @@ db.json
 
 # package.json || package-log.json
 package-lock.json
+/.idea
