@@ -20,16 +20,7 @@ interface ISelectOption {
   value: number
 }
 
-const mockDonViPhuTrach: ISelectOption[] = [
-  {
-    label: "Phòng đào tạo",
-    value: 1
-  },
-  {
-    label: "Phòng nhân sự",
-    value: 2
-  },
-];
+
 
 const mockNhanSuPhuTrach: ISelectOption[] = [
   {
@@ -56,13 +47,9 @@ const mockData: Iraolvysdbf_ReadProps[] = [
 
 export default function F_raolvysdbf_Read() {
   //===initiate===
-  const [dvptEdited, dvptSetEdited] = useState<string | null>(null) // Đơn vị phụ trách
   const [nsptEdited, nsptSetEdited] = useState<string | null>(null) // Nhân sự phụ trách
   //===pseudo data===
-  const donViPhuTrachQuery = useQuery<ISelectOption[]>({
-    queryKey: ["Fraolvysdbf_DonViPhuTrach_Read"],
-    queryFn: async () => mockDonViPhuTrach,
-  });
+
 
   const nhanSuPhuTrachQuery = useQuery<ISelectOption[]>({
     queryKey: ["Fraolvysdbf_NhanSuPhuTrach_Read"],
@@ -109,25 +96,16 @@ export default function F_raolvysdbf_Read() {
         {
           accessorKey: "donViPhuTrach",
           header: "Đơn vị phụ trách",
-          // Cell: ({ row }) => (
-          //     <MySelect
-          //         placeholder="Đơn vị phụ trách"
-          //         value={dvptEdited ?? row.original.donViPhuTrach}
-          //         data={donViPhuTrachQuery.data!.map(item => item.label)}
-          //         onChange={dvptSetEdited}
-          //     ></MySelect>
-          // ),
         },
       ],
-      [dvptEdited, nsptEdited, donViPhuTrachQuery.data, nhanSuPhuTrachQuery.data]
+      [nsptEdited, nhanSuPhuTrachQuery.data]
   );
 
   //===query stage condition===
   if (nhanSuPhuTrachQuery.isLoading) return "Đang tải dữ liệu...";
   if (nhanSuPhuTrachQuery.isError) return "Lỗi Tải dữ liệu!";
 
-  if (donViPhuTrachQuery.isLoading) return "Đang tải dữ liệu...";
-  if (donViPhuTrachQuery.isError) return "Lỗi Tải dữ liệu!";
+
 
   if (mockDataQuery.isLoading) return "Đang tải dữ liệu...";
   if (mockDataQuery.isError) return "Lỗi Tải dữ liệu!";
