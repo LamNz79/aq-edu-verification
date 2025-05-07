@@ -262,6 +262,7 @@ export default function F_vrdjnzpfmc_CreateChuKy() {
         <MyFlexRow align={"flex-end"}>
           <MyNumberInput
             withAsterisk
+            hideControls
             label="Số năm của 1 chu kỳ"
             {...form.getInputProps("soNam")}
             min={1}
@@ -269,12 +270,14 @@ export default function F_vrdjnzpfmc_CreateChuKy() {
           />
           <MyNumberInput
             withAsterisk
+            hideControls
             label="Năm bắt đầu chu kỳ"
             min={1}
             {...form.getInputProps("namBatDau")}
           />
           <MyNumberInput
             withAsterisk
+            hideControls
             min={1}
             max={9}
             label="Số kỳ cập nhật đánh giá trong một năm"
