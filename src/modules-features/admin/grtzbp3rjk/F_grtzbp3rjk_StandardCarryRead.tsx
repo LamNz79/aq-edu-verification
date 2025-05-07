@@ -22,7 +22,7 @@ export interface I_grtzbp3rjk {
     ngayCapNhat?: Date | undefined;
 }
 
-export default function F_StandardCarryRead() {
+export default function F_grtzbp3rjk_StandardCarryRead() {
     const standardCarryQuery = useQuery<I_grtzbp3rjk[]>({
         queryKey: [`ListOfStandardCarry`],
         queryFn: async () => [

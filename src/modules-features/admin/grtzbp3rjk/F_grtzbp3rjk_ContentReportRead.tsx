@@ -8,12 +8,12 @@ import { MRT_ColumnDef } from "mantine-react-table"
 import { utils_date_dateToDDMMYYYString } from "@/utils/date"
 import { useEffect } from "react"
 import { AQButtonCreateByImportFile, AQButtonExportData, MyCenterFull, MySelect } from "aq-fe-framework/components"
-import { I_grtzbp3rjk } from "./F_StandardCarryRead"
+import { I_grtzbp3rjk } from "./F_grtzbp3rjk_StandardCarryRead"
 import { useForm } from "@mantine/form"
-import F_ContentReport_Create from "./F_ContentReport_Create"
-import F_ContentReport_Update from "./F_ContentReport_Update"
-import F_ContentReport_Delete from "./F_ContentReportDelete"
-export default function F_ContentReportRead() {
+import F_grtzbp3rjk_ContentReportCreate from "./F_grtzbp3rjk_ContentReportCreate"
+import F_grtzbp3rjk_ContentReportUpdate from "./F_grtzbp3rjk_ContentReportUpdate"
+import F_grtzbp3rjk_ContentReportDelete from "./F_grtzbp3rjk_ContentReportDelete"
+export default function F_grtzbp3rjk_ContentReportRead() {
     const [importData, setImportData] = useState(false);
 
     const form = useForm<any>({
@@ -161,7 +161,7 @@ export default function F_ContentReportRead() {
             renderTopToolbarCustomActions={() =>
 
                 <>
-                    <F_ContentReport_Create />
+                    <F_grtzbp3rjk_ContentReportCreate />
                     <AQButtonCreateByImportFile
                         setImportedData={setImportData}
                         form={form}
@@ -178,8 +178,8 @@ export default function F_ContentReportRead() {
             }
             renderRowActions={({ row }) => (
                 <MyCenterFull>
-                    <F_ContentReport_Update data={row.original} />
-                    <F_ContentReport_Delete id={row.original.id!} maTieuChuan={row.original.maTieuChuan!} />
+                    <F_grtzbp3rjk_ContentReportUpdate data={row.original} />
+                    <F_grtzbp3rjk_ContentReportDelete id={row.original.id!} maTieuChuan={row.original.maTieuChuan!} />
                 </MyCenterFull>
             )}
         />
