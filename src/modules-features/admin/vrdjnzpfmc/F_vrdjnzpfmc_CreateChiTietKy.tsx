@@ -68,11 +68,13 @@ export default function F_vrdjnzpfmc_CreateChiTietKy() {
           />
           <MyDateInput
             withAsterisk
+            placeholder="Chọn ngày"
             label="Ngày bắt đầu cập nhật nội dung báo cáo"
             {...form.getInputProps("ngayBatDauCapNhat")}
           />
           <MyDateInput
             withAsterisk
+            placeholder="Chọn ngày"
             label="Ngày bắt đầu tổng hợp mốc chuẩn"
             {...form.getInputProps("ngayBatDauTongHop")}
           />
@@ -85,11 +87,13 @@ export default function F_vrdjnzpfmc_CreateChiTietKy() {
           />
           <MyDateInput
             withAsterisk
+            placeholder="Chọn ngày"
             label="Ngày kết thúc cập nhật nội dung báo cáo"
             {...form.getInputProps("ngayKetThucCapNhat")}
           />
           <MyDateInput
             withAsterisk
+            placeholder="Chọn ngày"
             label="Ngày kết thúc tổng hợp mốc chuẩn"
             {...form.getInputProps("ngayKetThucTongHop")}
           />

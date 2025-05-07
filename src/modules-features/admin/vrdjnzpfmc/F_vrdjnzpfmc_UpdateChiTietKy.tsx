@@ -69,10 +69,12 @@ export default function F_vrdjnzpfmc_UpdateChiTietKy({
         <MyFlexColumn>
           <MyTextInput disabled label="Mã kỳ" {...form.getInputProps("maKy")} />
           <MyDateInput
+            placeholder="Chọn ngày"
             label="Ngày bắt đầu cập nhật nội dung báo cáo"
             {...form.getInputProps("ngayBatDauCapNhat")}
           />
           <MyDateInput
+            placeholder="Chọn ngày"
             label="Ngày bắt đầu tổng hợp mốc chuẩn"
             {...form.getInputProps("ngayBatDauTongHop")}
           />
@@ -80,10 +82,12 @@ export default function F_vrdjnzpfmc_UpdateChiTietKy({
         <MyFlexColumn>
           <MyTextInput label="Tên kỳ" {...form.getInputProps("tenKy")} />
           <MyDateInput
+            placeholder="Chọn ngày"
             label="Ngày kết thúc cập nhật nội dung báo cáo"
             {...form.getInputProps("ngayKetThucCapNhat")}
           />
           <MyDateInput
+            placeholder="Chọn ngày"
             label="Ngày kết thúc tổng hợp mốc chuẩn"
             {...form.getInputProps("ngayKetThucTongHop")}
           />
