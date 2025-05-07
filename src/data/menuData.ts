@@ -1,26 +1,26 @@
 import { I0LinkItem } from "@/components/Layouts/BasicAppShell/BasicAppShell";
 
 export const menuData: I0LinkItem[] = [
-  { pageId: 1, label: "Dashboard", link: "obf4m08gkx", status: "Prototype" },
+  { pageId: 111, label: "Dashboard", link: "obf4m08gkx", status: "Prototype" },
   {
     label: "Quản lý hệ thống",
     links: [
-      { pageId: 211, name: "Account management", label: "Quản lí tài khoản", link: "core71678" },
-      { pageId: 221, name: "Access control level", label: "Phân quyền cấp đơn vị", link: "core38677" },
-      { pageId: 231, name: "Access control", label: "Phân quyền sử dụng", link: "core83092" },
-      { pageId: 241, name: "Document categories", label: "Danh mục loại văn bản", link: "core18256" },
-      { pageId: 251, name: "Security regulations", label: "Quy định an toàn/ bảo mật thông tin", link: "core76318", status: "Default" },
-      { pageId: 261, name: "System updates", label: "Thông tin xây dựng, cải tiến, bảo trì hệ thống", link: "core16209", status: "Default" },
-      { pageId: 271, name: "User guide", label: "Tài liệu hướng dẫn sử dụng", link: "core40207", status: "Default" }
+      { pageId: 1, name: "Account management", label: "Quản lí tài khoản", link: "core71678" },
+      { pageId: 2, name: "Access control level", label: "Phân quyền cấp đơn vị", link: "core38677" },
+      { pageId: 3, name: "Access control", label: "Phân quyền sử dụng", link: "core83092" },
+      { pageId: 4, name: "Document categories", label: "Danh mục loại văn bản", link: "core18256" },
+      { pageId: 5, name: "Security regulations", label: "Quy định an toàn/ bảo mật thông tin", link: "core76318", status: "Default" },
+      { pageId: 6, name: "System updates", label: "Thông tin xây dựng, cải tiến, bảo trì hệ thống", link: "core16209", status: "Default" },
+      { pageId: 7, name: "User guide", label: "Tài liệu hướng dẫn sử dụng", link: "core40207", status: "Default" }
     ],
   },
 
   {
     label: "Văn bản – Quy định",
     links: [
-      { pageId: 21, name: "Organizational regulations", label: "Văn bản – Quy định tổ chức", link: "", status: "Default" },
-      { pageId: 22, name: "Workflow process", label: "Quy trình xử lý công việc", link: "", status: "Default" },
-      { pageId: 23, name: "Form templates", label: "Tài liệu biểu mẫu", link: "", status: "Default" },
+      { pageId: 21, name: "Organizational regulations", label: "Văn bản – Quy định tổ chức", link: "core26965", status: "Default" },
+      { pageId: 22, name: "Workflow process", label: "Quy trình xử lý công việc", link: "core27311", status: "Default" },
+      { pageId: 23, name: "Form templates", label: "Tài liệu biểu mẫu", link: "core12196", status: "Default" },
     ],
   },
 
