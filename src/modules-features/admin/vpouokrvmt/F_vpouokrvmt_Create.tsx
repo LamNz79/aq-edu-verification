@@ -1,11 +1,11 @@
 // F_vpouokrvmt_Create.tsx
 'use client';
 
-import {MyButtonCreate, MyDateInput, MySelect, MyTextArea, MyTextInput} from "aq-fe-framework/components";
+import {MyButtonCreate, MyDateInput, MyNumberInput, MySelect, MyTextArea, MyTextInput} from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
 
 interface I_vpouokrvmt_Create {
-    order: number;
+    order?: number;
     cycleId: string;
     cycleIdRoute: string;
     cycleRouteName: string;
@@ -17,7 +17,7 @@ interface I_vpouokrvmt_Create {
 export default function F_vpouokrvmt_Create() {
     const form = useForm<I_vpouokrvmt_Create>({
         initialValues: {
-            order: 0,
+            order: undefined,
             cycleId: '',
             cycleIdRoute: '',
             cycleRouteName: '',
@@ -42,17 +42,16 @@ export default function F_vpouokrvmt_Create() {
 
     return (
         <MyButtonCreate form={form} onSubmit={() => { }} objectName="Chi tiết lộ trình" title="Chi tiết lộ trình">
-            <MyTextInput label='Thứ tự' type="number" {...form.getInputProps("order")} />
+            <MyTextInput label='Mã lộ trình' {...form.getInputProps("cycleIdRoute")} />
+            <MyTextInput label='Tên lộ trình' {...form.getInputProps("cycleRouteName")} />
+            <MyDateInput label='Ngày bắt đầu' {...form.getInputProps("startDate")} />
+            <MyDateInput label='Ngày kết thúc' {...form.getInputProps("endDate")} />
+            <MyTextArea label='Ghi chú' {...form.getInputProps("note")} />
             <MySelect
                 label='Mã chu kỳ'
                 data={cycleOptions}
                 {...form.getInputProps("cycleId")}
             />
-            <MyTextInput label='Mã lộ trình' {...form.getInputProps("cycleIdRoute")} />
-            <MyTextInput label='Tên lộ trình' {...form.getInputProps("cycleRouteName")} />
-            <MyDateInput label='Thời gian bắt đầu' {...form.getInputProps("startDate")} />
-            <MyDateInput label='Thời gian kết thúc' {...form.getInputProps("endDate")} />
-            <MyTextArea label='Ghi chú' {...form.getInputProps("note")} />
         </MyButtonCreate>
     );
 }

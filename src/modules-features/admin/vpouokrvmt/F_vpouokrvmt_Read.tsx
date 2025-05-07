@@ -1,7 +1,6 @@
 'use client';
 
-import { AQButtonCreateByImportFile, AQButtonExportData, MyDataTable,MyFieldset,MyCenterFull, MyButton} from "aq-fe-framework/components";
-import { U0DateToDDMMYYYString } from "@/utils/date";
+import { AQButtonCreateByImportFile, AQButtonExportData, MyDataTable, MyFieldset, MyCenterFull, MyButton } from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
@@ -89,6 +88,7 @@ export default function F_vpouokrvmt_Read() {
 
     const exportConfig = {
         fields: [
+            { fieldName: 'order', header: 'Thứ tự' },
             { fieldName: 'cycleId', header: 'Mã chu kỳ' },
             { fieldName: 'cycleIdRoute', header: 'Mã lộ trình' },
             { fieldName: 'cycleIdRouteName', header: 'Tên lộ trình' },
@@ -99,6 +99,10 @@ export default function F_vpouokrvmt_Read() {
     };
 
     const columns = useMemo<MRT_ColumnDef<I_vpouokrvmt_Read>[]>(() => [
+        {
+            header: 'Thứ tự',
+            accessorKey: 'order',
+        },
         {
             header: 'Mã chu kỳ',
             accessorKey: 'cycleId',
@@ -128,32 +132,33 @@ export default function F_vpouokrvmt_Read() {
     if (query.isLoading) return "Đang tải dữ liệu..."
     if (query.isError) return "Có lỗi xảy ra!"
 
-    return(
+    return (
         <>
             <MyFieldset title="Danh sách lộ trình">
                 <MyDataTable
                     enableRowSelection={true}
+                    enableRowNumbers={false}
                     columns={columns}
                     data={query.data || []}
                     renderTopToolbarCustomActions={() =>
                         <>
-                            <F_vpouokrvmt_Create/>
+                            <F_vpouokrvmt_Create />
                             <AQButtonCreateByImportFile
                                 setImportedData={setImportData}
                                 form={form}
-                                onSubmit={() => { console.log(form.values) }}/>
+                                onSubmit={() => { console.log(form.values) }} />
                             <AQButtonExportData
                                 isAllData={true}
                                 data={query.data!}
                                 exportConfig={exportConfig}
-                                objectName="danhSachLoTrinh"/>
+                                objectName="danhSachLoTrinh" />
                             <MyButton >Xóa</MyButton>
                         </>
                     }
-                    renderRowActions={({row}) => (
+                    renderRowActions={({ row }) => (
                         <MyCenterFull>
-                            <F_vpouokrvmt_Update data={row.original}/>
-                            <F_vpouokrvmt_Delete id={row.original.order!} code={row.original.order?.toString()!}/>
+                            <F_vpouokrvmt_Update data={row.original} />
+                            <F_vpouokrvmt_Delete id={row.original.order!} code={row.original.cycleIdRoute!} />
                         </MyCenterFull>
                     )}
                 />

@@ -1,7 +1,7 @@
 // F_vpouokrvmt_Update.tsx
 'use client';
 
-import {MyActionIconUpdate, MyDateInput, MySelect, MyTextArea, MyTextInput} from "aq-fe-framework/components";
+import {MyActionIconUpdate, MyDateInput, MyNumberInput, MySelect, MyTextArea, MyTextInput} from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
 
 interface I_vpouokrvmt_Update {
@@ -34,17 +34,16 @@ export default function F_vpouokrvmt_Update({data}: {data: I_vpouokrvmt_Update})
 
     return (
         <MyActionIconUpdate title="Chi tiết lộ trình" form={form} onSubmit={async() => { }}>
-            <MyTextInput label='Thứ tự' type="number" {...form.getInputProps("order")} />
+            <MyTextInput label='Mã lộ trình' {...form.getInputProps("cycleIdRoute")} />
+            <MyTextInput label='Tên lộ trình' {...form.getInputProps("cycleRouteName")} />
+            <MyDateInput label='Ngày bắt đầu' {...form.getInputProps("startDate")} />
+            <MyDateInput label='Ngày kết thúc' {...form.getInputProps("endDate")} />
+            <MyTextArea label='Ghi chú' {...form.getInputProps("note")} />
             <MySelect
                 label='Mã chu kỳ'
                 data={cycleOptions}
                 {...form.getInputProps("cycleId")}
             />
-            <MyTextInput label='Mã lộ trình' {...form.getInputProps("cycleIdRoute")} />
-            <MyTextInput label='Tên lộ trình' {...form.getInputProps("cycleRouteName")} />
-            <MyDateInput label='Thời gian bắt đầu' {...form.getInputProps("startDate")} />
-            <MyDateInput label='Thời gian kết thúc' {...form.getInputProps("endDate")} />
-            <MyTextArea label='Ghi chú' {...form.getInputProps("note")} />
         </MyActionIconUpdate>
     );
 }
