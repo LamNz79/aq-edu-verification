@@ -13,19 +13,19 @@ export default function F_obf4m08gkx_Read() {
                 justify={'space-between'}
                 align={'center'}
             >
-                <Card shadow="xl" w={'24%'} padding="lg" radius="md" withBorder>
+                <Card shadow="xl" w={'24%'} padding="lg" bg={'#d3f9d8'} radius="md" withBorder>
                     <Text fz={30}>Tiêu chuẩn</Text>
                     <Text fz={30} fw={'bold'}>12/14</Text>
                 </Card>
-                <Card shadow="xl" w={'24%'} padding="lg" radius="md" withBorder>
+                <Card shadow="xl" w={'24%'} padding="lg" bg={'#f3d9fa'} radius="md" withBorder>
                     <Text fz={30}>Tiêu chí</Text>
                     <Text fz={30} fw={'bold'}>23/29</Text>
                 </Card>
-                <Card shadow="xl" w={'24%'} padding="lg" radius="md" withBorder>
+                <Card shadow="xl" w={'24%'} padding="lg" bg={'#d0ebff'} radius="md" withBorder>
                     <Text fz={30}>Mốc chuẩn</Text>
                     <Text fz={30} fw={'bold'}>58/75</Text>
                 </Card>
-                <Card shadow="xl" w={'24%'} padding="lg" radius="md" withBorder>
+                <Card shadow="xl" w={'24%'} padding="lg" bg={'#fff3bf'} radius="md" withBorder>
                     <Text fz={30}>Minh chứng</Text>
                     <Text fz={30} fw={'bold'}>586</Text>
                 </Card>

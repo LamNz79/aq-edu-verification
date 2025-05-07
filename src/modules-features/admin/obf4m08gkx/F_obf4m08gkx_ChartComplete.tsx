@@ -13,13 +13,27 @@ export default function F_obf4m08gkx_ChartComplete() {
     ];
     const pieData = [
         {
-            name: 'datatest1',
+            name: 'Số mốc chuẩn đã cập nhật',
             label: 'Nghỉ tại trường',
             value: data2.reduce((acc, cur) => acc + cur.datatest1, 0),
             color: 'violet.6',
         },
         {
-            name: 'datatest2',
+            name: 'Số mốc chuẩn chưa cập nhật',
+            label: 'Nghỉ tại nhà',
+            value: data2.reduce((acc, cur) => acc + cur.datatest2, 0),
+            color: 'blue.6',
+        },
+    ];
+    const pieData1 = [
+        {
+            name: 'Số nội dung đã cập nhật',
+            label: 'Nghỉ tại trường',
+            value: data2.reduce((acc, cur) => acc + cur.datatest1, 0),
+            color: 'violet.6',
+        },
+        {
+            name: 'Số nội dung chưa cập nhật',
             label: 'Nghỉ tại nhà',
             value: data2.reduce((acc, cur) => acc + cur.datatest2, 0),
             color: 'blue.6',
@@ -37,8 +51,9 @@ export default function F_obf4m08gkx_ChartComplete() {
                                 w={450}
                                 data={pieData}
                                 withTooltip
+                                withLabelsLine labelsPosition="outside" labelsType="value" withLabels
                             />
-                            <Paper mt={20} py={2} px={10} w={480}>
+                            <Paper mt={20} py={2} px={10} w={"100%"}>
                                 Số mốc chuẩn đã cập nhật/ số mốc chuẩn chưa cập nhật
                             </Paper>
                         </Box>
@@ -51,10 +66,11 @@ export default function F_obf4m08gkx_ChartComplete() {
                             <PieChart
                                 h={300}
                                 w={450}
-                                data={pieData}
+                                data={pieData1}
                                 withTooltip
+                                withLabelsLine labelsPosition="outside" labelsType="value" withLabels
                             />
-                            <Paper mt={20} py={2} px={10} w={480}>Số nội dung đã cập nhật/ số nội dung chưa cập nhật</Paper>
+                            <Paper mt={20} py={2} px={10} w={"100%"}>Số nội dung đã cập nhật/ số nội dung chưa cập nhật</Paper>
                         </Box>
                     </Flex>
                 </Box>

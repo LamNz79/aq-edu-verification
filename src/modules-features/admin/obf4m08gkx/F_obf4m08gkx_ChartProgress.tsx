@@ -10,7 +10,7 @@ const F_obf4m08gkx_ChartProgress: React.FC = () => {
             <Text fz={15} mb={10}>Tiến độ của chu kỳ báo cáo</Text>
 
             <Box pos="relative">
-                <Progress value={progressValue} size={20} radius="xl" />
+                <Progress value={progressValue} striped animated size={20} radius="xl" />
                 <Box
                     pos="absolute"
                     left={`${progressValue}%`}
