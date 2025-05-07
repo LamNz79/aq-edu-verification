@@ -26,7 +26,7 @@ export default function F_ContentReport_Create() {
     })
 
     return (
-        <MyButtonCreate label="Thêm" form={form} onSubmit={() => { }} title='Chi tiết chu kì kiểm định'>
+        <MyButtonCreate label="Thêm" form={form} onSubmit={() => { }} title='Chi tiết chu kỳ kiểm định'>
             <MySelect label='Yêu cầu/Mốc chuẩn' data={['M001','M002','M003']} {...form.getInputProps("maYeuCau")} />
             <MyTextArea label="Nội dung" {...form.getInputProps("noiDungCaiTien")} />
             <MySelect label='Người phụ trách' data={["Tô Ngọc Linh", "Tô Ngọc Lan", "Tô Ngọc Đạt"]} {...form.getInputProps("nguoiPhuTrach")} />

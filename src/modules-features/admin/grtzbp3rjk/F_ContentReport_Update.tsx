@@ -3,7 +3,7 @@ import MySelect from '@/components/Combobox/Select/MySelect'
 import MyTextArea from '@/components/Inputs/TextArea/MyTextArea'
 import { useForm } from '@mantine/form'
 import { MyActionIconUpdate } from 'aq-fe-framework/components'
-import { I_grtzbp3rjk } from './F_StandardCarry'
+import { I_grtzbp3rjk } from './F_StandardCarryRead'
 
 
 interface ContentReport {
@@ -22,7 +22,7 @@ export default function F_ContentReport_Update({ data }: { data: I_grtzbp3rjk })
     })
 
     return (
-        <MyActionIconUpdate  form={form} onSubmit={() => { }} title='Chi tiết chu kì kiểm định'>
+        <MyActionIconUpdate  form={form} onSubmit={() => { }} title='Chi tiết chu kỳ kiểm định'>
             <MySelect disabled label='Yêu cầu/Mốc chuẩn' data={['M001','M002','M003']} {...form.getInputProps("maYeuCau")} />
             <MyTextArea label="Nội dung" {...form.getInputProps("noiDungCaiTien")} />
             <MySelect label='Người phụ trách' data={["Tô Ngọc Linh", "Tô Ngọc Lan", "Tô Ngọc Đạt"]} {...form.getInputProps("nguoiPhuTrach")} />
