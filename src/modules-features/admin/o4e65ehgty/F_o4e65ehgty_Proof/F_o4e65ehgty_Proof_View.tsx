@@ -12,7 +12,7 @@ import { useMemo } from "react";
 import F_o4e65ehgty_Proof_Create from "./F_o4e65ehgty_Proof_Create";
 import F_o4e65ehgty_Proof_Upload from "./F_o4e65ehgty_Proof_Upload";
 import F_o4e65ehgty_Proof_Use from "./F_o4e65ehgty_Proof_Use";
-
+import { utils_date_dateToDDMMYYYString } from "aq-fe-framework/utils";
 export interface I_o4e65ehgty_ProofView {
   id: string;
   ma?: string;
@@ -25,6 +25,17 @@ export interface I_o4e65ehgty_ProofView {
   nguoiCapNhat?: string;
   ngayCapNhat?: string;
   donViCapNhat?: string;
+}
+
+// Chưa có nên phải tạo utils
+export function utils_date_FormatToDateTimetring(date: Date) {
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Tháng bắt đầu từ 0 nên phải cộng thêm 1
+  const year = date.getFullYear();
+  const hour = String(date.getHours()).padStart(2, "0");
+  const minute = String(date.getMinutes()).padStart(2, "0");
+  const second = String(date.getSeconds()).padStart(2, "0");
+  return `${day}/${month}/${year} - ${hour}:${minute}:${second}`;
 }
 
 export default function F_o4e65ehgty_Proof_View() {
@@ -60,17 +71,20 @@ export default function F_o4e65ehgty_Proof_View() {
       {
         header: "Ngày hiệu lực",
         accessorFn: (row) =>
-          row.ngayHieuLuc ? new Date(row.ngayHieuLuc).toLocaleDateString() : "",
+          row.ngayHieuLuc &&
+          utils_date_dateToDDMMYYYString(new Date(row.ngayHieuLuc)),
       },
       {
         header: "Ngày hết hạn",
         accessorFn: (row) =>
-          row.ngayHetHan ? new Date(row.ngayHetHan).toLocaleDateString() : "",
+          row.ngayHetHan &&
+          utils_date_dateToDDMMYYYString(new Date(row.ngayHetHan)),
       },
       {
         header: "Ngày cập nhật",
         accessorFn: (row) =>
-          row.ngayCapNhat ? new Date(row.ngayCapNhat).toLocaleDateString() : "",
+          row.ngayCapNhat &&
+          utils_date_FormatToDateTimetring(new Date(row.ngayCapNhat)),
       },
       {
         header: "Người cập nhật",
