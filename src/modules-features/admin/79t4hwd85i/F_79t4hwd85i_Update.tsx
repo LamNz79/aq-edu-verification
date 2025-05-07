@@ -151,7 +151,7 @@ export default function F_79t4hwd85i_Update() {
       label="Cập nhật"
       modalSize={"100%"}
       disclosure={dis}
-      title="Chi tiết kì báo cáo"
+      title="Chi tiết kỳ báo cáo"
       onSubmit={() => {}}
       form={form}
       leftSection={<></>}
@@ -164,8 +164,8 @@ export default function F_79t4hwd85i_Update() {
               <MyTextEditor
                 value={form.values.noiDung}
                 contentHeight={"220px"}
-                {...form.getInputProps("noiDung")}
                 error={(form.errors.noiDung as string | undefined) || undefined}
+                onChange={()=> {}}
               />
             </MyFieldset>
           </Grid.Col>
