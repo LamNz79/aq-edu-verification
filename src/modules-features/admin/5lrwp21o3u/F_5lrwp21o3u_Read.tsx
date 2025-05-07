@@ -1,16 +1,15 @@
 'use client';
 
-import { AQButtonCreateByImportFile, AQButtonExportData, MyDataTable,MyFieldset,MyCenterFull,} from "aq-fe-framework/components";
+import { AQButtonCreateByImportFile, AQButtonExportData, MyDataTable,MyFieldset,MyCenterFull, MyButton,} from "aq-fe-framework/components";
 import { U0DateToDDMMYYYString } from "@/utils/date";
 import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo, useState } from "react";
 import F_5lrwp21o3u_Create from "./F_5lrwp21o3u_Create";
-import F_5lrwp21o3u_Delete from "./F_5lrwp21o3u_Delete";
-import F_5lrwp21o3u_Delete_Datarow from "./F_5lrwp21o3u_Delete_Datarow";
 import F_5lrwp21o3u_Update from "./F_5lrwp21o3u_Update";
 import { Checkbox } from "@mantine/core";
+import F_5lrwp21o3u_Delete from "./F_5lrwp21o3u_Delete";
 
 interface IDandSachBoTieuChuanRead {
     cycleId: string; // Mã chu kỳ
@@ -138,7 +137,7 @@ export default function F_5lrwp21o3u_Read() {
 
     return(
         <>
-            <MyFieldset title="Danh sách bộ tiêu chuẩn">
+            <MyFieldset title="Danh sách chu kỳ kiểm định">
                 <MyDataTable
                     enableRowSelection={true}
                     columns={danhSachBoTieuChuanColumns}
@@ -155,13 +154,13 @@ export default function F_5lrwp21o3u_Read() {
                             data={danhSachBoTieuChuanQuery.data!}
                             exportConfig={exportConfig}
                             objectName="danhSachBoTieuChuan"/>
-                            <F_5lrwp21o3u_Delete/>
+                            <MyButton crudType='delete'>Xóa</MyButton>
                         </>
                     }
                     renderRowActions={({row}) => (
                         <MyCenterFull>
                             <F_5lrwp21o3u_Update data={row.original}/>
-                            <F_5lrwp21o3u_Delete_Datarow id={row.original.cycleId}/>
+                            <F_5lrwp21o3u_Delete id={row.original.cycleId}/>
                         </MyCenterFull>
                     )}
                 />
