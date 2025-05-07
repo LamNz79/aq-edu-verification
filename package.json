@@ -46,7 +46,7 @@
     "@tiptap/pm": "^2.9.1",
     "@tiptap/react": "^2.9.1",
     "@tiptap/starter-kit": "^2.9.1",
-    "aq-fe-framework": "^0.1.39",
+    "aq-fe-framework": "^0.1.144",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.7",
     "clsx": "^2.1.1",
