@@ -172,7 +172,7 @@ export default function F_79t4hwd85i_Update() {
             </MyFieldset>
           </Grid.Col>
           <Grid.Col span={{ base: 12, md: 6 }}>
-            <MyFieldset title="Minh chứng gợi ý">
+            <MyFieldset title="Minh chứng sử dụng">
               <MyDataTable
                 data={danhSachFileMinhChungGoiY.data!}
                 columns={columns}
