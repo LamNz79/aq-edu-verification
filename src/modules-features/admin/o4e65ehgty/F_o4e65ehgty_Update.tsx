@@ -16,7 +16,7 @@ export interface I_o4e65ehgty_Update {
   name?: string;
   content?: string;
   nguoiCapNhat?: string;
-  ngayCapNhat?: string;
+  ngayCapNhat?: Date;
   trangThai?: boolean;
 }
 
@@ -93,7 +93,7 @@ const mockData: I_o4e65ehgty_Update[] = [
     4.2 c) Tổ chức các hoạt động tham quan thực tế, thực hành, thực tập doanh nghiệp/cơ sở liên quan
     4.2 d) Khuyến khích mời các chuyên gia, nhà quản lý thực tiễn tham gia giảng dạy, báo cáo chuyên đề`,
     nguoiCapNhat: "Tô Ngọc Lan",
-    ngayCapNhat: "2025-02-24",
+    ngayCapNhat: new Date("2025-02-24"),
     trangThai: true,
   },
   {
@@ -104,7 +104,7 @@ const mockData: I_o4e65ehgty_Update[] = [
     4.2 c) Tổ chức các hoạt động tham quan thực tế, thực hành, thực tập doanh nghiệp/cơ sở liên quan
     4.2 d) Khuyến khích mời các chuyên gia, nhà quản lý thực tiễn tham gia giảng dạy, báo cáo chuyên đề`,
     nguoiCapNhat: "Tô Ngọc Linh",
-    ngayCapNhat: "2025-02-25",
+    ngayCapNhat: new Date("2025-02-25"),
     trangThai: true,
   },
   {
@@ -115,7 +115,7 @@ const mockData: I_o4e65ehgty_Update[] = [
     4.2 c) Tổ chức các hoạt động tham quan thực tế, thực hành, thực tập doanh nghiệp/cơ sở liên quan
     4.2 d) Khuyến khích mời các chuyên gia, nhà quản lý thực tiễn tham gia giảng dạy, báo cáo chuyên đề`,
     nguoiCapNhat: "Tô Ngọc Ly",
-    ngayCapNhat: "2025-02-26",
+    ngayCapNhat: new Date("2025-02-26"),
     trangThai: true,
   },
   {
@@ -126,7 +126,7 @@ const mockData: I_o4e65ehgty_Update[] = [
     4.2 c) Tổ chức các hoạt động tham quan thực tế, thực hành, thực tập doanh nghiệp/cơ sở liên quan
     4.2 d) Khuyến khích mời các chuyên gia, nhà quản lý thực tiễn tham gia giảng dạy, báo cáo chuyên đề`,
     nguoiCapNhat: "Tô Ngọc Loan",
-    ngayCapNhat: "2025-02-27",
+    ngayCapNhat: new Date("2025-02-27"),
     trangThai: true,
   },
   {
@@ -137,7 +137,7 @@ const mockData: I_o4e65ehgty_Update[] = [
     4.2 c) Tổ chức các hoạt động tham quan thực tế, thực hành, thực tập doanh nghiệp/cơ sở liên quan,
     4.2 d) Khuyến khích mời các chuyên gia, nhà quản lý thực tiễn tham gia giảng dạy, báo cáo chuyên đề`,
     nguoiCapNhat: "Tô Ngọc Châu",
-    ngayCapNhat: "2025-02-27",
+    ngayCapNhat: new Date("2025-02-27"),
     trangThai: false,
   },
 ];

@@ -19,11 +19,11 @@ export interface I_o4e65ehgty_ProofView {
   ten?: string;
   maFile?: string;
   tenFile?: string;
-  ngayHieuLuc?: string;
-  ngayHetHan?: string;
+  ngayHieuLuc?: Date;
+  ngayHetHan?: Date;
   lienKet?: string;
   nguoiCapNhat?: string;
-  ngayCapNhat?: string;
+  ngayCapNhat?: Date;
   donViCapNhat?: string;
 }
 
@@ -184,10 +184,10 @@ const MockData: I_o4e65ehgty_ProofView[] = [
     ten: "Tầm nhìn",
     maFile: "MD-23",
     tenFile: "Quyết định xác định tầm nhìn chiến lược 5 năm tới",
-    ngayHieuLuc: "2025-01-15",
-    ngayHetHan: "2025-12-15",
+    ngayHieuLuc: new Date("2025-01-15"),
+    ngayHetHan: new Date("2025-12-15"),
     nguoiCapNhat: "Tô Ngọc Bảo",
-    ngayCapNhat: "2025-01-10",
+    ngayCapNhat: new Date("2025-01-10"),
     donViCapNhat: "Phòng Tổ chức",
   },
 ];

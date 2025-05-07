@@ -14,11 +14,11 @@ interface I_o4e65ehgty_TableProof {
   ma?: string;
   ten?: string;
   maFile?: string;
-  ngayHieuLuc?: string;
-  ngayHetHan?: string;
+  ngayHieuLuc?: Date;
+  ngayHetHan?: Date;
   lienKet?: string;
   nguoiCapNhat?: string;
-  ngayCapNhat?: string;
+  ngayCapNhat?: Date;
 }
 
 export default function F_o4e65ehgty_TableProof() {
@@ -129,15 +129,15 @@ const MockData: I_o4e65ehgty_TableProof[] = [
     ma: "MC0001",
     ten: "Hình ảnh hoạt động",
     maFile: "MD-23",
-    ngayHieuLuc: "2025-01-15",
-    ngayHetHan: "2025-12-15",
+    ngayHieuLuc:new Date("2025-01-15"),
+    ngayHetHan: new Date("2025-12-15"),
   },
   {
     id: "2",
     ma: "MC0002",
     ten: "Video hoạt động",
     maFile: "MD-24",
-    ngayHieuLuc: "2025-01-15",
-    ngayHetHan: "2025-04-31",
+    ngayHieuLuc:new Date("2025-01-15"),
+    ngayHetHan: new Date("2025-04-31"),
   },
 ];
