@@ -6,11 +6,12 @@ import {
   MyButton,
   MyDataTable,
   MyFieldset,
-  MyCheckbox
+  MyCheckbox,
 } from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
 import F_o4e65ehgty_Update from "./F_o4e65ehgty_Update";
+import { utils_date_dateToDDMMYYYString } from "@/utils/date";
 
 interface I_o4e65ehgty_Read {
   id?: string; // ID
@@ -46,12 +47,14 @@ export default function F_o4e65ehgty_Read() {
       {
         header: "Ngày bắt đầu",
         accessorFn: (row) =>
-          row.ngayBatDau ? new Date(row.ngayBatDau).toLocaleDateString() : "",
+          row.ngayBatDau &&
+          utils_date_dateToDDMMYYYString(new Date(row.ngayBatDau)),
       },
       {
         header: "Ngày kết thúc",
         accessorFn: (row) =>
-          row.ngayKetThuc ? new Date(row.ngayKetThuc).toLocaleDateString() : "",
+          row.ngayKetThuc &&
+          utils_date_dateToDDMMYYYString(new Date(row.ngayKetThuc)),
       },
       {
         header: "Trạng thái",

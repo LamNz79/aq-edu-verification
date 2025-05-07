@@ -8,6 +8,7 @@ import {
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
 import F_o4e65ehgty_Proof_View from "./F_o4e65ehgty_Proof/F_o4e65ehgty_Proof_View";
+import { utils_date_dateToDDMMYYYString } from "aq-fe-framework/utils";
 
 interface I_o4e65ehgty_TableProofSugestive {
   id: string;
@@ -37,12 +38,14 @@ export default function F_o4e65ehgty_TableProofSugestive() {
       {
         header: "Ngày hiệu lực",
         accessorFn: (row) =>
-          row.ngayHieuLuc ? new Date(row.ngayHieuLuc).toLocaleDateString() : "",
+          row.ngayHieuLuc &&
+          utils_date_dateToDDMMYYYString(new Date(row.ngayHieuLuc ?? "")),
       },
       {
         header: "Ngày hết hạn",
         accessorFn: (row) =>
-          row.ngayHetHan ? new Date(row.ngayHetHan).toLocaleDateString() : "",
+          row.ngayHetHan &&
+          utils_date_dateToDDMMYYYString(new Date(row.ngayHetHan ?? "")),
       },
       {
         header: "Xem file",

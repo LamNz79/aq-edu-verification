@@ -51,6 +51,11 @@ export default function F_o4e65ehgty_Proof_View() {
       {
         header: "Link file",
         accessorKey: "lienKet",
+        accessorFn: () => (
+          <MyButton variant="transparent" crudType="default">
+            Xem
+          </MyButton>
+        ),
       },
       {
         header: "Ngày hiệu lực",
