@@ -30,7 +30,7 @@ export default function F_grtzbp3rjk_Read() {
                     <Tabs.Tab
                         value="moc_chuan_phu_trach"
                         style={{
-                            backgroundColor: activeTab === "moc_chuan_phu_trach" ? "teal" : "rgba(85, 83, 83, 0.3)",
+                            backgroundColor: activeTab === "moc_chuan_phu_trach" ? "#10B981" : "rgba(85, 83, 83, 0.3)",
                             color: activeTab === "moc_chuan_phu_trach" ? "white" : "black",
                         }}
                     >
@@ -40,7 +40,7 @@ export default function F_grtzbp3rjk_Read() {
                     <Tabs.Tab
                         value="noi_dung_bao_cao"
                         style={{
-                            backgroundColor: activeTab === "noi_dung_bao_cao" ? "teal" : "rgba(85, 83, 83, 0.3)",
+                            backgroundColor: activeTab === "noi_dung_bao_cao" ? "#10B981" : "rgba(85, 83, 83, 0.3)",
                             color: activeTab === "noi_dung_bao_cao" ? "white" : "black",
                         }}
                     >

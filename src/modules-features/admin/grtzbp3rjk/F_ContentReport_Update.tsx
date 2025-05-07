@@ -4,6 +4,7 @@ import MyTextArea from '@/components/Inputs/TextArea/MyTextArea'
 import { useForm } from '@mantine/form'
 import { MyActionIconUpdate } from 'aq-fe-framework/components'
 import { I_grtzbp3rjk } from './F_StandardCarryRead'
+import { useEffect } from 'react'
 
 
 interface ContentReport {
@@ -20,6 +21,10 @@ export default function F_ContentReport_Update({ data }: { data: I_grtzbp3rjk })
             nguoiPhuTrach: (value) => value ? null : 'Không được để trống',
         }
     })
+
+    useEffect(() => {
+        form.setValues(data)
+    }, [data])
 
     return (
         <MyActionIconUpdate  form={form} onSubmit={() => { }} title='Chi tiết chu kỳ kiểm định'>
