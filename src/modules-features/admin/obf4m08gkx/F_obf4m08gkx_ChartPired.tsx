@@ -3,6 +3,7 @@ import { Box, Flex, Group, Paper, Text } from '@mantine/core';
 import React from 'react'
 export default function F_obf4m08gkx_ChartPired() {
     const data1 = [
+        { month: 'Còn hạn', datatest1: 120 },
         { month: 'Trước tháng 1', datatest1: 120 },
         { month: 'Trước tháng 2', datatest1: 100 },
         { month: 'Trước tháng 3', datatest1: 130 },
