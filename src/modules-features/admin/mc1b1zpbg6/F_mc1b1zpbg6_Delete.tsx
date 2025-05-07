@@ -8,11 +8,8 @@ export default function F_mc1b1zpbg6_Delete({ id }: { id: string }) {
         <MyActionIconDelete
             title="Xác nhận xóa bộ tiêu chuẩn"
             contextData={id}
-            onSubmit={async () => {
-                await baseAxios.post('/Standards/Delete', {
-                    maBoTieuChuan: id,
-                    isEnabled: true,
-                });
+            onSubmit={ () => {
+                // Empty onSubmit handler
             }}
         />
     );

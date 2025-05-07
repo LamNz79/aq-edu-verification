@@ -39,7 +39,7 @@ const mockData: IStandardSet[] = [
         phienBan: "4.0",
         namBanHanh: 2021,
         fileTieuChuan: "aun_qa_4.0.pdf",
-        chuKyDanhGiaLai: "5", // Changed to string
+        chuKyDanhGiaLai: "5 năm", // Changed to string
         ghiChu: "Bộ tiêu chuẩn đánh giá chất lượng giáo dục đại học khu vực ASEAN",
     },
     {
@@ -51,7 +51,7 @@ const mockData: IStandardSet[] = [
         phienBan: "2022-2023",
         namBanHanh: 2022,
         fileTieuChuan: "abet_criteria.pdf",
-        chuKyDanhGiaLai: "6", // Changed to string
+        chuKyDanhGiaLai: "6 năm", // Changed to string
         ghiChu: "Bộ tiêu chuẩn kiểm định chất lượng các chương trình kỹ thuật và công nghệ",
     },
 ];
@@ -90,13 +90,6 @@ export default function F_mc1b1zpbg6_Read() {
         refetchOnWindowFocus: false,
     });
 
-    const [selectedRow, setSelectedRow] = useState<number[]>([]);
-
-    useEffect(() => {
-        if (standardsQuery.data && standardsQuery.data.length > 0) {
-            setSelectedRow([standardsQuery.data[0].id]);
-        }
-    }, [standardsQuery.data]);
 
     const columns = useMemo<MRT_ColumnDef<IStandardSet>[]>(() => [
         { accessorKey: "maBoTieuChuan", header: "Mã bộ tiêu chuẩn" },
@@ -104,7 +97,11 @@ export default function F_mc1b1zpbg6_Read() {
         { accessorKey: "toChucKiemDinh", header: "Tổ chức kiểm định" },
         { accessorKey: "phienBan", header: "Phiên bản" },
         { accessorKey: "namBanHanh", header: "Năm ban hành" },
-        { accessorKey: "fileTieuChuan", header: "File tiêu chuẩn" },
+        { accessorKey: "fileTieuChuan", header: "File tiêu chuẩn",
+            Cell: ({ cell }) => (
+                <MyButton crudType="default">Xem File</MyButton>
+            )
+        },
         { accessorKey: "chuKyDanhGiaLai", header: "Chu kỳ đánh giá lại" },
         { accessorKey: "ghiChu", header: "Ghi chú" },
     ], []);

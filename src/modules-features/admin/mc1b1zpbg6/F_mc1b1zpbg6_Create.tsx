@@ -31,7 +31,7 @@ export default function F_mc1b1zpbg6_Create() {
             phienBan: "",
             namBanHanh: new Date().getFullYear(),
             fileTieuChuan: null,
-            chuKyDanhGiaLai: "5",
+            chuKyDanhGiaLai: "5 năm",
             ghiChu: "",
         },
         validate: {
@@ -69,7 +69,7 @@ export default function F_mc1b1zpbg6_Create() {
             <MyTextInput required label='Tên bộ tiêu chuẩn Eg' {...form.getInputProps("tenBoTieuChuanEg")} />
             <MyTextInput required label='Tổ chức kiểm định' {...form.getInputProps("toChucKiemDinh")} />
             <MyTextInput required label='Phiên bản' {...form.getInputProps("phienBan")} />
-            <MyNumberInput required label='Năm ban hành' {...form.getInputProps("namBanHanh")} />
+            <MyTextInput required label='Năm ban hành' {...form.getInputProps("namBanHanh")} />
             <FileInput label='File tiêu chuẩn' {...form.getInputProps("fileTieuChuan")} />
             <MyTextInput required label='Chu kỳ đánh giá lại' {...form.getInputProps("chuKyDanhGiaLai")} />
             <MyTextArea label='Ghi chú' {...form.getInputProps("ghiChu")} />

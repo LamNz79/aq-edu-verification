@@ -69,7 +69,7 @@ export default function F_mc1b1zpbg6_Update({ values }: { values: IStandardSet }
             <MyTextInput required label="Tên bộ tiêu chuẩn Eg" {...form.getInputProps("tenBoTieuChuanEg")} />
             <MyTextInput required label="Tổ chức kiểm định" {...form.getInputProps("toChucKiemDinh")} />
             <MyTextInput required label="Phiên bản" {...form.getInputProps("phienBan")} />
-            <MyNumberInput required label="Năm ban hành" {...form.getInputProps("namBanHanh")} />
+            <MyTextInput required label="Năm ban hành" {...form.getInputProps("namBanHanh")} />
             <FileInput
                 label="File tiêu chuẩn"
                 placeholder={form.values.currentFile || "Chọn file"}
