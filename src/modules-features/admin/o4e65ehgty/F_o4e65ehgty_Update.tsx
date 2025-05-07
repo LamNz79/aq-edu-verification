@@ -1,4 +1,4 @@
-import { Accordion, Flex, Grid, Group, Text } from "@mantine/core";
+import { Accordion, Center, Flex, Grid, Group, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
   MyButton,
@@ -40,7 +40,10 @@ export default function F_o4e65ehgty_Update() {
         <Grid.Col span={{ base: 12, lg: openHistory ? 8 : 12 }}>
           <Flex gap={5}>
             <Text>Mốc chuẩn:</Text>
-            <Text fw={"bold"}>Đảm bảo chất lượng nghiên cứu khoa học</Text>
+            <Text fw={"bold"}>
+              CDT của CTDT được phổ biến đến các BLQ; giảng viên và NH hiểu rõ
+              về CDT của CTDT
+            </Text>
           </Flex>
           <MyFieldset
             title="Danh sách nội dung báo cáo"
@@ -53,7 +56,7 @@ export default function F_o4e65ehgty_Update() {
                 })}
             </Accordion>
           </MyFieldset>
-          <Group>
+          <Center>
             <MyButton
               variant="transparent"
               crudType="default"
@@ -61,7 +64,7 @@ export default function F_o4e65ehgty_Update() {
             >
               Lịch sử cập nhật
             </MyButton>
-          </Group>
+          </Center>
           <Grid w={"100%"}>
             <Grid.Col span={{ base: 12, lg: 6 }}>
               <F_o4e65ehgty_Synthetic />

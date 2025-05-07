@@ -10,6 +10,16 @@ export default function F_o4e65ehgty_Proof_Use({
 }) {
   const disc = useDisclosure();
 
+  const isFileValid =
+    data?.ngayHetHan && new Date(data.ngayHetHan) > new Date();
+  const daysRemaining =
+    isFileValid && data?.ngayHetHan
+      ? Math.ceil(
+          (new Date(data.ngayHetHan).getTime() - new Date().getTime()) /
+            (1000 * 60 * 60 * 24)
+        )
+      : 0;
+
   return (
     <MyButtonModal
       disclosure={disc}
@@ -21,14 +31,18 @@ export default function F_o4e65ehgty_Proof_Use({
     >
       <Group>
         <Text>
-          {`File minh chứng ${data?.maFile} mà bạn chọn ${
-            data?.ngayHetHan && new Date(data.ngayHetHan) > new Date()
-              ? `sẽ hết hạn sử dụng trong ${Math.ceil(
-                  (new Date(data.ngayHetHan).getTime() - new Date().getTime()) /
-                    (1000 * 60 * 60 * 24)
-                )} ngày nửa.`
-              : "không còn hiệu lực"
-          }`}
+          File minh chứng {data?.maFile} mà bạn chọn{" "}
+          {isFileValid ? (
+            <>
+              sẽ hết hạn sử dụng trong{" "}
+              <Text fw={600} span c="blue" td="underline">
+                {daysRemaining}
+              </Text>{" "}
+              ngày nữa.
+            </>
+          ) : (
+            "không còn hiệu lực"
+          )}
         </Text>
         <Text>Đồng ý nếu tiếp tục sử dụng.</Text>
         <Text>Chọn Upload file mới nếu muốn dùng file khác</Text>

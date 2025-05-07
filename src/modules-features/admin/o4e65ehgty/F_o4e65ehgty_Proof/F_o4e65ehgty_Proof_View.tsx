@@ -129,6 +129,7 @@ export default function F_o4e65ehgty_Proof_View() {
   return (
     <MyButtonModal
       label="Thêm"
+      title="Danh sách minh chứng"
       crudType="default"
       color="green"
       disclosure={disc}
