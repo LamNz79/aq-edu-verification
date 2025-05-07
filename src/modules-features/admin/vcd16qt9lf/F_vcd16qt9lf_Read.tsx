@@ -1,18 +1,14 @@
 'use client'
-import { MyButton } from "@/components/Buttons/Button/MyButton"
 import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable"
 import { useQuery } from "@tanstack/react-query"
 import { useMemo } from "react"
 import { MRT_ColumnDef } from "mantine-react-table"
 import { U0DateToDDMMYYYString } from "@/utils/date"
-import { Box, Button, Grid, Paper, Select } from "@mantine/core"
+import { Box, Button, Grid, Paper } from "@mantine/core"
 import { Text } from "@mantine/core"
 import { IconTrash } from '@tabler/icons-react';
 import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset"
 import MyTextInput from "@/components/Inputs/TextInput/MyTextInput"
-import { useState } from "react";
-import { initialize } from "next/dist/server/lib/render-server"
-import { useForm } from "@mantine/form"
 import MySelect from "@/components/Combobox/Select/MySelect"
 import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData"
 export interface I_vcd16qt9lf {
@@ -48,7 +44,7 @@ export default function F_vcd16qt9lf_Read() {
                 standardCode: "TC001",
                 criteriaCode: "C001",
                 requirementCode: "R001",
-                requirementName: "Yêu cầu 1",
+                requirementName: "CDT của CTDT được phổ biến đến các BLQ; giảng viên và NH hiểu rõ về CDT của CTDT",
                 result: "Đạt",
                 note: "Hoàn thành tốt nhiệm vụ",
             },
@@ -57,7 +53,7 @@ export default function F_vcd16qt9lf_Read() {
                 standardCode: "TC002",
                 criteriaCode: "C002",
                 requirementCode: "R002",
-                requirementName: "Yêu cầu 2",
+                requirementName: "CDR của CTDT được phát triển rõ ràng; phù hợp với mục tiêu của CTDT; sứ mạng; tầm nhìn và chiến lược của CSDT",
                 result: "Không đạt",
                 note: "Cần cải thiện hiệu suất làm việc",
             },
@@ -66,7 +62,7 @@ export default function F_vcd16qt9lf_Read() {
                 standardCode: "TC003",
                 criteriaCode: "C003",
                 requirementCode: "R003",
-                requirementName: "Yêu cầu 3",
+                requirementName: "Chuẩn đầu ra của CTDT được xây dựng. ra soát và điều chỉnh theo quy trình định trước trong đó có sự tham gia của các BLQ",
                 result: "Cần cải tiến",
                 note: "Đang trong quá trình cải tiến",
             },
@@ -93,7 +89,7 @@ export default function F_vcd16qt9lf_Read() {
         {
             header: "Kết quả",
             accessorKey: "result",
-            Cell: ({ cell, row, table }) => (
+            Cell: ({ cell }) => (
                 <MySelect
                     data={[
                         { value: "Đạt", label: "Đạt" },
@@ -108,7 +104,7 @@ export default function F_vcd16qt9lf_Read() {
         {
             header: "Nội dung cần khắc phục/ cải tiến",
             accessorKey: "note",
-            Cell: ({ cell, row, table }) => (
+            Cell: ({ cell }) => (
                 <MyTextInput
                     defaultValue={cell.getValue<string>()}
                 //{...resultForm.getInputProps("note")}
@@ -138,15 +134,12 @@ export default function F_vcd16qt9lf_Read() {
                     <MyFieldset mt="20" title='Danh sách kết quả đánh giá yêu cầu/ mốc chuẩn'>
                         <Grid>
                             <Grid.Col>
-
                                 <MyDataTable
                                     enableRowSelection={true}
                                     columns={columns}
                                     data={ListOfresultQuery.data!}
                                     renderTopToolbarCustomActions={() =>
                                         <>
-                                            <>
-                                            </>
                                             <Button color="green" >Lưu</Button>
                                             <AQButtonExportData
                                                 isAllData={true}
@@ -154,8 +147,9 @@ export default function F_vcd16qt9lf_Read() {
                                                 data={ListOfresultQuery.data!}
                                                 exportConfig={exportConfig}
                                             />
-                                            <Button color="red" leftSection={<IconTrash />}>Xóa</Button></>}
-
+                                            <Button color="red" leftSection={<IconTrash />}>Xóa</Button>
+                                        </>
+                                    }
                                 />
                             </Grid.Col>
                         </Grid>
@@ -163,6 +157,4 @@ export default function F_vcd16qt9lf_Read() {
                 </Box>
             </Paper></>
     );
-
-
 }
