@@ -1,13 +1,10 @@
 'use client';
 
-import { MyButton } from '@/components/Buttons/Button/MyButton';
 import MyButtonCreate from '@/components/Buttons/ButtonCRUD/MyButtonCreate';
 import MyTextInput from '@/components/Inputs/TextInput/MyTextInput';
-import MyNumberInput from '@/components/Inputs/NumberInput/MyNumberInput';
 import MyTextArea from '@/components/Inputs/TextArea/MyTextArea';
 import { FileInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import baseAxios from '@/api/baseAxios';
 
 export interface IStandardSetForm {
     maBoTieuChuan: string;

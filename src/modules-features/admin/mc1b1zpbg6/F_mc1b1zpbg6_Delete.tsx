@@ -1,5 +1,3 @@
-import { Text } from '@mantine/core';
-import baseAxios from '@/api/baseAxios';
 import MyActionIconDelete from '@/components/ActionIcons/ActionIconCRUD/MyActionIconDelete';
 import React from 'react';
 

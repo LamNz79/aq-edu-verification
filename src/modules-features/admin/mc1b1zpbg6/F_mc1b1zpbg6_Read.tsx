@@ -2,7 +2,7 @@
 import { MyDataTable } from '@/components/DataDisplay/DataTable/MyDataTable';
 import { useQuery } from '@tanstack/react-query';
 import { MRT_ColumnDef } from 'mantine-react-table';
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Button, Group, Text } from '@mantine/core';
 import MyFieldset from '@/components/Inputs/Fieldset/MyFieldset';
 import { MyButton } from '@/components/Buttons/Button/MyButton';
@@ -10,11 +10,11 @@ import F_mc1b1zpbg6_Create from './F_mc1b1zpbg6_Create';
 import MyCenterFull from '@/components/CenterFull/MyCenterFull';
 import F_mc1b1zpbg6_Delete from './F_mc1b1zpbg6_Delete';
 import F_mc1b1zpbg6_Update from './F_mc1b1zpbg6_Update';
-import baseAxios from '@/api/baseAxios';
 import AQButtonCreateByImportFile from "@/components/Buttons/ButtonCRUD/AQButtonCreateByImportFile";
 import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData";
 import { IconTrash } from "@tabler/icons-react";
 import { useForm } from "@mantine/form";
+import { MyButtonViewPDF } from 'aq-fe-framework/components';
 
 interface IStandardSet {
     id: number;
@@ -38,7 +38,7 @@ const mockData: IStandardSet[] = [
         toChucKiemDinh: "AUN",
         phienBan: "4.0",
         namBanHanh: 2021,
-        fileTieuChuan: "aun_qa_4.0.pdf",
+        fileTieuChuan: "Quyết định số 432",
         chuKyDanhGiaLai: "5 năm", // Changed to string
         ghiChu: "Bộ tiêu chuẩn đánh giá chất lượng giáo dục đại học khu vực ASEAN",
     },
@@ -50,7 +50,7 @@ const mockData: IStandardSet[] = [
         toChucKiemDinh: "ABET",
         phienBan: "2022-2023",
         namBanHanh: 2022,
-        fileTieuChuan: "abet_criteria.pdf",
+        fileTieuChuan: "Quyết định số 432",
         chuKyDanhGiaLai: "6 năm", // Changed to string
         ghiChu: "Bộ tiêu chuẩn kiểm định chất lượng các chương trình kỹ thuật và công nghệ",
     },
@@ -97,10 +97,9 @@ export default function F_mc1b1zpbg6_Read() {
         { accessorKey: "toChucKiemDinh", header: "Tổ chức kiểm định" },
         { accessorKey: "phienBan", header: "Phiên bản" },
         { accessorKey: "namBanHanh", header: "Năm ban hành" },
-        { accessorKey: "fileTieuChuan", header: "File tiêu chuẩn",
-            Cell: ({ cell }) => (
-                <MyButton crudType="default">Xem File</MyButton>
-            )
+        {
+            accessorKey: "file", header: "File tiêu chuẩn",
+            accessorFn: (row) => <MyCenterFull><MyButtonViewPDF id={row.id} /></MyCenterFull>
         },
         { accessorKey: "chuKyDanhGiaLai", header: "Chu kỳ đánh giá lại" },
         { accessorKey: "ghiChu", header: "Ghi chú" },

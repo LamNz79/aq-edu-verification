@@ -63,6 +63,7 @@ export default function F_mc1b1zpbg6_Update({ values }: { values: IStandardSet }
             form={form}
             title="Chi tiết bộ tiêu chuẩn"
             onSubmit={handleSubmit}
+            modalSize='lg'
         >
             <MyTextInput required label="Mã bộ tiêu chuẩn" {...form.getInputProps("maBoTieuChuan")} />
             <MyTextInput required label="Tên bộ tiêu chuẩn" {...form.getInputProps("tenBoTieuChuan")} />
