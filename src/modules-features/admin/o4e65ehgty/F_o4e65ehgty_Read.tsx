@@ -149,7 +149,7 @@ const MockData: I_o4e65ehgty_Read[] = [
   },
   {
     maTieuChuan: "TC02",
-    maTieuChi: "TC1.22",
+    maTieuChi: "TC1.2",
     maYeuCauMocChuan: "M002",
     tenYeuCau: "CDR của CTDT được phát triển rõ ràng, phù hợp với mục tiêu CTDT, sứ mạng, tầm nhìn và chiến lược của CSDT",
     minhChungGoiY: "Kế hoạch thực tập toàn khóa",
@@ -161,8 +161,8 @@ const MockData: I_o4e65ehgty_Read[] = [
     ngayCapNhat: "2025-12-15",
   },
   {
-    maTieuChuan: "TC033",
-    maTieuChi: "TC1.233",
+    maTieuChuan: "TC03",
+    maTieuChi: "TC1.3",
     maYeuCauMocChuan: "M003",
     tenYeuCau: "CDT của CTDT được phổ biến đến các BLQ, giảng viên và NH hiểu rõ về CDT của CTDT",
     minhChungGoiY: "Kế hoạch thực tập toàn khóa",
