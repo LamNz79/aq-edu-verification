@@ -36,7 +36,7 @@ export const menuData: I0LinkItem[] = [
     label: "Kế hoạch và phân công",
     links: [
       { pageId: 41, name: "Inspection cycle", label: "Chu kỳ kiểm định", link: "5lrwp21o3u", status: "Prototype" },
-      { pageId: 42, name: "Preparation roadmap", label: "Lộ trình chuẩn bị", link: "", status: "Default" },
+      { pageId: 42, name: "Preparation roadmap", label: "Lộ trình chuẩn bị", link: "vpouokrvmt", status: "Prototype" },
       { pageId: 43, name: "Report management", label: "Quản lý kỳ báo cáo", link: "vrdjnzpfmc", status: "Prototype" },
       { pageId: 44, name: "Assignment", label: "Phân công phụ trách mốc chuẩn", link: "raolvysdbf", status: "Prototype" },
       { pageId: 45, name: "Recurring tasks", label: "Thiết lập nhiệm vụ báo cáo định kỳ", link: "grtzbp3rjk", status: "Prototype" },
