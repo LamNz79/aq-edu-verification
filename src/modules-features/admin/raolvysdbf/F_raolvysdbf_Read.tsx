@@ -24,7 +24,7 @@ interface ISelectOption {
 
 const mockNhanSuPhuTrach: ISelectOption[] = [
   {
-    label: "Tô Ngọc Lâm",
+    label: "Tô Ngọc Bảo",
     value: 1
   },
   {
@@ -35,13 +35,31 @@ const mockNhanSuPhuTrach: ISelectOption[] = [
 
 const mockData: Iraolvysdbf_ReadProps[] = [
   {
-    maTieuChuan: "TC02",
-    maTieuChi: "TC2.1",
-    tenTieuChi: "Chuẩn đầu ra của chương trình đào tạo được xây dựng rõ ràng, phù hợp với sứ mạng, tầm nhìn và mục tiêu chiến lược của từng sơ sở đào tạo và được phổ biến đến các bên liên quan", // Added new field
+    maTieuChuan: "TC01",
+    maTieuChi: "TC1.1",
+    tenTieuChi: "Chuẩn đầu ra của chương trình đào tạo được xây dựng rõ ràng, phù hợp với sứ mạng, tầm nhìn và mục tiêu chiến lược của từng sơ sở đào tạo và được phổ biến đến các bên liên quan",
     maMocChuan: "M001",
     tenMocChuan: "Chuẩn đầu ra của CTDT được xây dựng. ra soát và điều chỉnh theo quy trình định trước, trong đó có sự tham gia của các BLQ",
     donViPhuTrach: "Phòng đào tạo",
-    nhanSuPhuTrach: "Tô Ngọc Lâm",
+    nhanSuPhuTrach: "Tô Ngọc Bảo",
+  },
+  {
+    maTieuChuan: "TC01",
+    maTieuChi: "TC1.2",
+    tenTieuChi: "Chuẩn đầu ra của chương trình đào tạo được xây dựng rõ ràng, phù hợp với sứ mạng, tầm nhìn và mục tiêu chiến lược của từng sơ sở đào tạo và được phổ biến đến các bên liên quan",
+    maMocChuan: "M002",
+    tenMocChuan: "CDR của CTDT được phát triển rõ ràng, phù hợp với mục tiêu của CTDT, sứ mạng, tầm nhìn và chiến lược của CSDT",
+    donViPhuTrach: "Phòng tổ chức",
+    nhanSuPhuTrach: "Tô Ngọc Bảo",
+  },
+  {
+    maTieuChuan: "TC01",
+    maTieuChi: "TC1.3",
+    tenTieuChi: "Chuẩn đầu ra của chương trình đào tạo được xây dựng rõ ràng; phù hợp với sứ mạng, tầm nhìn và mục tiêu chiến lược của từng sơ sở đào tạo và được phổ biến đến các bên liên quan",
+    maMocChuan: "M003",
+    tenMocChuan: "CDT của CTDT được phổ biến đến các BLQ; giảng viên và NH hiểu rõ về CDT của CTDT",
+    donViPhuTrach: "Phòng tổ chức",
+    nhanSuPhuTrach: "Tô Ngọc Bảo",
   },
 ];
 
