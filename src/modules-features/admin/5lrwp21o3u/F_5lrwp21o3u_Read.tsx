@@ -153,7 +153,7 @@ export default function F_5lrwp21o3u_Read() {
                             isAllData={true}
                             data={danhSachBoTieuChuanQuery.data!}
                             exportConfig={exportConfig}
-                            objectName="danhSachBoTieuChuan"/>
+                            objectName="danhSachChuKyKiemDinh"/>
                             <MyButton crudType='delete'>Xóa</MyButton>
                         </>
                     }
