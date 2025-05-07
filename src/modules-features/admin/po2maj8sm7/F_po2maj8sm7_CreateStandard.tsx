@@ -1,13 +1,21 @@
 "use client";
 import { useForm } from "@mantine/form";
-import { MyActionIconUpdate, MyTextArea, MyTextInput } from "aq-fe-framework/components";
-import { I_po2maj8sm7_TabTieuChuan } from "./F_po2maj8sm7_TabTieuChuan";
+import { MyButtonCreate, MyTextArea, MyTextInput } from "aq-fe-framework/components";
 
-export default function F_po2maj8sm7_UpdateTieuChuan({ value }: { value: I_po2maj8sm7_TabTieuChuan }) {
+export interface I_po2maj8sm7_CreateStandard {
+  maTieuChuan?: string;
+  tenTieuChuan?: string;
+  tenTieuChuanEg?: string;
+  ghiChu?: string;
+}
 
-  const form = useForm<I_po2maj8sm7_TabTieuChuan>({
+export default function F_po2maj8sm7_CreateStandard() {
+  const form = useForm<I_po2maj8sm7_CreateStandard>({
     initialValues: {
-      ...value,
+      maTieuChuan: "",
+      tenTieuChuan: "",
+      tenTieuChuanEg: "",
+      ghiChu: "",
     },
     validate: {
       maTieuChuan: (value) => (!value ? "Vui lòng nhập mã tiêu chuẩn" : null),
@@ -16,16 +24,16 @@ export default function F_po2maj8sm7_UpdateTieuChuan({ value }: { value: I_po2ma
   });
 
   return (
-    <MyActionIconUpdate
+    <MyButtonCreate
       form={form}
       onSubmit={() => { }}
-      title="Chi tiết danh sách tiêu chuẩn"
+      objectName="Tiêu chuẩn"
       modalSize="40%"
     >
       <MyTextInput label="Mã tiêu chuẩn" {...form.getInputProps("maTieuChuan")} />
       <MyTextInput label="Tên tiêu chuẩn" {...form.getInputProps("tenTieuChuan")} />
       <MyTextInput label="Tên tiêu chuẩn Eg" {...form.getInputProps("tenTieuChuanEg")} />
-      <MyTextArea label="Ghi chú" {...form.getInputProps("ghiChu")} />
-    </MyActionIconUpdate>
+      <MyTextArea label="Ghi chú" placeholder="Nhập ghi chú" {...form.getInputProps("ghiChu")} />
+    </MyButtonCreate>
   );
 }

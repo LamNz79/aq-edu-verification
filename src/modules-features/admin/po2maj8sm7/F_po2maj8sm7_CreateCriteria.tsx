@@ -1,11 +1,10 @@
 "use client";
 import { useForm } from "@mantine/form";
-import { useQuery } from "@tanstack/react-query";
 import { MyButtonCreate, MySelect, MyTextArea, MyTextInput } from "aq-fe-framework/components";
 
-export default function F_po2maj8sm7_CreateTieuChi() {
+export default function F_po2maj8sm7_CreateCriteria() {
 
-  const form = useForm<I_po2maj8sm7_CreateTieuChi>({
+  const form = useForm<I_po2maj8sm7_CreateCriteria>({
     initialValues: {
       maTieuChuan: "TC001",
       maTieuChi: "",
@@ -48,7 +47,7 @@ export default function F_po2maj8sm7_CreateTieuChi() {
 
 
 
-export interface I_po2maj8sm7_CreateTieuChi {
+export interface I_po2maj8sm7_CreateCriteria {
   maTieuChuan: string;
   maTieuChi: string;
   tenTieuChi: string;

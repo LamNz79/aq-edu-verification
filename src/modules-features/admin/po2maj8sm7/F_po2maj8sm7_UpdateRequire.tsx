@@ -1,26 +1,15 @@
 "use client";
+import { useDisclosure } from "@mantine/hooks";
 import { useForm } from "@mantine/form";
-import { MyButtonCreate, MySelect, MyTextArea, MyTextInput } from "aq-fe-framework/components";
+import { MyActionIconUpdate, MySelect, MyTextArea, MyTextInput } from "aq-fe-framework/components";
+import { I_po2maj8sm7_TabRequire } from "./F_po2maj8sm7_TabRequire";
 
-export interface I_po2maj8sm7_CreateYeuCau {
-  maTieuChuan: string;
-  maTieuChi: string;
-  maYeuCau: string;
-  tenYeuCau: string;
-  moTa: string;
-  ghiChu?: string;
-}
+export default function F_po2maj8sm7_UpdateRequire({ value }: { value: I_po2maj8sm7_TabRequire }) {
+  const disc = useDisclosure();
 
-export default function F_po2maj8sm7_CreateYeuCau() {
-
-  const form = useForm<I_po2maj8sm7_CreateYeuCau>({
+  const form = useForm<I_po2maj8sm7_TabRequire>({
     initialValues: {
-      maTieuChuan: "TC001",
-      maTieuChi: "TC1.1",
-      maYeuCau: "",
-      tenYeuCau: "",
-      moTa: "",
-      ghiChu: "",
+      ...value,
     },
     validate: {
       maTieuChuan: (value) => (!value ? "Vui lòng chọn mã tiêu chuẩn" : null),
@@ -31,11 +20,11 @@ export default function F_po2maj8sm7_CreateYeuCau() {
   });
 
   return (
-    <MyButtonCreate
+    <MyActionIconUpdate
       form={form}
       onSubmit={() => { }}
-      objectName="yêu cầu"
       modalSize="40%"
+      title="Chi tiết yêu cầu/ mốc chuẩn"
     >
       <MySelect data={dataSelectTieuChuan} label="Tiêu chuẩn" {...form.getInputProps("maTieuChuan")} />
       <MySelect data={dataSelectTieuChi} label="Mã tiêu chí/ chỉ số" {...form.getInputProps("maTieuChi")} />
@@ -43,9 +32,10 @@ export default function F_po2maj8sm7_CreateYeuCau() {
       <MyTextInput label="Tên yêu cầu/mốc chuẩn" {...form.getInputProps("tenYeuCau")} />
       <MyTextArea label="Mô tả" {...form.getInputProps("moTa")} />
       <MyTextArea label="Ghi chú" {...form.getInputProps("ghiChu")} />
-    </MyButtonCreate>
+    </MyActionIconUpdate>
   );
 }
+
 
 
 

@@ -4,11 +4,11 @@ import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo, useState } from "react";
 import { AQButtonCreateByImportFile, AQButtonExportData, MyButton, MyCenterFull, MyDataTable } from "aq-fe-framework/components";
-import F_po2maj8sm7_UpdateTieuChi from "./F_po2maj8sm7_UpdateTieuChi";
-import F_po2maj8sm7_DeleteTieuChi from "./F_po2maj8sm7_DeleteTieuChi";
-import F_po2maj8sm7_CreateTieuChi from "./F_po2maj8sm7_CreateTieuChi";
+import F_po2maj8sm7_CreateCriteria from "./F_po2maj8sm7_CreateCriteria";
+import F_po2maj8sm7_DeleteCriteria from "./F_po2maj8sm7_DeleteCriteria";
+import F_po2maj8sm7_UpdateCriteria from "./F_po2maj8sm7_UpdateCriteria";
 
-export default function F_po2maj8sm7_TabTieuChi() {
+export default function F_po2maj8sm7_TabCriteria() {
     const [importData, setImportData] = useState(false);
     const form_multiple = useForm<any>({
         initialValues: {
@@ -17,14 +17,14 @@ export default function F_po2maj8sm7_TabTieuChi() {
     });
 
     // Query to fetch the data
-    const tieuChiQuery = useQuery<I_po2maj8sm7_TabTieuChi[]>({
-        queryKey: ["F_po2maj8sm7_TabTieuChi"],
+    const tieuChiQuery = useQuery<I_po2maj8sm7_TabCriteria[]>({
+        queryKey: ["F_po2maj8sm7_TabCriteria"],
         queryFn: async () => {
             return mockData;
         },
     });
 
-    const columns = useMemo<MRT_ColumnDef<I_po2maj8sm7_TabTieuChi>[]>(
+    const columns = useMemo<MRT_ColumnDef<I_po2maj8sm7_TabCriteria>[]>(
         () => [
             { header: "Mã tiêu chuẩn", accessorKey: "maTieuChuan" },
             { header: "Mã tiêu chí", accessorKey: "maTieuChi" },
@@ -56,7 +56,7 @@ export default function F_po2maj8sm7_TabTieuChi() {
             data={tieuChiQuery.data!}
             renderTopToolbarCustomActions={() => (
                 <>
-                    <F_po2maj8sm7_CreateTieuChi />
+                    <F_po2maj8sm7_CreateCriteria />
                     <AQButtonCreateByImportFile
                         setImportedData={setImportData}
                         form={form_multiple}
@@ -76,8 +76,8 @@ export default function F_po2maj8sm7_TabTieuChi() {
             renderRowActions={({ row }) => {
                 return (
                     <MyCenterFull>
-                        <F_po2maj8sm7_UpdateTieuChi value={row.original} />
-                        <F_po2maj8sm7_DeleteTieuChi id={row.original.id} context={row.original.maTieuChi!} />
+                        <F_po2maj8sm7_UpdateCriteria value={row.original} />
+                        <F_po2maj8sm7_DeleteCriteria id={row.original.id} context={row.original.maTieuChi!} />
                     </MyCenterFull>
                 );
             }}
@@ -97,7 +97,7 @@ export default function F_po2maj8sm7_TabTieuChi() {
 
 
 
-export interface I_po2maj8sm7_TabTieuChi {
+export interface I_po2maj8sm7_TabCriteria {
     id: number;
     maTieuChuan: string;
     maTieuChi: string;
@@ -107,7 +107,7 @@ export interface I_po2maj8sm7_TabTieuChi {
     ghiChu?: string;
 }
 
-const mockData: I_po2maj8sm7_TabTieuChi[] = [
+const mockData: I_po2maj8sm7_TabCriteria[] = [
     {
         id: 1,
         maTieuChuan: "TC001",

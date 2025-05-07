@@ -1,15 +1,26 @@
 "use client";
-import { useDisclosure } from "@mantine/hooks";
 import { useForm } from "@mantine/form";
-import { MyActionIconUpdate, MySelect, MyTextArea, MyTextInput } from "aq-fe-framework/components";
-import { I_po2maj8sm7_TabYeuCau } from "./F_po2maj8sm7_TabYeuCau";
+import { MyButtonCreate, MySelect, MyTextArea, MyTextInput } from "aq-fe-framework/components";
 
-export default function F_po2maj8sm7_UpdateYeuCau({ value }: { value: I_po2maj8sm7_TabYeuCau }) {
-  const disc = useDisclosure();
+export interface I_po2maj8sm7_CreateRequire {
+  maTieuChuan: string;
+  maTieuChi: string;
+  maYeuCau: string;
+  tenYeuCau: string;
+  moTa: string;
+  ghiChu?: string;
+}
 
-  const form = useForm<I_po2maj8sm7_TabYeuCau>({
+export default function F_po2maj8sm7_CreateRequire() {
+
+  const form = useForm<I_po2maj8sm7_CreateRequire>({
     initialValues: {
-      ...value,
+      maTieuChuan: "TC001",
+      maTieuChi: "TC1.1",
+      maYeuCau: "",
+      tenYeuCau: "",
+      moTa: "",
+      ghiChu: "",
     },
     validate: {
       maTieuChuan: (value) => (!value ? "Vui lòng chọn mã tiêu chuẩn" : null),
@@ -20,11 +31,11 @@ export default function F_po2maj8sm7_UpdateYeuCau({ value }: { value: I_po2maj8s
   });
 
   return (
-    <MyActionIconUpdate
+    <MyButtonCreate
       form={form}
       onSubmit={() => { }}
+      objectName="yêu cầu"
       modalSize="40%"
-      title="Chi tiết yêu cầu/ mốc chuẩn"
     >
       <MySelect data={dataSelectTieuChuan} label="Tiêu chuẩn" {...form.getInputProps("maTieuChuan")} />
       <MySelect data={dataSelectTieuChi} label="Mã tiêu chí/ chỉ số" {...form.getInputProps("maTieuChi")} />
@@ -32,10 +43,9 @@ export default function F_po2maj8sm7_UpdateYeuCau({ value }: { value: I_po2maj8s
       <MyTextInput label="Tên yêu cầu/mốc chuẩn" {...form.getInputProps("tenYeuCau")} />
       <MyTextArea label="Mô tả" {...form.getInputProps("moTa")} />
       <MyTextArea label="Ghi chú" {...form.getInputProps("ghiChu")} />
-    </MyActionIconUpdate>
+    </MyButtonCreate>
   );
 }
-
 
 
 

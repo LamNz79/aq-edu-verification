@@ -2,11 +2,11 @@
 
 import { useForm } from "@mantine/form";
 import { MyActionIconUpdate, MySelect, MyTextArea, MyTextInput } from "aq-fe-framework/components";
-import { I_po2maj8sm7_TabTieuChi } from "./F_po2maj8sm7_TabTieuChi";
+import { I_po2maj8sm7_TabCriteria } from "./F_po2maj8sm7_TabCriteria";
 
-export default function F_po2maj8sm7_UpdateTieuChi({ value }: { value: I_po2maj8sm7_TabTieuChi }) {
+export default function F_po2maj8sm7_UpdateCriteria({ value }: { value: I_po2maj8sm7_TabCriteria }) {
 
-  const form = useForm<I_po2maj8sm7_TabTieuChi>({
+  const form = useForm<I_po2maj8sm7_TabCriteria>({
     initialValues: {
       ...value,
     },

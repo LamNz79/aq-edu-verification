@@ -4,12 +4,13 @@ import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo, useState } from "react";
-import { AQButtonCreateByImportFile, AQButtonExportData, MyButton, MyCenterFull, MyDataTable, MyFieldset } from "aq-fe-framework/components";
-import F_po2maj8sm7_UpdateYeuCau from "./F_po2maj8sm7_UpdateYeuCau";
-import F_po2maj8sm7_DeleteYeuCau from "./F_po2maj8sm7_DeleteYeuCau";
-import F_po2maj8sm7_CreateYeuCau from "./F_po2maj8sm7_CreateYeuCau";
+import { AQButtonCreateByImportFile, AQButtonExportData, MyButton, MyCenterFull, MyDataTable } from "aq-fe-framework/components";
+import F_po2maj8sm7_CreateRequire from "./F_po2maj8sm7_CreateRequire";
+import F_po2maj8sm7_DeleteRequire from "./F_po2maj8sm7_DeleteRequire";
+import F_po2maj8sm7_UpdateRequire from "./F_po2maj8sm7_UpdateRequire";
 
-export default function F_po2maj8sm7_TabYeuCau() {
+
+export default function F_po2maj8sm7_TabRequire() {
     const [importData, setImportData] = useState(false);
     const form_multiple = useForm<any>({
         initialValues: {
@@ -18,14 +19,14 @@ export default function F_po2maj8sm7_TabYeuCau() {
     });
 
     // Query to fetch the data
-    const YeuCauQuery = useQuery<I_po2maj8sm7_TabYeuCau[]>({
-        queryKey: ["F_po2maj8sm7_TabYeuCau"],
+    const YeuCauQuery = useQuery<I_po2maj8sm7_TabRequire[]>({
+        queryKey: ["F_po2maj8sm7_TabRequire"],
         queryFn: async () => {
             return mockData;
         },
     });
 
-    const columns = useMemo<MRT_ColumnDef<I_po2maj8sm7_TabYeuCau>[]>(
+    const columns = useMemo<MRT_ColumnDef<I_po2maj8sm7_TabRequire>[]>(
         () => [
             { header: "Mã tiêu chuẩn", accessorKey: "maTieuChuan" },
             { header: "Mã tiêu chí", accessorKey: "maTieuChi" },
@@ -61,7 +62,7 @@ export default function F_po2maj8sm7_TabYeuCau() {
             data={YeuCauQuery.data!}
             renderTopToolbarCustomActions={() => (
                 <>
-                    <F_po2maj8sm7_CreateYeuCau />
+                    <F_po2maj8sm7_CreateRequire />
                     <AQButtonCreateByImportFile
                         setImportedData={setImportData}
                         form={form_multiple}
@@ -81,8 +82,8 @@ export default function F_po2maj8sm7_TabYeuCau() {
             renderRowActions={({ row }) => {
                 return (
                     <MyCenterFull>
-                        <F_po2maj8sm7_UpdateYeuCau value={row.original} />
-                        <F_po2maj8sm7_DeleteYeuCau id={row.original.id} context={row.original.maYeuCau!} />
+                        <F_po2maj8sm7_UpdateRequire value={row.original} />
+                        <F_po2maj8sm7_DeleteRequire id={row.original.id} context={row.original.maYeuCau!} />
                     </MyCenterFull>
                 );
             }}
@@ -102,7 +103,7 @@ export default function F_po2maj8sm7_TabYeuCau() {
 
 
 
-export interface I_po2maj8sm7_TabYeuCau {
+export interface I_po2maj8sm7_TabRequire {
     id: number;
     maTieuChuan: string;
     maTieuChi: string;
@@ -113,7 +114,7 @@ export interface I_po2maj8sm7_TabYeuCau {
     ghiChu?: string;
 }
 
-const mockData: I_po2maj8sm7_TabYeuCau[] = [
+const mockData: I_po2maj8sm7_TabRequire[] = [
     {
         id: 1,
         maTieuChuan: "TC001",

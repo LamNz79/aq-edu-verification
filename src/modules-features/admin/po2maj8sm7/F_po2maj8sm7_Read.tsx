@@ -2,9 +2,9 @@
 
 import { MyFieldset, MyTab } from "aq-fe-framework/components";
 import { Tabs } from "@mantine/core";
-import F_po2maj8sm7_TabTieuChi from "./F_po2maj8sm7_TabTieuChi";
-import F_po2maj8sm7_TabTieuChuan from "./F_po2maj8sm7_TabTieuChuan";
-import F_po2maj8sm7_TabYeuCau from "./F_po2maj8sm7_TabYeuCau";
+import F_po2maj8sm7_TabCriteria from "./F_po2maj8sm7_TabCriteria";
+import F_po2maj8sm7_TabRequire from "./F_po2maj8sm7_TabRequire";
+import F_po2maj8sm7_TabStandard from "./F_po2maj8sm7_TabStandard";
 
 export default function F_po2maj8sm7_Read() {
     const tabData = [
@@ -17,13 +17,13 @@ export default function F_po2maj8sm7_Read() {
         <MyFieldset title="Cấu trúc bộ tiêu chuẩn">
             <MyTab tabList={tabData}>
                 <Tabs.Panel value="Tiêu chuẩn">
-                    <F_po2maj8sm7_TabTieuChuan />
+                    <F_po2maj8sm7_TabStandard />
                 </Tabs.Panel>
                 <Tabs.Panel value="Tiêu chí">
-                    <F_po2maj8sm7_TabTieuChi />
+                    <F_po2maj8sm7_TabCriteria />
                 </Tabs.Panel>
                 <Tabs.Panel value="Yêu cầu">
-                    <F_po2maj8sm7_TabYeuCau />
+                    <F_po2maj8sm7_TabRequire />
                 </Tabs.Panel>
             </MyTab>
         </MyFieldset>

@@ -4,11 +4,12 @@ import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo, useState } from "react";
 import { AQButtonCreateByImportFile, AQButtonExportData, MyButton, MyCenterFull, MyDataTable } from "aq-fe-framework/components";
-import F_po2maj8sm7_CreateTieuChuan from "./F_po2maj8sm7_CreateTieuChuan";
-import F_po2maj8sm7_UpdateTieuChuan from "./F_po2maj8sm7_UpdateTieuChuan";
-import F_po2maj8sm7_DeleteTieuChuan from "./F_po2maj8sm7_DeleteTieuChuan";
+import F_po2maj8sm7_CreateStandard from "./F_po2maj8sm7_CreateStandard";
+import F_po2maj8sm7_DeleteStandard from "./F_po2maj8sm7_DeleteStandard";
+import F_po2maj8sm7_UpdateStandard from "./F_po2maj8sm7_UpdateStandard";
 
-export default function F_po2maj8sm7_TabTieuChuan() {
+
+export default function F_po2maj8sm7_TabStandard() {
     const [importData, setImportData] = useState(false);
 
     const form_multiple = useForm<any>({
@@ -18,14 +19,14 @@ export default function F_po2maj8sm7_TabTieuChuan() {
     });
 
     // Query to fetch the data
-    const TieuChuanQuery = useQuery<I_po2maj8sm7_TabTieuChuan[]>({
+    const TieuChuanQuery = useQuery<I_po2maj8sm7_TabStandard[]>({
         queryKey: ["F_po2maj8sm7_TabTieuChuan"],
         queryFn: async () => {
             return mockData;
         },
     });
 
-    const columns = useMemo<MRT_ColumnDef<I_po2maj8sm7_TabTieuChuan>[]>(
+    const columns = useMemo<MRT_ColumnDef<I_po2maj8sm7_TabStandard>[]>(
         () => [
             { header: "Mã tiêu chuẩn", accessorKey: "maTieuChuan" },
             { header: "Tên tiêu chuẩn", accessorKey: "tenTieuChuan" },
@@ -55,7 +56,7 @@ export default function F_po2maj8sm7_TabTieuChuan() {
             data={TieuChuanQuery.data!}
             renderTopToolbarCustomActions={() => (
                 <>
-                    <F_po2maj8sm7_CreateTieuChuan />
+                    <F_po2maj8sm7_CreateStandard />
                     <AQButtonCreateByImportFile
                         setImportedData={setImportData}
                         form={form_multiple}
@@ -75,8 +76,8 @@ export default function F_po2maj8sm7_TabTieuChuan() {
             renderRowActions={({ row }) => {
                 return (
                     <MyCenterFull>
-                        <F_po2maj8sm7_UpdateTieuChuan value={row.original} />
-                        <F_po2maj8sm7_DeleteTieuChuan id={row.original.id} context={row.original.maTieuChuan!}/>
+                        <F_po2maj8sm7_UpdateStandard value={row.original} />
+                        <F_po2maj8sm7_DeleteStandard id={row.original.id} context={row.original.maTieuChuan!}/>
                     </MyCenterFull>
                 );
             }}
@@ -96,7 +97,7 @@ export default function F_po2maj8sm7_TabTieuChuan() {
 
 
 
-export interface I_po2maj8sm7_TabTieuChuan {
+export interface I_po2maj8sm7_TabStandard {
     id: number;
     maTieuChuan?: string;
     tenTieuChuan?: string;
@@ -104,26 +105,26 @@ export interface I_po2maj8sm7_TabTieuChuan {
     ghiChu?: string;
 }
 
-const mockData: I_po2maj8sm7_TabTieuChuan[] = [
+const mockData: I_po2maj8sm7_TabStandard[] = [
     {
         id: 1,
         maTieuChuan: "TC001",
-        tenTieuChuan: "Tiêu chuẩn 1",
-        tenTieuChuanEg: "Standard 1",
+        tenTieuChuan: "Tầm nhìn sứ mạng và văn hóa",
+        tenTieuChuanEg: "",
         ghiChu: "",
     },
     {
         id: 2,
         maTieuChuan: "TC002",
-        tenTieuChuan: "Tiêu chuẩn 2",
-        tenTieuChuanEg: "Standard 2",
+        tenTieuChuan: "Quản trị và quản lý",
+        tenTieuChuanEg: "",
         ghiChu: "",
     },
     {
         id: 3,
         maTieuChuan: "TC003",
-        tenTieuChuan: "Tiêu chuẩn 3",
-        tenTieuChuanEg: "Standard 3",
+        tenTieuChuan: "Đào tạo",
+        tenTieuChuanEg: "",
         ghiChu: "",
     },
 ];
