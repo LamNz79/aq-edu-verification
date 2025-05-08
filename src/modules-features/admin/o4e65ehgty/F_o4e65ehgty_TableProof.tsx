@@ -92,17 +92,10 @@ export default function F_o4e65ehgty_TableProof() {
   );
 
   return (
-    <MyFieldset
-      title="File minh chứng"
-      h={"320px"}
-      style={{ overflowY: "auto" }}
-    >
+    <MyFieldset title="File minh chứng">
       <MyDataTable
         enableRowSelection={true}
         enableRowNumbers={true}
-        mantineTableContainerProps={{
-          style: { maxHeight: "200px" },
-        }}
         initialState={{
           columnPinning: { right: ["trangThai", "thaoTac"] },
           columnSizing: {
@@ -129,7 +122,7 @@ const MockData: I_o4e65ehgty_TableProof[] = [
     ma: "MC0001",
     ten: "Hình ảnh hoạt động",
     maFile: "MD-23",
-    ngayHieuLuc:new Date("2025-01-15"),
+    ngayHieuLuc: new Date("2025-01-15"),
     ngayHetHan: new Date("2025-12-15"),
   },
   {
@@ -137,7 +130,7 @@ const MockData: I_o4e65ehgty_TableProof[] = [
     ma: "MC0002",
     ten: "Video hoạt động",
     maFile: "MD-24",
-    ngayHieuLuc:new Date("2025-01-15"),
+    ngayHieuLuc: new Date("2025-01-15"),
     ngayHetHan: new Date("2025-04-31"),
   },
 ];

@@ -15,10 +15,14 @@ export default function F_o4e65ehgty_ReportRow({
     <Accordion.Item value={`item-${item.id}`} key={item.id}>
       <Accordion.Control>
         <Grid w={"100%"}>
-          <Grid.Col span={{ base: 12, md: 12, lg: 5 }}>{item.name}</Grid.Col>
+          <Grid.Col span={{ base: 12, md: 12, lg: 5 }}>
+            <Text fw={"500"}>{item.name}</Text>
+          </Grid.Col>
           <Grid.Col span={{ base: 12, md: 2, lg: 2 }}>
             <Flex>
-              <Text w={"120px"}>{item?.nguoiCapNhat}</Text>
+              <Text fw={"500"} w={"120px"}>
+                {item?.nguoiCapNhat}
+              </Text>
               {item.trangThai ? (
                 <IconSquareCheckFilled color="green" />
               ) : (
@@ -28,7 +32,7 @@ export default function F_o4e65ehgty_ReportRow({
           </Grid.Col>
           <Grid.Col span={{ base: 12, md: 12, lg: 5 }}>
             <Flex justify={"start"} align={"center"}>
-              <Text>{`Cập nhật ngày 21/02/2025 15:25:30`}</Text>
+              <Text fw={"500"}>{`Cập nhật ngày 21/02/2025 15:25:30`}</Text>
             </Flex>
           </Grid.Col>
         </Grid>
@@ -44,10 +48,11 @@ export default function F_o4e65ehgty_ReportRow({
                 overflowY: "auto",
                 resize: "none",
               }}
+              size={"md"}
               readOnly
             />
           </GridCol>
-          <GridCol span={6} >
+          <GridCol span={6} mt={14}>
             <F_o4e65ehgty_TableProof />
           </GridCol>
         </Grid>
