@@ -12,7 +12,7 @@ export default function Page() {
       router.push("/auth/login")
       return
     }
-    router.push("/admin/core71678")
+    router.push("/admin/obf4m08gkx")
 
   }, [S0Auth.state.token])
   return (
