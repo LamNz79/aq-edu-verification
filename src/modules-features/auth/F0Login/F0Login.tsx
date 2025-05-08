@@ -113,7 +113,7 @@ export default function F0Login() {
                 "token",
                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3NTA4IiwiY19oYXNoIjoiNjgxNTMzZjI1OTU5NjIxOGY5ZWQ4YjRjZGU2Nzk5ODAyYWNlOTVmZjdiODQ3MWE3MjY4ZmM1NTc3ZDkxOTJjNiIsImp0aSI6IjljYjk2N2E4LTRlMWMtNDFkMi05NmU0LTExYzhlOThlYjEyOCIsImlhdCI6MTczNjEyODA2OCwibmJmIjoxNzM2MTI4MDY3LCJleHAiOjE3NDM5MDQwNjcsImlzcyI6Iklzc3VlciIsImF1ZCI6IkF1ZGllbmNlIn0.qCv-erjW74az5C9_Llh5N5aXO9yyLm6smB5NCnjm_uc"
               );
-              router.replace("/admin/dashboard");
+              router.replace("/admin/obf4m08gkx");
             }}
             type="button"
             fullWidth
