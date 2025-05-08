@@ -11,6 +11,7 @@ import F_x19IQVXguk_Upload from "./F_x19IQVXguk_Upload";
 import { Form } from "@mantine/form";
 import F_x19IQVXguk_Create from "./F_x19IQVXguk_Create";
 import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
+import { utils_date_dateToDDMMYYYString } from "@/utils/date";
 
 // Interface định nghĩa dữ liệu
 export interface I_x19IQVXguk_Read {
@@ -22,9 +23,9 @@ export interface I_x19IQVXguk_Read {
     filename?: string;
     viewfile?: File;
     filelink?: File;
-    effect_date?: Date;
-    end_date?: Date;
-    update_date?: Date;
+    effectDate?: Date;
+    endDate?: Date;
+    updateDate?: Date;
     nguoicapnhat?: string;
     dvcapnhat?: string;
     status?: string;
@@ -46,9 +47,9 @@ export default function F_x19IQVXguk_Read() {
                 filename: "Quyết định xác định tầm nhìn chiến lược 5 năm tới",
                 viewfile: undefined, // hoặc bạn có thể để null nếu cần
                 filelink: undefined,
-                effect_date: new Date("2023-02-01"),
-                end_date: new Date("2026-04-03"),
-                update_date: new Date("2025-01-12T12:05:25"),
+                effectDate: new Date("2023-02-01"),
+                endDate: new Date("2026-04-03"),
+                updateDate: new Date("2025-01-12T12:05:25"),
                 nguoicapnhat: "Tô Ngọc Bảo",
                 dvcapnhat: "Phòng Tổ chức",
                 status: "Còn hiệu lực",
@@ -84,15 +85,15 @@ export default function F_x19IQVXguk_Read() {
             },
             {
                 header: "Ngày hiệu lực",
-                fieldName: "effect_date",
+                fieldName: "effectDate",
             },
             {
                 header: "Ngày hết hạn",
-                fieldName: "end_date",
+                fieldName: "endDate",
             },
             {
                 header: "Ngày cập nhật",
-                fieldName: "update_date",
+                fieldName: "updateDate",
             },
             {
                 header: "Người cập nhật",
@@ -118,11 +119,12 @@ export default function F_x19IQVXguk_Read() {
             { header: "	Tên file", accessorKey: "filename" },
             { header: "Xem file", accessorKey: "viewfile", Cell: ({ row }) => <MyButtonViewPDF label="Xem" /> },
             { header: "Link file", accessorKey: "filelink", Cell: ({ row }) => <MyButtonViewPDF label="Xem" /> },
-            { header: "Ngày hiệu lực", accessorKey: "effect_date", Cell: ({ row }) => <>{row.original.effect_date?.toLocaleDateString()}</> },
-            { header: "Ngày hết hạn", accessorKey: "end_date", Cell: ({ row }) => <>{row.original.end_date?.toLocaleDateString()}</> },{ header: "Ngày cập nhật", accessorKey: "update_date", Cell: ({ row }) => {
-                const d = row.original.update_date;
-                return <>{d?.toLocaleString("vi-VN", { hour12: false })}</>; // hiển thị dạng: 01/01/2024, 12:05:25
-              }, },
+            { header: "Ngày hiệu lực", accessorFn: (row) => utils_date_dateToDDMMYYYString(new Date(row.effectDate!), 'YYYY-MM-DD') },
+            { header: "Ngày hết hạn", accessorFn: (row) => utils_date_dateToDDMMYYYString(new Date(row.endDate!), 'YYYY-MM-DD') },
+            { header: "Ngày cập nhật", 
+                accessorFn: (row) => `${new Date(row.updateDate!).toLocaleDateString('vi-VN', { year: 'numeric', month: '2-digit', day: '2-digit' })} ${new Date(row.updateDate!).toLocaleTimeString('vi-VN', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' })}`
+
+             },
             { header: "Người cập nhật", accessorKey: "nguoicapnhat" },
             { header: "Đơn vị cập nhật", accessorKey: "dvcapnhat" },
             { header: "Trạng thái", accessorKey: "status" },

@@ -33,7 +33,7 @@ export default function F_wydbz2a5ff_Create() {
     }
 
     return (
-        <MyButtonCreate label='thêm minh chứng' form={form} onSubmit={() => {}} objectName='Minh chứng'>
+        <MyButtonCreate label='Thêm minh chứng' form={form} onSubmit={() => {}} objectName='Minh chứng'>
             <MyTextInput label='Mã minh chứng' {...form.getInputProps("code")} />
             <MyTextInput label='Tên minh chứng' {...form.getInputProps("name")} />
             <MyTextArea label='Ghi chú' {...form.getInputProps("note")} />

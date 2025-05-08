@@ -46,7 +46,7 @@ export const menuData: I0LinkItem[] = [
   {
     label: "Quản lý minh chứng",
     links: [
-      { pageId: 51, name: "Evidence repository", label: "Kho minh chứng", link: "x19IQVXguk", status: "Default" },
+      { pageId: 51, name: "Evidence repository", label: "Kho minh chứng", link: "x19IQVXguk", status: "Prototype" },
     ],
   },
 

@@ -4,10 +4,11 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { MRT_ColumnDef } from "mantine-react-table";
 import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData";
-import { Button, Group, Select } from "@mantine/core";
+import { Button, Group, Select, Text } from "@mantine/core";
 import { MyButtonViewPDF } from "aq-fe-framework/components";
 import { MyButtonModal } from "@/components/Buttons/ButtonModal/MyButtonModal";
 import { useDisclosure } from "@mantine/hooks";
+import { utils_date_dateToDDMMYYYString } from "@/utils/date";
 
 // Interface định nghĩa dữ liệu
 export interface I_x19IQVXguk_Read {
@@ -15,11 +16,11 @@ export interface I_x19IQVXguk_Read {
     code?: string;
     name?: string;
     filecate?: string;
-    effect_date?: Date;
-    end_date?: Date;
+    effectDate?: Date;
+    endDate?: Date;
     viewfile?: File;
     filelink?: File;
-    update_date?: Date;
+    updateDate?: Date;
     nguoicapnhat?: string;
     dvcapnhat?: string;
     status?: string;
@@ -46,15 +47,15 @@ export default function F_x19IQVXguk_Read() {
                 code: "F120001",
                 name: "Quyết định ban hành đề cương",
                 filecate: "PDF",
-                effect_date: new Date("2021-02-01"),
-                end_date: new Date("2026-03-15"),
-                viewfile: undefined, 
+                effectDate: new Date("2021-02-01"),
+                endDate: new Date("2026-03-15"),
+                viewfile: undefined,
                 filelink: undefined,
-                update_date: new Date("2025-01-12T12:05:25"),
+                updateDate: new Date("2025-01-12T12:05:25"),
                 nguoicapnhat: "Tô Ngọc Bảo",
                 dvcapnhat: "Phòng Tổ chức",
                 status: "Còn hiệu lực",
-              }
+            }
         ]
     });
     const query2 = useQuery<I_x19IQVXguk_Read2[]>({
@@ -69,7 +70,7 @@ export default function F_x19IQVXguk_Read() {
                 usedate: new Date("2025-03-01T15:08:23"),
                 nguoisudung: "Tô Ngọc Bảo",
                 dvsudung: "Phòng Tổ chức",
-              }
+            }
         ]
     });
     const exportConfig = {
@@ -88,11 +89,11 @@ export default function F_x19IQVXguk_Read() {
             },
             {
                 header: "Ngày hiệu lực",
-                fieldName: "effect_date",
+                fieldName: "effectDate",
             },
             {
                 header: "Ngày hết hạn",
-                fieldName: "end_date",
+                fieldName: "endDate",
             },
             {
                 header: "Xem file",
@@ -105,7 +106,7 @@ export default function F_x19IQVXguk_Read() {
             },
             {
                 header: "Ngày cập nhật",
-                fieldName: "update_date",
+                fieldName: "updateDate",
             },
             {
                 header: "Người cập nhật",
@@ -130,14 +131,20 @@ export default function F_x19IQVXguk_Read() {
             { header: "Mã file", accessorKey: "code" },
             { header: "Tên file", accessorKey: "name" },
             { header: "Loại file", accessorKey: "filecate" },
-            { header: "Ngày hiệu lực", accessorKey: "effect_date", Cell: ({ row }) => <>{row.original.effect_date?.toLocaleDateString()}</> },
-            { header: "Ngày hết hạn", accessorKey: "end_date", Cell: ({ row }) => <>{row.original.end_date?.toLocaleDateString()}</> },
+            { header: "Ngày hiệu lực", accessorFn: (row) => utils_date_dateToDDMMYYYString(new Date(row.effectDate!), 'YYYY-MM-DD') },
+            { header: "Ngày hết hạn", accessorFn: (row) => utils_date_dateToDDMMYYYString(new Date(row.endDate!), 'YYYY-MM-DD') },
             { header: "Xem file", accessorKey: "viewfile", Cell: ({ row }) => <MyButtonViewPDF label="Xem" /> },
             { header: "Link", accessorKey: "filelink", Cell: ({ row }) => <MyButtonViewPDF label="Xem" /> },
-            { header: "Ngày cập nhật", accessorKey: "update_date", Cell: ({ row }) => {
-                const d = row.original.update_date;
-                return <>{d?.toLocaleString("vi-VN", { hour12: false })}</>; // hiển thị dạng: 01/01/2024, 12:05:25
-              }, },
+            {
+                header: "Ngày cập nhật",
+                //    accessorKey: "updateDate", Cell: ({ row }) => {
+                //         const d = row.original.updateDate;
+                //         return <>{d?.utils_date_dateToDDMMYYYString("vi-VN", { hour12: false })}</>; // hiển thị dạng: 01/01/2024, 12:05:25
+                //     },
+                accessorFn: (row) => `${new Date(row.updateDate!).toLocaleDateString('vi-VN', { year: 'numeric', month: '2-digit', day: '2-digit' })} ${new Date(row.updateDate!).toLocaleTimeString('vi-VN', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' })}`
+
+
+            },
             { header: "Người cập nhật", accessorKey: "nguoicapnhat" },
             { header: "Đơn vị cập nhật", accessorKey: "dvcapnhat" },
             { header: "Trạng thái", accessorKey: "status" },
@@ -150,26 +157,26 @@ export default function F_x19IQVXguk_Read() {
             { header: "Mã tiêu chí", accessorKey: "codetchi" },
             { header: "Mã yêu cầu/ mốc chuẩn", accessorKey: "codeyc" },
             { header: "Nội dung", accessorKey: "nd" },
-            { header: "Ngày sử dụng", accessorKey: "usedate", Cell: ({ row }) => {
-                const d = row.original.usedate;
-                return <>{d?.toLocaleString("vi-VN", { hour12: false })}</>; // hiển thị dạng: 01/01/2024, 12:05:25
-              }, },
+            {
+                header: "Ngày sử dụng",
+                accessorFn: (row) => `${new Date(row.usedate!).toLocaleDateString('vi-VN', { year: 'numeric', month: '2-digit', day: '2-digit' })} ${new Date(row.usedate!).toLocaleTimeString('vi-VN', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' })}`
+            },
             { header: "Người sử dụng", accessorKey: "nguoisudung" },
             { header: "Đơn vị sử dụng", accessorKey: "dvsudung" },
         ],
         []
     );
-    
+
     // Xử lí trạng thái dữ liệu
     if (query.isLoading) return "Đang tải dữ liệu...";
     if (query.isError) return "Không có dữ liệu";
 
     return (
-        
+
         <><MyButtonModal disclosure={disclosure} label="xem chi tiết" modalSize={"90%"} title="Chi tiết kỳ báo cáo">
-            <label htmlFor="">Mã minh chứng: MC00252</label>
-            <label htmlFor=""><strong>Tên minh chứng: bộ đề cương chi tiết tất cả các môn học phần của CTĐT</strong></label>
-            <label htmlFor="">Danh sách phiên bản file minh chứng</label>
+            <Text>Mã minh chứng: MC00252</Text>
+            <Text><strong>Tên minh chứng: bộ đề cương chi tiết tất cả các môn học phần của CTĐT</strong></Text>
+            <Text>Danh sách phiên bản file minh chứng</Text>
             <MyDataTable
                 enableRowSelection={true}
                 enableRowNumbers={true}
@@ -183,22 +190,22 @@ export default function F_x19IQVXguk_Read() {
 
                     </>
                 )} />
-                 <label htmlFor="">Nội dung sử dụng</label>
-                <MyDataTable
-                    enableRowSelection={true}
-                    enableRowNumbers={true}
-                    columns={columns2}
-                    data={query2.data!}
-                    initialState={{
-                        columnPinning: { right: ["print"] } // Cố định cót "In" bên phải
-                    }}
-                    renderTopToolbarCustomActions={() => (
-                        <>
+            <Text>Nội dung sử dụng</Text>
+            <MyDataTable
+                enableRowSelection={true}
+                enableRowNumbers={true}
+                columns={columns2}
+                data={query2.data!}
+                initialState={{
+                    columnPinning: { right: ["print"] } // Cố định cót "In" bên phải
+                }}
+                renderTopToolbarCustomActions={() => (
+                    <>
 
-                        </>
-                    )} />
+                    </>
+                )} />
         </MyButtonModal>
-            </>
-        
+        </>
+
     );
 }
