@@ -10,7 +10,7 @@ interface IReportByCriteria {
   name: string;
 }
 
-export function ReportByCriteria() {
+export function F_k25w91d9v2_ReportByCriteria() {
   const columns: MRT_ColumnDef<IReportByCriteria>[] = [
     { header: "Mã tiêu chuẩn", accessorKey: "standardCode" },
     { header: "Mã tiêu chí", accessorKey: "code" },

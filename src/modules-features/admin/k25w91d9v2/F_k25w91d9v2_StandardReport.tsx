@@ -10,7 +10,7 @@ interface IStandardReport {
   note?: string;
 }
 
-export function StandardReport() {
+export function F_k25w91d9v2_StandardReport() {
   const columns: MRT_ColumnDef<IStandardReport>[] = [
     { header: "Mã tiêu chuẩn", accessorKey: "code" },
     { header: "Tên tiêu chuẩn", accessorKey: "name" },

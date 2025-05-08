@@ -1,16 +1,15 @@
-import { Text, Group, Radio, Stack, Box } from "@mantine/core";
+import { Group, Radio, Stack } from "@mantine/core";
 import {
-  MyButtonPrintPDF,
   MyFieldset,
   MySelect,
 } from "aq-fe-framework/components";
 import React, { useState } from "react";
-import { StandardReport } from "./StandardReport";
-import { ReportByCriteria } from "./ReportByCriteria";
-import { ReportByType } from "./ReportByType";
 import F_k25w91d9v2_PrintPDF from "./F_k25w91d9v2_PrintPDF";
+import { F_k25w91d9v2_StandardReport } from "./F_k25w91d9v2_StandardReport";
+import { F_k25w91d9v2_ReportByCriteria } from "./F_k25w91d9v2_ReportByCriteria";
+import { F_k25w91d9v2_ReportByType } from "./F_k25w91d9v2_ReportByType";
 
-export default function SelfAssessmentReport() {
+export default function F_k25w91d9v2_Read() {
   const [reportType, setReportType] = useState<string>("1");
 
   const handleReportTypeChange = (value: string) => {
@@ -36,7 +35,7 @@ export default function SelfAssessmentReport() {
               <Radio.Group
                 label="Chọn kiểu xuất"
                 value={reportType}
-                onChange={handleReportTypeChange}
+                onChange={handleReportTypeChange} 
               >
                 <Group mt="xs">
                   <Radio value="1" label="Toàn bộ" />
@@ -49,11 +48,11 @@ export default function SelfAssessmentReport() {
             {reportType === "1" && <F_k25w91d9v2_PrintPDF />}
           </Group>
 
-          {reportType === "2" && <StandardReport />}
+          {reportType === "2" && <F_k25w91d9v2_StandardReport />}
 
-          {reportType === "3" && <ReportByCriteria />}
+          {reportType === "3" && <F_k25w91d9v2_ReportByCriteria />}
 
-          {reportType === "4" && <ReportByType />}
+          {reportType === "4" && <F_k25w91d9v2_ReportByType />}
         </Stack>
       </MyFieldset>
     </>

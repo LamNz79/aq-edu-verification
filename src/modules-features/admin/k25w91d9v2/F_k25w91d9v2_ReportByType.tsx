@@ -10,7 +10,7 @@ interface IReportByType {
   name: string;
 }
 
-export function ReportByType() {
+export function F_k25w91d9v2_ReportByType() {
   const columns: MRT_ColumnDef<IReportByType>[] = [
     { header: "Mã tiêu chuẩn", accessorKey: "standardCode", size: 40 },
     { header: "Mã tiêu chí", accessorKey: "code", size: 40 },
