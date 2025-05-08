@@ -1,5 +1,10 @@
-import { Group, Radio, Stack } from "@mantine/core";
-import { MyButton, MyFieldset, MySelect } from "aq-fe-framework/components";
+import { Text, Group, Radio, Stack, Box } from "@mantine/core";
+import {
+  MyButton,
+  MyButtonPrintPDF,
+  MyFieldset,
+  MySelect,
+} from "aq-fe-framework/components";
 import React, { useState } from "react";
 import { StandardReport } from "./StandardReport";
 import { ReportByCriteria } from "./ReportByCriteria";
@@ -15,19 +20,22 @@ export default function SelfAssessmentReport() {
   };
 
   const handleExportReport = async () => {
-    try {
-      notifications.show({
-        title: "Thành công",
-        message: "Xuất báo cáo thành công",
-        color: "green",
-      });
-    } catch (error) {
-      notifications.show({
-        title: "Lỗi",
-        message: "Có lỗi khi xuất báo cáo",
-        color: "red",
-      });
-    }
+    // try {
+    //   notifications.show({
+    //     title: "Thành công",
+    //     message: "Xuất báo cáo thành công",
+    //     color: "green",
+    //   });
+    // } catch (error) {
+    //   notifications.show({
+    //     title: "Lỗi",
+    //     message: "Có lỗi khi xuất báo cáo",
+    //     color: "red",
+    //   });
+    // }
+    return (
+      <MyButtonPrintPDF contentToPrint={<h1>hello</h1>}>Xuất</MyButtonPrintPDF>
+    );
   };
 
   return (
@@ -47,22 +55,74 @@ export default function SelfAssessmentReport() {
               />
 
               <Radio.Group
-                label="Chọn loại báo cáo"
+                label="Chọn kiểu xuất"
                 value={reportType}
                 onChange={handleReportTypeChange}
               >
                 <Group mt="xs">
-                  <Radio value="1" label="Tất cả" />
+                  <Radio value="1" label="Toàn bộ" />
                   <Radio value="2" label="Tiêu chuẩn" />
                   <Radio value="3" label="Tiêu chí" />
                   <Radio value="4" label="Yêu cầu/ mốc chuẩn" />
                 </Group>
               </Radio.Group>
             </Group>
-
+            {/* 
             <MyButton crudType="export" onClick={handleExportReport}>
               Xuất báo cáo
-            </MyButton>
+            </MyButton> */}
+            <MyButtonPrintPDF
+              
+              contentToPrint={
+                <Stack gap="xl">
+                  {" "}
+                  <Box>
+                    <Text size="xl" ta="center" mt={"xl"}>
+                      BỘ GIÁO DỤC VÀ ĐÀO TẠO
+                    </Text>
+                    <Text size="xl" ta="center" td="underline">
+                      TRƯỜNG ĐẠI HỌC ABC
+                    </Text>
+                    <Text size="xl" ta="center">
+                      BÁO CÁO TỰ ĐÁNH GIÁ
+                    </Text>
+                  </Box>
+                  <Text ml="xl" size="xl" fw="bold">
+                    Bộ tiêu chuẩn: Thông tư 04/BGDDT.
+                  </Text>
+                  <Text ml="xl" size="xl" fw="bold">
+                    Tiêu chuẩn 10: Quản lí chất lượng chương trình đào tạo.
+                  </Text>
+                  <Text ml="xl" size="xl" fw="bold">
+                    Tiêu chí 10.1: Cơ chế quản lý chất lượng CTĐT được thiết lập
+                    và vận hành hiệu quả.
+                  </Text>
+                  <Text ml="xl" size="xl">
+                    10.1a) Có cơ cấu tổ chức (Hội đồng khoa học và đào tạo, đơn
+                    vị/cá nhân phụ trách đảm bảo chất lượng cấp khoa/CTĐT) và
+                    phân công trách nhiệm rõ ràng trong việc quản lí chất lượng
+                    CTĐT.
+                  </Text>
+                  <Text ml="xl" size="xl">
+                    ....
+                  </Text>
+                  <Box ta="right">
+                    <Box
+                      style={{ display: "inline-block", textAlign: "center" }}
+                    >
+                      <Text size="xl" mr="xl">
+                        TP.HCM, ngày 22 tháng 04 năm 2025
+                      </Text>
+                      <Text size="xl" ta="center">
+                        Người lập biểu
+                      </Text>
+                    </Box>
+                  </Box>
+                </Stack>
+              }
+            >
+              Xuất báo cáo
+            </MyButtonPrintPDF>
           </Group>
 
           {reportType === "2" && <StandardReport />}
