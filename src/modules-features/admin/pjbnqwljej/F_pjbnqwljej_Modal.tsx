@@ -6,10 +6,11 @@ import MyTextInput from '@/components/Inputs/TextInput/MyTextInput';
 import { useForm } from '@mantine/form';
 import { useDisclosure } from '@mantine/hooks';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { MyButtonModal, MyDataTable, MyTextEditor } from 'aq-fe-framework/components';
+import { MyButtonModal, MyDataTable, MyFieldset, MyTextEditor } from 'aq-fe-framework/components';
 import { useEffect, useState } from 'react';
 import MyFlexColumn from '@/components/Layouts/FlexColumn/MyFlexColumn';
 import MyButtonViewPDF from '@/components/Buttons/ButtonViewPDF/MyButtonViewPDF';
+import { U0DateToDDMMYYYString } from '@/utils/date';
 interface Evidence {
     code: string;              // Mã minh chứng
     name: string;              // Tên minh chứng
@@ -35,12 +36,7 @@ interface F_pjbnqwljej_Read {
 }
 
 export default function F_rdrmqcfvux_Update({ data }: { data: F_pjbnqwljej_Read }) {
-    const queryClient = useQueryClient();
     const disclosure = useDisclosure();
-    const formatDate = (dateStr: string | Date): string => {
-        const d = new Date(dateStr);
-        return d.toLocaleDateString("vi-VN");
-    };
 
 
     const evidenceColumns: MRT_ColumnDef<Evidence>[] = [
@@ -58,12 +54,12 @@ export default function F_rdrmqcfvux_Update({ data }: { data: F_pjbnqwljej_Read 
         },
         {
             header: "Ngày hiệu lực",
-            accessorFn: row => formatDate(row.validFrom),
+            accessorFn: row => U0DateToDDMMYYYString(row.validFrom),
             id: "validFrom",
         },
         {
             header: "Ngày hết hạn",
-            accessorFn: row => formatDate(row.validTo),
+            accessorFn: row => U0DateToDDMMYYYString(row.validTo),
             id: "validTo",
         },
         {
@@ -113,13 +109,13 @@ export default function F_rdrmqcfvux_Update({ data }: { data: F_pjbnqwljej_Read 
                 <MyTextEditor autoHiddenToolBar onChange={() => { }}></MyTextEditor>
             </MyFlexColumn>
 
-            <Fieldset legend="Danh sách minh chứng">
+            <MyFieldset title="Danh sách minh chứng">
                 <MyDataTable
                     enableRowSelection={true}
                     enableRowNumbers={true}
                     columns={evidenceColumns}
                     data={data.evidences || []}
-                /></Fieldset>
+                /></MyFieldset>
         </ MyButtonModal>
     )
 }

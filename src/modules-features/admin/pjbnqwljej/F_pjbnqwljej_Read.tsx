@@ -14,6 +14,7 @@ import MyFlexColumn from '@/components/Layouts/FlexColumn/MyFlexColumn';
 import AQButtonExportData from '@/components/Buttons/ButtonCRUD/AQButtonExportData';
 import { IconTrash } from '@tabler/icons-react';
 import baseAxios from '@/api/baseAxios';
+import { MyFieldset } from 'aq-fe-framework/components';
 
 interface Evidence {
     code: string;              // Mã minh chứng
@@ -84,18 +85,18 @@ export default function F_pjbnqwljej_Read() {
         {
             header: "Ngày báo cáo giữa kì",
             accessorKey: "reportDate",
-            accessorFn: row => U0DateToDDMMYYYString(new Date(row.reportDate)),
+            accessorFn: row => U0DateToDDMMYYYString(row.reportDate),
         },
         {
             header: "Hạn hoàn thành cập nhật",
             accessorKey: "deadlineDate",
-            accessorFn: row => U0DateToDDMMYYYString(new Date(row.deadlineDate)),
+            accessorFn: row => U0DateToDDMMYYYString(row.deadlineDate),
         },
         { header: "Người cập nhật", accessorKey: "personUpdate" },
         {
             header: "Ngày cập nhật",
             accessorKey: "updateDate",
-            accessorFn: row => U0DateToDDMMYYYString(new Date(row.updateDate)),
+            accessorFn: row => U0DateToDDMMYYYString(row.updateDate),
         },
     ];
 
@@ -103,7 +104,7 @@ export default function F_pjbnqwljej_Read() {
     // if (AllQuery.isLoading) return "Đang tải dữ liệu..."
     // if (AllQuery.isError) return "Không có dữ liệu..."
     return (
-        <Fieldset legend={`Danh sách kết quả đánh giá yêu cầu/mốc chuẩn`}>
+        <MyFieldset title={`Danh sách kết quả đánh giá yêu cầu/mốc chuẩn`}>
 
             <MyFlexColumn>
                 <MyDataTable
@@ -139,7 +140,7 @@ export default function F_pjbnqwljej_Read() {
                     }}
                 />
             </MyFlexColumn>
-        </Fieldset>
+        </MyFieldset>
     )
 }
 const mockData: F_pjbnqwljej_Read[] = [
@@ -164,6 +165,16 @@ const mockData: F_pjbnqwljej_Read[] = [
                 fileUrl: "/files/f000521.jpg",
                 relatedUrl: "",
                 status: "Hết hạn"
+            },
+            {
+                code: "MC0006",
+                name: "Video quá trình thực nghiệm",
+                fileCode: "F000523",
+                validFrom: new Date("2025-01-01"),
+                validTo: new Date("2025-09-25"),
+                fileUrl: "/files/f000523.mp4",
+                relatedUrl: "",
+                status: "Còn hạn"
             }
         ]
     },

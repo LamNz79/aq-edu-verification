@@ -203,7 +203,7 @@ export const menuData: I0LinkItem[] = [
         name: "Monitoring improvements",
         label: "Theo dõi thực hiện khắc phục/ cải tiến",
         link: "pjbnqwljej",
-        status: "Default",
+        status: "Prototype",
       },
     ],
   },
