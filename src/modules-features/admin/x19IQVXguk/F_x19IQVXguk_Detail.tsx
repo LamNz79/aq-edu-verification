@@ -173,9 +173,9 @@ export default function F_x19IQVXguk_Read() {
 
     return (
 
-        <><MyButtonModal disclosure={disclosure} label="xem chi tiết" modalSize={"90%"} title="Chi tiết kỳ báo cáo">
+        <><MyButtonModal disclosure={disclosure} label="Xem" modalSize={"90%"} title="Chi tiết kỳ báo cáo">
             <Text>Mã minh chứng: MC00252</Text>
-            <Text><strong>Tên minh chứng: bộ đề cương chi tiết tất cả các môn học phần của CTĐT</strong></Text>
+            <Text><strong>Tên minh chứng: Bộ đề cương chi tiết tất cả các môn học phần của CTĐT</strong></Text>
             <Text>Danh sách phiên bản file minh chứng</Text>
             <MyDataTable
                 enableRowSelection={true}

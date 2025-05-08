@@ -44,7 +44,7 @@ export default function F_x19IQVXguk_Create() {
     }
 
     return (
-        <MyButtonCreate form={form} onSubmit={() => {}} objectName='Danh sách minh chứng'>
+        <MyButtonCreate label='Upload' form={form} onSubmit={() => {}} objectName='Danh sách minh chứng'>
             <MyTextInput label='Mã file' {...form.getInputProps("code")} />
             <MyTextInput label='Tên file' {...form.getInputProps("name")} />
             <MyDateInput label='Ngày hiệu lực' {...form.getInputProps("effect_date")} />
