@@ -64,11 +64,6 @@ const mockData: Iraolvysdbf_ReadProps[] = [
 ];
 
 export default function F_raolvysdbf_Read() {
-  //===initiate===
-  const [nsptEdited, nsptSetEdited] = useState<string | null>(null) // Nhân sự phụ trách
-  //===pseudo data===
-
-
   const nhanSuPhuTrachQuery = useQuery<ISelectOption[]>({
     queryKey: ["Fraolvysdbf_NhanSuPhuTrach_Read"],
     queryFn: async () => mockNhanSuPhuTrach,
@@ -105,9 +100,8 @@ export default function F_raolvysdbf_Read() {
           Cell: ({ row }) => (
               <MySelect
                   placeholder="Người phụ trách"
-                  value={nsptEdited ?? row.original.nhanSuPhuTrach}
+                  defaultValue={row.original.nhanSuPhuTrach}
                   data={nhanSuPhuTrachQuery.data!.map((item) => item.label)}
-                  onChange={nsptSetEdited}
               ></MySelect>
           ),
         },
@@ -116,7 +110,7 @@ export default function F_raolvysdbf_Read() {
           header: "Đơn vị phụ trách",
         },
       ],
-      [nsptEdited, nhanSuPhuTrachQuery.data]
+      [nhanSuPhuTrachQuery.data]
   );
 
   //===query stage condition===
