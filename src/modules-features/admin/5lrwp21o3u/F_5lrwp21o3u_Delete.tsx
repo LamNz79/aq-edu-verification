@@ -1,11 +1,13 @@
 'use client'
 
-import { MyButton } from "aq-fe-framework/components";
+import {MyActionIconDelete} from "aq-fe-framework/components";
 
-
-export default function F_5lrwp21o3u_Delete() {
+export default function F_5lrwp21o3u_Delete({id}:{id:string}) {
     return (
-        <MyButton crudType='delete'>Xóa</MyButton>
+        <MyActionIconDelete
+            contextData={id}
+            onSubmit={() => { }}>
+
+         </MyActionIconDelete>
     );
 }
-

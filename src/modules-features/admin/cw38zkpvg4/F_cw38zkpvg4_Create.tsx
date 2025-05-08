@@ -1,21 +1,19 @@
 'use client';
 
-import { Box, Button, Group, Select, TextInput } from "@mantine/core";
+import { Group } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
 import baseAxios from "@/api/baseAxios";
-import { MyButtonModal } from "@/components/Buttons/ButtonModal/MyButtonModal";
-import { U0MyValidateEmpty } from "@/utils/validateForm";
-import { useDisclosure } from "@mantine/hooks";
-import { notifications } from "@mantine/notifications";
-import { IconCalendar, IconPlus } from "@tabler/icons-react";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
 import MyButtonCreate from "@/components/Buttons/ButtonCRUD/MyButtonCreate";
-import MyTextInput from "@/components/Inputs/TextInput/MyTextInput";
-import MyDateInput from "@/components/Inputs/DateInput/MyDateInput";
-import { useEffect } from "react";
 import MyCheckbox from "@/components/Checkbox/MyCheckbox";
 import MySelect from "@/components/Combobox/Select/MySelect";
+import MyDateInput from "@/components/Inputs/DateInput/MyDateInput";
+import MyTextInput from "@/components/Inputs/TextInput/MyTextInput";
+import { U0MyValidateEmpty } from "@/utils/validateForm";
+import { notifications } from "@mantine/notifications";
+import { IconCalendar } from "@tabler/icons-react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 export interface I_cw38zkpvg4_Create {
     id?: number; // STT
@@ -208,7 +206,7 @@ export default function F_cw38zkpvg4_Create() {
                         {...form.getInputProps("startDate")}
                         onChange={(value) => {
                             if (value) {
-                                form.setFieldValue("startDate", value);
+                                form.setFieldValue("startDate", new Date(value));
                             }
                         }}
                         rightSection={<IconCalendar></IconCalendar>}
@@ -221,7 +219,7 @@ export default function F_cw38zkpvg4_Create() {
                         {...form.getInputProps("endDate")}
                         onChange={(value) => {
                             if (value) {
-                                form.setFieldValue("endDate", value);
+                                form.setFieldValue("endDate", new Date(value));
                             }
                         }}
                         rightSection={<IconCalendar></IconCalendar>}

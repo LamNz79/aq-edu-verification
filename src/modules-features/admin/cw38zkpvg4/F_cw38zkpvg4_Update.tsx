@@ -5,9 +5,8 @@ import MyActionIconUpdate from "@/components/ActionIcons/ActionIconCRUD/MyAction
 import MyCheckbox from "@/components/Checkbox/MyCheckbox"
 import MyDateInput from "@/components/Inputs/DateInput/MyDateInput"
 import MyTextInput from "@/components/Inputs/TextInput/MyTextInput"
-import { U0DateToDDMMYYYString } from "@/utils/date"
 import { U0MyValidateEmpty } from "@/utils/validateForm"
-import { Box, Group, Select } from '@mantine/core'
+import { Group, Select } from '@mantine/core'
 import { useForm, UseFormReturnType } from "@mantine/form"
 import { notifications } from "@mantine/notifications"
 import { IconCalendar } from "@tabler/icons-react"
@@ -180,7 +179,7 @@ export default function F_cw38zkpvg4_Update(
                         {...form.getInputProps("startDate")}
                         onChange={(value) => {
                             if (value) {
-                                form.setFieldValue("startDate", value);
+                                form.setFieldValue("startDate", new Date(value));
                             }
                         }}
                         rightSection={<IconCalendar></IconCalendar>}
@@ -193,7 +192,7 @@ export default function F_cw38zkpvg4_Update(
                         {...form.getInputProps("endDate")}
                         onChange={(value) => {
                             if (value) {
-                                form.setFieldValue("endDate", value);
+                                form.setFieldValue("endDate", new Date(value));
                             }
                         }}
                         rightSection={<IconCalendar></IconCalendar>}
