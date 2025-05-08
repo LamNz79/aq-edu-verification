@@ -88,7 +88,7 @@ export default function F_o4e65ehgty_TableProofSugestive() {
 
   return (
     <MyFieldset
-      title="Minh chứng gợi ý"
+      title="Minh chứng sử dụng"
       h={"320px"}
       style={{ overflowY: "auto" }}
     >
