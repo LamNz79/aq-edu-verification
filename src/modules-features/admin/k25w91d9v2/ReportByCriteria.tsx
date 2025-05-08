@@ -1,5 +1,7 @@
+import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 import { MyDataTable } from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
+import F_k25w91d9v2_PrintPDF from "./F_k25w91d9v2_PrintPDF";
 
 interface IReportByCriteria {
   id: number;
@@ -15,7 +17,20 @@ export function ReportByCriteria() {
     { header: "Tên tiêu chí", accessorKey: "name" },
   ];
 
-  return <MyDataTable columns={columns} data={mockData} />;
+  return (
+    <MyFieldset title="Cấu trúc bộ tiêu chuẩn">
+      <MyDataTable
+        enableRowSelection
+        columns={columns}
+        data={mockData}
+        renderTopToolbarCustomActions={() =>
+          <>
+            <F_k25w91d9v2_PrintPDF />
+          </>
+        }
+      />
+    </MyFieldset>
+  );
 }
 
 const mockData: IReportByCriteria[] = [
