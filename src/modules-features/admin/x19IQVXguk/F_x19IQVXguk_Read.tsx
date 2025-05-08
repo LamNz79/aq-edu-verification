@@ -126,8 +126,8 @@ export default function F_x19IQVXguk_Read() {
             { header: "Người cập nhật", accessorKey: "nguoicapnhat" },
             { header: "Đơn vị cập nhật", accessorKey: "dvcapnhat" },
             { header: "Trạng thái", accessorKey: "status" },
-            { header: "Xem chi tiết", accessorFn: (row) => <F_x19IQVXguk_Detail /> },
-            { header: "Upload file minh chứng", accessorFn: (row) => <F_x19IQVXguk_Upload /> },
+            { header: "Xem chi tiết", accessorKey: "detail" , accessorFn: (row) => <F_x19IQVXguk_Detail /> },
+            { header: "Upload file minh chứng", accessorKey: "uploadfile" , accessorFn: (row) => <F_x19IQVXguk_Upload /> },
         ],
         []
     );
@@ -143,9 +143,7 @@ export default function F_x19IQVXguk_Read() {
                 enableRowNumbers={true}
                 columns={columns}
                 data={query.data!}
-                initialState={{
-                    columnPinning: { right: ["print"] } // Cố định cột "In" bên phải
-                }}
+          initialState={{ columnPinning: { right: ["status", "detail", "uploadfile"] } }}
                 renderTopToolbarCustomActions={() =>
                     <>
                         <AQButtonExportData
