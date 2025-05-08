@@ -59,7 +59,7 @@ export default function F0Login() {
           }
           loadingState[1](false);
           S0Auth.setProperty("token", data.data.token);
-          router.replace("/admin/core71678");
+          router.replace("/admin/obf4m08gkx");
         },
         onSettled: () => {
           loadingState[1](true);
