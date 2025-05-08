@@ -4,10 +4,10 @@ import React from 'react';
 
 export default function F_obf4m08gkx_ChartReview() {
     const data = [
-        { mocChuan: 'Số lượng mốc chuẩn', datatest1: 120 },
-        { mocChuan: 'Số lượng mốc chuẩn đạt', datatest1: 200 },
-        { mocChuan: 'Số lượng đạt cần cải tiến', datatest1: 150 },
-        { mocChuan: 'Số lượng không đạt', datatest1: 150 },
+        { mocChuan: 'TC1', datatest1: 120, datatest2: 130, datatest3: 150, },
+        { mocChuan: 'TC2', datatest1: 126, datatest2: 134, datatest3: 170, },
+        { mocChuan: 'TC3', datatest1: 120, datatest2: 130, datatest3: 150, },
+        { mocChuan: 'TC4', datatest1: 120, datatest2: 140, datatest3: 160, },
     ];
 
     return (
@@ -26,7 +26,9 @@ export default function F_obf4m08gkx_ChartReview() {
                             withLegend
                             withBarValueLabel
                             series={[
-                                { name: 'datatest1', label: 'Số lượng', color: 'blue.6' },
+                                { name: 'datatest1', label: 'Số lượng mốc chuẩn đạt', color: 'rgba(0, 143, 251, 0.85)' },
+                                { name: 'datatest2', label: 'Số lượng mốc chuẩn đạt cần cải tiến', color: 'rgba(0, 227, 150, 0.85)' },
+                                { name: 'datatest3', label: 'Số lượng mốc chuẩn không đạt', color: 'rgba(254, 176, 25, 0.85)' },
                             ]}
                         />
                     </Box>

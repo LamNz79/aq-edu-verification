@@ -25,17 +25,13 @@ export default function F_obf4m08gkx_ChartUnit() {
                                 w={450}
                                 orientation="vertical"
                                 data={data}
-                                // xAxisProps={{ padding: { left: 40, right: 40 } }}
                                 withBarValueLabel
                                 dataKey="mocChuan"
                                 withLegend
                                 series={[
-                                    { name: 'datatest1', label: 'Số lượng', color: 'violet.6' },
+                                    { name: 'datatest1', label: 'Số lượng', color: 'rgba(0, 143, 251, 0.85)' },
                                 ]}
                             />
-                            {/* <Paper mt={20} py={2} px={10} w={480}>
-                                Tổng số lương mốc chuẩn, Số mốc chuẩn đã hoàn thành, Số mốc chuẩn chưa hoàn thành
-                            </Paper> */}
                         </Box>
                     </Flex>
                 </Box>
@@ -53,10 +49,9 @@ export default function F_obf4m08gkx_ChartUnit() {
                                 withLegend
                                 orientation="vertical"
                                 series={[
-                                    { name: 'datatest1', label: 'Số lượng', color: 'violet.6' },
+                                    { name: 'datatest1', label: 'Số lượng', color: 'rgba(0, 143, 251, 0.85)' },
                                 ]}
                             />
-                            {/* <Paper mt={20} py={2} px={10} w={480}>Tổng số nội dung phụ trách, số nội dung hoàn thành, số lượng nội dung chưa hoàn thành</Paper> */}
                         </Box>
                     </Flex>
                 </Box>

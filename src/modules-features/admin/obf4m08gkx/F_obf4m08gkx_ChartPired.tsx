@@ -1,5 +1,5 @@
 import { BarChart } from '@mantine/charts';
-import { Box, Flex, Group, Paper, Text } from '@mantine/core';
+import { Box, Flex, Paper, Text } from '@mantine/core';
 import React from 'react'
 export default function F_obf4m08gkx_ChartPired() {
     const data1 = [
@@ -22,7 +22,7 @@ export default function F_obf4m08gkx_ChartPired() {
         <Paper mt={20} p={20}>
             <Flex mt={20} justify={"space-between"} >
                 <Box>
-                    <Text h={50}>Biểu đồ theo dõi thời hạn hiệu lực của minh chứng so với ngày hoàn thành đó</Text>
+                    <Text h={50}>Biểu đồ theo dõi thời hết hạn hiệu lực của minh chứng so với ngày hoàn thành đánh giá ngoài cuối cho kỳ</Text>
                     <Flex mt={10}>
                         <Paper h={120} p={8} w={80}>Số lượng minh chứng</Paper>
                         <Box style={{ flex: 1 }}>
@@ -33,12 +33,9 @@ export default function F_obf4m08gkx_ChartPired() {
                                 dataKey="month"
                                 withLegend
                                 series={[
-                                    { name: 'datatest1', label: 'Số lượng còn hạn', color: 'violet.6' },
+                                    { name: 'datatest1', label: 'Số lượng còn hạn', color: 'rgba(0, 143, 251, 0.85)' },
                                 ]}
                             />
-                            {/* <Paper mt={20} py={2} px={10} w={"100%"}>
-                                Còn hạn, Trước 1 tháng, trước 2 tháng, trước 3 tháng, trước 4 tháng, trước 5 tháng, trước 6 tháng, Hơn 6 tháng
-                            </Paper> */}
                         </Box>
                     </Flex>
                 </Box>
@@ -56,10 +53,9 @@ export default function F_obf4m08gkx_ChartPired() {
                                 withLegend
                                 orientation="vertical"
                                 series={[
-                                    { name: 'datatest1', label: 'Số lượng', color: 'violet.6' },
+                                    { name: 'datatest1', label: 'Số lượng', color: 'rgba(0, 227, 150, 0.85)' },
                                 ]}
                             />
-                            {/* <Paper mt={20} py={2} px={10} w={"100%"}>Tổng số minh chứng, Số minh chứng còn hạn, Số minh chứng hết hạn</Paper> */}
                         </Box>
                     </Flex>
                 </Box>
