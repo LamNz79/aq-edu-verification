@@ -8,8 +8,7 @@ import { useForm } from '@mantine/form';
 import { useQuery } from '@tanstack/react-query';
 import { MRT_ColumnDef } from 'mantine-react-table';
 import { useMemo, useState } from 'react';
-import F_rdrmqcfvux_Create from './F_pjbnqwljej_Create';
-import F_rdrmqcfvux_Delete from './F_pjbnqwljej_Delete';
+
 import F_pjbnqwljej_Modal from './F_pjbnqwljej_Modal';
 import MyFlexColumn from '@/components/Layouts/FlexColumn/MyFlexColumn';
 import AQButtonExportData from '@/components/Buttons/ButtonCRUD/AQButtonExportData';
@@ -149,7 +148,7 @@ const mockData: F_pjbnqwljej_Read[] = [
         codeTieuChuan: "TC01",
         codeTieuChi: "TC 1.1",
         requireCode: "M001",
-        requireName: "Hoàn thành đề cương",
+        requireName: "Chuẩn đầu ra của CTĐT được xây dựng, rà soát và điều chỉnh theo quy trình định trước; trong đó có sự tham gia của các BLQ",
         result: "Đạt",
         reportDate: new Date("2025-04-15"),
         deadlineDate: new Date("2025-04-20"),
@@ -173,7 +172,7 @@ const mockData: F_pjbnqwljej_Read[] = [
         codeTieuChuan: "TC01",
         codeTieuChi: "TC 1.2",
         requireCode: "M001",
-        requireName: "Báo cáo thực nghiệm",
+        requireName: "CDR của CTĐT được phát triển rõ ràng; phù hợp với mục tiêu của CTĐT; sứ mạng, tầm nhìn và chiến lược của CSDT",
         result: "Chưa đạt",
         reportDate: new Date("2025-04-10"),
         deadlineDate: new Date("2025-04-22"),
@@ -207,7 +206,7 @@ const mockData: F_pjbnqwljej_Read[] = [
         codeTieuChuan: "TC01",
         codeTieuChi: "TC 1.3",
         requireCode: "M001",
-        requireName: "Nộp sản phẩm cuối kỳ",
+        requireName: "CDR của CTĐT được phổ biến đến các BLQ, giảng viên và NH hiểu rõ về CTĐT của CTĐT",
         result: "Đạt",
         reportDate: new Date("2025-04-18"),
         deadlineDate: new Date("2025-04-25"),
