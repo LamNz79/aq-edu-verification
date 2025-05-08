@@ -1,12 +1,6 @@
 'use client'
-import MyButtonCreate from '@/components/Buttons/ButtonCRUD/MyButtonCreate';
-import MyButtonViewPDF from '@/components/Buttons/ButtonViewPDF/MyButtonViewPDF';
-import MyDateInput from '@/components/Inputs/DateInput/MyDateInput'; // Giả sử có component nhập ngày
-import MyFileInput from '@/components/Inputs/FileInput/MyFileInput';
-import MyNumberInput from '@/components/Inputs/NumberInput/MyNumberInput';
-import MyTextInput from '@/components/Inputs/TextInput/MyTextInput';
-import { Button, Checkbox, FileButton } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { MyButtonCreate, MyDateInput, MyFileInput, MyTextInput } from 'aq-fe-framework/components';
 
 export interface I_x19IQVXguk {
     id?: number; // STT
@@ -18,7 +12,7 @@ export interface I_x19IQVXguk {
     filelink?: string;
 }
 
-export default function F_x19IQVXguk_Create() {
+export default function F_x19IQVXguk_Upload() {
     const form = useForm<I_x19IQVXguk>({
         initialValues: {
           code: "", 
@@ -37,11 +31,6 @@ export default function F_x19IQVXguk_Create() {
               }
           },
       });
-
-   
-    function setUploadedFile(file: File[]): void {
-        throw new Error('Function not implemented.');
-    }
 
     return (
         <MyButtonCreate label='Upload' form={form} onSubmit={() => {}} objectName='Danh sách minh chứng'>

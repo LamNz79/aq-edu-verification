@@ -1,21 +1,15 @@
 'use client';
-import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { MRT_ColumnDef } from "mantine-react-table";
-import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData";
-import { Button, Select } from "@mantine/core";
-import { AQButtonCreateByImportFile, MyButtonViewPDF, MyCenterFull } from "aq-fe-framework/components";
+import { AQButtonExportData, MyButtonViewPDF, MyDataTable, MyFieldset } from "aq-fe-framework/components";
 import F_x19IQVXguk_Detail from "./F_x19IQVXguk_Detail";
 import F_x19IQVXguk_Upload from "./F_x19IQVXguk_Upload";
-import { Form } from "@mantine/form";
 import F_x19IQVXguk_Create from "./F_x19IQVXguk_Create";
-import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
-import { utils_date_dateToDDMMYYYString } from "@/utils/date";
+import { utils_date_dateToDDMMYYYString } from "aq-fe-framework/utils";
 
 // Interface định nghĩa dữ liệu
 export interface I_x19IQVXguk_Read {
-    original: any;
     id?: number;
     code?: string;
     name?: string;
@@ -53,7 +47,7 @@ export default function F_x19IQVXguk_Read() {
                 nguoicapnhat: "Tô Ngọc Bảo",
                 dvcapnhat: "Phòng Tổ chức",
                 status: "Còn hiệu lực",
-              }
+            }
         ]
     });
     const exportConfig = {
@@ -119,48 +113,51 @@ export default function F_x19IQVXguk_Read() {
             { header: "	Tên file", accessorKey: "filename" },
             { header: "Xem file", accessorKey: "viewfile", Cell: ({ row }) => <MyButtonViewPDF label="Xem" /> },
             { header: "Link file", accessorKey: "filelink", Cell: ({ row }) => <MyButtonViewPDF label="Xem" /> },
-            { header: "Ngày hiệu lực", accessorFn: (row) => utils_date_dateToDDMMYYYString(new Date(row.effectDate!), 'YYYY-MM-DD') },
-            { header: "Ngày hết hạn", accessorFn: (row) => utils_date_dateToDDMMYYYString(new Date(row.endDate!), 'YYYY-MM-DD') },
-            { header: "Ngày cập nhật", 
-                accessorFn: (row) => `${new Date(row.updateDate!).toLocaleDateString('vi-VN', { year: 'numeric', month: '2-digit', day: '2-digit' })} ${new Date(row.updateDate!).toLocaleTimeString('vi-VN', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' })}`
-
-             },
+            { header: "Ngày hiệu lực", accessorFn: (row) => utils_date_dateToDDMMYYYString(new Date(row.effectDate!)) },
+            { header: "Ngày hết hạn", accessorFn: (row) => utils_date_dateToDDMMYYYString(new Date(row.endDate!)) },
+            {
+                header: "Ngày cập nhật",
+                accessorFn: (row) => {
+                    const date = utils_date_dateToDDMMYYYString(row.updateDate!); 
+                    const time = row.updateDate!.toLocaleTimeString("VI"); 
+                    return `${date} ${time}`
+                }
+            },
             { header: "Người cập nhật", accessorKey: "nguoicapnhat" },
             { header: "Đơn vị cập nhật", accessorKey: "dvcapnhat" },
             { header: "Trạng thái", accessorKey: "status" },
-            { header: "Xem chi tiết", accessorFn: (row) => <F_x19IQVXguk_Detail data={row.original} /> },
-            { header: "Upload file minh chứng", accessorFn: (row) => <F_x19IQVXguk_Upload data={row.original} /> },
+            { header: "Xem chi tiết", accessorFn: (row) => <F_x19IQVXguk_Detail /> },
+            { header: "Upload file minh chứng", accessorFn: (row) => <F_x19IQVXguk_Upload /> },
         ],
         []
     );
-    
+
     // Xử lí trạng thái dữ liệu
     if (query.isLoading) return "Đang tải dữ liệu...";
     if (query.isError) return "Không có dữ liệu";
 
     return (
         <MyFieldset legend="Danh sách minh chứng" title="Danh sách minh chứng">
-        <MyDataTable
-            enableRowSelection={true}
-            enableRowNumbers={true}
-            columns={columns}
-            data={query.data!}
-            initialState={{
-                columnPinning: { right: ["print"] } // Cố định cột "In" bên phải
-            }}
-            renderTopToolbarCustomActions={() =>
-                <>
-                    <AQButtonExportData
-                        isAllData={true}
-                        objectName="dmgiaychungnhan"
-                        data={query.data!}
-                        exportConfig={exportConfig}
-                    />
-                    <F_x19IQVXguk_Create/>
-                </>
-            }
-            exportConfig={exportConfig}
-        />
+            <MyDataTable
+                enableRowSelection={true}
+                enableRowNumbers={true}
+                columns={columns}
+                data={query.data!}
+                initialState={{
+                    columnPinning: { right: ["print"] } // Cố định cột "In" bên phải
+                }}
+                renderTopToolbarCustomActions={() =>
+                    <>
+                        <AQButtonExportData
+                            isAllData={true}
+                            objectName="dmgiaychungnhan"
+                            data={query.data!}
+                            exportConfig={exportConfig}
+                        />
+                        <F_x19IQVXguk_Create />
+                    </>
+                }
+            />
         </MyFieldset>
     );
 }
