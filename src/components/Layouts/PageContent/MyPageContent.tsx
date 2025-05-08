@@ -1,7 +1,7 @@
 "use client";
 import MyButtonRouterBack from "@/components/Buttons/ButtonRouterBack/MyButtonRouterBack";
-import { useS0Sidebar } from "@/stores/S0Sidebar";
 import { Code, Container, Divider, Group, Indicator, Title } from "@mantine/core";
+import { useS_BasicAppShell } from "aq-fe-framework/components";
 import { ReactNode } from "react";
 
 interface IPageContent {
@@ -36,8 +36,8 @@ const PageTitle = ({ title, status }: { title: string; status?: string }) => {
 };
 
 export default function MyPageContent({ leftTopBar, title, canBack = false, rightTopBar, status, children }: IPageContent) {
-    const SidebarStore = useS0Sidebar();
-    const finalTitle = title || SidebarStore.title;
+    const SidebarStore = useS_BasicAppShell();
+    const finalTitle = title || SidebarStore.state.title;
     return (
         <Container p={0} fluid>
             <Group justify="space-between">
@@ -46,7 +46,7 @@ export default function MyPageContent({ leftTopBar, title, canBack = false, righ
                     <PageTitle title={finalTitle} status={status} />
                     {leftTopBar}
                 </Group>
-                <Group>{rightTopBar}<Code color="var(--mantine-color-blue-light)">{SidebarStore.menuCode}</Code></Group>
+                <Group>{rightTopBar}<Code color="var(--mantine-color-blue-light)">{SidebarStore.state.menuCode}</Code></Group>
 
             </Group>
             <Divider />

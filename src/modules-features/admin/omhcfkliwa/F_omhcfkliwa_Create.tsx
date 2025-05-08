@@ -149,7 +149,7 @@ export default function F_omhcfkliwa_Create() {
                     <Group pb={10}>
                         <DateInput label="Ngày kết thúc NH" flex={1} rightSection={<IconCalendar></IconCalendar>}
                             value={form.values.endDate}
-                            onChange={(date) => date && form.setFieldValue("endDate", date)}
+                            onChange={(date) => date && form.setFieldValue("endDate", new Date(date))}
 
                         />
                     </Group>

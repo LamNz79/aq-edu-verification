@@ -1,5 +1,5 @@
 'use client'
-import MyActionIconUpdate from '@/components/ActionIcons/ActionIconCRUD/MyActionIconUpdate'
+import MyActionIconUpdate from '@/components/ActionIcons/ActionIconCRUD/MyActionIconUpdate';
 import MyButtonCreate from '@/components/Buttons/ButtonCRUD/MyButtonCreate';
 import MySelect from '@/components/Combobox/Select/MySelect';
 import MyTextInput from '@/components/Inputs/TextInput/MyTextInput';
@@ -17,7 +17,7 @@ export interface I_b99o1d0u5q {
     ghiChu: string;
 }
 export default function F_b99o1d0u5q_Delete({ values }: { values?: any }) {
-    const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
+    const [selectedDate, setSelectedDate] = useState<string | null>();
     const form_multiple_input = useForm({
         initialValues: values ? {
             maTieuChuan: values.maTieuChuan,
