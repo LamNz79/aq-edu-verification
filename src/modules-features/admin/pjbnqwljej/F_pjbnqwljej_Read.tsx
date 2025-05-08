@@ -104,7 +104,7 @@ export default function F_pjbnqwljej_Read() {
     // if (AllQuery.isLoading) return "Đang tải dữ liệu..."
     // if (AllQuery.isError) return "Không có dữ liệu..."
     return (
-        <Fieldset legend={`Danh mục môn học`}>
+        <Fieldset legend={`Danh sách kết quả đánh giá yêu cầu/mốc chuẩn`}>
 
             <MyFlexColumn>
                 <MyDataTable
@@ -146,9 +146,9 @@ export default function F_pjbnqwljej_Read() {
 const mockData: F_pjbnqwljej_Read[] = [
     {
         id: 1,
-        codeTieuChuan: "MH001",
+        codeTieuChuan: "TC01",
         codeTieuChi: "TC 1.1",
-        requireCode: "YC001",
+        requireCode: "M001",
         requireName: "Hoàn thành đề cương",
         result: "Đạt",
         reportDate: new Date("2025-04-15"),
@@ -170,9 +170,9 @@ const mockData: F_pjbnqwljej_Read[] = [
     },
     {
         id: 2,
-        codeTieuChuan: "MH002",
+        codeTieuChuan: "TC01",
         codeTieuChi: "TC 1.2",
-        requireCode: "YC002",
+        requireCode: "M001",
         requireName: "Báo cáo thực nghiệm",
         result: "Chưa đạt",
         reportDate: new Date("2025-04-10"),
@@ -204,9 +204,9 @@ const mockData: F_pjbnqwljej_Read[] = [
     },
     {
         id: 3,
-        codeTieuChuan: "MH003",
+        codeTieuChuan: "TC01",
         codeTieuChi: "TC 1.3",
-        requireCode: "YC003",
+        requireCode: "M001",
         requireName: "Nộp sản phẩm cuối kỳ",
         result: "Đạt",
         reportDate: new Date("2025-04-18"),
@@ -215,7 +215,7 @@ const mockData: F_pjbnqwljej_Read[] = [
         updateDate: new Date("2025-05-03"),
         evidences: [
             {
-                code: "MC0004",
+                code: "M001",
                 name: "Ảnh chụp sản phẩm",
                 fileCode: "F000525",
                 validFrom: new Date("2025-03-01"),

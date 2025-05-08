@@ -1,12 +1,12 @@
 "use client"
 import baseAxios from '@/api/baseAxios';
 import { MRT_ColumnDef } from 'mantine-react-table';
-import { Group, Text, Textarea } from '@mantine/core';
+import { Fieldset, Group, Text, Textarea } from '@mantine/core';
 import MyTextInput from '@/components/Inputs/TextInput/MyTextInput';
 import { useForm } from '@mantine/form';
 import { useDisclosure } from '@mantine/hooks';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { MyButtonModal, MyDataTable } from 'aq-fe-framework/components';
+import { MyButtonModal, MyDataTable, MyTextEditor } from 'aq-fe-framework/components';
 import { useEffect, useState } from 'react';
 import MyFlexColumn from '@/components/Layouts/FlexColumn/MyFlexColumn';
 import MyButtonViewPDF from '@/components/Buttons/ButtonViewPDF/MyButtonViewPDF';
@@ -108,18 +108,18 @@ export default function F_rdrmqcfvux_Update({ data }: { data: F_pjbnqwljej_Read 
                 <Text>Nội dung cần khắc phục/ cải tiến: Minh chứng chưa đúng nội dung báo cáo</Text>
             </MyFlexColumn>
 
-            <Group mt={10}>
+            <MyFlexColumn mt={10}>
                 <Text>Tổng hợp báo cáo yêu cầu/ mốc chuẩn</Text>
-                <Textarea></Textarea>
-            </Group>
+                <MyTextEditor autoHiddenToolBar onChange={() => { }}></MyTextEditor>
+            </MyFlexColumn>
 
-            <MyDataTable
-                enableRowSelection={true}
-                enableRowNumbers={true}
-                columns={evidenceColumns}
-                data={data.evidences || []}
-
-            />
+            <Fieldset legend="Danh sách minh chứng">
+                <MyDataTable
+                    enableRowSelection={true}
+                    enableRowNumbers={true}
+                    columns={evidenceColumns}
+                    data={data.evidences || []}
+                /></Fieldset>
         </ MyButtonModal>
     )
 }
