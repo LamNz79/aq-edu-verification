@@ -1,60 +1,74 @@
-'use client'
-import MyButtonImport from '@/components/Buttons/ButtonImport/MyButtonImport';
-import useS_ButtonImport from '@/components/Buttons/ButtonImport/useS_ButtonImport';
-import { IUtils_Excel_ColumnConfig, utils_excel_download, utils_excel_exportExcel } from '@/utils/excel';
-import { Center } from '@mantine/core';
-import '@schedule-x/theme-default/dist/index.css';
-import ExcelJS from "exceljs";
-import { useEffect } from 'react';
-interface I {
-    userId?: number,
-    subjectId?: number,
-    content?: string
-}
-const config: IUtils_Excel_ColumnConfig<I>[] = [
-    {
-        fieldKey: "userId",
-        fieldName: "Mã người dùng",
-        isRequired: true
-    },
-    {
-        fieldKey: "subjectId",
-        fieldName: "Mã môn học",
-        isRequired: true
-    },
-    {
-        fieldKey: "content",
-        fieldName: "Nội dung",
-        isRequired: true
-    },
-]
-function CalendarApp() {
-    const store = useS_ButtonImport()
-    async function handleExportStructure() {
-        const workbook = new ExcelJS.Workbook();
-        await utils_excel_exportExcel<I>({
-            workbook: workbook,
-            sheetName: "Sinh viên",
-            data: [],
-            config: config
-        })
-        // Generate and download the Excel file
-        utils_excel_download({ name: "Sinh viên", workbook })
-    }
-    useEffect(() => {
-        store.setProperty("fieldConfig", config)
-    }, [])
-    return (
-        <Center h={'100vh'}>
-            <MyButtonImport
-                onExportStructure={handleExportStructure}
-                onImport={(values) => {
-                    console.log(values);
-                }}
-            />
+"use client";
 
-        </Center>
-    )
-}
+import { Container, Grid, Paper, Text, Stack, Divider } from "@mantine/core";
+import PageContent_1 from "./_components/PageContent_1";
+import PageContent_2 from "./_components/PageContent_2";
+import PageContent_3 from "./_components/PageContent_3";
+import Fieldset_1 from "./_components/Fieldset_1";
+import { IconAdjustments } from "@tabler/icons-react";
+import Fieldset_2 from "./_components/Fieldset_2";
 
-export default CalendarApp
+export default function Test() {
+  return (
+    <Container p={"xl"} fluid>
+      <Stack>
+        <Text size="xl" fw={700}>
+          PageContent
+        </Text>
+        <Grid>
+          {/* PageContent_1 */}
+          <Grid.Col span={{ base: 12, md: 6, lg: 4 }}>
+            <Paper withBorder p="md" radius="md" shadow="sm">
+              <PageContent_1 title="PageContent_1" canBack status="Prototype">
+                <Text>Content</Text>
+              </PageContent_1>
+            </Paper>
+          </Grid.Col>
+
+          {/* PageContent_2 */}
+          <Grid.Col span={{ base: 12, md: 6, lg: 4 }}>
+            <PageContent_2 title="PageContent_2" canBack status="Beta" compact>
+              <Text>Content</Text>
+            </PageContent_2>
+          </Grid.Col>
+
+          {/* PageContent_3 */}
+          <Grid.Col span={{ base: 12, md: 6, lg: 4 }}>
+            <PageContent_3
+              title="PageContent_3"
+              canBack
+              status="Prototype"
+              description="Velit esse elit id et labore anim nostrud"
+            >
+              <Text>Content</Text>
+            </PageContent_3>
+          </Grid.Col>
+        </Grid>
+
+        <Divider my="md" />
+
+        <Text size="xl" fw={700}>
+          Fieldset
+        </Text>
+        <Grid>
+          {/* Fieldset_1 */}
+          <Grid.Col span={{ base: 12, md: 6, lg: 4 }}>
+            <Fieldset_1
+              icon={<IconAdjustments style={{ width: "70%", height: "70%" }} stroke={1.5} />}
+              legend="Action Icon"
+            >
+              <Text>Nội dung fieldset</Text>
+            </Fieldset_1>
+          </Grid.Col>
+
+          {/* Fieldset_2 */}
+          <Grid.Col span={{ base: 12, md: 6, lg: 4 }}>
+            <Fieldset_2 legend="With icon and border">
+              <Text>Nội dung fieldset</Text>
+            </Fieldset_2>
+          </Grid.Col>
+        </Grid>
+      </Stack>
+    </Container>
+  );
+}
