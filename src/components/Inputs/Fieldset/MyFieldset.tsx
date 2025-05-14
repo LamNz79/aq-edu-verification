@@ -1,6 +1,7 @@
+import { MyActionIcon } from "@/components/ActionIcons/ActionIcon/MyActionIcon";
 import { Box, Fieldset, FieldsetProps, Group, Text } from "@mantine/core";
-import { IconCalendar } from "@tabler/icons-react";
 import { ReactNode } from "react";
+import { IconChevronDown } from "@tabler/icons-react";
 
 interface MyFieldsetProps extends FieldsetProps {
   chilren?: ReactNode;
@@ -20,15 +21,15 @@ export default function MyFieldset({
       legend={
         <Box
           px={"xs"}
-          py={3}
+          py={4}
           style={{
-            borderRadius: 100,
-            backgroundColor: "var(--mantine-color-white",
-            border: "1px solid var(--mantine-color-blue-filled)",
+            borderRadius: 4,
+            backgroundColor: "var(--mantine-color-blue-1)",
+            // border: "1px solid var(--mantine-color-blue-filled)",
             color: "var(--mantine-color-blue-filled)",
           }}
         >
-          <Group>
+          <Group gap={4}>
             {icon}
             <Text c="blue" size="sm" fw={500}>
               {title}
