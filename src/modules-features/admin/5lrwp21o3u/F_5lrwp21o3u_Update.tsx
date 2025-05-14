@@ -1,26 +1,16 @@
 'use client';
 
-import { MyActionIconUpdate, MyDateInput, MyTextInput } from "aq-fe-framework/components";
-import { Checkbox } from "@mantine/core";
+import { MyActionIconUpdate, MyTextArea, MyTextInput } from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
+import { I_5lrwp21o3u_Read } from "./F_5lrwp21o3u_Read";
 
-interface IChiTietChuKyKiemDinhUpdate {
-    cycleId: string; // Mã chu kỳ
-    cycleName: string; // Tên chu kỳ
-    startDate: Date; // Ngày bắt đầu
-    endDate: Date; // Ngày kết thúc
-    isRepeat: boolean; // Có lặp lại hay không
-    note?: string; // Ghi chú
-}
-export default function F_5lrwp21o3u_Update({ data }: { data: IChiTietChuKyKiemDinhUpdate }) {
+export default function F_5lrwp21o3u_Update({ data }: { data: I_5lrwp21o3u_Read }) {
 
-    const form = useForm<IChiTietChuKyKiemDinhUpdate>({
+    const form = useForm<I_5lrwp21o3u_Read>({
         initialValues: data,
         validate: {
-            cycleId: (cId: string) => cId ? null : 'Không được để trống',
-            cycleName: (cName: string) => cName ? null : 'Không được để trống',
-            startDate: (sDate: Date) => sDate ? null : 'Không được để trống',
-            endDate: (eDate: Date) => eDate ? null : 'Không được để trống',
+            code: code => code ? null : 'Không được để trống',
+            name: name => name ? null : 'Không được để trống',
         }
     });
 
@@ -29,13 +19,11 @@ export default function F_5lrwp21o3u_Update({ data }: { data: IChiTietChuKyKiemD
             <MyActionIconUpdate
                 form={form}
                 onSubmit={async () => { }}
+                title='Chi tiết chu kỳ kiểm định'
             >
-                <MyTextInput label='Mã chu kỳ' {...form.getInputProps("cycleId")} />
-                <MyTextInput label='Tên chu kỳ' {...form.getInputProps("cycleName")} />
-                <MyDateInput label='Ngày bắt đầu' {...form.getInputProps("startDate")} />
-                <MyDateInput label='Ngày kết thúc' {...form.getInputProps("endDate")} />
-                <MyTextInput label='Ghi chú' {...form.getInputProps("note")} />
-                <Checkbox label='Lặp lại' {...form.getInputProps("isRepeat")} />
+                <MyTextInput label='Mã chu kỳ' {...form.getInputProps("code")} />
+                <MyTextInput label='Tên chu kỳ' {...form.getInputProps("name")} />
+                <MyTextArea label='Ghi chú' {...form.getInputProps("note")} />
             </MyActionIconUpdate>
         </>
     )
