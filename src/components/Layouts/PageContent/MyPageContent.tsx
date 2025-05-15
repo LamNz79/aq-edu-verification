@@ -21,7 +21,7 @@ import { ReactNode } from "react";
 
 interface IPageContent {
   children: ReactNode;
-  title: string;
+  title?: string;
   canBack?: boolean;
   leftTopBar?: ReactNode;
   rightTopBar?: ReactNode;
