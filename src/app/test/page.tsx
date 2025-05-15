@@ -7,6 +7,7 @@ import PageContent_3 from "./_components/PageContent_3";
 import Fieldset_1 from "./_components/Fieldset_1";
 import { IconAdjustments } from "@tabler/icons-react";
 import Fieldset_2 from "./_components/Fieldset_2";
+import PageContent_4 from "./_components/PageContent_4";
 
 export default function Test() {
   return (
@@ -27,21 +28,38 @@ export default function Test() {
 
           {/* PageContent_2 */}
           <Grid.Col span={{ base: 12, md: 6, lg: 4 }}>
-            <PageContent_2 title="PageContent_2" canBack status="Beta" compact>
-              <Text>Content</Text>
-            </PageContent_2>
+            <Paper withBorder p="md" radius="md" shadow="sm">
+              <PageContent_2 title="PageContent_2" canBack status="Beta" compact>
+                <Text>Content</Text>
+              </PageContent_2>
+            </Paper>
           </Grid.Col>
 
           {/* PageContent_3 */}
           <Grid.Col span={{ base: 12, md: 6, lg: 4 }}>
-            <PageContent_3
-              title="PageContent_3"
-              canBack
-              status="Prototype"
-              description="Velit esse elit id et labore anim nostrud"
-            >
-              <Text>Content</Text>
-            </PageContent_3>
+            <Paper withBorder p="md" radius="md" shadow="sm">
+              <PageContent_3
+                title="PageContent_3"
+                canBack
+                status="Prototype"
+                description="Velit esse elit id et labore anim nostrud"
+              >
+                <Text>Content</Text>
+              </PageContent_3>
+            </Paper>
+          </Grid.Col>
+
+          <Grid.Col span={{ base: 12, md: 12, lg: 12 }}>
+            <Paper withBorder p="md" radius="md" shadow="sm">
+              <PageContent_4
+                title="PageContent_3"
+                canBack
+                status="Prototype"
+                description="Velit esse elit id et labore anim nostrud"
+              >
+                <Text>Content</Text>
+              </PageContent_4>
+            </Paper>
           </Grid.Col>
         </Grid>
 
