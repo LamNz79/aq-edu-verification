@@ -129,7 +129,6 @@ export default function F_vcd16qt9lf_Read() {
 
     return (
         <>
-            <Paper p={"md"}>
                 <Box>
                     <MyFieldset mt="20" title='Danh sách kết quả đánh giá yêu cầu/ mốc chuẩn'>
                         <Grid>
@@ -155,6 +154,6 @@ export default function F_vcd16qt9lf_Read() {
                         </Grid>
                     </MyFieldset>
                 </Box>
-            </Paper></>
+            </>
     );
 }
