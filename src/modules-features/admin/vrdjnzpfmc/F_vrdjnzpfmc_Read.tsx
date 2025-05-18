@@ -5,7 +5,6 @@ import {
   MyButton,
   MyCenterFull,
   MyDataTable,
-  MyFieldset,
 } from "aq-fe-framework/components";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
@@ -16,6 +15,7 @@ import F_vrdjnzpfmc_UpdateChiTietKy from "./F_vrdjnzpfmc_UpdateChiTietKy";
 import F_vrdjnzpfmc_DeleteChiTietKy from "./F_vrdjnzpfmc_DeleteChiTietKy";
 import { useForm } from "@mantine/form";
 import F_vrdjnzpfmc_CreateChuKy from "./F_vrdjnzpfmc_CreateChuKy";
+import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 export interface F_vrdjnzpfmc {
   id?: number; // STT
   maChuKy?: string; // Mã chủ kỳ

@@ -1,6 +1,6 @@
 'use client';
 
-import { AQButtonCreateByImportFile, AQButtonExportData, MyDataTable, MyFieldset, MyButton } from "aq-fe-framework/components";
+import { AQButtonCreateByImportFile, AQButtonExportData, MyDataTable, MyButton } from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
@@ -9,6 +9,7 @@ import F_5lrwp21o3u_Create from "./F_5lrwp21o3u_Create";
 import F_5lrwp21o3u_Update from "./F_5lrwp21o3u_Update";
 import F_5lrwp21o3u_Delete from "./F_5lrwp21o3u_Delete";
 import { Group } from "@mantine/core";
+import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 
 
 export default function F_5lrwp21o3u_Read() {

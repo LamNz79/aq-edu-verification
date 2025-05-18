@@ -1,6 +1,5 @@
 import { Group, Radio, Stack } from "@mantine/core";
 import {
-  MyFieldset,
   MySelect,
 } from "aq-fe-framework/components";
 import React, { useState } from "react";
@@ -8,6 +7,7 @@ import F_k25w91d9v2_PrintPDF from "./F_k25w91d9v2_PrintPDF";
 import { F_k25w91d9v2_StandardReport } from "./F_k25w91d9v2_StandardReport";
 import { F_k25w91d9v2_ReportByCriteria } from "./F_k25w91d9v2_ReportByCriteria";
 import { F_k25w91d9v2_ReportByType } from "./F_k25w91d9v2_ReportByType";
+import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 
 export default function F_k25w91d9v2_Read() {
   const [reportType, setReportType] = useState<string>("1");

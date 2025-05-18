@@ -2,11 +2,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { MRT_ColumnDef } from "mantine-react-table";
-import { AQButtonExportData, MyButtonViewPDF, MyDataTable, MyFieldset } from "aq-fe-framework/components";
+import { AQButtonExportData, MyButtonViewPDF, MyDataTable } from "aq-fe-framework/components";
 import F_x19IQVXguk_Detail from "./F_x19IQVXguk_Detail";
 import F_x19IQVXguk_Upload from "./F_x19IQVXguk_Upload";
 import F_x19IQVXguk_Create from "./F_x19IQVXguk_Create";
 import { utils_date_dateToDDMMYYYString } from "aq-fe-framework/utils";
+import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 
 // Interface định nghĩa dữ liệu
 export interface I_x19IQVXguk_Read {
@@ -137,7 +138,7 @@ export default function F_x19IQVXguk_Read() {
     if (query.isError) return "Không có dữ liệu";
 
     return (
-        <MyFieldset legend="Danh sách minh chứng" title="Danh sách minh chứng">
+        <MyFieldset title="Danh sách minh chứng">
             <MyDataTable
                 enableRowSelection={true}
                 enableRowNumbers={true}

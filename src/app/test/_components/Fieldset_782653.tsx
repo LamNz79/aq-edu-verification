@@ -1,23 +1,40 @@
-import { Fieldset, Group, Text, FieldsetProps } from "@mantine/core";
+import {
+    Fieldset,
+    Group,
+    Text,
+    FieldsetProps,
+    useMantineColorScheme,
+} from "@mantine/core";
 import { ReactNode, CSSProperties } from "react";
 
 interface IFieldset extends FieldsetProps {
     children?: ReactNode;
-    legend: string;
+    title: string;
     textColor?: string;
     bgColor?: string;
     customLegend?: ReactNode;
 }
 
-export default function Fieldset_782653({ children, legend, textColor, bgColor, styles, customLegend, ...props }: IFieldset) {
+export default function Fieldset_782653({
+    children,
+    title,
+    textColor,
+    bgColor,
+    styles,
+    customLegend,
+    ...props
+}: IFieldset) {
+    const { colorScheme } = useMantineColorScheme();
+    const isDark = colorScheme === "dark";
+    
     const defaultLegendStyles: CSSProperties = {
-        borderLeft: "5px solid var(--mantine-color-blue-3)",
-        backgroundColor: bgColor ?? "var(--mantine-color-blue-0)",
+        borderLeft: `5px solid ${isDark ? "#638cab" : "var(--mantine-color-blue-4)"}`,
+        backgroundColor: bgColor ?? (isDark ? "var(--mantine-color-gray-8)" : "var(--mantine-color-blue-1)"),
         paddingLeft: "var(--mantine-spacing-xs)",
         paddingRight: "var(--mantine-spacing-xs)",
+        color: textColor ?? (isDark ? "var(--mantine-color-white)" : "var(--mantine-color-blue-8)"),
     };
 
-    // Nếu styles là hàm -> không xử lý merge thủ công (truyền thẳng)
     const mergedStyles =
         typeof styles === "function"
             ? styles
@@ -31,12 +48,12 @@ export default function Fieldset_782653({ children, legend, textColor, bgColor, 
 
     return (
         <Fieldset
-            legend={customLegend ??
-                <Group gap="xs">
-                    <Text fw={600} tt="capitalize" c={textColor ?? "blue.7"}>
-                        {legend}
-                    </Text>
-                </Group>
+            legend={
+                customLegend ?? (
+                    <Group gap="xs">
+                        <Text fw={600}> {title} </Text>
+                    </Group>
+                )
             }
             styles={mergedStyles}
             {...props}

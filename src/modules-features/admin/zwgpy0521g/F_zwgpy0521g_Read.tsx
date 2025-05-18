@@ -3,7 +3,6 @@ import {
   AQButtonExportData,
   MyCenterFull,
   MyDataTable,
-  MyFieldset,
   AQButtonCreateByImportFile,
   MyButton,
 } from "aq-fe-framework/components";
@@ -15,6 +14,7 @@ import F_zwgpy0521g_Update from "./F_zwgpy0521g_Update";
 import F_zwgpy0521g_Delete from "./F_zwgpy0521g_Delete";
 import F_zwgpy0521g_Create from "./F_zwgpy0521g_Create";
 import { useForm } from "@mantine/form";
+import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 
 interface I_zwgpy0521g_DanhMucCauHinhMail {
   id?: number;
