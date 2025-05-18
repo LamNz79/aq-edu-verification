@@ -36,6 +36,7 @@ export interface I0LinkItem {
   status?: "Default" | "Prototype" | "New" | "Menu" | "Change";
   link?: string;
   links?: I0LinkItem[];
+  description?: string;
 }
 
 function getRightSection(status: string) {
@@ -102,6 +103,8 @@ function RenderNavLinks({ items }: { items: I0LinkItem[] }) {
             if (item.link) {
               SidebarStore.setMenuCode(item.link);
               SidebarStore.setTitle(item.label);
+              SidebarStore.setStatus(item.status);
+              SidebarStore.setDescription(item.description);
             }
           }}
         >

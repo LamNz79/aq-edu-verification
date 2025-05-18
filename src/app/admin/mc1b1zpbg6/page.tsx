@@ -5,7 +5,7 @@ import F_mc1b1zpbg6_Read from "@/modules-features/admin/mc1b1zpbg6/F_mc1b1zpbg6_
 
 export default function Page() {
     return (
-        <MyPageContent>
+        <MyPageContent canBack>
             <F_mc1b1zpbg6_Read />
         </MyPageContent>
     )

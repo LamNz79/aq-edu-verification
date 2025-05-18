@@ -14,6 +14,12 @@ interface IS0Sibar {
 
   menuCode?: string;
   setMenuCode: (newMenuCode: string) => void;
+
+  status?: string | undefined;
+  setStatus: (newStatus: string | undefined) => void;
+
+  description?: string | undefined;
+  setDescription: (newDescription: string | undefined) => void;
 }
 
 export const useS0Sidebar = create<IS0Sibar>()(
@@ -48,6 +54,14 @@ export const useS0Sidebar = create<IS0Sibar>()(
       setMenuCode: (newMenuCode) => {
         set({ menuCode: newMenuCode });
       },
+      status: "",
+      setStatus: (newStatus) => {
+        set({ status: newStatus });
+      },
+      description: "",
+      setDescription: (newDescription) => {
+        set({ description: newDescription });
+      }
     }),
     { name: "S0Sidebar" }
   )
