@@ -4,7 +4,7 @@ import F_o4e65ehgty_Read from "@/modules-features/admin/o4e65ehgty/F_o4e65ehgty_
 //o4e65ehgty - Tổng hợp báo cáo mốc chuẩn
 export default function Page() {
   return (
-    <MyPageContent>
+    <MyPageContent canBack>
       <F_o4e65ehgty_Read />
     </MyPageContent>
   );

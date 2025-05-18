@@ -5,7 +5,7 @@ import F_x19IQVXguk_Read from "@/modules-features/admin/x19IQVXguk/F_x19IQVXguk_
 
 export default function Page() {
     return (
-        <MyPageContent>
+        <MyPageContent canBack>
             <F_x19IQVXguk_Read />
         </MyPageContent>
     )

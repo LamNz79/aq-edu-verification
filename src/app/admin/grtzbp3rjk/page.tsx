@@ -3,7 +3,7 @@ import F_grtzbp3rjk_Read from '@/modules-features/admin/grtzbp3rjk/F_grtzbp3rjk_
 
 export default function Page() {
     return (
-        <MyPageContent >
+        <MyPageContent canBack>
             <F_grtzbp3rjk_Read />
         </MyPageContent>
     )

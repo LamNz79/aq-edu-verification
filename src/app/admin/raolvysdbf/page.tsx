@@ -5,7 +5,7 @@ import F_raolvysdbf_Read from "@/modules-features/admin/raolvysdbf/F_raolvysdbf_
 
 export default function Page() {
     return (
-        <MyPageContent>
+        <MyPageContent canBack>
             <F_raolvysdbf_Read />
         </MyPageContent>
     )

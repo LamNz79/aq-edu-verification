@@ -6,7 +6,7 @@ import F_xwuj3dvbgs_Read from "@/modules-features/admin/xwuj3dvbgs/F_xwuj3dvbgs_
 
 export default function Page() {
     return (
-        <MyPageContent >
+        <MyPageContent canBack>
             <F_xwuj3dvbgs_Read />
         </MyPageContent>
     )
