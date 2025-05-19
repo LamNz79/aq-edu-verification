@@ -4,7 +4,7 @@ import F_vrdjnzpfmc_Read from "@/modules-features/admin/vrdjnzpfmc/F_vrdjnzpfmc_
 
 export default function Page() {
     return (
-        <MyPageContent>
+        <MyPageContent canBack>
             <F_vrdjnzpfmc_Read />
         </MyPageContent>
     )

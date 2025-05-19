@@ -3,7 +3,7 @@ import F_obf4m08gkx_Read from "@/modules-features/admin/obf4m08gkx/F_obf4m08gkx_
 
 export default function Page() {
     return (
-        <MyPageContent>
+        <MyPageContent canBack>
             <F_obf4m08gkx_Read />
         </MyPageContent>
     )

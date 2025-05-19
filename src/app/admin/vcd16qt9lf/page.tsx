@@ -3,7 +3,7 @@ import F_vcd16qt9lf_Read from "@/modules-features/admin/vcd16qt9lf/F_vcd16qt9lf_
 
 export default function Page() {
     return (
-        <MyPageContent >
+        <MyPageContent canBack>
             <F_vcd16qt9lf_Read />
         </MyPageContent>
     )

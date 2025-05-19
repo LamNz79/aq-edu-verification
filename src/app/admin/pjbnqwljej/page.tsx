@@ -4,7 +4,7 @@ import F_pjbnqwljej_Read from "@/modules-features/admin/pjbnqwljej/F_pjbnqwljej_
 
 export default function Page() {
     return (
-        <MyPageContent>
+        <MyPageContent canBack>
             <F_pjbnqwljej_Read />
         </MyPageContent>
     )

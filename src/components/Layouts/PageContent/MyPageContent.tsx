@@ -1,6 +1,7 @@
 "use client";
 
 import MyButtonRouterBack from "@/components/Buttons/ButtonRouterBack/MyButtonRouterBack";
+import { useS0Sidebar } from "@/stores/S0Sidebar";
 import {
   Anchor,
   Badge,
@@ -49,16 +50,18 @@ export default function MyPageContent({
   status,
   description,
 }: IPageContent) {
-  const color = getStatusColor(status);
-  const SidebarStore = useS_BasicAppShell();
+  const SidebarStore = useS0Sidebar();
+  const finalStatus = status ? status : SidebarStore.status;
+  const finalDescription =  description ? description : SidebarStore.description;
+  const color = getStatusColor(finalStatus);
   const pathname = usePathname();
   const baseRoute = pathname.split("/").slice(0, 2).join("/");
-  const finalTitle = title || SidebarStore.state.title;
+  const finalTitle = title || SidebarStore.title;
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   const items = [
     { title: "Trang chủ", href: "/" },
-    { title: SidebarStore.state.title, href: `${baseRoute}/${SidebarStore.state.menuCode}` },
+    { title: SidebarStore.title, href: `${baseRoute}/${SidebarStore.menuCode}` },
   ].map((item, index) => (
     <Anchor href={item.href} key={index} size={isMobile ? "xs" : "md"}>
       {isMobile && index === 0 ? "Trang chủ" : item.title}
@@ -78,20 +81,20 @@ export default function MyPageContent({
           <Stack gap={0}>
             <Group>
               <Title order={3}>{finalTitle}</Title>
-              {status && (
+              {finalStatus && (
                 <Badge
                   variant="gradient"
                   gradient={{ from: color, to: `${color}.5` }}
                   size="lg"
                   radius="sm"
                 >
-                  {status}
+                  {finalStatus}
                 </Badge>
               )}
             </Group>
-            {description && (
+            {finalDescription && (
               <Text size="sm" c="dimmed">
-                {description}
+                {finalDescription}
               </Text>
             )}
           </Stack>
@@ -111,7 +114,7 @@ export default function MyPageContent({
       <Divider mb={0} />
 
       <Flex justify="flex-end">
-        <Code color="var(--mantine-color-blue-light)">{SidebarStore.state.menuCode}</Code>
+        <Code color="var(--mantine-color-blue-light)">{SidebarStore.menuCode}</Code>
       </Flex>
     </Container>
   );

@@ -6,7 +6,7 @@ import F_o4e65ewrwy_Read from "@/modules-features/admin/o4e65ewrwy/F_o4e65ewrwy_
 
 export default function Page() {
     return (
-        <MyPageContent>
+        <MyPageContent canBack>
             <F_o4e65ewrwy_Read />
         </MyPageContent>
     )

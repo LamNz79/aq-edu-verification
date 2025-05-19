@@ -4,7 +4,7 @@ import F_k25w91d9v2_Read from "@/modules-features/admin/k25w91d9v2/F_k25w91d9v2_
 
 export default function Page() {
   return (
-    <MyPageContent>
+    <MyPageContent canBack>
       <F_k25w91d9v2_Read />
     </MyPageContent>
   );

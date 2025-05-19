@@ -5,7 +5,7 @@ import F_vpouokrvmt_Read from "@/modules-features/admin/vpouokrvmt/F_vpouokrvmt_
 
 export default function Page() {
     return (
-        <MyPageContent>
+        <MyPageContent canBack>
             <F_vpouokrvmt_Read />
         </MyPageContent>
     )
