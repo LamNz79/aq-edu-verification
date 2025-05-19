@@ -28,7 +28,7 @@ export default function MyFieldset({
     const isDark = colorScheme === "dark";
     
     const defaultLegendStyles: CSSProperties = {
-        borderLeft: `5px solid ${isDark ? "#638cab" : "var(--mantine-color-blue-4)"}`,
+        borderLeft: `4px solid ${isDark ? "#638cab" : "var(--mantine-color-blue-4)"}`,
         backgroundColor: bgColor ?? (isDark ? "var(--mantine-color-gray-8)" : "var(--mantine-color-blue-1)"),
         paddingLeft: "var(--mantine-spacing-xs)",
         paddingRight: "var(--mantine-spacing-xs)",
