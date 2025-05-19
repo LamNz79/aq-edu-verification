@@ -1,32 +1,64 @@
-import { Box, Fieldset, FieldsetProps, Text } from '@mantine/core'
-import { ReactNode } from 'react'
+import {
+    Fieldset,
+    Group,
+    Text,
+    FieldsetProps,
+    useMantineColorScheme,
+} from "@mantine/core";
+import { ReactNode, CSSProperties } from "react";
 
-interface MyFieldsetProps extends FieldsetProps {
-    chilren?: ReactNode,
-    title?: string
+interface IFieldset extends FieldsetProps {
+    children?: ReactNode;
+    title: string;
+    textColor?: string;
+    bgColor?: string;
+    customLegend?: ReactNode;
 }
 
 export default function MyFieldset({
     children,
     title,
-    ...rest
-}: MyFieldsetProps) {
+    textColor,
+    bgColor,
+    styles,
+    customLegend,
+    ...props
+}: IFieldset) {
+    const { colorScheme } = useMantineColorScheme();
+    const isDark = colorScheme === "dark";
+    
+    const defaultLegendStyles: CSSProperties = {
+        borderLeft: `5px solid ${isDark ? "#638cab" : "var(--mantine-color-blue-4)"}`,
+        backgroundColor: bgColor ?? (isDark ? "var(--mantine-color-gray-8)" : "var(--mantine-color-blue-1)"),
+        paddingLeft: "var(--mantine-spacing-xs)",
+        paddingRight: "var(--mantine-spacing-xs)",
+        color: textColor ?? (isDark ? "var(--mantine-color-white)" : "var(--mantine-color-blue-8)"),
+    };
+
+    const mergedStyles =
+        typeof styles === "function"
+            ? styles
+            : {
+                ...styles,
+                legend: {
+                    ...defaultLegendStyles,
+                    ...(styles?.legend as CSSProperties),
+                },
+            };
+
     return (
         <Fieldset
-            {...rest}
-            legend={(
-                <Box
-                    bg="blue.4"
-                    px="xs"
-                    py={2}
-                    style={{ borderRadius: 4 }}
-                >
-                    <Text c="white" fw={500}>
-                        {title}
-                    </Text>
-                </Box>
-            )}>
+            legend={
+                customLegend ?? (
+                    <Group gap="xs">
+                        <Text fw={600}> {title} </Text>
+                    </Group>
+                )
+            }
+            styles={mergedStyles}
+            {...props}
+        >
             {children}
         </Fieldset>
-    )
+    );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { AQButtonCreateByImportFile, AQButtonExportData, MyButton, MyDataTable, MyFieldset } from "aq-fe-framework/components";
+import { AQButtonCreateByImportFile, AQButtonExportData, MyButton, MyDataTable } from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
@@ -9,6 +9,7 @@ import F_6j8jkftgnc_Create from "./F_6j8jkftgnc_Create";
 import F_6j8jkftgnc_Update from "./F_6j8jkftgnc_Update";
 import F_6j8jkftgnc_Delete from "./F_6j8jkftgnc_Delete";
 import { Group } from "@mantine/core";
+import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 
 interface F6j8jkftgnc_ReadProps {
     maBoDem: string; // mã bộ đếm

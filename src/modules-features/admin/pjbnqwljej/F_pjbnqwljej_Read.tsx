@@ -1,20 +1,16 @@
 "use client"
-import AQButtonCreateByImportFile from '@/components/Buttons/ButtonCRUD/AQButtonCreateByImportFile';
 import MyCenterFull from '@/components/CenterFull/MyCenterFull';
 import { MyDataTable } from '@/components/DataDisplay/DataTable/MyDataTable';
 import { U0DateToDDMMYYYString } from '@/utils/date';
-import { Button, Fieldset, Group, Text } from '@mantine/core';
+import { Button, Group } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { useQuery } from '@tanstack/react-query';
 import { MRT_ColumnDef } from 'mantine-react-table';
-import { useMemo, useState } from 'react';
 
 import F_pjbnqwljej_Modal from './F_pjbnqwljej_Modal';
 import MyFlexColumn from '@/components/Layouts/FlexColumn/MyFlexColumn';
 import AQButtonExportData from '@/components/Buttons/ButtonCRUD/AQButtonExportData';
-import { IconTrash } from '@tabler/icons-react';
-import baseAxios from '@/api/baseAxios';
-import { MyFieldset } from 'aq-fe-framework/components';
+import MyFieldset from '@/components/Inputs/Fieldset/MyFieldset';
+
 
 interface Evidence {
     code: string;              // Mã minh chứng

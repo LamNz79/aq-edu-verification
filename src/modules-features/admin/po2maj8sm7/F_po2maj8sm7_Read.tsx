@@ -1,10 +1,11 @@
 "use client";
 
-import { MyFieldset, MyTab } from "aq-fe-framework/components";
+import { MyTab } from "aq-fe-framework/components";
 import { Tabs } from "@mantine/core";
 import F_po2maj8sm7_TabCriteria from "./F_po2maj8sm7_TabCriteria";
 import F_po2maj8sm7_TabRequire from "./F_po2maj8sm7_TabRequire";
 import F_po2maj8sm7_TabStandard from "./F_po2maj8sm7_TabStandard";
+import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 
 export default function F_po2maj8sm7_Read() {
     const tabData = [
