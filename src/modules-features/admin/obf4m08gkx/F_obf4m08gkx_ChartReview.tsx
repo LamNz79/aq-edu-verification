@@ -3,12 +3,6 @@ import { Box, Flex, Paper, Text } from '@mantine/core';
 import React from 'react';
 
 export default function F_obf4m08gkx_ChartReview() {
-    const data = [
-        { mocChuan: 'TC1', datatest1: 120, datatest2: 130, datatest3: 150, },
-        { mocChuan: 'TC2', datatest1: 126, datatest2: 134, datatest3: 170, },
-        { mocChuan: 'TC3', datatest1: 120, datatest2: 130, datatest3: 150, },
-        { mocChuan: 'TC4', datatest1: 120, datatest2: 140, datatest3: 160, },
-    ];
 
     return (
         <Paper mt={20} p={20}>
@@ -37,3 +31,10 @@ export default function F_obf4m08gkx_ChartReview() {
         </Paper>
     );
 }
+
+const data = [
+    { mocChuan: 'TC1', datatest1: 120, datatest2: 130, datatest3: 150, },
+    { mocChuan: 'TC2', datatest1: 126, datatest2: 134, datatest3: 170, },
+    { mocChuan: 'TC3', datatest1: 120, datatest2: 130, datatest3: 150, },
+    { mocChuan: 'TC4', datatest1: 120, datatest2: 140, datatest3: 160, },
+];

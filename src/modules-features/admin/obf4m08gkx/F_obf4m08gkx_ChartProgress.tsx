@@ -1,9 +1,9 @@
-import { Progress, Tooltip, Stack, Paper, Box, Center, Flex, Text, Divider } from '@mantine/core';
+import { Progress, Tooltip, Stack, Paper, Box, Center, Flex, Text, Divider, Group } from '@mantine/core';
 import { IconChevronDown } from '@tabler/icons-react';
 import React from 'react';
 
 const F_obf4m08gkx_ChartProgress: React.FC = () => {
-    const progressValue = 60;
+    const progressValue = 40;
 
     return (
         <Paper mt={20} p={20} radius="md" withBorder>
@@ -21,20 +21,46 @@ const F_obf4m08gkx_ChartProgress: React.FC = () => {
                     <Center><IconChevronDown size={18} /></Center>
                 </Box>
             </Box>
-            <Flex mt={30} justify="space-between" align="flex-start" gap="xs" fz={14}>
-
-                <Box w="20%" ta="center">
-                    <Divider my="sm" size={'md'} />
-                    Chuẩn bị báo cáo/ minh chứng nội bộ định kỳ<br />
-                    Cải tiến/ khắc phục
-                </Box>
-                <Box w="20%" ta="center"><Divider my="sm" size={'md'} />Báo cáo giữa kỳ</Box>
-                <Box w="25%" ta="center">
-                    <Divider my="sm" size={'md'} />
-                    Chuẩn bị báo cáo/ minh chứng nội bộ định kỳ
-                </Box>
-                <Box w="15%" ta="center"><Divider my="sm" size={'md'} />Tự đánh giá</Box>
-                <Box w="15%" ta="center"><Divider my="sm" size={'md'} />Đánh giá ngoài</Box>
+            <Flex mt={5} justify="space-between" align="flex-start" fz={14}>
+                <Group w="20%" gap={0} align='flex-start'>
+                    <Box w="68%" ta="center" mr="2%">
+                        <Divider my="sm" size={'md'} />
+                        Tự đánh giá
+                    </Box>
+                    <Box w="28%" ta="center" mr="2%">
+                        <Divider my="sm" size={'md'} />
+                        Đánh giá ngoài
+                    </Box>
+                </Group>
+                <Flex w="80%" direction="column" fz={14}>
+                    <Group gap={0} align='flex-start'>
+                        <Box w="30%" ta="center" mr="0.5%">
+                            <Divider my="sm" size={'md'} />
+                            Chuẩn bị báo cáo/ minh chứng nội bộ định kỳ <br />
+                            Cải tiến khắc phục
+                        </Box>
+                        <Box w="15%" ta="center" mr="0.5%">
+                            <Divider my="sm" size={'md'} />
+                            Báo cáo giữa kỳ
+                        </Box>
+                        <Box w="30%" ta="center" mr="0.5%">
+                            <Divider my="sm" size={'md'} />
+                            Chuẩn bị báo cáo minh chứng nội bộ định kỳ
+                        </Box>
+                        <Box w="15%" ta="center" mr="0.5%">
+                            <Divider my="sm" size={'md'} />
+                            Tự đánh giá
+                        </Box>
+                        <Box w="8%" ta="center">
+                            <Divider my="sm" size={'md'} />
+                            Đánh giá ngoài
+                        </Box>
+                    </Group>
+                    <Box ta="center" w="100%">
+                        <Divider my="sm" size={'md'} />
+                        Chu kỳ hiện tại
+                    </Box>
+                </Flex>
             </Flex>
         </Paper>
     );
