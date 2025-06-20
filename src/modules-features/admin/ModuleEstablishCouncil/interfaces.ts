@@ -1,4 +1,4 @@
-interface IEstablishCouncil {
+interface IEstablishCouncilViewModel {
   id: number;
   code: string;
   date: string;
@@ -8,4 +8,13 @@ interface IEstablishCouncil {
   fileDetail: FileViewModel;
 }
 
-export type { IEstablishCouncil };
+interface IEstablishCouncilMemberViewModel {
+  id: number;
+  name: string;
+  code: string;
+  position: string; // Chức vụ
+  responsibility: string; // Nhiệm vụ
+  groupName?: string; // Nhóm công tác
+}
+
+export type { IEstablishCouncilViewModel, IEstablishCouncilMemberViewModel };

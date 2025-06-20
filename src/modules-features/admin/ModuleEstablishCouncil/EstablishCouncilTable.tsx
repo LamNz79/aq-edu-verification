@@ -2,18 +2,25 @@
 
 import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
 import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
-import { useForm } from "@mantine/form";
+import { Group, Text } from "@mantine/core";
+import { IconTableExport, IconTrash, IconUpload } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
+import {
+  MyButton,
+  MyButtonViewPDF,
+  MyCenterFull,
+} from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
-import { Group, Text } from "@mantine/core";
-import { IEstablishCouncil } from "./interfaces";
-import { MyButton, MyButtonViewPDF, MyCenterFull } from "aq-fe-framework/components";
-import { IconTableExport, IconTrash, IconUpload } from "@tabler/icons-react";
 import EstablishCouncilButtonDelete from "./CRUDEstablishCouncil/EstablishCouncilButtonDelete";
+import { IEstablishCouncilViewModel } from "./interfaces";
+import EstablishCouncilButtonCreate from "./CRUDEstablishCouncil/EstablishCouncilButtonCreate";
+import EstablishCouncilButtonUpdate from "./CRUDEstablishCouncil/EstablishCouncilButtonUpdate";
 
 export default function EstablishCouncilTable() {
-  const councilEstablishmentDecisionList = useQuery<IEstablishCouncil[]>({
+  const councilEstablishmentDecisionList = useQuery<
+    IEstablishCouncilViewModel[]
+  >({
     queryKey: ["CouncilEstablishmentDecisionTable"],
     queryFn: async () => {
       return mockData;
@@ -21,7 +28,7 @@ export default function EstablishCouncilTable() {
     refetchOnWindowFocus: false,
   });
 
-  const columns = useMemo<MRT_ColumnDef<IEstablishCouncil>[]>(
+  const columns = useMemo<MRT_ColumnDef<IEstablishCouncilViewModel>[]>(
     () => [
       {
         header: "STT",
@@ -70,7 +77,7 @@ export default function EstablishCouncilTable() {
         columns={columns}
         renderTopToolbarCustomActions={() => (
           <Group>
-            {/* <EstablishCouncilButtonCreate/> */}
+            <EstablishCouncilButtonCreate />
             <MyButton color="green" leftSection={<IconUpload />}>
               Import
             </MyButton>
@@ -84,7 +91,7 @@ export default function EstablishCouncilTable() {
         )}
         renderRowActions={({ row }) => (
           <MyCenterFull>
-            {/* <EstablishCouncilButtonUpdate establishCouncil={row.original} /> */}
+            <EstablishCouncilButtonUpdate values={row.original} />
             <EstablishCouncilButtonDelete establishCouncil={row.original} />
           </MyCenterFull>
         )}
@@ -93,14 +100,14 @@ export default function EstablishCouncilTable() {
   );
 }
 
-const mockData: IEstablishCouncil[] = [
+const mockData: IEstablishCouncilViewModel[] = [
   {
     id: 1,
     code: "14/2024/QĐ",
     date: "01/02/2024",
     name: "V/v thành lập hội đồng tự đánh giá năm 2024",
     signatory: "Tô Ngọc Bảo",
-    filePath: "1",
+    filePath: "quyet_dinh_14_2024.pdf",
     fileDetail: {
       fileName: "quyet_dinh_14_2024.pdf",
       fileExtension: "pdf",
@@ -113,7 +120,7 @@ const mockData: IEstablishCouncil[] = [
     date: "05/02/2024",
     name: "V/v thành lập hội đồng kiểm định chất lượng giáo dục",
     signatory: "Nguyễn Văn Nam",
-    filePath: "1",
+    filePath: "quyet_dinh_15_2024.pdf",
     fileDetail: {
       fileName: "quyet_dinh_15_2024.pdf",
       fileExtension: "pdf",

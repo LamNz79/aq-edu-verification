@@ -1,11 +1,11 @@
 "use client";
 import MyActionIconDelete from "@/components/ActionIcons/ActionIconCRUD/MyActionIconDelete";
-import { IEstablishCouncil } from "../interfaces";
+import { IEstablishCouncilViewModel } from "../interfaces";
 
 export default function EstablishCouncilButtonDelete({
   establishCouncil,
 }: {
-  establishCouncil: IEstablishCouncil;
+  establishCouncil: IEstablishCouncilViewModel;
 }) {
   return (
     <MyActionIconDelete
