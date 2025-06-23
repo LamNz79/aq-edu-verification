@@ -139,7 +139,15 @@ export const menuData: I0LinkItem[] = [
         description: "Thành lập hội đồng kiểm định theo quy định.",
       },
       {
-        pageId: 46,
+        pageId: 44,
+        name: "Self assessment plan",
+        label: "Kế hoạch tự đánh giá",
+        link: "self-assessment-plan",
+        status: "Prototype",
+        description: "Lập kế hoạch tự đánh giá theo quy định.",
+      },
+      {
+        pageId: 43,
         name: "Report management",
         label: "Quản lý kỳ báo cáo",
         link: "vrdjnzpfmc",
