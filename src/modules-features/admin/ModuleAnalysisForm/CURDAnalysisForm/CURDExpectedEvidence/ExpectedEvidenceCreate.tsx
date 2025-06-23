@@ -17,7 +17,7 @@ export default function ExpectedEvidenceCreate() {
       label="Thêm"
       form={form}
       modalSize={"lg"}
-      title="Chi tiết phân tích tiêu chí"
+      title="Chi tiết minh chứng dự kiến"
       onSubmit={() => {}}
     >
       <MyTextInput

@@ -1,13 +1,11 @@
+import MyActionIconUpdate from "@/components/ActionIcons/ActionIconCRUD/MyActionIconUpdate";
 import { useForm } from "@mantine/form";
 import {
-  MyButtonCreate,
   MyDateInput,
   MyTextArea,
-  MyTextInput,
+  MyTextInput
 } from "aq-fe-framework/components";
 import { IExpectedEvidenceViewModel } from "../../interface";
-import { MyActionIcon } from "@/components/ActionIcons/ActionIcon/MyActionIcon";
-import MyActionIconUpdate from "@/components/ActionIcons/ActionIconCRUD/MyActionIconUpdate";
 
 export default function ExpectedEvidenceUpdate({
   data,
@@ -22,7 +20,7 @@ export default function ExpectedEvidenceUpdate({
     <MyActionIconUpdate
       form={form}
       modalSize={"lg"}
-      title="Chi tiết phân tích tiêu chí"
+      title="Chi tiết minh chứng dự kiến"
       onSubmit={() => {}}
     >
       <MyTextInput

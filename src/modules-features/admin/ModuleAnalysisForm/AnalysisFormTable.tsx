@@ -19,7 +19,7 @@ export default function AnalysisFormTable() {
   const councilEstablishmentDecisionList = useQuery<
     IAnalysisFormInfoViewModel[]
   >({
-    queryKey: ["SelfAssessmentPlanTable"],
+    queryKey: ["AnalysisFormTable"],
     queryFn: async () => {
       return mockData;
     },
@@ -76,7 +76,7 @@ export default function AnalysisFormTable() {
   if (councilEstablishmentDecisionList.isError) return "Không có dữ liệu...";
 
   return (
-    <MyFieldset title={`Danh sách kế hoạch tự đánh giá`}>
+    <MyFieldset title={`Danh sách phiếu phân tích tiêu chí`}>
       <MyDataTable
         data={councilEstablishmentDecisionList.data || []}
         enableRowSelection={true}
