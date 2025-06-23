@@ -128,11 +128,18 @@ export const menuData: I0LinkItem[] = [
         label: "Lộ trình chuẩn bị",
         link: "vpouokrvmt",
         status: "Prototype",
-        description:
-          "Lập kế hoạch và theo dõi lộ trình chuẩn bị cho kiểm định.",
+        description: "Lập kế hoạch và theo dõi lộ trình chuẩn bị cho kiểm định.",
       },
       {
         pageId: 43,
+        name: "Establish Council",
+        label: "Thành lập hội đồng",
+        link: "establish-council",
+        status: "Prototype",
+        description: "Thành lập hội đồng kiểm định theo quy định.",
+      },
+      {
+        pageId: 46,
         name: "Report management",
         label: "Quản lý kỳ báo cáo",
         link: "vrdjnzpfmc",
@@ -140,7 +147,7 @@ export const menuData: I0LinkItem[] = [
         description: "Tổng hợp và quản lý thông tin kỳ báo cáo kiểm định.",
       },
       {
-        pageId: 44,
+        pageId: 47,
         name: "Assignment",
         label: "Phân công phụ trách mốc chuẩn",
         link: "raolvysdbf",
@@ -148,7 +155,7 @@ export const menuData: I0LinkItem[] = [
         description: "Phân công cán bộ phụ trách từng mốc chuẩn trong tiêu chuẩn.",
       },
       {
-        pageId: 45,
+        pageId: 48,
         name: "Recurring tasks",
         label: "Thiết lập nhiệm vụ báo cáo định kỳ",
         link: "grtzbp3rjk",
