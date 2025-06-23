@@ -133,6 +133,22 @@ export const menuData: I0LinkItem[] = [
       },
       {
         pageId: 43,
+        name: "Establish Council",
+        label: "Thành lập hội đồng",
+        link: "establish-council",
+        status: "Prototype",
+        description: "Thành lập hội đồng kiểm định theo quy định.",
+      },
+      {
+        pageId: 44,
+        name: "Self assessment plan",
+        label: "Kế hoạch tự đánh giá",
+        link: "self-assessment-plan",
+        status: "Prototype",
+        description: "Lập kế hoạch tự đánh giá theo quy định.",
+      },
+      {
+        pageId: 43,
         name: "Report management",
         label: "Quản lý kỳ báo cáo",
         link: "vrdjnzpfmc",
