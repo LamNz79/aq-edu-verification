@@ -6,6 +6,7 @@ import {
   MyFileInput,
   MyTextInput,
 } from "aq-fe-framework/components";
+import { utils_date_FormatToDateTimetring } from "./F_o4e65ehgty_Proof_View";
 
 interface F_o4e65ehgty_Proof_Upload {
   code?: string;
@@ -18,11 +19,12 @@ export default function F_o4e65ehgty_Proof_Upload() {
   const disc = useDisclosure();
 
   const form = useForm<F_o4e65ehgty_Proof_Upload>({
+    // mode: 'uncontrolled',
     initialValues: {
       code: "",
       name: "",
-      startDate: "",
-      endDate: "",
+      startDate: undefined,
+      endDate: undefined,
     },
     validate: {
       code: (value) => (!value ? "Vui lòng nhập mã file" : null),
