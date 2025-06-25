@@ -1,10 +1,13 @@
-import { Card, Flex, Paper, Text } from '@mantine/core'
+import { Card, Flex, Group, Paper, Text } from '@mantine/core'
 import React from 'react'
-import F_obf4m08gkx_ChartComplete from './F_obf4m08gkx_ChartComplete';
-import F_obf4m08gkx_ChartPired from './F_obf4m08gkx_ChartPired';
-import F_obf4m08gkx_ChartReview from './F_obf4m08gkx_ChartReview';
-import F_obf4m08gkx_ChartProgress from './F_obf4m08gkx_ChartProgress';
-import F_obf4m08gkx_ChartUnit from './F_obf4m08gkx_ChartUnit';
+import F_obf4m08gkx_ReportCycleProgressChart from './F_obf4m08gkx_ReportCycleProgressChart';
+import F_obf4m08gkx_RequestOfUnitBarChart from './F_obf4m08gkx_RequestOfUnitBarChart';
+import F_obf4m08gkx_ReportResultOfUnitBarChart from './F_obf4m08gkx_ReportResultOfUnitBarChart';
+import F_obf4m08gkx_ReviewResultsBarChart from './F_obf4m08gkx_ReviewResultsBarChart';
+import F_obf4m08gkx_UpdateRatePieChart from './F_obf4m08gkx_UpdateRatePieChart';
+import F_obf4m08gkx_SyntheticRatePieChart from './F_obf4m08gkx_SyntheticRatePieChart';
+import F_obf4m08gkx_DistributionProofOfUnitBarChart from './F_obf4m08gkx_DistributionProofOfUnitBarChart';
+import F_obf4m08gkx_ExpiredProofBarChar from './F_obf4m08gkx_ExpiredProofBarChar';
 
 export default function F_obf4m08gkx_Read() {
     return (
@@ -30,11 +33,26 @@ export default function F_obf4m08gkx_Read() {
                     <Text fz={30} fw={'bold'}>586</Text>
                 </Card>
             </Flex>
-            <F_obf4m08gkx_ChartProgress />
-            <F_obf4m08gkx_ChartReview />
-            <F_obf4m08gkx_ChartUnit />
-            <F_obf4m08gkx_ChartComplete />
-            <F_obf4m08gkx_ChartPired />
+            <F_obf4m08gkx_ReportCycleProgressChart />
+            <F_obf4m08gkx_ReviewResultsBarChart />
+            <Paper p={30} mt={20}>
+                <Group gap={"5%"} align='flex-start'>
+                    <F_obf4m08gkx_RequestOfUnitBarChart />
+                    <F_obf4m08gkx_ReportResultOfUnitBarChart />
+                </Group>
+            </Paper>
+            <Paper p={30} mt={20}>
+                <Group gap={"5%"} align='flex-start'>
+                    <F_obf4m08gkx_SyntheticRatePieChart />
+                    <F_obf4m08gkx_UpdateRatePieChart />
+                </Group>
+            </Paper>
+            <Paper p={30} mt={20}>
+                <Group gap={"5%"} align='flex-start'>
+                    <F_obf4m08gkx_ExpiredProofBarChar/>
+                    <F_obf4m08gkx_DistributionProofOfUnitBarChart/>
+                </Group>
+            </Paper>
         </Paper>
     )
 }

@@ -1,8 +1,8 @@
-import { Progress, Tooltip, Stack, Paper, Box, Center, Flex, Text, Divider, Group } from '@mantine/core';
+import { Progress, Paper, Box, Center, Flex, Text, Divider, Group } from '@mantine/core';
 import { IconChevronDown } from '@tabler/icons-react';
 import React from 'react';
 
-const F_obf4m08gkx_ChartProgress: React.FC = () => {
+const F_obf4m08gkx_ReportCycleProgressChart: React.FC = () => {
     const progressValue = 40;
 
     return (
@@ -65,4 +65,4 @@ const F_obf4m08gkx_ChartProgress: React.FC = () => {
         </Paper>
     );
 };
-export default F_obf4m08gkx_ChartProgress;
+export default F_obf4m08gkx_ReportCycleProgressChart;

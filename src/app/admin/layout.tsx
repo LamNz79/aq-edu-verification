@@ -1,3 +1,4 @@
+'use client'
 import { BasicAppShell } from "@/components/Layouts/BasicAppShell/BasicAppShell";
 import { menuData_Institutional } from "@/data/menuData_Institutional";
 import { menuData_Program } from "@/data/menuData_Program";
