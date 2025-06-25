@@ -38,10 +38,6 @@ const loaiDoiTuongSelectOption: selectBoxProps[] = [
     {
         label: "Toàn đơn vị",
         value: "1",
-    },
-    {
-        label: "vài đơn vị",
-        value: "2",
     }
 ]
 

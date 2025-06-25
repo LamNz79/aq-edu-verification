@@ -1,6 +1,6 @@
 'use client';
 
-import {MyActionIconUpdate, MySelect, MyTextInput} from "aq-fe-framework/components";
+import { MyActionIconUpdate, MySelect, MyTextInput } from "aq-fe-framework/components";
 import { Checkbox } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
@@ -24,7 +24,7 @@ interface I6j8jkftgnc_InputUpdateProps {
     loaiDoiTuong: string; // loại đối tượng
 }
 
-interface selectBoxProps{
+interface selectBoxProps {
     label: string;
     value: string;
 }
@@ -45,10 +45,6 @@ const loaiDoiTuongSelectOption: selectBoxProps[] = [
         label: "Toàn đơn vị",
         value: "Toàn đơn vị",
     },
-    {
-        label: "vài đơn vị",
-        value: "vài đơn vị",
-    }
 ]
 
 const chuKyLapLaiSelectOption: selectBoxProps[] = [
@@ -62,7 +58,7 @@ const chuKyLapLaiSelectOption: selectBoxProps[] = [
     }
 ]
 
-export default function F_6j8jkftgnc_Update({data}: {data: I6j8jkftgnc_InputUpdateProps}) {
+export default function F_6j8jkftgnc_Update({ data }: { data: I6j8jkftgnc_InputUpdateProps }) {
     const modalName = "Chi tiết bộ đếm";
 
     //===pseudo data===
@@ -114,15 +110,15 @@ export default function F_6j8jkftgnc_Update({data}: {data: I6j8jkftgnc_InputUpda
 
 
     return (
-        <MyActionIconUpdate crudType='update' title={modalName} form={form} onSubmit={() => {}}> 
-            <MyTextInput label="Mã bộ đếm" {...form.getInputProps("maBoDem")}/>
-            <MyTextInput label="Tên bộ đếm" {...form.getInputProps("tenBoDem")}/>
-            <MySelect data={loaiNghiepVuQuery.data!} label="Loại nghiệp vụ" {...form.getInputProps("loaiNghiepVu")}/>
-            <MySelect data={loaiDoiTuongQuery.data!} label="Loại đối tượng" {...form.getInputProps("loaiDoiTuong")}/>
-            <MySelect data={chuKyLapLaiQuery.data!} label="Chu ký lặp lại" {...form.getInputProps("chuKyLapLai")}/>
-            <MyTextInput label="Tiền tố" {...form.getInputProps("tienTo")}/>
-            <MyTextInput label="Hậu tố" {...form.getInputProps("hauTo")}/>
-            <MyTextInput label="Chiều dài" {...form.getInputProps("chieuDai")}/>
+        <MyActionIconUpdate crudType='update' title={modalName} form={form} onSubmit={() => { }}>
+            <MyTextInput label="Mã bộ đếm" {...form.getInputProps("maBoDem")} />
+            <MyTextInput label="Tên bộ đếm" {...form.getInputProps("tenBoDem")} />
+            <MySelect data={loaiNghiepVuQuery.data!} label="Loại nghiệp vụ" {...form.getInputProps("loaiNghiepVu")} />
+            <MySelect data={loaiDoiTuongQuery.data!} label="Loại đối tượng" {...form.getInputProps("loaiDoiTuong")} />
+            <MySelect data={chuKyLapLaiQuery.data!} label="Chu kỳ lặp lại" {...form.getInputProps("chuKyLapLai")} />
+            <MyTextInput label="Tiền tố" {...form.getInputProps("tienTo")} />
+            <MyTextInput label="Hậu tố" {...form.getInputProps("hauTo")} />
+            <MyTextInput label="Chiều dài" {...form.getInputProps("chieuDai")} />
             <Checkbox label="Có dùng số 0" {...form.getInputProps("coDungSo0", { type: 'checkbox' })} />
         </MyActionIconUpdate>
     )
