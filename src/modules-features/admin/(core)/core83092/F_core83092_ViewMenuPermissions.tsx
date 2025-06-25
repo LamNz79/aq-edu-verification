@@ -4,7 +4,7 @@ import MyCenterFull from "@/components/CenterFull/MyCenterFull";
 import { groupToTwoLevels, I0LinkItem, utils_layout_getItemsWithoutLinks } from "@/components/Layouts/BasicAppShell/BasicAppShell";
 import MyFlexRow from "@/components/Layouts/FlexRow/MyFlexRow";
 import { OBJECT_COlORS } from "@/constants/object/color";
-import { menuData } from "@/data/menuData_Institutional";
+import { menuData_Institutional } from "@/data/menuData_Institutional";
 import { Checkbox, Flex, ScrollArea, Table, Text } from "@mantine/core";
 import { IconEdit, IconEyeUp, IconFileExport, IconPlus, IconPrinter, IconTrash } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
@@ -17,7 +17,7 @@ export default function F_core83092_ViewMenuPermissions() {
     const query = useGetUserPermission()
     const list = useState<I0LinkItem[]>([])
     useEffect(() => {
-        list[1](groupToTwoLevels(menuData))
+        list[1](groupToTwoLevels(menuData_Institutional))
     }, [])
 
     useEffect(() => {
@@ -230,7 +230,7 @@ function useGetUserPermission() {
         queryKey: ['F_7p4mh9d75x_AuthorizationTable', store.state.roleId],
         queryFn: async () => {
             const result = await baseAxios.get('/Role/GetUserPermission?userId=' + store.state.roleId)
-            const menudataFinal = utils_layout_getItemsWithoutLinks(menuData)
+            const menudataFinal = utils_layout_getItemsWithoutLinks(menuData_Institutional)
             if (result.data.data.length == 0) {
                 const final = menudataFinal.map((item) => ({
                     pageId: item.pageId,
