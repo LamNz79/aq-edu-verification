@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, Card } from "@mantine/core"
+import { Button, Card, Center } from "@mantine/core"
 import { ArrowRight, BookOpen, GraduationCap } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
@@ -65,21 +65,23 @@ export default function QualityAssessmentPage() {
                                         </div>
 
                                         {/* Icon */}
-                                        <div
-                                            className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r ${type.gradient} rounded-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
-                                        >
-                                            <IconComponent className="w-10 h-10 text-white" />
-                                        </div>
+                                        <Center>
+                                            <div
+                                                className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r ${type.gradient} rounded-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                                            >
+                                                <IconComponent className="w-10 h-10 text-white" />
+                                            </div>
+                                        </Center>
 
                                         {/* Content */}
                                         <div className="relative z-10">
-                                            <h2 className="text-2xl font-bold text-gray-800 mb-2 leading-tight">{type.title}</h2>
+                                            <h2 className="text-2xl text-center font-bold text-gray-800 mb-2 leading-tight">{type.title}</h2>
                                             <h3
-                                                className={`text-xl font-semibold bg-gradient-to-r ${type.gradient} bg-clip-text text-transparent mb-4`}
+                                                className={`text-xl text-center font-semibold bg-gradient-to-r ${type.gradient} bg-clip-text text-transparent mb-4`}
                                             >
                                                 {type.subtitle}
                                             </h3>
-                                            <p className="text-gray-600 mb-8 leading-relaxed">{type.description}</p>
+                                            <p className="text-gray-600 text-center mb-8 leading-relaxed">{type.description}</p>
 
                                             {/* Action Button */}
                                             <Button
