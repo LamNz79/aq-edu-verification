@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo, useState } from "react";
 import { utils_date_dateToDDMMYYYString } from "@/utils/date";
+import { IconTrash } from '@tabler/icons-react';
 import F_vpouokrvmt_Create from "./F_vpouokrvmt_Create";
 import F_vpouokrvmt_Delete from "./F_vpouokrvmt_Delete";
 import F_vpouokrvmt_Update from "./F_vpouokrvmt_Update";
@@ -153,7 +154,7 @@ export default function F_vpouokrvmt_Read() {
                                 data={query.data!}
                                 exportConfig={exportConfig}
                                 objectName="danhSachLoTrinh" />
-                            <MyButton >Xóa</MyButton>
+                            <MyButton color="red" leftSection={<IconTrash />}>Xóa</MyButton>
                         </>
                     }
                     renderRowActions={({ row }) => (
