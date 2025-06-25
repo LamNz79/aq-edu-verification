@@ -34,7 +34,7 @@ export default function F_vpouokrvmt_Update({ data }: { data: I_vpouokrvmt_Updat
 
     return (
         <MyActionIconUpdate title="Chi tiết lộ trình" form={form} onSubmit={() => { }}>
-            <MyTextInput label='Mã lộ trình' {...form.getInputProps("cycleIdRoute")} />
+            <MyTextInput label='Mã lộ trình' disabled={!!form.values.cycleIdRoute} {...form.getInputProps("cycleIdRoute")} />
             <MyTextInput label='Tên lộ trình' {...form.getInputProps("cycleRouteName")} />
             <MyDateInput label='Ngày bắt đầu' {...form.getInputProps("startDate")} />
             <MyDateInput label='Ngày kết thúc' {...form.getInputProps("endDate")} />
