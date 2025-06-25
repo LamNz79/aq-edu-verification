@@ -1,31 +1,41 @@
 import { Flex, Tabs } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import {
-    MyActionIconUpdate,
-    MyDateInput,
-    MyFileInput,
-    MyTab,
-    MyTextInput
+  MyActionIconUpdate,
+  MyDateInput,
+  MyFileInput,
+  MyTab,
+  MyTextInput,
 } from "aq-fe-framework/components";
-import { IAssignmentGroupViewModel, IResourceMobilizationViewModel, ISelfAssessmentPlanViewModel } from "../interface";
+import {
+  IAssignmentGroupViewModel,
+  IResourceMobilizationViewModel,
+  ISelfAssessmentPlanViewModel,
+} from "../interface";
 import AssignmentGroupTable from "./AssignmentGroupTable";
 import ResourceMobilizationTable from "./ResourceMobilizationTable";
+import { useState } from "react";
 
 interface I extends ISelfAssessmentPlanViewModel {
   file: File;
 }
 
-export default function SelfAssessmentPlanButtonUpdate({data}: {data: ISelfAssessmentPlanViewModel}) {
+export default function SelfAssessmentPlanButtonUpdate({
+  data,
+}: {
+  data: ISelfAssessmentPlanViewModel;
+}) {
   const form = useForm<I>({
     initialValues: {
-        ...data,
-        file: new File(
-          [],
-          data.filePath?.split("/")[data.filePath.split("/").length - 1]!
-        ),
-      },
+      ...data,
+      file: new File(
+        [],
+        data.filePath?.split("/")[data.filePath.split("/").length - 1]!
+      ),
+    },
   });
-
+  const [activeTab, setActiveTab] = useState("Thông tin chung");
+  const modalSize = activeTab === "Thông tin chung" ? "42.5%" : "80%";
   const tabData = [
     { label: "Thông tin chung" },
     { label: "Phân công nhóm thực hiện" },
@@ -34,12 +44,12 @@ export default function SelfAssessmentPlanButtonUpdate({data}: {data: ISelfAsses
 
   return (
     <MyActionIconUpdate
-      modalSize={"80%"}
+      modalSize={modalSize}
       form={form}
       title="Chi tiết quyết định"
       onSubmit={() => {}}
     >
-      <MyTab tabList={tabData}>
+      <MyTab tabList={tabData} onChange={(value) => setActiveTab(value || "")}>
         <Tabs.Panel value="Thông tin chung">
           <Flex direction="column">
             <MyTextInput
@@ -62,7 +72,7 @@ export default function SelfAssessmentPlanButtonUpdate({data}: {data: ISelfAsses
               placeholder="Nhập người ký"
               {...form.getInputProps("signatory")}
             />
-             <MyFileInput
+            <MyFileInput
               label="File đính kèm"
               placeholder="Tải lên file đính kèm"
               {...form.getInputProps("file")}
