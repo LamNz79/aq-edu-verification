@@ -154,7 +154,7 @@ export default function F_79t4hwd85i_Update() {
       modalSize={"100%"}
       disclosure={dis}
       title="Chi tiết kỳ báo cáo"
-      onSubmit={() => {}}
+      onSubmit={() => { }}
       form={form}
       leftSection={<></>}
     >
@@ -167,19 +167,19 @@ export default function F_79t4hwd85i_Update() {
                 value={form.values.noiDung}
                 contentHeight={"220px"}
                 error={(form.errors.noiDung as string | undefined) || undefined}
-                onChange={()=> {}}
+                onChange={() => { }}
               />
             </MyFieldset>
           </Grid.Col>
           <Grid.Col span={{ base: 12, md: 6 }}>
-            <MyFieldset title="Minh chứng sử dụng">
+            <MyFieldset title="Minh chứng gợi ý">
               <MyDataTable
                 data={danhSachFileMinhChungGoiY.data!}
                 columns={columns}
                 enableRowSelection={true}
                 enableRowNumbers={true}
                 initialState={{ columnPinning: { right: ["trangThai", "thaoTac"] } }}
-                mantineTableContainerProps={{ style: { maxHeight: "220px",  overflowY: "scroll" } }}
+                mantineTableContainerProps={{ style: { maxHeight: "220px", overflowY: "scroll" } }}
                 renderTopToolbarCustomActions={({ table }) => (
                   <Group>
                     <F_79t4hwd85i_EvidenceList />

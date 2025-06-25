@@ -43,10 +43,7 @@ export default function F_zwgpy0521g_Create({ values }: { values?: any }) {
                 <MySelect label="Phân hệ" searchable
                     data={
                         [
-                            { value: "Toàn hệ thống", label: "Toàn hệ thống" },
-                            { value: "Tuyển sinh", label: "Tuyển sinh" },
-                            { value: "Sinh viên", label: "Sinh viên" },
-                            { value: "Khảo thí", label: "Khảo thí" },
+                            { value: "1", label: "Edu Verification" },
                         ]
 
                     }

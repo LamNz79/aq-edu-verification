@@ -158,7 +158,7 @@ export default function F_zwgpy0521g_Read() {
 const mockData: I_zwgpy0521g_DanhMucCauHinhMail[] = [
   {
     id: 1,
-    phanHe: "Toàn hệ thống",
+    phanHe: "1",
     hostMailServer: "smtp.gmail.com",
     outgoingPort: 589,
     incomingPort: 465,
@@ -168,7 +168,7 @@ const mockData: I_zwgpy0521g_DanhMucCauHinhMail[] = [
   },
   {
     id: 2,
-    phanHe: "Phòng kế toán",
+    phanHe: "1",
     hostMailServer: "smtp.office365.com",
     outgoingPort: 587,
     incomingPort: 993,
@@ -178,7 +178,7 @@ const mockData: I_zwgpy0521g_DanhMucCauHinhMail[] = [
   },
   {
     id: 3,
-    phanHe: "Phòng kỹ thuật",
+    phanHe: "1",
     hostMailServer: "mail.aqtech.vn",
     outgoingPort: 465,
     incomingPort: 993,
@@ -188,7 +188,7 @@ const mockData: I_zwgpy0521g_DanhMucCauHinhMail[] = [
   },
   {
     id: 4,
-    phanHe: "Phòng nhân sự",
+    phanHe: "1",
     hostMailServer: "smtp.mailtrap.io",
     outgoingPort: 2525,
     incomingPort: 143,
