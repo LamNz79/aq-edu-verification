@@ -6,7 +6,7 @@ import { Group } from "@mantine/core";
 import { IconTableExport, IconTrash, IconUpload } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
 import {
-    MyButton
+  MyButton
 } from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
@@ -59,12 +59,12 @@ export default function AnalysisFormTable() {
         size: 150,
       },
       {
-        header: "Số điện thoại",
+        header: "Số điện thoại trưởng nhóm",
         accessorKey: "leader.phone",
         size: 150,
       },
       {
-        header: "Email",
+        header: "Email trưởng nhóm",
         accessorKey: "leader.email",
         size: 150,
       },

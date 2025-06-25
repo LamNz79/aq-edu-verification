@@ -57,7 +57,7 @@ export default function CriteriaAnalysisTable({
       },
       {
         accessorKey: "method",
-        header: "Phương pháp",
+        header: "Phương pháp thu thập",
       },
       {
         accessorKey: "codeEvent",
