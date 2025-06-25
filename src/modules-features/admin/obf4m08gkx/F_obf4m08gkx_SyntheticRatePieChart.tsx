@@ -8,30 +8,30 @@ export default function F_obf4m08gkx_SyntheticRatePieChart() {
         <Stack w={{ base: '100%', sm: '47.5%' }}>
             <Text>Biểu đồ theo dõi tỷ lệ hoàn thành tổng hợp mốc chuẩn</Text>
             <Grid>
-                <Grid.Col span={{base: 8, sm: 8, md:9}}>
+                <Grid.Col span={{ base: 8, sm: 8, md: 9 }}>
                     <Center>
                         <PieChart
-                    startAngle={90}
-                    endAngle={-270}
-                    h="60vh"
-                    w='80%'
-                    data={pieData}
-                    withTooltip
-                    withLabelsLine
-                    labelsPosition="outside"
-                    labelsType="value"
-                    withLabels
-            pieProps={{
-                cx: "50%",
-                cy: "50%",
-                innerRadius: 0,
-                outerRadius: 130,
-                paddingAngle: 0
-            }}
-                />
+                            startAngle={90}
+                            endAngle={-270}
+                            h="60vh"
+                            w='80%'
+                            data={pieData}
+                            withTooltip
+                            withLabelsLine
+                            labelsPosition="outside"
+                            labelsType="value"
+                            withLabels
+                            pieProps={{
+                                cx: "50%",
+                                cy: "50%",
+                                innerRadius: 0,
+                                outerRadius: 130,
+                                paddingAngle: 0
+                            }}
+                        />
                     </Center>
                 </Grid.Col>
-                <Grid.Col span={{base: 4, sm: 4, md:3}}>
+                <Grid.Col span={{ base: 4, sm: 4, md: 3 }}>
                     {pieData.map((item) => (
                         <Group key={item.name} mb={5} wrap='nowrap'>
                             <div

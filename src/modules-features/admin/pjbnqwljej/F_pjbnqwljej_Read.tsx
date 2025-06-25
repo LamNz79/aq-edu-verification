@@ -31,8 +31,14 @@ interface F_pjbnqwljej_Read {
     result: string;
     reportDate: Date;
     deadlineDate: Date;
-    personUpdate: string;
-    updateDate: Date;
+    personUpdate?: string;
+    updateDate?: Date;
+    programName: string;
+    regulationNumber: string;
+    regulationDate: string;
+    facultyName: string;
+    currentYear: number;
+    nextYear: number;
     evidences: Evidence[];
 }
 export default function F_pjbnqwljej_Read() {
@@ -92,7 +98,7 @@ export default function F_pjbnqwljej_Read() {
         {
             header: "Ngày cập nhật",
             accessorKey: "updateDate",
-            accessorFn: row => U0DateToDDMMYYYString(row.updateDate),
+            accessorFn: row => row.updateDate ? U0DateToDDMMYYYString(row.updateDate) : "",
         },
     ];
 
@@ -143,14 +149,14 @@ const mockData: F_pjbnqwljej_Read[] = [
     {
         id: 1,
         codeTieuChuan: "TC01",
-        codeTieuChi: "TC 1.1",
+        codeTieuChi: "TC1.1",
         requireCode: "M001",
-        requireName: "Chuẩn đầu ra của CTĐT được xây dựng, rà soát và điều chỉnh theo quy trình định trước; trong đó có sự tham gia của các BLQ",
-        result: "Đạt",
-        reportDate: new Date("2025-04-15"),
-        deadlineDate: new Date("2025-04-20"),
-        personUpdate: "Nguyễn Văn A",
-        updateDate: new Date("2025-05-01"),
+        requireName: "Chuẩn đầu ra của CTĐT được xây dựng, rà soát và điều chỉnh theo quy trình định trước, trong đó có sự tham gia của các BLQ.",
+        result: "Không đạt",
+        reportDate: new Date("2025-07-12"),
+        deadlineDate: new Date("2025-06-15"),
+        personUpdate: "",
+        updateDate: undefined,
         evidences: [
             {
                 code: "MC0001",
@@ -172,19 +178,25 @@ const mockData: F_pjbnqwljej_Read[] = [
                 relatedUrl: "",
                 status: "Còn hạn"
             }
-        ]
+        ],
+        programName: 'Kỹ thuật phần mềm',
+        regulationNumber: '15/2024/QĐ',
+        regulationDate: '05/02/2024',
+        facultyName: 'Công nghệ thông tin',
+        currentYear: 2026,
+        nextYear: 2025
     },
     {
         id: 2,
         codeTieuChuan: "TC01",
-        codeTieuChi: "TC 1.2",
+        codeTieuChi: "TC1.2",
         requireCode: "M001",
-        requireName: "CDR của CTĐT được phát triển rõ ràng; phù hợp với mục tiêu của CTĐT; sứ mạng, tầm nhìn và chiến lược của CSDT",
-        result: "Chưa đạt",
-        reportDate: new Date("2025-04-10"),
-        deadlineDate: new Date("2025-04-22"),
-        personUpdate: "Trần Thị B",
-        updateDate: new Date("2025-05-02"),
+        requireName: "CĐR của CTĐT được phát triển rõ ràng, phù hợp với mục tiêu của CTĐT, thị trường, tầm nhìn và chiến lược của CSDT",
+        result: "Không đạt",
+        reportDate: new Date("2025-07-12"),
+        deadlineDate: new Date("2025-06-15"),
+        personUpdate: "",
+        updateDate: undefined,
         evidences: [
             {
                 code: "MC0002",
@@ -206,19 +218,25 @@ const mockData: F_pjbnqwljej_Read[] = [
                 relatedUrl: "",
                 status: "Còn hạn"
             }
-        ]
+        ],
+        programName: 'Kỹ thuật phần mềm',
+        regulationNumber: '15/2024/QĐ',
+        regulationDate: '05/02/2024',
+        facultyName: 'Công nghệ thông tin',
+        currentYear: 2025,
+        nextYear: 2026
     },
     {
         id: 3,
         codeTieuChuan: "TC01",
-        codeTieuChi: "TC 1.3",
+        codeTieuChi: "TC1.3",
         requireCode: "M001",
-        requireName: "CDR của CTĐT được phổ biến đến các BLQ, giảng viên và NH hiểu rõ về CTĐT của CTĐT",
-        result: "Đạt",
-        reportDate: new Date("2025-04-18"),
-        deadlineDate: new Date("2025-04-25"),
-        personUpdate: "Lê Văn C",
-        updateDate: new Date("2025-05-03"),
+        requireName: "CĐR của CTĐT được phổ biến đến các BLQ, giảng viên và NH hiểu rõ về CĐR của CTĐT",
+        result: "Đạt (cần cải tiến)",
+        reportDate: new Date("2025-07-12"),
+        deadlineDate: new Date("2025-06-15"),
+        personUpdate: "",
+        updateDate: undefined,
         evidences: [
             {
                 code: "M001",
@@ -230,7 +248,13 @@ const mockData: F_pjbnqwljej_Read[] = [
                 relatedUrl: "",
                 status: "Còn hạn"
             }
-        ]
+        ],
+        programName: 'Kỹ thuật phần mềm',
+        regulationNumber: '14/2024/QĐ',
+        regulationDate: '01/02/2024',
+        facultyName: 'Công nghệ thông tin',
+        currentYear: 2025,
+        nextYear: 2026
     }
 ];
 
