@@ -4,13 +4,14 @@ import { useQuery } from "@tanstack/react-query"
 import { useMemo } from "react"
 import { MRT_ColumnDef } from "mantine-react-table"
 import { U0DateToDDMMYYYString } from "@/utils/date"
-import { Box, Button, Grid, Paper } from "@mantine/core"
+import { Box, Button, Grid, Paper, Textarea } from "@mantine/core"
 import { Text } from "@mantine/core"
 import { IconTrash } from '@tabler/icons-react';
 import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset"
 import MyTextInput from "@/components/Inputs/TextInput/MyTextInput"
 import MySelect from "@/components/Combobox/Select/MySelect"
 import AQButtonExportData from "@/components/Buttons/ButtonCRUD/AQButtonExportData"
+
 export interface I_vcd16qt9lf {
     id?: number; // STT
     standardCode?: string; // Mã tiêu chuẩn
@@ -105,9 +106,10 @@ export default function F_vcd16qt9lf_Read() {
             header: "Nội dung cần khắc phục/ cải tiến",
             accessorKey: "note",
             Cell: ({ cell }) => (
-                <MyTextInput
+                <Textarea
                     defaultValue={cell.getValue<string>()}
-                //{...resultForm.getInputProps("note")}
+                    placeholder="Nhập nội dung"
+                    minRows={4}
                 />
             ),
         },
