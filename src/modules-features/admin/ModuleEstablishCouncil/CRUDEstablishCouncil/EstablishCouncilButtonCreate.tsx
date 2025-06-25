@@ -1,23 +1,25 @@
 import { Flex, Tabs } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import {
-    MyButtonCreate,
-    MyDateInput,
-    MyFileInput,
-    MyTab,
-    MyTextInput,
+  MyButtonCreate,
+  MyDateInput,
+  MyFileInput,
+  MyTab,
+  MyTextInput,
 } from "aq-fe-framework/components";
 import {
-    IEstablishCouncilMemberViewModel,
-    IEstablishCouncilViewModel,
+  IEstablishCouncilMemberViewModel,
+  IEstablishCouncilViewModel,
 } from "../interfaces";
 import EstablishCouncilMemberTable from "./EstablishCouncilMemberTable";
 import EstablishCouncilSecretaryTable from "./EstablishCouncilSecretaryTable";
 import EstablishCouncilWorkGroupTable from "./EstablishCouncilWorkGroupTable";
+import { useState } from "react";
 
 export default function EstablishCouncilButtonCreate() {
   const form = useForm<IEstablishCouncilViewModel>({});
-
+  const [activeTab, setActiveTab] = useState("Thông tin chung");
+  const modalSize = activeTab === "Thông tin chung" ? "52%" : "80%";
   const tabData = [
     { label: "Thông tin chung" },
     { label: "Thành viên hội đồng" },
@@ -28,12 +30,12 @@ export default function EstablishCouncilButtonCreate() {
   return (
     <MyButtonCreate
       label="Thêm"
-      modalSize={"80%"}
+      modalSize={modalSize}
       form={form}
       title="Chi tiết quyết định"
       onSubmit={() => {}}
     >
-      <MyTab tabList={tabData}>
+      <MyTab tabList={tabData} onChange={(value) => setActiveTab(value || "")}>
         <Tabs.Panel value="Thông tin chung">
           <Flex direction="column">
             <MyTextInput
@@ -76,4 +78,3 @@ export default function EstablishCouncilButtonCreate() {
     </MyButtonCreate>
   );
 }
-
