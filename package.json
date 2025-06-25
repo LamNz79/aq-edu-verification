@@ -61,6 +61,7 @@
     "json-server": "^1.0.0-beta.3",
     "ldrs": "^1.0.2",
     "lodash.debounce": "^4.0.8",
+    "lucide-react": "^0.523.0",
     "mantine-react-table": "^2.0.0-beta.7",
     "next": "15.0.3",
     "pako": "^2.1.0",

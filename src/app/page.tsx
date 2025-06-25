@@ -9,7 +9,7 @@ export default function Page() {
   const S0Auth = useS0Auth();
   useEffect(() => {
     if (S0Auth.state.token == "") {
-      router.push("/auth/login");
+      router.push("/auth/navigate");
       return;
     }
     router.push("/admin/obf4m08gkx");
