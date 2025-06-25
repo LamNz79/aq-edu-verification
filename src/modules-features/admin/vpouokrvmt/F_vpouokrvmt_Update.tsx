@@ -1,7 +1,7 @@
 // F_vpouokrvmt_Update.tsx
 'use client';
 
-import {MyActionIconUpdate, MyDateInput, MyNumberInput, MySelect, MyTextArea, MyTextInput} from "aq-fe-framework/components";
+import { MyActionIconUpdate, MyDateInput, MyNumberInput, MySelect, MyTextArea, MyTextInput } from "aq-fe-framework/components";
 import { useForm } from "@mantine/form";
 
 interface I_vpouokrvmt_Update {
@@ -14,7 +14,7 @@ interface I_vpouokrvmt_Update {
     note?: string;
 }
 
-export default function F_vpouokrvmt_Update({data}: {data: I_vpouokrvmt_Update}) {
+export default function F_vpouokrvmt_Update({ data }: { data: I_vpouokrvmt_Update }) {
     const form = useForm<I_vpouokrvmt_Update>({
         initialValues: data,
         validate: {
@@ -33,7 +33,7 @@ export default function F_vpouokrvmt_Update({data}: {data: I_vpouokrvmt_Update})
     ];
 
     return (
-        <MyActionIconUpdate title="Chi tiết lộ trình" form={form} onSubmit={async() => { }}>
+        <MyActionIconUpdate title="Chi tiết lộ trình" form={form} onSubmit={() => { }}>
             <MyTextInput label='Mã lộ trình' {...form.getInputProps("cycleIdRoute")} />
             <MyTextInput label='Tên lộ trình' {...form.getInputProps("cycleRouteName")} />
             <MyDateInput label='Ngày bắt đầu' {...form.getInputProps("startDate")} />

@@ -1,4 +1,4 @@
-import { Flex, Group, Skeleton, Tabs, Text } from "@mantine/core";
+import { Fieldset, Flex, Group, Skeleton, Tabs, Text } from "@mantine/core";
 import { IconX } from "@tabler/icons-react";
 import { MyButton, MyFieldset } from "aq-fe-framework/components";
 
@@ -26,9 +26,9 @@ export default function F_o4e65ehgty_History({
           <Tabs.Panel value="1">
             {Array.from({ length: 4 }).map((_, index) => {
               return (
-                <Flex  direction={"column"} w={"100%"} py={10} key={index}>
+                <Flex direction={"column"} w={"100%"} py={10} key={index}>
                   <Text>{`Cập nhật ngày 21/02/2025 15:25:30 bởi Tô Ngọc Bảo`}</Text>
-                  <MyFieldset
+                  <Fieldset
                     h={"280px"}
                     w={"100%"}
                     style={{ overflowY: "auto" }}
@@ -39,14 +39,14 @@ export default function F_o4e65ehgty_History({
                     <Skeleton height={20} mt={6} width="80%" />
                     <Skeleton height={20} mt={6} width="70%" />
                     <Skeleton height={20} mt={6} width="50%" />
-                  </MyFieldset>
+                  </Fieldset>
                 </Flex>
               );
             })}
           </Tabs.Panel>
 
           <Tabs.Panel value="2">
-            <MyFieldset
+            <Fieldset
               py={10}
               h={"280px"}
               w={"full"}
@@ -58,7 +58,7 @@ export default function F_o4e65ehgty_History({
               <Skeleton height={20} mt={6} width="80%" />
               <Skeleton height={20} mt={6} width="70%" />
               <Skeleton height={20} mt={6} width="50%" />
-            </MyFieldset>
+            </Fieldset>
           </Tabs.Panel>
         </Tabs>
       </Group>

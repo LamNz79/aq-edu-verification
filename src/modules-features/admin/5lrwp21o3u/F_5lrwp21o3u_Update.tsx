@@ -18,7 +18,7 @@ export default function F_5lrwp21o3u_Update({ data }: { data: I_5lrwp21o3u_Read 
         <>
             <MyActionIconUpdate
                 form={form}
-                onSubmit={async () => { }}
+                onSubmit={() => { }}
                 title='Chi tiết chu kỳ kiểm định'
             >
                 <MyTextInput label='Mã chu kỳ' {...form.getInputProps("code")} />
