@@ -1,5 +1,5 @@
 import { PieChart } from '@mantine/charts';
-import { Box, Text, Group, Stack } from '@mantine/core';
+import { Box, Text, Group, Stack, Center, Grid } from '@mantine/core';
 import React from 'react';
 
 export default function F_obf4m08gkx_UpdateRatePieChart() {
@@ -7,20 +7,31 @@ export default function F_obf4m08gkx_UpdateRatePieChart() {
     return (
         <Stack w={{ base: '100%', sm: '47.5%' }}>
             <Text>Biểu đồ theo dõi tỷ lệ hoàn thành cập nhật nội dung báo cáo</Text>
-            <Group gap={0} align='flex-start' wrap='nowrap'>
-                <PieChart
-                    startAngle={90}
-                    endAngle={-270}
-                    h="60vh"
-                    w='80%'
-                    data={pieData}
-                    withTooltip
-                    withLabelsLine
-                    labelsPosition="outside"
-                    labelsType="value"
-                    withLabels
-                />
-                <Box ml={10}>
+            <Grid>
+                <Grid.Col span={{ base: 8, sm: 8, md: 9 }}>
+                    <Center>
+                        <PieChart
+                            startAngle={90}
+                            endAngle={-270}
+                            h="60vh"
+                            w='80%'
+                            data={pieData}
+                            withTooltip
+                            withLabelsLine
+                            labelsPosition="outside"
+                            labelsType="value"
+                            withLabels
+                            pieProps={{
+                                cx: "50%",
+                                cy: "50%",
+                                innerRadius: 0,
+                                outerRadius: 130,
+                                paddingAngle: 0
+                            }}
+                        />
+                    </Center>
+                </Grid.Col>
+                <Grid.Col span={{ base: 4, sm: 4, md: 3 }}>
                     {pieData.map((item) => (
                         <Group key={item.name} mb={5} wrap='nowrap'>
                             <div
@@ -34,8 +45,8 @@ export default function F_obf4m08gkx_UpdateRatePieChart() {
                             <Text size="sm">{item.name}</Text>
                         </Group>
                     ))}
-                </Box>
-            </Group>
+                </Grid.Col>
+            </Grid>
         </Stack>
     );
 }
