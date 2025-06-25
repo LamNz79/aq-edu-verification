@@ -15,7 +15,6 @@ import { Flex } from "@mantine/core";
 import EstablishCouncilMemberTable from "./EstablishCouncilMemberTable";
 import EstablishCouncilSecretaryTable from "./EstablishCouncilSecretaryTable";
 import EstablishCouncilWorkGroupTable from "./EstablishCouncilWorkGroupTable";
-import { useState } from "react";
 
 interface I extends IEstablishCouncilViewModel {
   file?: File;
@@ -35,8 +34,7 @@ export default function EstablishCouncilButtonUpdate({
       ),
     },
   });
-  const [activeTab, setActiveTab] = useState("Thông tin chung");
-  const modalSize = activeTab === "Thông tin chung" ? "52%" : "80%";
+
   const tabData = [
     { label: "Thông tin chung" },
     { label: "Thành viên hội đồng" },
@@ -47,11 +45,11 @@ export default function EstablishCouncilButtonUpdate({
   return (
     <MyActionIconUpdate
       form={form}
-      modalSize={modalSize}
+      modalSize={"80%"}
       onSubmit={() => {}}
       title="Chi tiết quyết định"
     >
-      <MyTab tabList={tabData} onChange={(value) => setActiveTab(value || "")}>
+      <MyTab tabList={tabData}>
         <Tabs.Panel value="Thông tin chung">
           <Flex direction="column">
             <MyTextInput
