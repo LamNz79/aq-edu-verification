@@ -4,7 +4,7 @@ import MyCenterFull from "@/components/CenterFull/MyCenterFull";
 import { groupToTwoLevels, I0LinkItem, utils_layout_getItemsWithoutLinks } from "@/components/Layouts/BasicAppShell/BasicAppShell";
 import MyFlexRow from "@/components/Layouts/FlexRow/MyFlexRow";
 import { OBJECT_COlORS } from "@/constants/object/color";
-import { menuData } from "@/data/menuData";
+import { menuData } from "@/data/menuData_Institutional";
 import { Checkbox, Flex, ScrollArea, Table, Text } from "@mantine/core";
 import { IconEdit, IconEyeUp, IconFileExport, IconPlus, IconPrinter, IconTrash } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";

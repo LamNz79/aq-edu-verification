@@ -1,5 +1,6 @@
 "use client"
 
+import { useS_Global } from "@/stores/useS_Global"
 import { Button, Card, Center } from "@mantine/core"
 import { ArrowRight, BookOpen, GraduationCap } from "lucide-react"
 import { useRouter } from "next/navigation"
@@ -7,6 +8,7 @@ import { useState } from "react"
 
 export default function QualityAssessmentPage() {
     const [hoveredCard, setHoveredCard] = useState<string | null>(null)
+    const store = useS_Global()
     const router = useRouter()
     const assessmentTypes = [
         {
@@ -85,7 +87,15 @@ export default function QualityAssessmentPage() {
 
                                             {/* Action Button */}
                                             <Button
-                                                onClick={() => router.push("/auth/login")}
+                                                onClick={() => {
+                                                    if (type.id == "education") {
+                                                        store.setProperty("accreditationType", "Institutional")
+                                                    }
+                                                    if (type.id = "program") {
+                                                        store.setProperty("accreditationType", "Program")
+                                                    }
+                                                    router.push("/auth/login")
+                                                }}
                                                 className={`w-full bg-gradient-to-r ${type.gradient} hover:shadow-lg transition-all duration-300 group-hover:shadow-xl text-white border-0 h-12 text-lg font-semibold`}
                                             >
                                                 Chọn loại kiểm định này
