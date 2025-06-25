@@ -9,7 +9,7 @@ export default function F0Logout() {
     return (
         <Button onClick={() => {
             s0Auth.setProperty("token", "")
-            router.replace("/auth/login")
+            router.replace("/navigate")
 
         }} leftSection={<IconLogout />} fullWidth justify="start" variant="subtle">
             Đăng xuất
