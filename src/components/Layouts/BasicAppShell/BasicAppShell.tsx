@@ -256,14 +256,14 @@ export function BasicAppShell({
 
             {/* Right side */}
             <Group>
-              <Text>Học kỳ làm việc</Text>
+              <Text>Bộ tiêu chuẩn</Text>
               <Select
                 w={selectMedia ? 245 : 150}
                 placeholder="Chọn công thức sắp xếp"
                 defaultValue={1?.toString()}
                 data={[
-                  { value: "1", label: "Năm học 2024 - 2025 Học kỳ 1" },
-                  { value: "2", label: "Năm học 2024 - 2025 Học kỳ 1" },
+                  { value: "1", label: "MOET" },
+                  // { value: "2", label: "Năm học 2024 - 2025 Học kỳ 1" },
                 ]}
               />
               <MySwitchTheme />
