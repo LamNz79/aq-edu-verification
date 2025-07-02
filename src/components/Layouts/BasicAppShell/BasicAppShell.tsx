@@ -130,8 +130,8 @@ function childrenMenuToListEnumUsingPageIdAndName(
         ? [item, ...childrenMenuToListEnumUsingPageIdAndName(item.links)]
         : childrenMenuToListEnumUsingPageIdAndName(item.links)
       : item.pageId
-      ? [item]
-      : [];
+        ? [item]
+        : [];
   });
 }
 
@@ -263,7 +263,9 @@ export function BasicAppShell({
                 defaultValue={1?.toString()}
                 data={[
                   { value: "1", label: "MOET" },
-                  // { value: "2", label: "Năm học 2024 - 2025 Học kỳ 1" },
+                  { value: "2", label: "AUN" },
+                  { value: "3", label: "ABET" },
+                  { value: "4", label: "FIBBA" },
                 ]}
               />
               <MySwitchTheme />
