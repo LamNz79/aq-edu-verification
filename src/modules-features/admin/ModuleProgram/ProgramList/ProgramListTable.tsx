@@ -13,6 +13,8 @@ import IProgramInfoViewModel from "./interfaces/IProgramInfoViewModel";
 import ProgramDeleteListButton from "./ProgramDeleteListButton";
 import ProgramDeleteButton from "./ProgramDeleteButton";
 import ProgramUpdateButton from "./ProgramUpdateButton";
+import { Button } from "@mantine/core";
+import ProgramCreateButton from "./ProgramCreateButton";
 
 export default function ProgramListTable() {
   const columns = useMemo<MRT_ColumnDef<IProgramInfoViewModel>[]>(
@@ -43,6 +45,8 @@ export default function ProgramListTable() {
         renderTopToolbarCustomActions={({ table }) => {
           return (
             <>
+              <ProgramCreateButton />
+              <MyButton crudType="create">Thêm phiên bản</MyButton>
               <MyButton crudType="import" />
               <MyButton crudType="export" />
               <ProgramDeleteListButton
