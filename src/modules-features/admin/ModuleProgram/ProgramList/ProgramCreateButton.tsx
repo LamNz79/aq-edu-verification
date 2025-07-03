@@ -10,19 +10,10 @@ import {
   MyTextArea,
   MyTextInput,
 } from "aq-fe-framework/components";
-
-interface IProgramCreateButton {
-  code?: string;
-  name?: string;
-  startYear?: number;
-  standardDuration?: number;
-  managingFaculty?: string;
-  educationLevel?: string;
-  educationType?: string;
-}
+import IProgramViewModel from "./interfaces/IProgramViewModel";
 
 export default function ProgramCreateButton() {
-  const form = useForm<IProgramCreateButton>({
+  const form = useForm<IProgramViewModel>({
     initialValues: {
       code: "",
       name: "",
