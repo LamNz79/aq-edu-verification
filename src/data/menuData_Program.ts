@@ -36,6 +36,13 @@ export const menuData_Program: I0LinkItem[] = [
   },
 
   {
+    label: "Chương trình Đào tạo (CTĐT)",
+    links: [
+      { pageId: 81, name: "Program List", label: "Danh sách Chương trình đào tạo", link: "program-list", status: "Prototype", description: "Danh sách các chương trình đào tạo đã được tạo.", },
+    ],
+  },
+
+  {
     label: "Kế hoạch và phân công",
     links: [
       { pageId: 41, name: "Inspection cycle", label: "Chu kỳ kiểm định", link: "5lrwp21o3u", status: "Prototype", description: "Thiết lập và quản lý chu kỳ kiểm định định kỳ." },
