@@ -5,7 +5,7 @@ import StandardTable from "@/modules-features/admin/ModuleStandard/StandardVersi
 
 export default function Page() {
     return (
-        <MyPageContent>
+        <MyPageContent canBack>
             <StandardTable />
         </MyPageContent>
     );

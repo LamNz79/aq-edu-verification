@@ -12,9 +12,16 @@ import {
 } from "aq-fe-framework/components";
 import { IStandardInfoViewModel } from "./interfaces/IStandardInfoViewModel";
 
+interface I extends IStandardInfoViewModel {
+  file: File;
+}
+
 export default function StandardUpdateButton({ values }: { values: IStandardInfoViewModel }) {
-  const form = useForm<IStandardInfoViewModel>({
-    initialValues: values,
+  const form = useForm<I>({
+    initialValues: {
+      ...values,
+      file: new File([], values.fileDetail?.fileName!),
+    },
   });
   return (
     <MyActionIconUpdate
@@ -38,7 +45,7 @@ export default function StandardUpdateButton({ values }: { values: IStandardInfo
             label="Trạng thái hiệu lực"
             {...form.getInputProps("isActive", { type: "checkbox" })}
           />
-          <MyFileInput label="Tên file bản thảo" {...form.getInputProps("fileLink")} />
+          <MyFileInput label="Tên file bản thảo" {...form.getInputProps("file")} />
         </Stack>
       </SimpleGrid>
     </MyActionIconUpdate>

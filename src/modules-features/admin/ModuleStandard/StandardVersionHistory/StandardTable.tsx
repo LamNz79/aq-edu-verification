@@ -31,7 +31,7 @@ export default function StandardTable() {
       },
       {
         header: "File Bộ tiêu chuẩn",
-        accessorKey: "fileLink",
+        accessorKey: "filePath",
         size: 200,
         Cell: ({ cell }) => (
           <MyButtonViewPDF
@@ -75,7 +75,10 @@ const mockData: IStandardInfoViewModel[] = [
     versionDescription: "Ban hành theo Thông tư 04/2025/TT-BGDĐT",
     issueDate: "2025-01-04",
     isActive: true,
-    fileLink: "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf",
+    filePath: "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf",
+    fileDetail: {
+        fileName: "TT04-2025-TT-BGDĐT.pdf",
+    }
   },
   {
     id: 2,
@@ -83,7 +86,10 @@ const mockData: IStandardInfoViewModel[] = [
     versionDescription: "Bổ sung hướng dẫn về đánh giá CTĐT từ xa, Điều chỉnh một số chỉ báo.",
     issueDate: "2026-03-15",
     isActive: false,
-    fileLink: "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf",
+    filePath: "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf",
+    fileDetail: {
+        fileName: "BSHDDG-2026.pdf",
+    }
   },
   {
     id: 3,
@@ -91,7 +97,10 @@ const mockData: IStandardInfoViewModel[] = [
     versionDescription: "Thay đổi quy định về công khai thông tin, Bãi bỏ một số phụ lục biểu mẫu.",
     issueDate: "2027-09-01",
     isActive: true,
-    fileLink: "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf",
+    filePath: "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf",
+    fileDetail: {
+        fileName: "TDQD-2027.pdf",
+    }
   },
   {
     id: 4,
@@ -99,7 +108,10 @@ const mockData: IStandardInfoViewModel[] = [
     versionDescription: "Phiên bản hiện hành của AUN-QA.",
     issueDate: "2015-05-10",
     isActive: false,
-    fileLink: "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf",
+    filePath: "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf",
+    fileDetail: {
+        fileName: "AUN-QA-2015.pdf",
+    }
   },
   {
     id: 5,
@@ -108,6 +120,9 @@ const mockData: IStandardInfoViewModel[] = [
       "Cập nhật các tiêu chí đánh giá theo xu hướng quốc tế; Tăng cường trọng số yếu tố đổi mới sáng tạo.",
     issueDate: "2020-11-20",
     isActive: true,
-    fileLink: "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf",
+    filePath: "https://datafiles.chinhphu.vn/cpp/files/vbpq/2016/07/85.signed.pdf",
+    fileDetail: {
+        fileName: "CNTCDG-2020.pdf",
+    }
   },
 ];
