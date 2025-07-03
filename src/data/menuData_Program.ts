@@ -39,6 +39,11 @@ export const menuData_Program: I0LinkItem[] = [
     label: "Chương trình Đào tạo (CTĐT)",
     links: [
       { pageId: 81, name: "Program List", label: "Danh sách Chương trình đào tạo", link: "program-list", status: "Prototype", description: "Danh sách các chương trình đào tạo đã được tạo.", },
+      { label: "Lịch sử kiểm định",
+        links: [
+          { pageId: 82, name: "Quality Inspection Certificate", label: "Giấy Chứng nhận Kiểm định Chất lượng CTĐT (Biểu 12)", link: "quality-inspection-certificate", status: "Prototype", description: "Giấy Chứng nhận Kiểm định Chất lượng CTĐT.", }, 
+        ]
+       },
     ],
   },
 
