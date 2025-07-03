@@ -107,6 +107,13 @@ export const menuData_Program: I0LinkItem[] = [
       },
       {
         pageId: 32,
+        name: "Configuration criteria indicators requirements",
+        label: "Cấu hình Tiêu chí, Chỉ báo, Yêu cầu",
+        link: "standards-config",
+        status: "Prototype",
+      },
+      {
+        pageId: 32,
         name: "Standard structure",
         label: "Cấu trúc bộ tiêu chuẩn",
         link: "po2maj8sm7",
