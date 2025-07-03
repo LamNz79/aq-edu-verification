@@ -27,9 +27,9 @@ export const menuData_Program: I0LinkItem[] = [
   },
 
   {
-    label: "Quản lý Bộ tiêu chuẩn",
+    label: "Bộ tiêu chuẩn",
     links: [
-      { pageId: 31, name: "Standard list", label: "Danh sách Bộ tiêu chuẩn", link: "mc1b1zpbg6", status: "Prototype", description: "Danh sách các bộ tiêu chuẩn áp dụng trong hoạt động kiểm định.", },
+      { pageId: 31, name: "Standard list", label: "Quản lý Bộ tiêu chuẩn", link: "standards-management", status: "Prototype", description: "Danh sách các bộ tiêu chuẩn áp dụng trong hoạt động kiểm định.", },
       { pageId: 32, name: "Standard structure", label: "Cấu trúc bộ tiêu chuẩn", link: "po2maj8sm7", status: "Prototype", description: "Xây dựng và quản lý cấu trúc chi tiết của từng bộ tiêu chuẩn." },
       { pageId: 33, name: "Standard Version History", label: "Lịch sử phiên bản tiêu chuẩn", link: "standard-version-history", status: "Prototype", description: "Lịch sử phiên bản tiêu chuẩn." },
     ],
