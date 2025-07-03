@@ -18,7 +18,7 @@ export default function StandardUpdateButton({ values }: { values: IStandardInfo
   });
   return (
     <MyActionIconUpdate
-      title="Cập nhật phiên bản tiêu chuẩn"
+      title="Chi tiết phiên bản tiêu chuẩn"
       modalSize="xl"
       form={form}
       onSubmit={() => {}}
