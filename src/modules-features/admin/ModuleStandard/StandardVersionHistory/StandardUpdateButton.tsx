@@ -3,11 +3,12 @@
 import { SimpleGrid, Stack } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import {
-    MyActionIconUpdate,
-    MyCheckbox,
-    MyFileInput,
-    MyTextArea,
-    MyTextInput,
+  MyActionIconUpdate,
+  MyCheckbox,
+  MyDateInput,
+  MyFileInput,
+  MyTextArea,
+  MyTextInput,
 } from "aq-fe-framework/components";
 import { IStandardInfoViewModel } from "./interfaces/IStandardInfoViewModel";
 
@@ -25,13 +26,14 @@ export default function StandardUpdateButton({ values }: { values: IStandardInfo
       <SimpleGrid cols={{ base: 1, md: 2 }}>
         <Stack>
           <MyTextInput label="Tên Phiên bản" {...form.getInputProps("versionName")} />
-          <MyTextArea
-            label="Mô tả phiên bản"
-            {...form.getInputProps("versionDescription")}
-          />
+          <MyTextArea label="Mô tả phiên bản" {...form.getInputProps("versionDescription")} />
         </Stack>
         <Stack>
-          <MyTextInput label="Tên Phiên bản" {...form.getInputProps("versionName")} />
+          <MyDateInput
+            label="Ngày ban hành"
+            {...form.getInputProps("issueDate")}
+            clearable={false}
+          />
           <MyCheckbox
             label="Trạng thái hiệu lực"
             {...form.getInputProps("isActive", { type: "checkbox" })}
