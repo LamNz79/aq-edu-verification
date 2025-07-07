@@ -18,7 +18,7 @@ import { useQuery } from "@tanstack/react-query";
 import ProgramExternalEvalPlanUpdate from "./ProgramExternalEvalPlanUpdate";
 
 export default function ProgramExternalEvalPlanTable() {
-    const form = useForm<any>({
+  const form = useForm<any>({
     initialValues: {
     },
   });
@@ -54,23 +54,21 @@ export default function ProgramExternalEvalPlanTable() {
         ),
         id: "file",
       },
-      { header: "Ghi chú", accessorKey: "note" },
     ],
     []
   );
 
   const exportConfig = {
-  fields: [
-    { fieldName: "planNumber", header: "Số kế hoạch" },
-    { fieldName: "planDate", header: "Ngày kế hoạch" },
-    { fieldName: "curriculum", header: "Chương trình đào tạo" },
-    { fieldName: "phase", header: "Giai đoạn đánh giá" },
-    { fieldName: "assessmentOrg", header: "Tên Tổ chức kiểm định" },
-    { fieldName: "leader", header: "Trưởng đoàn" },
-    { fieldName: "director", header: "Giám đốc Tổ chức" },
-    { fieldName: "note", header: "Ghi chú" }
-  ]
-};
+    fields: [
+      { fieldName: "planNumber", header: "Số kế hoạch" },
+      { fieldName: "planDate", header: "Ngày kế hoạch" },
+      { fieldName: "curriculum", header: "Chương trình đào tạo" },
+      { fieldName: "phase", header: "Giai đoạn đánh giá" },
+      { fieldName: "assessmentOrg", header: "Tên Tổ chức kiểm định" },
+      { fieldName: "leader", header: "Trưởng đoàn" },
+      { fieldName: "director", header: "Giám đốc Tổ chức" },
+    ]
+  };
 
 
   return (
@@ -86,7 +84,7 @@ export default function ProgramExternalEvalPlanTable() {
         renderTopToolbarCustomActions={({ table }) => (
           <>
             <ProgramExternalEvalPlanCreate />
-            <AQButtonCreateByImportFile onSubmit={() => {}} form={form} />
+            <AQButtonCreateByImportFile onSubmit={() => { }} form={form} />
             <AQButtonExportData
               isAllData={false}
               objectName={"DanhSachKeHoachDanhGia"}
@@ -115,7 +113,7 @@ export default function ProgramExternalEvalPlanTable() {
 }
 
 export interface I_ExternalAssessmentPlanTable {
-    id:number;
+  id: number;
   planNumber: string; // Số kế hoạch
   planDate?: string; // Ngày kế hoạch
   curriculum: string; // Chương trình đào tạo

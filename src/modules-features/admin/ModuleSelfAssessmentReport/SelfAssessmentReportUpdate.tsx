@@ -42,12 +42,12 @@ export default function SelfAssessmentReportUpdate({
             {...form.getInputProps("phase")}
           />
           <MyTextInput label="Người ký" {...form.getInputProps("signer")} />
-          <MyTextArea label="Ghi chú" {...form.getInputProps("note")} />
+          
         </Stack>
         <Stack>
           <MySelect
             data={["KTPM_K20", "KT_K21", "CNTT_K19", "QLDV_K22"]}
-            label="Khóa:"
+            label="Khóa"
             {...form.getInputProps("course")}
           />
           <MyDateInput
@@ -60,6 +60,7 @@ export default function SelfAssessmentReportUpdate({
           />
         </Stack>
       </SimpleGrid>
+      <MyTextArea label="Ghi chú" {...form.getInputProps("note")} />
     </MyActionIconUpdate>
   );
 }

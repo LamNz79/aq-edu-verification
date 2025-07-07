@@ -22,7 +22,7 @@ export default function ProgramEvalComments13Create() {
   });
   return (
     <MyButtonCreate
-      onSubmit={() => {}}
+      onSubmit={() => { }}
       form={form}
       modalSize={"60%"}
       title="Chi tiết Nhận xét về Hồ sơ Thẩm định Kết quả Đánh giá"
@@ -31,26 +31,25 @@ export default function ProgramEvalComments13Create() {
         <Stack>
           <MySelect
             data={["Kỹ thuật phần mềm", "Kế toán", "Công nghệ thông tin"]}
-            label="Chương trình Đào tạo:"
+            label="Chương trình Đào tạo"
             {...form.getInputProps("curriculumName")}
           />
           <MyTextInput
-            label="Tên Tổ chức kiểm định:"
+            label="Tên Tổ chức kiểm định"
             {...form.getInputProps("assessmentOrg")}
           />
           <MyTextInput
-            label="Giai đoạn đánh giá:"
+            label="Giai đoạn đánh giá"
             {...form.getInputProps("phase")}
           />
-          <MyTextArea label="Ghi chú" {...form.getInputProps("note")} />
         </Stack>
         <Stack>
           <MyDateInput
-            label="Ngày nhận xét:"
+            label="Ngày nhận xét"
             {...form.getInputProps("commentDate")}
           />
           <MyTextInput
-            label="Người nhận xét:"
+            label="Người nhận xét"
             {...form.getInputProps("reviewer")}
           />
           <MyFileInput
@@ -59,6 +58,7 @@ export default function ProgramEvalComments13Create() {
           />
         </Stack>
       </SimpleGrid>
+      <MyTextArea label="Ghi chú" {...form.getInputProps("note")} />
     </MyButtonCreate>
   );
 }

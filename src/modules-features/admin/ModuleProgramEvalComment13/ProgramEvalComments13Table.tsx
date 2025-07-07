@@ -51,7 +51,6 @@ export default function ProgramEvalComments13Table() {
         ),
         id: "file",
       },
-      { header: "Ghi chú", accessorKey: "note" },
     ],
     []
   );
@@ -62,7 +61,6 @@ export default function ProgramEvalComments13Table() {
       { fieldName: "phase", header: "Giai đoạn đánh giá" },
       { fieldName: "commentDate", header: "Ngày nhận xét" },
       { fieldName: "reviewer", header: "Người nhận xét" },
-      { fieldName: "note", header: "Ghi chú" },
     ],
   };
 

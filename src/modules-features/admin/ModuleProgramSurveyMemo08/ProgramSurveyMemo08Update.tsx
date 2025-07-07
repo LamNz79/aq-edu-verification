@@ -30,29 +30,29 @@ export default function ProgramSurveyMemo08Update({
         <Stack>
           <MySelect
             data={["Kỹ thuật phần mềm", "Kế toán", "Công nghệ thông tin"]}
-            label="Chương trình Đào tạo:"
+            label="Chương trình Đào tạo"
             {...form.getInputProps("curriculumName")}
           />
           <MyTextInput
-            label="Tên Tổ chức kiểm định:"
+            label="Tên Tổ chức kiểm định"
             {...form.getInputProps("assessmentOrg")}
           />
           <MyTextInput
-            label="Giai đoạn đánh giá:"
+            label="Giai đoạn đánh giá"
             {...form.getInputProps("phase")}
           />
           <MyTextArea label="Ghi chú" {...form.getInputProps("note")} />
         </Stack>
         <Stack>
           <MyDateInput
-            label="Ngày lập biên bản:"
+            label="Ngày lập biên bản"
             {...form.getInputProps("minutesDate")}
           />
           <MyTextInput
-            label="Thủ trưởng đơn vị:"
+            label="Thủ trưởng đơn vị"
             {...form.getInputProps("deputy")}
           />
-          <MyTextInput label="Trưởng đoàn:" {...form.getInputProps("leader")} />
+          <MyTextInput label="Trưởng đoàn" {...form.getInputProps("leader")} />
           <MyFileInput
             label="File biên bản ghi nhớ"
             {...form.getInputProps("file")}

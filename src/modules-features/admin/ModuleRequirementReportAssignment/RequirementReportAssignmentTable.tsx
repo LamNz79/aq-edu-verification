@@ -44,8 +44,8 @@ export default function RequirementReportAssignmentTable() {
           <Center>
             <MySelect
               data={managerCodeList}
-              value={row.managerCode}
-              onChange={(value) => {}}
+              defaultValue={row.managerCode}
+              searchable
             />
           </Center>
         ),
@@ -87,7 +87,7 @@ export default function RequirementReportAssignmentTable() {
         renderTopToolbarCustomActions={({ table }) => (
           <>
             <MyButton crudType="save" />
-            <AQButtonCreateByImportFile onSubmit={() => {}} form={form} />
+            <AQButtonCreateByImportFile onSubmit={() => { }} form={form} />
             <AQButtonExportData
               isAllData={false}
               objectName={"DanhSach"}
