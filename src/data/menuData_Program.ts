@@ -146,6 +146,38 @@ export const menuData_Program: I0LinkItem[] = [
     ],
   },
   {
+    label: "Quản lý Báo cáo Định kỳ (6 tháng)",
+    links: [
+      {
+        label: "Chu kỳ báo cáo định kỳ",
+        links: [
+          { label: "Thiết lập Kỳ Báo cáo Định kỳ", name: "", link: "none-43252", description: "", status: "Menu" },
+        ],
+      },
+      {
+        label: "Phân công phụ trách báo cáo định kỳ",
+        links: [
+          { label: "Phân công phụ trách báo cáo tiêu chí", name: "", link: "none-27864423", description: "", status: "Menu" },
+          { label: "Phân công phụ trách báo cáo yêu cầu/ mốc chuẩn", name: "", link: "none-4264282", description: "", status: "Menu" },
+        ],
+      },
+      {
+        label: "Thực hiện báo cáo định kỳ",
+        links: [
+          { label: "Soạn thảo báo cáo theo Yêu cầu/ Mốc chuẩn", name: "", link: "none-567282", description: "", status: "Menu" },
+          { label: "Tổng hợp báo cáo theo Tiêu chí", name: "", link: "none-6732746", description: "", status: "Menu" },
+        ],
+      },
+      {
+        label: "Giám sát thực hiên báo cáo định kỳ",
+        links: [
+          { label: "Theo dõi Soạn Thảo Báo cáo theo Yêu cầu", name: "", link: "none-5308976", description: "", status: "Menu" },
+          { label: "Theo dõi Tổng hợp Báo cáo theo Tiêu chí", name: "", link: "none-6569824", description: "", status: "Menu" },
+        ],
+      },
+    ],
+  },
+  {
     label: "Chu kỳ Tự đánh giá & Kiểm định",
     links: [
       {
