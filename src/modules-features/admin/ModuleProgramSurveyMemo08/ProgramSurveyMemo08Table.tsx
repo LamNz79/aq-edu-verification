@@ -23,7 +23,7 @@ export default function ProgramSurveyMemo08Table() {
   });
 
   const query = useQuery<I_SurveyMemo08Table[]>({
-    queryKey: ["SelfAssessmentReportQuery"],
+    queryKey: ["SurveyMemo08Query"],
     queryFn: async () => {
       return surveyMemo08MockData ?? [];
     },
