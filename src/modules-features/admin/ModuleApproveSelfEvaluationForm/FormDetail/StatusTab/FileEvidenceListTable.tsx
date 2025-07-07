@@ -1,6 +1,5 @@
-import { MyButton } from "@/components/Buttons/Button/MyButton";
 import { Checkbox } from "@mantine/core";
-import { MyCenterFull, MyDataTable } from "aq-fe-framework/components";
+import { MyButton, MyCenterFull, MyDataTable, MyFieldset } from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 
 export interface IFormEvidence {
@@ -40,13 +39,15 @@ export default function FileEvidenceListTable({ data }: { data: IFormEvidence[] 
     },
   ];
   return (
-    <MyDataTable
-      data={data}
-      columns={columns}
-      enableRowSelection={false}
-      enableRowNumbers={false}
-      initialState={{ columnPinning: { right: ["action"] } }}
-      mantineTableContainerProps={{ style: { height: "200px", overflowY: "scroll" } }}
-    />
+    <MyFieldset title="File minh chứng">
+      <MyDataTable
+        data={data}
+        columns={columns}
+        enableRowSelection={false}
+        enableRowNumbers={false}
+        initialState={{ columnPinning: { right: ["action"] } }}
+        mantineTableContainerProps={{ style: { height: "180px", overflowY: "scroll" } }}
+      />
+    </MyFieldset>
   );
 }

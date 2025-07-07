@@ -51,7 +51,7 @@ export default function FormHistory() {
                       <Card shadow="xs" pl={16} pr={4}>
                         <MyHtmlWrapper
                           style={{
-                            height: "280px",
+                            height: "315px",
                             overflowY: "auto",
                           }}
                           html={item.content}
