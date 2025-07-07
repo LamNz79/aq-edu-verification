@@ -154,6 +154,14 @@ export const menuData_Program: I0LinkItem[] = [
             status: "Prototype",
             description: "Giấy Chứng nhận Kiểm định Chất lượng CTĐT.",
           },
+          {
+            pageId: 83,
+            name: "Evaluation form",
+            label: "Phiếu Đánh giá Tiêu chí của Đoàn đánh giá ngoài (Biểu 11)",
+            link: "evaluation-form",
+            status: "Prototype",
+            description: "Phiếu Đánh giá Tiêu chí của Đoàn đánh giá ngoài.",
+          },
         ],
       },
       {
