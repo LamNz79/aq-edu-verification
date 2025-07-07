@@ -20,7 +20,6 @@ import SelfAssessmentReportUpdate from "./SelfAssessmentReportUpdate";
 export default function SelfAssessmentReportTable() {
   const form = useForm<any>({
     initialValues: {
-      // Define your initial values here
     },
   });
 
