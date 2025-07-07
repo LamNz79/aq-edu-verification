@@ -133,6 +133,46 @@ export const menuData_Program: I0LinkItem[] = [
   },
 
   {
+    label: "Chu kỳ Tự đánh giá & Kiểm định",
+    links: [
+      {
+        label: "Quản lý Lộ trình Chuẩn bị Kiểm định",
+        links: [
+          {label: "Quản lý Quyết định Thành lập Hội đồng Tự đánh giá CTĐT (Biểu 01)", name: "", link: "", description: "", status: "Menu" },
+          {label: "Quản lý Kế hoạch Tự đánh giá CTĐT (Biểu 02)", name: "", link: "", description: "", status: "Menu" },
+          {label: "Nhóm Phân công Nhiệm vụ theo Tiêu chí", name: "", link: "", description: "", status: "Menu" },
+        ],
+      },
+      {
+        label: "Tự đánh giá Tiêu chí",
+        links: [
+          {label: "Phân tích và Xử lý Thông tin, Minh chứng (Biểu 03)", name: "", link: "", description: "", status: "Menu" },
+          {label: "Kiểm tra phân tích tiêu chí", name: "", link: "", description: "", status: "Menu" },
+          {label: "Tổng hợp danh sách minh chứng dự kiến", name: "", link: "", description: "", status: "Menu" },
+          {label: "Ghi nhận Kết quả Thu thập Minh chứng Thực tế", name: "", link: "record-results-collect-real-world-evidence", description: "", status: "Prototype" },
+          {label: "Kiểm duyệt Minh chứng thu thập", name: "", link: "", description: "", status: "Menu" },
+        ],
+      },
+      {
+        label: "Báo cáo Tự đánh giá (Cuối chu kỳ 5 năm)",
+        links: [
+          {label: "Phiếu Tự đánh giá Tiêu chí (Biểu 04)", name: "", link: "", description: "", status: "Menu" },
+          {label: "Phê duyệt Phiếu Tự đánh giá", name: "", link: "", description: "", status: "Menu" },
+          {label: "Xuất phiếu đánh giá tiêu chí", name: "", link: "", description: "", status: "Menu" },
+          {label: "Danh sách Báo cáo Tự đánh giá", name: "", link: "", description: "", status: "Menu" },
+        ],
+      },
+      {
+        label: "Giám sát Thực hiện Tự đánh giá",
+        links: [
+          {label: "Theo dõi Tiến độ Tự đánh giá Tiêu chí", name: "", link: "", description: "", status: "Menu" },
+          {label: "Xem Nhiệm vụ của tôi/đơn vị tôi", name: "", link: "", description: "", status: "Menu" },
+        ],
+      },
+    ],
+  },
+
+  {
     label: "Chương trình Đào tạo (CTĐT)",
     links: [
       {
@@ -369,8 +409,6 @@ export const menuData_Program: I0LinkItem[] = [
         status: "Prototype",
         description: "Quản lý các bộ đếm phục vụ đánh số văn bản, nhiệm vụ,...",
       },
-      { pageId: 1006, name: "", label: "Ghi nhận Kết quả Thu thập Minh chứng Thực tế", link: "record-results-collect-real-world-evidence", status: "Prototype", description: "", },
-
     ],
   },
 ];
