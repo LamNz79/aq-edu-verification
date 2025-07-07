@@ -361,6 +361,8 @@ export const menuData_Program: I0LinkItem[] = [
         status: "Prototype",
         description: "Quản lý các bộ đếm phục vụ đánh số văn bản, nhiệm vụ,...",
       },
+      { pageId: 1006, name: "", label: "Ghi nhận Kết quả Thu thập Minh chứng Thực tế", link: "record-results-collect-real-world-evidence", status: "Prototype", description: "", },
+
     ],
   },
 ];
