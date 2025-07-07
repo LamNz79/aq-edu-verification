@@ -1,14 +1,14 @@
 import { Stack, Text } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { MyFieldset, MyFlexColumn, MyTextEditor } from "aq-fe-framework/components";
-import ReportHistory from "./ReportHistory";
+import FormHistory from "./FormHistory";
 
-interface IReportUpdateForm {
+interface IFormUpdateForm {
   content: string;
 }
 
 export default function DisadvantageLayoutTab() {
-  const form = useForm<IReportUpdateForm>({
+  const form = useForm<IFormUpdateForm>({
     initialValues: {
       ...mockContent,
     },
@@ -24,7 +24,7 @@ export default function DisadvantageLayoutTab() {
           nghị cải tiến cần thiết)
         </Text>
       </Stack>
-      <ReportHistory />
+      <FormHistory />
       <MyFieldset title="Nội dung báo cáo hiện tại">
         <MyTextEditor
           value={form.values.content}
@@ -37,7 +37,7 @@ export default function DisadvantageLayoutTab() {
   );
 }
 
-const mockContent: IReportUpdateForm = {
+const mockContent: IFormUpdateForm = {
   content: `
   <p>
     Khuôn viên chưa có nhiều cây xanh, thiếu không gian sinh hoạt chung

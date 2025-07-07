@@ -1,10 +1,8 @@
 import { Box, Divider, Grid, Stack, Text } from "@mantine/core";
 import { MyFieldset, MyFlexColumn, MyTextArea, MyTextInput } from "aq-fe-framework/components";
-import { useState } from "react";
-import ReportHistory from "./ReportHistory";
+import FormHistory from "./FormHistory";
 
 export default function ActionTabLayoutTab() {
-  const [value, setValue] = useState("Đạt");
 
   return (
     <MyFlexColumn gap={16} ml={12}>
@@ -15,7 +13,7 @@ export default function ActionTabLayoutTab() {
           nghị cải tiến cần thiết)
         </Text>
       </Stack>
-      <ReportHistory />
+      <FormHistory />
       <MyFieldset title="Nội dung báo cáo hiện tại">
         <Box mb={16}>
           <Text fw={600}>4.1 Khắc phục điểm tồn tại:</Text>

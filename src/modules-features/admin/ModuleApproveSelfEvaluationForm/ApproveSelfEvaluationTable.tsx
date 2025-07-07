@@ -2,10 +2,11 @@ import { Stack } from "@mantine/core";
 import { MyCenterFull, MyDataTable, MyFieldset, MyFlexColumn } from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
-import ReportDetailLayoutButton from "./ReportDetail/ReportDetailLayoutButton";
+import EvalCriteriaFormPrint from "./EvalCriteriaFormPrint";
+import FormDetailButton from "./FormDetail/FormDetailButton";
 import VerificationResultButton from "./VerificationResultButton";
 
-export interface IApproveReport {
+export interface IApproveForm {
   id: number;
   maKeHoachTDG: string;
   maCTDT: string;
@@ -21,8 +22,8 @@ export interface IApproveReport {
   guiThongBao: boolean;
 }
 
-export default function ApproveReportTable() {
-  const columns = useMemo<MRT_ColumnDef<IApproveReport>[]>(
+export default function ApproveFormTable() {
+  const columns = useMemo<MRT_ColumnDef<IApproveForm>[]>(
     () => [
       { header: "Mã Kế hoạch TDG", accessorKey: "maKeHoachTDG" },
       { header: "Mã CTĐT", accessorKey: "maCTDT" },
@@ -52,7 +53,8 @@ export default function ApproveReportTable() {
               <MyCenterFull>
                 <Stack gap={2}>
                   <VerificationResultButton data={row.original} />
-                  <ReportDetailLayoutButton />
+                  <FormDetailButton />
+                  <EvalCriteriaFormPrint/>
                 </Stack>
               </MyCenterFull>
             );
@@ -63,7 +65,7 @@ export default function ApproveReportTable() {
   );
 }
 
-const mockData: IApproveReport[] = [
+const mockData: IApproveForm[] = [
   {
     id: 1,
     maKeHoachTDG: "KH-KTPM-2024",

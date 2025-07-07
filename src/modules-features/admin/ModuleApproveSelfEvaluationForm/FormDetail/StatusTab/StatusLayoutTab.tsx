@@ -2,14 +2,14 @@ import { Grid, Stack, Text } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { MyFieldset, MyFlexColumn, MyTextEditor } from "aq-fe-framework/components";
 import EvidenceListTable from "./EvidenceListTable";
-import ReportHistory from "./ReportHistory";
+import FormHistory from "./FormHistory";
 
-interface IReportUpdateForm {
+interface IFormUpdateForm {
   content: string;
 }
 
 export default function StatusLayoutTab() {
-  const form = useForm<IReportUpdateForm>({
+  const form = useForm<IFormUpdateForm>({
     initialValues: {
       ...mockContent,
     },
@@ -26,7 +26,7 @@ export default function StatusLayoutTab() {
         </Text>
       </Stack>
 
-      <ReportHistory />
+      <FormHistory />
       <Grid>
         <Grid.Col span={{ base: 12, md: 7 }}>
           <MyFieldset title="Nội dung báo cáo hiện tại">
@@ -48,7 +48,7 @@ export default function StatusLayoutTab() {
   );
 }
 
-const mockContent: IReportUpdateForm = {
+const mockContent: IFormUpdateForm = {
   content: `
   <p style="font-size: 14px;">
     Khoa Sư phạm Khoa học Tự nhiên có môi trường tâm lý, xã hội, môi trường làm việc thân thiện, tạo không khí thoải mái để GV, NV và NH thực hiện hoạt động giảng dạy, học tập và nghiên cứu. 

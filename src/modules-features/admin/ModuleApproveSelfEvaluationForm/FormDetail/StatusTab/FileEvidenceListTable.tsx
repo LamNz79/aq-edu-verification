@@ -3,7 +3,7 @@ import { Checkbox } from "@mantine/core";
 import { MyCenterFull, MyDataTable } from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 
-export interface IReportEvidence {
+export interface IFormEvidence {
   id: number;
   code: string;
   name: string;
@@ -11,8 +11,8 @@ export interface IReportEvidence {
   used: boolean;
 }
 
-export default function FileEvidenceListTable({ data }: { data: IReportEvidence[] }) {
-  const columns: MRT_ColumnDef<IReportEvidence>[] = [
+export default function FileEvidenceListTable({ data }: { data: IFormEvidence[] }) {
+  const columns: MRT_ColumnDef<IFormEvidence>[] = [
     { header: "Mã minh chứng", accessorKey: "code", size: 140 },
     { header: "Tên minh chứng", accessorKey: "name", size: 300 },
     { header: "Trạng thái hiệu lực", accessorKey: "status", size: 210 },

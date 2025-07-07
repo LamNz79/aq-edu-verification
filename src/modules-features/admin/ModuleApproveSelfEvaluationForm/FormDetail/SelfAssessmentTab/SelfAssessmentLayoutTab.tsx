@@ -1,7 +1,7 @@
 import { Group, Radio, Stack, Text } from "@mantine/core";
 import { MyFieldset, MyFlexColumn } from "aq-fe-framework/components";
 import { useState } from "react";
-import ReportHistory from "./ReportHistory";
+import FormHistory from "./FormHistory";
 
 export default function SelfAssessmentLayoutTab() {
   const [value, setValue] = useState("Đạt");
@@ -15,7 +15,7 @@ export default function SelfAssessmentLayoutTab() {
           nghị cải tiến cần thiết)
         </Text>
       </Stack>
-      <ReportHistory />
+      <FormHistory />
       <MyFieldset title="Nội dung báo cáo hiện tại">
         <Radio.Group name="selfAssessment1" label="Tự đánh giá" value={value} onChange={(value) => setValue(value)}>
           <Group gap="xl" mt={4}>

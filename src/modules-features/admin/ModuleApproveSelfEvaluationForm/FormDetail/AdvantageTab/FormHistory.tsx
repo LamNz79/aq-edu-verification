@@ -2,7 +2,7 @@ import { Accordion, Box, Card, Grid, Text } from "@mantine/core";
 import { MyFieldset, MyFlexColumn, MyHtmlWrapper } from "aq-fe-framework/components";
 
 
-export interface IReportEvidence {
+export interface IFormEvidence {
   id: number;
   code: string;
   name: string;
@@ -10,17 +10,17 @@ export interface IReportEvidence {
   used: boolean;
 }
 
-export interface IReportHistoryItem {
+export interface IFormHistoryItem {
   id: number;
   type: string;
   updatedAt: string;
   updatedBy: string;
   selfAssessment: string;
   content: string;
-  evidences: IReportEvidence[];
+  evidences: IFormEvidence[];
 }
 
-export default function ReportHistory() {
+export default function FormHistory() {
 
   return (
     <MyFlexColumn gap={16}>
@@ -72,7 +72,7 @@ export default function ReportHistory() {
   );
 }
 
-const mockHistory: IReportHistoryItem[] = [
+const mockHistory: IFormHistoryItem[] = [
   {
     id: 1,
     type: "Báo cáo định kỳ",

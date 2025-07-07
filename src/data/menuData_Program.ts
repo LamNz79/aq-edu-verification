@@ -170,7 +170,7 @@ export const menuData_Program: I0LinkItem[] = [
         label: "Báo cáo Tự đánh giá (Cuối chu kỳ 5 năm)",
         links: [
           { label: "Phiếu Tự đánh giá Tiêu chí (Biểu 04)", name: "", link: "", description: "", status: "Menu" },
-          { label: "Phê duyệt Phiếu Tự đánh giá", name: "", link: "", description: "", status: "Menu" },
+          { label: "Phê duyệt Phiếu Tự đánh giá", name: "", link: "approve-self-evaluation-form", description: "Phê duyệt Phiếu Tự đánh giá.", status: "Prototype" },
           { label: "Xuất phiếu đánh giá tiêu chí", name: "", link: "", description: "", status: "Menu" },
           { label: "Danh sách Báo cáo Tự đánh giá", name: "", link: "", description: "", status: "Menu" },
         ],
@@ -282,15 +282,7 @@ export const menuData_Program: I0LinkItem[] = [
         status: "Prototype",
         description:
           "Soạn thảo nội dung báo cáo tự đánh giá theo từng mốc chuẩn.",
-      },
-      {
-        pageId: 64,
-        name: "Approve report",
-        label: "Phê duyệt Phiếu Tự đánh giá",
-        link: "approve-report",
-        status: "Prototype",
-        description: "Phê duyệt Phiếu Tự đánh giá.",
-      },
+      },    
       {
         pageId: 62,
         name: "Summary report",

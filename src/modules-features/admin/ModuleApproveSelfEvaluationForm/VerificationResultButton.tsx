@@ -2,7 +2,7 @@ import { Button, Group, Stack } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { MyButtonModal, MyCheckbox, MySelect, MyTextArea } from "aq-fe-framework/components";
-import { IApproveReport } from "./ApproveReportTable";
+import { IApproveForm } from "./ApproveSelfEvaluationTable";
 
 const statusOptions = [
     { value: "Đạt yêu cầu", label: "Đạt yêu cầu" },
@@ -10,9 +10,9 @@ const statusOptions = [
     { value: "Chưa kiểm tra", label: "Chưa kiểm tra" },
 ];
 
-export default function VerificationResultButton({data}: {data: IApproveReport}) {
+export default function VerificationResultButton({data}: {data: IApproveForm}) {
     const disclosure = useDisclosure();
-    const form = useForm<IApproveReport>({
+    const form = useForm<IApproveForm>({
         initialValues: {
            ...data
         },

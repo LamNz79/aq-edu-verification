@@ -14,7 +14,7 @@ import DisadvantageLayoutTab from "./DisadvantageTab/DisadvantageLayoutTab";
 import SelfAssessmentLayoutTab from "./SelfAssessmentTab/SelfAssessmentLayoutTab";
 import StatusLayoutTab from "./StatusTab/StatusLayoutTab";
 
-export default function ReportDetailLayoutButton() {
+export default function FormDetailButton() {
   const disclosure = useDisclosure();
   return (
     <MyButtonModal

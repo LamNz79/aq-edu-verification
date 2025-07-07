@@ -1,14 +1,14 @@
-import { Grid, Stack, Text } from "@mantine/core";
+import { Stack, Text } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { MyFieldset, MyFlexColumn, MyTextEditor } from "aq-fe-framework/components";
-import ReportHistory from "./ReportHistory";
+import FormHistory from "./FormHistory";
 
-interface IReportUpdateForm {
+interface IFormUpdateForm {
   content: string;
 }
 
 export default function AdvantageLayoutTab() {
-  const form = useForm<IReportUpdateForm>({
+  const form = useForm<IFormUpdateForm>({
     initialValues: {
       ...mockContent,
     },
@@ -24,7 +24,7 @@ export default function AdvantageLayoutTab() {
           các yêu cầu của tiêu chí)
         </Text>
       </Stack>
-      <ReportHistory />
+      <FormHistory />
       <MyFieldset title="Nội dung báo cáo hiện tại">
         <MyTextEditor
           value={form.values.content}
@@ -37,7 +37,7 @@ export default function AdvantageLayoutTab() {
   );
 }
 
-const mockContent: IReportUpdateForm = {
+const mockContent: IFormUpdateForm = {
   content: `
   <p>
     Trường đã xây dựng môi trường sư phạm hiện đại, năng động, mở phạm, thân thiện, sạch đẹp và an toàn tạo không khí và tâm lý thoải mái, phục vụ hiệu quả cho hoạt động dạy và học.

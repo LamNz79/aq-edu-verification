@@ -1,8 +1,8 @@
-import { Accordion, Box, Grid, Group, Radio, Text } from "@mantine/core";
-import { MyFieldset, MyFlexColumn } from "aq-fe-framework/components";
-import { useState } from "react";
+import { Accordion, Box, Card, Grid, Text } from "@mantine/core";
+import { MyFieldset, MyFlexColumn, MyHtmlWrapper } from "aq-fe-framework/components";
 
-export interface IReportEvidence {
+
+export interface IFormEvidence {
   id: number;
   code: string;
   name: string;
@@ -10,23 +10,23 @@ export interface IReportEvidence {
   used: boolean;
 }
 
-export interface IReportHistoryItem {
+export interface IFormHistoryItem {
   id: number;
   type: string;
   updatedAt: string;
   updatedBy: string;
   selfAssessment: string;
   content: string;
-  evidences: IReportEvidence[];
+  evidences: IFormEvidence[];
 }
 
-export default function ReportHistory() {
-  const [value, setValue] = useState("Đạt");
+export default function FormHistory() {
+
   return (
     <MyFlexColumn gap={16}>
       <MyFieldset title="Lịch sử soạn thảo">
         <Box h={"452px"} style={{ maxHeight: "500px", overflowY: "scroll", overflowX: "hidden" }}>
-          <Accordion w={"100%"} defaultValue={mockHistory.length ? `item-0` : undefined} >
+          <Accordion w={"100%"} defaultValue={mockHistory.length ? `item-0` : undefined}>
             {mockHistory.map((item, idx) => (
               <Accordion.Item value={`item-${idx}`} key={idx}>
                 <Accordion.Control>
@@ -53,17 +53,15 @@ export default function ReportHistory() {
                   </Grid>
                 </Accordion.Control>
                 <Accordion.Panel>
-                    <Radio.Group
-                      name={`selfAssessmentreport${idx}`}
-                      label="Tự đánh giá"
-                      value={item.selfAssessment}
-                      onChange={(value) => setValue(value)}
-                    >
-                      <Group gap="xl" mt={4}>
-                        <Radio value="Đạt" label="Đạt" />
-                        <Radio value="Không đạt" label="Không đạt" />
-                      </Group>
-                    </Radio.Group>
+                  <Card shadow="xs" pl={16} pr={4}>
+                    <MyHtmlWrapper
+                      style={{
+                        height: "280px",
+                        overflowY: "auto",
+                      }}
+                      html={item.content}
+                    />
+                  </Card>
                 </Accordion.Panel>
               </Accordion.Item>
             ))}
@@ -74,7 +72,7 @@ export default function ReportHistory() {
   );
 }
 
-const mockHistory: IReportHistoryItem[] = [
+const mockHistory: IFormHistoryItem[] = [
   {
     id: 1,
     type: "Báo cáo định kỳ",
