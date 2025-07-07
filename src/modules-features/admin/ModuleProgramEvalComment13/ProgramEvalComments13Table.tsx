@@ -1,4 +1,6 @@
 import { Center } from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { useQuery } from "@tanstack/react-query";
 import {
   AQButtonCreateByImportFile,
   AQButtonExportData,
@@ -10,41 +12,38 @@ import {
 import { utils_date_dateToDDMMYYYString } from "aq-fe-framework/utils";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
-import ProgramSurveyMemo08Delete from "./ProgramSurveyMemo08Delete";
-import ProgramSurveyMemo08DeleteList from "./ProgramSurveyMemo08DeleteList";
-import { useForm } from "@mantine/form";
-import { useQuery } from "@tanstack/react-query";
-import ProgramSurveyMemo08Update from "./ProgramSurveyMemo08Update";
-import SelfAssessmentReportCreate from "../ModuleSelfAssessmentReport/SelfAssessmentReportCreate";
+import ProgramEvalComments13Update from "./ProgramEvalComments13Update";
+import ProgramEvalComments13DeleteList from "./ProgramEvalComments13DeleteList";
+import ProgramEvalComments13Delete from "./ProgramEvalComments13Delete";
+import ProgramEvalComments13Create from "./ProgramEvalComments13Create";
 
-export default function ProgramSurveyMemo08Table() {
+export default function ProgramEvalComments13Table() {
   const form = useForm<any>({
     initialValues: {},
   });
 
-  const query = useQuery<I_SurveyMemo08Table[]>({
-    queryKey: ["SurveyMemo08Query"],
+  const query = useQuery<I_EvaluationCommentTable[]>({
+    queryKey: ["EvaluationCommentQuery"],
     queryFn: async () => {
-      return surveyMemo08MockData ?? [];
+      return evaluationCommentMockData ?? [];
     },
   });
 
-  const columns = useMemo<MRT_ColumnDef<I_SurveyMemo08Table>[]>(
+  const columns = useMemo<MRT_ColumnDef<I_EvaluationCommentTable>[]>(
     () => [
       { header: "Tên Chương trình đào tạo", accessorKey: "curriculumName" },
       { header: "Giai đoạn đánh giá", accessorKey: "phase" },
       {
-        header: "Ngày lập biên bản",
+        header: "Ngày nhận xét",
         accessorFn: (row) =>
-          row.minutesDate
-            ? utils_date_dateToDDMMYYYString(new Date(row.minutesDate))
+          row.commentDate
+            ? utils_date_dateToDDMMYYYString(new Date(row.commentDate))
             : "",
-        id: "minutesDate",
+        id: "commentDate",
       },
-      { header: "Trưởng đoàn", accessorKey: "leader" },
-      { header: "Thủ trưởng đơn vị", accessorKey: "deputy" },
+      { header: "Người nhận xét", accessorKey: "reviewer" },
       {
-        header: "File biên bản ghi nhớ",
+        header: "File nhận xét hồ sơ",
         accessorFn: (row) => (
           <Center>
             <MyButtonViewPDF />
@@ -61,15 +60,16 @@ export default function ProgramSurveyMemo08Table() {
     fields: [
       { fieldName: "curriculumName", header: "Tên Chương trình đào tạo" },
       { fieldName: "phase", header: "Giai đoạn đánh giá" },
-      { fieldName: "minutesDate", header: "Ngày lập biên bản" },
-      { fieldName: "leader", header: "Trưởng đoàn" },
-      { fieldName: "deputy", header: "Thủ trưởng đơn vị" },
+      { fieldName: "commentDate", header: "Ngày nhận xét" },
+      { fieldName: "reviewer", header: "Người nhận xét" },
       { fieldName: "note", header: "Ghi chú" },
     ],
   };
 
   return (
-    <MyFieldset title={"Danh sách biên bản ghi nhớ sau khảo sát sơ bộ CTĐT"}>
+    <MyFieldset
+      title={"Danh sách nhận xét về hồ sơ thẩm định kết quả đánh giá"}
+    >
       <MyDataTable
         isError={query.isError}
         isLoading={query.isLoading}
@@ -80,15 +80,15 @@ export default function ProgramSurveyMemo08Table() {
         enableRowNumbers
         renderTopToolbarCustomActions={({ table }) => (
           <>
-            <SelfAssessmentReportCreate />
+            <ProgramEvalComments13Create />
             <AQButtonCreateByImportFile onSubmit={() => {}} form={form} />
             <AQButtonExportData
               isAllData={false}
-              objectName={"DanhSachBienBanGhiNho"}
+              objectName={"DanhSachNhanXetHoSoThamDinh"}
               data={query.data || []}
               exportConfig={exportConfig}
             />
-            <ProgramSurveyMemo08DeleteList
+            <ProgramEvalComments13DeleteList
               values={table
                 .getSelectedRowModel()
                 .flatRows.flatMap((item) => item.original)}
@@ -97,8 +97,8 @@ export default function ProgramSurveyMemo08Table() {
         )}
         renderRowActions={({ row }) => (
           <MyCenterFull>
-            <ProgramSurveyMemo08Update data={row.original} />
-            <ProgramSurveyMemo08Delete
+            <ProgramEvalComments13Update data={row.original} />
+            <ProgramEvalComments13Delete
               id={row.original.id}
               curriculumName={row.original.curriculumName}
               phase={row.original.phase}
@@ -110,42 +110,38 @@ export default function ProgramSurveyMemo08Table() {
   );
 }
 
-export interface I_SurveyMemo08Table {
-  id: number;
+export interface I_EvaluationCommentTable {
+  id: number; // id
   curriculumName: string; // Tên Chương trình đào tạo
   phase: string; // Giai đoạn đánh giá
-  minutesDate?: string; // Ngày lập biên bản
-  leader: string; // Trưởng đoàn
-  deputy: string; // Thủ trưởng đơn vị
+  commentDate?: string; // Ngày nhận xét
+  reviewer: string; // Người nhận xét
   note: string; // Ghi chú
 }
 
-const surveyMemo08MockData: I_SurveyMemo08Table[] = [
+const evaluationCommentMockData: I_EvaluationCommentTable[] = [
   {
     id: 1,
     curriculumName: "Kỹ thuật phần mềm",
     phase: "2020-2024",
-    minutesDate: "2025-06-20",
-    leader: "GS.TS. Nguyễn B",
-    deputy: "PGS.TS. Trần C",
+    commentDate: "2025-07-15",
+    reviewer: "TS. Phan Thị K",
     note: "",
   },
   {
     id: 2,
     curriculumName: "Kế toán",
     phase: "2021-2025",
-    minutesDate: "2025-06-25",
-    leader: "TS. Lê D",
-    deputy: "ThS. Phạm E",
+    commentDate: "2025-07-20",
+    reviewer: "GS.TS. Trần V",
     note: "",
   },
   {
     id: 3,
     curriculumName: "Công nghệ thông tin",
-    phase: "2021-2025",
-    minutesDate: "2025-07-01",
-    leader: "PGS.TS. Hoàng G",
-    deputy: "TS. Mai H",
+    phase: "Định kỳ 5 năm (2025)",
+    commentDate: "2025-07-25",
+    reviewer: "Hội đồng Khoa học Trường",
     note: "",
   },
 ];
