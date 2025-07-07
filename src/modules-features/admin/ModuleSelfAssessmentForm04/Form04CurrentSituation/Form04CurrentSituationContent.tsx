@@ -30,7 +30,7 @@ export default function Form04CurrentSituationContent() {
         accessorKey: "name",
       },
       {
-        header: "Trạng thái",
+        header: "Trạng thái hiệu lực",
         accessorKey: "status",
       },
       {
@@ -44,9 +44,9 @@ export default function Form04CurrentSituationContent() {
         header: "Thao tác",
         accessorKey: "action",
         accessorFn: (row) => {
-          return (  
-            <Group gap="4" >
-              <Form04CurrentSituationDetail />
+          return (
+            <Group gap="4">
+              <Form04CurrentSituationDetail data={row} />
 
               <MyActionIcon
                 onClick={() => handleUse(row.code, row.content || "")}
@@ -74,16 +74,19 @@ export default function Form04CurrentSituationContent() {
         </Box>
       </Grid.Col>
       <Grid.Col span={6}>
-        <MyFieldset
-          title={`Danh sách minh chứng`}
-          style={{ height: 500, overflow: "auto" }}
-        >
+        <MyFieldset title={`Danh sách minh chứng`}>
           <MyDataTable
             columns={columns}
             data={mockData}
             enableRowNumbers={false}
             initialState={{
               columnPinning: { right: ["action"] },
+              columnSizing: {
+                "mrt-row-numbers": 60,
+              },
+            }}
+            mantineTableContainerProps={{
+              style: { height: "320px", overflowY: "auto" },
             }}
           />
         </MyFieldset>

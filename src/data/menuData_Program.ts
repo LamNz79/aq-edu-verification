@@ -201,7 +201,7 @@ export const menuData_Program: I0LinkItem[] = [
       {
         label: "Báo cáo Tự đánh giá (Cuối chu kỳ 5 năm)",
         links: [
-          { label: "Phiếu Tự đánh giá Tiêu chí (Biểu 04)", name: "", link: "self-assessment-form-04", description: "", status: "Menu" },
+          { label: "Phiếu Tự đánh giá Tiêu chí (Biểu 04)", name: "Self assessment form 04", link: "self-assessment-form-04", description: "", status: "Prototype" },
           { label: "Phê duyệt Phiếu Tự đánh giá", name: "", link: "approve-self-evaluation-form", description: "Phê duyệt Phiếu Tự đánh giá.", status: "Prototype" },
           { label: "Xuất phiếu đánh giá tiêu chí", name: "Export Evaluation Criteria Form", link: "export-evaluation-criteria-form", description: "", status: "Prototype" },
           { label: "Danh sách Báo cáo Tự đánh giá", name: "List of Self-Assessment Reports", link: "self-assessment-report", description: "", status: "Prototype" },

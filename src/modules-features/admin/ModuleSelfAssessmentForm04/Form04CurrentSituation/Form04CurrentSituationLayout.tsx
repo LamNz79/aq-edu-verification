@@ -1,18 +1,10 @@
-import MyTextEditor from "@/components/Inputs/TextEditor/MyTextEditor";
-import { Accordion, Box, Checkbox, Flex, Grid, Text } from "@mantine/core";
-import { MyDataTable, MyFieldset } from "aq-fe-framework/components";
-import { MRT_ColumnDef } from "mantine-react-table";
-import { useMemo } from "react";
-import Form04CurrentSituationRowHistory from "./Form04CurrentSituationRowHistory";
-import {
-  IForm04CurrentSituationRowHistory,
-  IForm04CurrentSituationRowHistoryProof,
-} from "./interface";
+import { Accordion, Flex, Text } from "@mantine/core";
+import { MyFieldset } from "aq-fe-framework/components";
 import Form04CurrentSituationContent from "./Form04CurrentSituationContent";
+import Form04CurrentSituationRowHistory from "./Form04CurrentSituationRowHistory";
+import { IForm04CurrentSituationRowHistory } from "./interface";
 
 export default function Form04CurrentSituationLayout() {
-
-
   return (
     <Flex direction={"column"} h={"75vh"} w={"100%"}>
       <Text size="md" fw={500}>
@@ -21,16 +13,20 @@ export default function Form04CurrentSituationLayout() {
       <Text mb="md" size="sm">
         (Căn cứ yêu cầu của tiêu chí, mô tả hoạt động của cơ sở đào tạo có CTĐT
         được đnash giá kèm theo các thông tin minh chứng để chứng minh mức độ
-        đạt được của mục tiêu)
+        đạt được của tiêu chí)
       </Text>
-      <Flex direction={"column"} style={{ flex: 1, minHeight: 0, overflow: "auto" }}>
+      <Flex
+        direction={"column"}
+        style={{ flex: 1, minHeight: 0, overflow: "auto", w: "100%" }}
+      >
         <MyFieldset
-          title={`Lịch sử soạn thảo phiếu tự đánh giá`}
+          title={`Lịch sử soạn thảo`}
           style={{
             minHeight: "400px",
             overflow: "hidden",
             display: "flex",
             flexDirection: "column",
+            width: "100%",
           }}
         >
           <Accordion style={{ overflow: "auto" }} defaultValue="1">
@@ -46,7 +42,7 @@ export default function Form04CurrentSituationLayout() {
             display: "flex",
           }}
         >
-            <Form04CurrentSituationContent />
+          <Form04CurrentSituationContent />
         </MyFieldset>
       </Flex>
     </Flex>

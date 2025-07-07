@@ -1,19 +1,20 @@
 import {
-    Accordion,
-    Box,
-    Checkbox,
-    Flex,
-    Grid,
-    Group,
-    Text
+  Accordion,
+  Box,
+  Checkbox,
+  Flex,
+  Grid,
+  Group,
+  Text,
 } from "@mantine/core";
 import { MyDataTable, MyTextArea } from "aq-fe-framework/components";
+import { utils_date_dateToDDMMYYYString } from "aq-fe-framework/utils";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
-import { utils_date_FormatToDateTimetring } from "../../o4e65ehgty/F_o4e65ehgty_Proof/F_o4e65ehgty_Proof_View";
+import Form04CurrentSituationDetail from "./Form04CurrentSituationDetail";
 import {
-    IForm04CurrentSituationRowHistory,
-    IForm04CurrentSituationRowHistoryProof,
+  IForm04CurrentSituationRowHistory,
+  IForm04CurrentSituationRowHistoryProof,
 } from "./interface";
 
 export default function Form04CurrentSituationRowHistory({
@@ -52,17 +53,21 @@ export default function Form04CurrentSituationRowHistory({
     <Accordion.Item value={data?.id ?? "1"}>
       <Accordion.Control>
         <Group gap="md" grow>
-          <Text size="sm">{data?.name}</Text>
-          <Text size="sm">
-            Ngày cập nhật:{" "}
-            {utils_date_FormatToDateTimetring(
-              new Date(data?.ngayCapNhat ?? "")
-            )}
+          <Text size="sm" fw={500} color={"green"}>
+            {data?.name}
           </Text>
-          <Text size="sm">Người cập nhật: {data?.nguoiCapNhat}</Text>
-          <Flex gap="xs">
-            <Text size="sm">Tự đánh giá:</Text>
-            <Text size="sm" color={data?.status ? "green" : "red"}>
+          <Text size="sm" fw={500}>
+            Ngày cập nhật:{" "}
+            {utils_date_dateToDDMMYYYString(new Date(data?.ngayCapNhat ?? ""))}
+          </Text>
+          <Text size="sm" fw={500}>
+            Người cập nhật: {data?.nguoiCapNhat}
+          </Text>
+          <Flex gap="xs" fw={500}>
+            <Text size="sm" fw={500}>
+              Tự đánh giá:
+            </Text>
+            <Text size="sm" fw={500} color={data?.status ? "green" : "red"}>
               {data?.status ? "Đạt" : "Không đạt"}
             </Text>
           </Flex>
@@ -71,7 +76,7 @@ export default function Form04CurrentSituationRowHistory({
       <Accordion.Panel>
         <Grid columns={12}>
           <Grid.Col span={6}>
-            <Box h={360} style={{ overflow: 'auto' }}>
+            <Box h={360} style={{ overflow: "auto" }}>
               <MyTextArea
                 rows={10}
                 minRows={15}
@@ -86,16 +91,29 @@ Trường và Khoa đã ban hành bộ Quy tắc ứng xử cho SV, trong đó n
             </Box>
           </Grid.Col>
           <Grid.Col span={6}>
-            <Box style={{ height: 340, overflow: 'auto' }}>
-              <MyDataTable
-                renderTopToolbarCustomActions={() => {
-                  return <Text size="sm" p={12}>File minh chứng</Text>;
-                }}
-                columns={columns}
-                data={mockData}
-                enableRowNumbers={false}
-              />
-            </Box>
+            <MyDataTable
+              renderTopToolbarCustomActions={() => {
+                return (
+                  <Text size="sm" p={12}>
+                    File minh chứng
+                  </Text>
+                );
+              }}
+              columns={columns}
+              data={mockData}
+              enableRowNumbers={false}
+              renderRowActions={({ row }) => {
+                return <Form04CurrentSituationDetail data={row.original} />;
+              }}
+              initialState={{
+                columnSizing: {
+                  "mrt-row-numbers": 60,
+                },
+              }}
+              mantineTableContainerProps={{
+                style: { height: "230px", overflowY: "auto" },
+              }}
+            />
           </Grid.Col>
         </Grid>
       </Accordion.Panel>
@@ -117,5 +135,5 @@ const mockData: IForm04CurrentSituationRowHistoryProof[] = [
     name: "Báo cáo tổng kết công tác khảo sát ý kiến SV về Quy chế đào tạo",
     status: "Hết hạn",
     isUsed: true,
-  }
+  },
 ];
