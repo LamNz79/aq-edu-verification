@@ -10,12 +10,21 @@ import {
 } from "aq-fe-framework/components";
 import { I_SelfAssessmentReportTable } from "./SelfAssessmentReportTable";
 
-export default function SelfAssessmentReportUpdate({ data }: { data: I_SelfAssessmentReportTable }) {
+export default function SelfAssessmentReportUpdate({
+  data,
+}: {
+  data: I_SelfAssessmentReportTable;
+}) {
   const form = useForm<I_SelfAssessmentReportTable>({
     initialValues: data,
   });
   return (
-    <MyActionIconUpdate onSubmit={() => {}} form={form} modalSize={"60%"}>
+    <MyActionIconUpdate
+      onSubmit={() => {}}
+      form={form}
+      modalSize={"60%"}
+      title="Chi tiết báo cáo tự đánh giá"
+    >
       <SimpleGrid cols={2} spacing="md">
         <Stack>
           <MySelect
