@@ -54,7 +54,6 @@ export default function SelfAssessmentReportTable() {
         ),
         id: "file",
       },
-      { header: "Ghi chú", accessorKey: "note" },
     ],
     []
   );
@@ -67,7 +66,6 @@ export default function SelfAssessmentReportTable() {
       { fieldName: "phase", header: "Giai đoạn đánh giá" },
       { fieldName: "reportDate", header: "Ngày Báo cáo" },
       { fieldName: "signer", header: "Người ký" },
-      { fieldName: "note", header: "Ghi chú" },
     ],
   };
 

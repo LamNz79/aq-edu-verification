@@ -16,6 +16,7 @@ import { useForm } from "@mantine/form";
 import { useQuery } from "@tanstack/react-query";
 import ProgramSurveyMemo08Update from "./ProgramSurveyMemo08Update";
 import SelfAssessmentReportCreate from "../ModuleSelfAssessmentReport/SelfAssessmentReportCreate";
+import ProgramSurveyMemo08Create from "./ProgramSurveyMemo08Create";
 
 export default function ProgramSurveyMemo08Table() {
   const form = useForm<any>({
@@ -51,8 +52,7 @@ export default function ProgramSurveyMemo08Table() {
           </Center>
         ),
         id: "file",
-      },
-      { header: "Ghi chú", accessorKey: "note" },
+      }
     ],
     []
   );
@@ -64,7 +64,6 @@ export default function ProgramSurveyMemo08Table() {
       { fieldName: "minutesDate", header: "Ngày lập biên bản" },
       { fieldName: "leader", header: "Trưởng đoàn" },
       { fieldName: "deputy", header: "Thủ trưởng đơn vị" },
-      { fieldName: "note", header: "Ghi chú" },
     ],
   };
 
@@ -80,7 +79,7 @@ export default function ProgramSurveyMemo08Table() {
         enableRowNumbers
         renderTopToolbarCustomActions={({ table }) => (
           <>
-            <SelfAssessmentReportCreate />
+            <ProgramSurveyMemo08Create />
             <AQButtonCreateByImportFile onSubmit={() => {}} form={form} />
             <AQButtonExportData
               isAllData={false}

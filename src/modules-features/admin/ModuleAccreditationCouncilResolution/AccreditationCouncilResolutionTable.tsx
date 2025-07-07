@@ -54,7 +54,6 @@ export default function AccreditationCouncilResolutionTable() {
         ),
         id: "file",
       },
-      { header: "Ghi chú", accessorKey: "note" },
     ],
     []
   );

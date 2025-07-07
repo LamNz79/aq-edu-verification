@@ -20,7 +20,7 @@ export default function AccreditationCouncilResolutionUpdate({
   });
   return (
     <MyActionIconUpdate
-      onSubmit={() => {}}
+      onSubmit={() => { }}
       form={form}
       title="Chi tiết Nghị quyết của Hội đồng"
       modalSize={"60%"}
@@ -28,40 +28,40 @@ export default function AccreditationCouncilResolutionUpdate({
       <SimpleGrid cols={2} spacing="md">
         <Stack>
           <MyTextInput
-            label="Số nghị quyết:"
+            label="Số nghị quyết"
             {...form.getInputProps("resolutionNumber")}
           />
           <MySelect
             data={["Kỹ thuật phần mềm", "Kế toán", "Công nghệ thông tin"]}
-            label="Chương trình Đào tạo:"
+            label="Chương trình Đào tạo"
             {...form.getInputProps("curriculumName")}
           />
           <MyTextInput
-            label="Tên Tổ chức kiểm định:"
+            label="Tên Tổ chức kiểm định"
             {...form.getInputProps("assessmentOrg")}
           />
           <MyTextInput
-            label="Giai đoạn đánh giá:"
+            label="Giai đoạn đánh giá"
             {...form.getInputProps("phase")}
           />
-          <MyTextArea label="Ghi chú" {...form.getInputProps("note")} />
         </Stack>
         <Stack>
           <MyTextInput
-            label="Tên Nghị quyết:"
+            label="Tên Nghị quyết"
             {...form.getInputProps("resolutionName")}
           />
           <MyDateInput
-            label="Ngày ban hành:"
+            label="Ngày ban hành"
             {...form.getInputProps("issueDate")}
           />
-          <MyTextInput label="Người ký:" {...form.getInputProps("signer")} />
+          <MyTextInput label="Người ký" {...form.getInputProps("signer")} />
           <MyFileInput
             label="File Nghị quyết"
             {...form.getInputProps("file")}
           />
         </Stack>
       </SimpleGrid>
+      <MyTextArea label="Ghi chú" {...form.getInputProps("note")} />
     </MyActionIconUpdate>
   );
 }
