@@ -44,7 +44,7 @@ export default function CriteriaReportAssignmentTable() {
                 query.data
                   ? query.data.map((item) => ({
                       value: item.managerCode,
-                      label: item.managerName,
+                      label: item.managerCode,
                     }))
                   : []
               }
