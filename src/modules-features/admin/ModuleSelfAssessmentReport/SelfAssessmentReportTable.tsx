@@ -87,7 +87,7 @@ export default function SelfAssessmentReportTable() {
             <AQButtonCreateByImportFile onSubmit={() => {}} form={form} />
             <AQButtonExportData
               isAllData={false}
-              objectName={"DanhSachBaoCaoTuyDanhGia"}
+              objectName={"DanhSachBaoCaoTuDanhGia"}
               data={query.data || []}
               exportConfig={exportConfig}
             />

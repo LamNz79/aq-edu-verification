@@ -92,7 +92,7 @@ export default function CriteriaReportAssignmentTable() {
             <AQButtonCreateByImportFile onSubmit={() => {}} form={form} />
             <AQButtonExportData
               isAllData={false}
-              objectName={"DanhSachBaoCaoTuyDanhGia"}
+              objectName={"DanhSach"}
               data={query.data || []}
               exportConfig={exportConfig}
             />

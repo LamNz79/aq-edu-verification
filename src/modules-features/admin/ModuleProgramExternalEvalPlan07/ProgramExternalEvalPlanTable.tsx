@@ -89,7 +89,7 @@ export default function ProgramExternalEvalPlanTable() {
             <AQButtonCreateByImportFile onSubmit={() => {}} form={form} />
             <AQButtonExportData
               isAllData={false}
-              objectName={"DanhSachBaoCaoTuyDanhGia"}
+              objectName={"DanhSachKeHoachDanhGia"}
               data={query.data || []}
               exportConfig={exportConfig}
             />

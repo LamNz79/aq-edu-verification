@@ -84,7 +84,7 @@ export default function ProgramSurveyMemo08Table() {
             <AQButtonCreateByImportFile onSubmit={() => {}} form={form} />
             <AQButtonExportData
               isAllData={false}
-              objectName={"DanhSachBaoCaoTuyDanhGia"}
+              objectName={"DanhSachBienBanGhiNho"}
               data={query.data || []}
               exportConfig={exportConfig}
             />
