@@ -5,7 +5,7 @@ import FormHistory from "./FormHistory";
 
 export default function DisadvantageLayoutTab() {
   return (
-    <MyFlexColumn gap={16} ml={12}>
+    <MyFlexColumn gap={16} ml={20}>
       <Stack gap={2}>
         <Text fw={600}>3. Điểm tồn tại và khuyết nghị:</Text>
         <Text>

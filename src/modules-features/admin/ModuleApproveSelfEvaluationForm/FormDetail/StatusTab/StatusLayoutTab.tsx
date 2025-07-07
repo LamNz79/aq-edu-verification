@@ -6,7 +6,7 @@ import FormHistory from "./FormHistory";
 
 export default function StatusLayoutTab() {
   return (
-    <MyFlexColumn gap={16} ml={12}>
+    <MyFlexColumn gap={16} ml={20}>
       <Stack gap={2}>
         <Text fw={600}>1. Mô tả hiện trạng:</Text>
         <Text>
@@ -16,10 +16,10 @@ export default function StatusLayoutTab() {
       </Stack>
       <FormHistory />
       <Grid>
-        <Grid.Col span={{ base: 12, md: 7 }}>
+        <Grid.Col span={{ md: 12, xl: 7 }}>
           <CurrentReport />
         </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 5 }}>
+        <Grid.Col span={{ md: 12, xl: 5 }}>
           <EvidenceListTable />
         </Grid.Col>
       </Grid>

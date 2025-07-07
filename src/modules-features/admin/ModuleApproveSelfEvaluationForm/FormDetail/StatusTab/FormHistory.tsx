@@ -47,18 +47,18 @@ export default function FormHistory() {
                 </Accordion.Control>
                 <Accordion.Panel>
                   <Grid>
-                    <Grid.Col span={{ base: 12, md: 7 }}>
+                    <Grid.Col span={{ md: 12, xl: 7 }}>
                       <Card shadow="xs" pl={16} pr={4}>
                         <MyHtmlWrapper
                           style={{
                             height: "315px",
-                            overflowY: "auto",
+                            overflowY: "scroll",
                           }}
                           html={item.content}
                         />
                       </Card>
                     </Grid.Col>
-                    <Grid.Col span={{ base: 12, md: 5 }}>
+                    <Grid.Col span={{ md: 12, xl: 5 }}>
                       <FileEvidenceListTable data={item.evidences} />
                     </Grid.Col>
                   </Grid>
