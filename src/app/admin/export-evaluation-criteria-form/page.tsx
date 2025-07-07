@@ -1,12 +1,12 @@
 "use client";
-import EvalCriteriaFormRead from "@/modules-features/admin/ModuleExportEvaluationCriteriaForm/EvalCriteriaFormRead";
+import EvalCriteriaFormTable from "@/modules-features/admin/ModuleExportEvaluationCriteriaForm/EvalCriteriaFormTable";
 import { MyPageContent } from "aq-fe-framework/components";
 
 //export-evaluation-criteria-form
 export default function Page() {
     return(
         <MyPageContent>
-            <EvalCriteriaFormRead/>
+            <EvalCriteriaFormTable/>
         </MyPageContent>
     )
 }

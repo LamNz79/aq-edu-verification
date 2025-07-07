@@ -5,7 +5,7 @@ import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
 import EvalCriteriaFormPrint from "./EvalCriteriaFormPrint";
 
-export default function EvalCriteriaFormRead() {
+export default function EvalCriteriaFormTable() {
   const query = useQuery({
     queryKey: ["EvalCriteriaFormQuery"],
     queryFn: async () => {
