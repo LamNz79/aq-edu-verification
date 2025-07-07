@@ -165,7 +165,22 @@ export const menuData_Program: I0LinkItem[] = [
       },
     ],
   },
-
+  {
+    label: "Chu kỳ Tự đánh giá & Kiểm định (Hoặc Quản lý Đảm bảo Chất lượng)",
+    links: [
+      {
+        label: "Báo cáo Tự đánh giá (Cuối chu kỳ 5 năm)",
+        links: [
+          {
+            pageId: 90,
+            label: "Phiếu Tự đánh giá Tiêu chí (Biểu 04)",
+            link: "self-assessment-form-04",
+            status: "Prototype",
+          },
+        ],
+      },
+    ],
+  },
   {
     label: "Kế hoạch và phân công",
     links: [
