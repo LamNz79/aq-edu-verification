@@ -5,7 +5,7 @@ import { MRT_ColumnDef } from "mantine-react-table";
 import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
 import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 import { useQuery } from "@tanstack/react-query";
-import SelfAssessmentForm04Update from "./SelfAssessmentForm04Update";  
+import SelfAssessmentForm04Update from "./SelfAssessmentForm04Update";
 import { Center } from "@mantine/core";
 
 export default function SelfAssessmentForm04Table() {

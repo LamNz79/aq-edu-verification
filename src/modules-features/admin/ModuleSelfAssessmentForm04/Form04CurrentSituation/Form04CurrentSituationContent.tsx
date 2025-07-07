@@ -1,4 +1,4 @@
-import { Box, Center, Checkbox, Grid, Group } from "@mantine/core";
+import { Box, Checkbox, Grid, Group } from "@mantine/core";
 import { IconCheck } from "@tabler/icons-react";
 import {
   MyActionIcon,

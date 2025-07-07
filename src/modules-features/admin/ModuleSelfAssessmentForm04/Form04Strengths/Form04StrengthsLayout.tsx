@@ -1,30 +1,31 @@
-import { Accordion, Flex, Text } from "@mantine/core";
-import { MyFieldset, MyTextEditor } from "aq-fe-framework/components";
-import { IForm04StrengthsRowHistory } from "./interface";
+import { Accordion, Box, Stack, Text } from "@mantine/core";
+import {
+  MyFieldset,
+  MyFlexColumn,
+  MyTextEditor,
+} from "aq-fe-framework/components";
 import Form04StrengthsRow from "./Form04StrengthsRow";
+import { IForm04StrengthsRowHistory } from "./interface";
 
 export default function Form04StrengthsLayout() {
   return (
-    <Flex direction={"column"} h={"75vh"} w={"100%"}>
-      <Text size="md" fw={500}>
-        2. Điểm mạnh
-      </Text>
-      <Text mb="md" size="sm">
-        (Phân tích, so sánh, lý giải và rút ra những điểm mạnh nổi bật của CTĐT
-        trong việc đáp ứng các yêu cầu tiêu chí)
-      </Text>
-      <Flex
-        direction={"column"}
-        style={{ flex: 1, minHeight: 0, overflow: "auto", width: "100%" }}
-      >
-        <MyFieldset
-          title={`Lịch sử soạn thảo`}
+    <MyFlexColumn gap={4}>
+      <Stack gap={2}>
+        <Text size="md" fw={500}>
+          2. Điểm mạnh
+        </Text>
+        <Text mb="md" size="sm">
+          (Phân tích, so sánh, lý giải và rút ra những điểm mạnh nổi bật của
+          CTĐT trong việc đáp ứng các yêu cầu tiêu chí)
+        </Text>
+      </Stack>
+      <MyFieldset title={`Lịch sử soạn thảo`}>
+        <Box
+          h={"400px"}
           style={{
-            minHeight: "300px",
-            overflow: "hidden",
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
+            maxHeight: "240px",
+            overflowY: "scroll",
+            overflowX: "hidden",
           }}
         >
           <Accordion style={{ overflow: "auto" }} defaultValue="1">
@@ -32,16 +33,11 @@ export default function Form04StrengthsLayout() {
               <Form04StrengthsRow key={item.id} data={item} />
             ))}
           </Accordion>
-        </MyFieldset>
-        <MyFieldset
-          title={`Nội dung báo cáo hiện tại`}
-          style={{
-            height: "600px",
-            display: "flex",
-          }}
-        >
-          <MyTextEditor
-            value={`
+        </Box>
+      </MyFieldset>
+      <MyFieldset title={`Nội dung báo cáo hiện tại`}>
+        <MyTextEditor
+          value={`
               <p>Trường đã xây dựng môi trường sư phạm hiện tại, năng động, mở phạm, thân thiện, 
             sạch đẹp và an toàn tạo không khí và tâm lý thoản mái, phục vụ hiệu quả cho hoạt động dạy học </p>
                       
@@ -49,12 +45,11 @@ export default function Form04StrengthsLayout() {
             nguời học thêm năng động, sáng tạoh trong học tập và rèn luyện
             </p>
               `}
-            contentHeight={"220px"}
-            onChange={() => {}}
-          />
-        </MyFieldset>
-      </Flex>
-    </Flex>
+          contentHeight={"220px"}
+          onChange={() => {}}
+        />
+      </MyFieldset>
+    </MyFlexColumn>
   );
 }
 

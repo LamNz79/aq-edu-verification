@@ -1,32 +1,30 @@
-import { Accordion, Flex, Text } from "@mantine/core";
-import { MyFieldset } from "aq-fe-framework/components";
+import { Accordion, Box, Stack, Text } from "@mantine/core";
+import { MyFieldset, MyFlexColumn } from "aq-fe-framework/components";
 import Form04CurrentSituationContent from "./Form04CurrentSituationContent";
 import Form04CurrentSituationRowHistory from "./Form04CurrentSituationRowHistory";
 import { IForm04CurrentSituationRowHistory } from "./interface";
 
 export default function Form04CurrentSituationLayout() {
   return (
-    <Flex direction={"column"} h={"75vh"} w={"100%"}>
-      <Text size="md" fw={500}>
-        1. Mô tả hiện trạng
-      </Text>
-      <Text mb="md" size="sm">
-        (Căn cứ yêu cầu của tiêu chí, mô tả hoạt động của cơ sở đào tạo có CTĐT
-        được đnash giá kèm theo các thông tin minh chứng để chứng minh mức độ
-        đạt được của tiêu chí)
-      </Text>
-      <Flex
-        direction={"column"}
-        style={{ flex: 1, minHeight: 0, overflow: "auto", w: "100%" }}
-      >
-        <MyFieldset
-          title={`Lịch sử soạn thảo`}
+    <MyFlexColumn gap={4}>
+      <Stack gap={2}>
+        <Text size="md" fw={500}>
+          1. Mô tả hiện trạng
+        </Text>
+        <Text mb="md" size="sm">
+          (Căn cứ yêu cầu của tiêu chí, mô tả hoạt động của cơ sở đào tạo có
+          CTĐT được đnash giá kèm theo các thông tin minh chứng để chứng minh
+          mức độ đạt được của tiêu chí)
+        </Text>
+      </Stack>
+
+      <MyFieldset title={`Lịch sử soạn thảo`}>
+        <Box
+          h={"452px"}
           style={{
-            minHeight: "400px",
-            overflow: "hidden",
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
+            maxHeight: "300px",
+            overflowY: "scroll",
+            overflowX: "hidden",
           }}
         >
           <Accordion style={{ overflow: "auto" }} defaultValue="1">
@@ -34,18 +32,12 @@ export default function Form04CurrentSituationLayout() {
               <Form04CurrentSituationRowHistory key={item.id} data={item} />
             ))}
           </Accordion>
-        </MyFieldset>
-        <MyFieldset
-          title={`Nội dung báo cáo hiện tại`}
-          style={{
-            height: "600px",
-            display: "flex",
-          }}
-        >
-          <Form04CurrentSituationContent />
-        </MyFieldset>
-      </Flex>
-    </Flex>
+        </Box>
+      </MyFieldset>
+      <MyFieldset title={`Nội dung báo cáo hiện tại`}>
+        <Form04CurrentSituationContent />
+      </MyFieldset>
+    </MyFlexColumn>
   );
 }
 
