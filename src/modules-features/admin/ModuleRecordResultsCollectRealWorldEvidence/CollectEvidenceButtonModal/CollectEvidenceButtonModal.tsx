@@ -1,6 +1,6 @@
 "use client";
 import { useDisclosure } from "@mantine/hooks";
-import { IconSearch } from "@tabler/icons-react";
+import {IconSearch, IconSelect } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
 import {
   MyButton,
@@ -114,7 +114,9 @@ export default function CollectEvidenceButtonModal() {
           renderTopToolbarCustomActions={() => (
             <MyCenterFull>
               <CollectEvidenceCreate />
-              <MyButton crudType="import">Import</MyButton>
+              <MyButton leftSection={<IconSelect/>} crudType="select">
+                Chọn
+              </MyButton>
               <MyButton crudType="export">Export</MyButton>
               <MyButton crudType="delete">Xóa</MyButton>
             </MyCenterFull>
