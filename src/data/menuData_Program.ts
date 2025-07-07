@@ -266,6 +266,14 @@ export const menuData_Program: I0LinkItem[] = [
           "Soạn thảo nội dung báo cáo tự đánh giá theo từng mốc chuẩn.",
       },
       {
+        pageId: 64,
+        name: "Approve report",
+        label: "Phê duyệt Phiếu Tự đánh giá",
+        link: "approve-report",
+        status: "Prototype",
+        description: "Phê duyệt Phiếu Tự đánh giá.",
+      },
+      {
         pageId: 62,
         name: "Summary report",
         label: "Tổng hợp báo cáo mốc chuẩn",
