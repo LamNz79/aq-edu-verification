@@ -5,7 +5,7 @@ import CurrentReport from "./CurrentReport";
 
 export default function SelfAssessmentLayoutTab() {
   return (
-    <MyFlexColumn gap={16} ml={12}>
+    <MyFlexColumn gap={16} ml={20}>
       <Stack gap={2}>
         <Text fw={600}>5. Tự đánh giá:</Text>
         <Text>

@@ -6,7 +6,7 @@ import FormHistory from "./FormHistory";
 export default function ActionTabLayoutTab() {
 
   return (
-    <MyFlexColumn gap={16} ml={12}>
+    <MyFlexColumn gap={16} ml={20}>
       <Stack gap={2}>
         <Text fw={600}>4. Kế hoạch hành động:</Text>
         <Text>

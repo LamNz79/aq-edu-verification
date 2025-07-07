@@ -335,6 +335,14 @@ export const menuData_Program: I0LinkItem[] = [
         status: "Prototype",
         description: "Lưu trữ và tra cứu minh chứng phục vụ công tác đánh giá.",
       },
+      {
+        pageId: 52,
+        name: "Evidence management",
+        label: "Quản lý minh chứng",
+        link: "evidence-management",
+        status: "Prototype",
+        description: "Lưu trữ và tra cứu minh chứng phục vụ công tác đánh giá.",
+      }
     ],
   },
 

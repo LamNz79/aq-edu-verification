@@ -24,7 +24,7 @@ export default function FormHistory() {
               <Accordion.Item value={`item-${idx}`} key={idx}>
                 <Accordion.Control>
                   <Grid>
-                    <Grid.Col span={2}>
+                    <Grid.Col span={3}>
                       <Text size="sm" c="green" fw={600}>
                         {item.type}
                       </Text>
@@ -35,7 +35,7 @@ export default function FormHistory() {
                     <Grid.Col span={3}>
                       <Text size="sm">Người cập nhật: {item.updatedBy}</Text>
                     </Grid.Col>
-                    <Grid.Col span={2}>
+                    <Grid.Col span={3}>
                       <Text size="sm" span>
                         Tự đánh giá:{" "}
                         <Text span c={item.selfAssessment === "Đạt" ? "green" : "red"} fw={600}>
@@ -47,18 +47,18 @@ export default function FormHistory() {
                 </Accordion.Control>
                 <Accordion.Panel>
                   <Grid>
-                    <Grid.Col span={{ base: 12, md: 7 }}>
+                    <Grid.Col span={{ md: 12, xl: 7 }}>
                       <Card shadow="xs" pl={16} pr={4}>
                         <MyHtmlWrapper
                           style={{
                             height: "315px",
-                            overflowY: "auto",
+                            overflowY: "scroll",
                           }}
                           html={item.content}
                         />
                       </Card>
                     </Grid.Col>
-                    <Grid.Col span={{ base: 12, md: 5 }}>
+                    <Grid.Col span={{ md: 12, xl: 5 }}>
                       <FileEvidenceListTable data={item.evidences} />
                     </Grid.Col>
                   </Grid>
