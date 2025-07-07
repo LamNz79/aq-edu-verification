@@ -24,7 +24,7 @@ export default function FormHistory() {
               <Accordion.Item value={`item-${idx}`} key={idx}>
                 <Accordion.Control>
                   <Grid>
-                    <Grid.Col span={2}>
+                    <Grid.Col span={3}>
                       <Text size="sm" c="green" fw={600}>
                         {item.type}
                       </Text>
@@ -35,7 +35,7 @@ export default function FormHistory() {
                     <Grid.Col span={3}>
                       <Text size="sm">Người cập nhật: {item.updatedBy}</Text>
                     </Grid.Col>
-                    <Grid.Col span={2}>
+                    <Grid.Col span={3}>
                       <Text size="sm" span>
                         Tự đánh giá:{" "}
                         <Text span c={item.selfAssessment === "Đạt" ? "green" : "red"} fw={600}>
