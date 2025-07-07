@@ -217,6 +217,19 @@ export const menuData_Program: I0LinkItem[] = [
     ],
   },
   {
+    label: "Quản lý Đợt Đánh giá ngoài",
+    links: [
+      { label: "Quản lý Kế hoạch Đánh giá ngoài CTĐT (Biểu 07)", name: "", link: "none-63141", status: "Menu", description: "" },
+      { label: "Quản lý Biên bản Ghi nhớ sau Khảo sát Sơ bộ CTĐT (Biểu 08)", name: "", link: "none-545245", status: "Menu", description: "" },
+      { label: "Quản lý Biên bản Hoàn thành Đợt Khảo sát Chính thức CTĐT (Biểu 09)", name: "", link: "none-24324", status: "Menu", description: "" },
+      { label: "Quản lý Báo cáo Đánh giá ngoài CTĐT (Biểu 10)", name: "", link: "none-234234", status: "Menu", description: "" },
+      { label: "Quản lý  Bảng Tổng hợp Kết quả Tự đánh giá và Đánh giá ngoài (Biểu 11)", name: "", link: "none-234332424", status: "Menu", description: "" },
+      { label: "Quản lý Nhận xét về Hồ sơ Thẩm định Kết quả Đánh giá CLCTĐT (Biểu 13)", name: "", link: "none-4234234", status: "Menu", description: "" },
+      { label: "Quản lý Nghị quyết của Hội đồng Kiểm định Chất lượng Giáo dục (Biểu 14)", name: "", link: "none-234324", status: "Menu", description: "" },
+      { label: "Giấy Chứng nhận Kiểm định Chất lượng CTĐT", name: "", link: "none-89053775", status: "Menu", description: "" },
+    ],
+  },
+  {
     label: "Kế hoạch và phân công",
     links: [
       {
