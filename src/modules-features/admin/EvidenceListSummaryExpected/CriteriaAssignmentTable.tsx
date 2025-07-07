@@ -13,6 +13,7 @@ import {
 import {
   utils_date_dateToDDMMYYYString,
 } from "aq-fe-framework/utils";
+import { useMemo } from "react";
 
 export interface I_Criteria {
   id?: number;
@@ -37,14 +38,15 @@ export default function CriteriaAssignmentTable() {
     queryFn: async () => mockData,
   });
 
-  const columns: MRT_ColumnDef<I_Criteria>[] = [
+  const columns = useMemo<MRT_ColumnDef<I_Criteria>[]> (
+    () => [
     { header: "Mã kế hoạch TDG", accessorKey: "planCode" },
     { header: "Mã nhóm CT", accessorKey: "groupCode" },
     { header: "Mã Tiêu chuẩn", accessorKey: "standardCode" },
     { header: "Mã Tiêu chí", accessorKey: "criteriaCode" },
     { header: "Tên Tiêu chí", accessorKey: "criteriaName", size: 300 },
     { header: "Mã MC dự kiến", accessorKey: "expectedEvidenceCode" },
-    {
+    { 
       header: "Tên MC dự kiến",
       accessorKey: "expectedEvidenceName",
       size: 250,
@@ -70,7 +72,9 @@ export default function CriteriaAssignmentTable() {
           ? utils_date_dateToDDMMYYYString(new Date(row.endDate))
           : "",
     },
-  ];
+  ],
+    []
+  );
 
   const exportConfig = {
     fields: [
@@ -90,7 +94,7 @@ export default function CriteriaAssignmentTable() {
   };
 
   return (
-    <MyFieldset title={"Danh sách hội đồng thẩm định"}>
+    <MyFieldset title={"Danh sách phân công tiêu chí"}>
       <MyFlexColumn>
         <MyDataTable
           isLoading={query.isLoading}
@@ -108,7 +112,6 @@ export default function CriteriaAssignmentTable() {
             </Group>
           )}
           initialState={{
-            columnPinning: { right: ["mrt-row-actions"] },
             columnVisibility: {
               modifiedBy: false,
               modifiedAt: false,
