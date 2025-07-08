@@ -54,7 +54,7 @@ export default function ApproveFormTable() {
                 <Stack gap={2}>
                   <VerificationResultButton data={row.original} />
                   <FormDetailButton />
-                  <EvalCriteriaFormPrint/>
+                  <EvalCriteriaFormPrint />
                 </Stack>
               </MyCenterFull>
             );
