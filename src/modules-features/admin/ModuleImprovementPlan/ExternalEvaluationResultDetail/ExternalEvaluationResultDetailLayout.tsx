@@ -1,9 +1,8 @@
+import { MyButtonModal } from "@/components/Buttons/ButtonModal/MyButtonModal";
 import { Box, Grid } from "@mantine/core";
-import { useForm } from "@mantine/form";
+import { useDisclosure } from "@mantine/hooks";
 import { MyButton } from "aq-fe-framework/components";
 import { useState } from "react";
-import { MyButtonModal } from "@/components/Buttons/ButtonModal/MyButtonModal";
-import { useDisclosure } from "@mantine/hooks";
 import { useCustomScrollSpy } from "../useCustomScrollSpy";
 import AdvantageTab from "./AdvantageTab";
 import AssessmentTab from "./AssessmentTab";
