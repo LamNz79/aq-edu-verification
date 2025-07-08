@@ -43,7 +43,7 @@ export default function SelfAssessmentForm04Update({
     >
       <Grid style={{ minHeight: "75vh", position: "relative" }}>
         <Grid.Col
-          span={2}
+          span={{ base: 4, md: 2 }}
           style={{
             position: "sticky",
             top: 50,
@@ -81,7 +81,6 @@ export default function SelfAssessmentForm04Update({
               onClick={() => {
                 const element = document.getElementById(item.id);
                 if (element && scrollContainer) {
-                  // Tính position relative trong scroll container
                   const containerRect = scrollContainer.getBoundingClientRect();
                   const elementRect = element.getBoundingClientRect();
                   const currentScrollTop = scrollContainer.scrollTop;
@@ -89,8 +88,7 @@ export default function SelfAssessmentForm04Update({
                     elementRect.top - containerRect.top + currentScrollTop;
 
                   scrollContainer.scrollTo({
-                    top: relativeTop - 30, // offset 30px từ top
-                    behavior: "smooth",
+                    top: relativeTop - 30,
                   });
                 }
               }}
@@ -99,7 +97,7 @@ export default function SelfAssessmentForm04Update({
             </Box>
           ))}
         </Grid.Col>
-        <Grid.Col span={10}>
+        <Grid.Col span={{ base: 8, md: 10 }}>
           <Box
             ref={scrollRef}
             style={{
