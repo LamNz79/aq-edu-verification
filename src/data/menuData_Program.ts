@@ -113,7 +113,7 @@ export const menuData_Program: I0LinkItem[] = [
       {
         label: "Giám sát Thực hiện Tự đánh giá",
         links: [
-          { label: "Theo dõi Tiến độ Tự đánh giá Tiêu chí", name: "", link: "", description: "", status: "Menu" },
+          { label: "Theo dõi Tiến độ Tự đánh giá Tiêu chí", name: "", link: "track-self-assessment-progress", description: "", status: "Prototype" },
           { label: "Xem Nhiệm vụ của tôi/đơn vị tôi", name: "", link: "", description: "", status: "Menu" },
         ],
       },
@@ -154,7 +154,7 @@ export const menuData_Program: I0LinkItem[] = [
     links: [
       { label: "Quản lý Minh chứng", name: "Evidence management", link: "evidence-management", status: "Prototype", description: "Lưu trữ và tra cứu minh chứng phục vụ công tác đánh giá." },
     ],
-  },
+  },  
   {
     label: "Báo cáo",
     links: [],
