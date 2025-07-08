@@ -17,8 +17,8 @@ export default function CertificateEducationProgramsCreate() {
     initialValues: {
       certificateNumber: "",
       issuingAuthority: "",
-      issueDate: new Date().toISOString(),
-      expiryDate: "",
+      issueDate: undefined,
+      expiryDate: undefined,
       trainingProgram: "",
       cohort: "",
       accreditationRound: "",

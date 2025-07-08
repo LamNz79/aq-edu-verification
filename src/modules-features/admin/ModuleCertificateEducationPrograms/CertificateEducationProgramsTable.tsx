@@ -11,6 +11,7 @@ import {
   MyDataTable,
   MyFieldset,
 } from "aq-fe-framework/components";
+import { U0DateToDDMMYYYString } from "aq-fe-framework/utils";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
 import { Checkbox } from "@mantine/core";
@@ -49,11 +50,13 @@ export default function CertificateEducationProgramsTable() {
         header: "Ngày cấp",
         accessorKey: "issueDate",
         size: 120,
+        Cell: ({ cell }) => U0DateToDDMMYYYString(cell.getValue<Date>()),
       },
       {
         header: "Ngày hết hiệu lực",
         accessorKey: "expiryDate",
         size: 140,
+        Cell: ({ cell }) => U0DateToDDMMYYYString(cell.getValue<Date>()),
       },
       {
         header: "Chương trình đào tạo",
@@ -102,7 +105,7 @@ export default function CertificateEducationProgramsTable() {
         renderTopToolbarCustomActions={({ table }) => {
           return (
             <>
-              <CertificateEducationProgramsCreate/>
+              <CertificateEducationProgramsCreate />
               <AQButtonCreateByImportFile onSubmit={() => {}} form={form_multiple} />
               <MyButton crudType="export" />
               <MyButtonDeleteList
@@ -119,7 +122,7 @@ export default function CertificateEducationProgramsTable() {
         renderRowActions={({ row }) => {
           return (
             <MyCenterFull>
-              <CertificateEducationProgramsUpdate values={row.original}/>
+              <CertificateEducationProgramsUpdate values={row.original} />
               <CertificateEducationProgramsDelete
                 id={row.original.id}
                 code={row.original.certificateNumber}
@@ -138,8 +141,8 @@ const mockData: CertificateEducationProgramsViewModel[] = [
     id: 1,
     certificateNumber: "001/GCNKĐCL-ĐH",
     issuingAuthority: "Trung tâm KĐCLGĐ - ĐHQGHN",
-    issueDate: "20/05/2024",
-    expiryDate: "20/05/2029",
+    issueDate: new Date(2024, 4, 20), // May 20, 2024
+    expiryDate: new Date(2029, 4, 20), // May 20, 2029
     trainingProgram: "Kỹ thuật phần mềm",
     cohort: "K60",
     accreditationRound: "KĐCL KTPM K60 - 2024",
@@ -151,8 +154,8 @@ const mockData: CertificateEducationProgramsViewModel[] = [
     id: 2,
     certificateNumber: "002/GCNKĐCL-KHXH",
     issuingAuthority: "Trung tâm KĐCLGĐ - ĐHQGHN",
-    issueDate: "10/11/2019",
-    expiryDate: "10/11/2024",
+    issueDate: new Date(2019, 10, 10), // November 10, 2019
+    expiryDate: new Date(2024, 10, 10), // November 10, 2024
     trainingProgram: "Ngôn ngữ Anh",
     cohort: "K55",
     accreditationRound: "KĐCL Ngôn ngữ Anh K55 - 2019",
@@ -164,8 +167,8 @@ const mockData: CertificateEducationProgramsViewModel[] = [
     id: 3,
     certificateNumber: "003/GCNKĐCL-CTĐL",
     issuingAuthority: "Trung tâm KĐCLGĐ - ĐHĐN",
-    issueDate: "01/08/2023",
-    expiryDate: "01/08/2028",
+    issueDate: new Date(2023, 7, 1), // August 1, 2023
+    expiryDate: new Date(2028, 7, 1), // August 1, 2028
     trainingProgram: "Công nghệ thông tin Tiên tiến",
     cohort: "K58",
     accreditationRound: "KĐCL CNTT Tiên tiến K58 - 2023",

@@ -2,8 +2,8 @@ export interface CertificateEducationProgramsViewModel {
   id?: number;
   certificateNumber?: string;
   issuingAuthority?: string;
-  issueDate?: string;
-  expiryDate?: string;
+  issueDate?: Date;
+  expiryDate?: Date;
   trainingProgram?: string;
   cohort?: string;
   accreditationRound?: string;

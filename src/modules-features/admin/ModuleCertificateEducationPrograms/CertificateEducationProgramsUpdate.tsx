@@ -67,9 +67,14 @@ export default function CertificateEducationProgramsUpdate({
         </Grid.Col>
 
         <Grid.Col span={6}>
-          <MyTextInput
+          <MySelect
             label="Chương trình đào tạo"
             withAsterisk
+            data={[
+              { value: "Kỹ thuật phần mềm", label: "Kỹ thuật phần mềm" },
+              { value: "Ngôn ngữ Anh", label: "Ngôn ngữ Anh" },
+              { value: "Công nghệ thông tin Tiên tiến", label: "Công nghệ thông tin Tiên tiến" },
+            ]}
             {...form.getInputProps("trainingProgram")}
           />
         </Grid.Col>
