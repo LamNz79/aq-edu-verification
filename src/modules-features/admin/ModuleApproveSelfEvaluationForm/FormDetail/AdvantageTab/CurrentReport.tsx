@@ -1,16 +1,15 @@
 import { useForm } from "@mantine/form";
 import { MyFieldset, MyTextEditor } from "aq-fe-framework/components";
 
-interface IFormUpdateForm {
+interface IContent {
   content: string;
 }
 
 export default function CurrentReport() {
-  const form = useForm<IFormUpdateForm>({
+  const form = useForm<IContent>({
     initialValues: {
       ...mockContent,
     },
-    validate: { content: (v) => (v ? null : "Không được để trống") },
   });
 
   return (
@@ -25,7 +24,7 @@ export default function CurrentReport() {
   );
 }
 
-const mockContent: IFormUpdateForm = {
+const mockContent: IContent = {
   content: `
   <p>
     Trường đã xây dựng môi trường sư phạm hiện đại, năng động, mở phạm, thân thiện, sạch đẹp và an toàn tạo không khí và tâm lý thoải mái, phục vụ hiệu quả cho hoạt động dạy và học.

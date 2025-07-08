@@ -1,13 +1,15 @@
 
 import { BarChart } from '@mantine/charts';
-import { Group, Paper, Stack, Text } from '@mantine/core';
+import { Center, Group, Paper, Stack, Text } from '@mantine/core';
 
 export default function F_obf4m08gkx_ReportResultOfUnitBarChart() {
 
     return (
-        <Stack w={{ base: '100%', sm: '47.5%' }}>
-            <Text>Biểu đồ theo dõi phân bố nội dung báo cáo theo đơn vị</Text>
-            <Group gap={0} align='flex-start' wrap='nowrap'>
+        <Stack w={{ base: '100%' }}>
+            <Stack gap={0} align='center'>
+                <Center><Text fw={600} fz={18} pt={5}>Biểu đồ theo dõi phân bố nội dung báo cáo theo đơn vị</Text></Center>
+            </Stack>
+            <Group gap={0} align='flex-start' wrap='nowrap' pt={30}>
                 <Paper h={120} p={8} w={60} ta="center">Danh sách đơn vị</Paper>
                 <BarChart
                     h="60vh"
@@ -28,7 +30,7 @@ export default function F_obf4m08gkx_ReportResultOfUnitBarChart() {
 }
 
 const data = [
-  { donVi: 'Phòng Tổ chức', tongSoNoiDungPhuTrach: 120, soNoiDungHoanThanh: 90, soNoiDungChuaHoanThanh: 30 },
-  { donVi: 'Phòng Đào tạo', tongSoNoiDungPhuTrach: 160, soNoiDungHoanThanh: 110, soNoiDungChuaHoanThanh: 50 },
-  { donVi: 'Khoa CNTT', tongSoNoiDungPhuTrach: 200, soNoiDungHoanThanh: 150, soNoiDungChuaHoanThanh: 50 },
+    { donVi: 'Phòng Tổ chức', tongSoNoiDungPhuTrach: 120, soNoiDungHoanThanh: 90, soNoiDungChuaHoanThanh: 30 },
+    { donVi: 'Phòng Đào tạo', tongSoNoiDungPhuTrach: 160, soNoiDungHoanThanh: 110, soNoiDungChuaHoanThanh: 50 },
+    { donVi: 'Khoa CNTT', tongSoNoiDungPhuTrach: 200, soNoiDungHoanThanh: 150, soNoiDungChuaHoanThanh: 50 },
 ];

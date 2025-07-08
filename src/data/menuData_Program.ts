@@ -53,7 +53,7 @@ export const menuData_Program: I0LinkItem[] = [
       {
         label: "Chu kỳ báo cáo định kỳ",
         links: [
-          { label: "Thiết lập Kỳ Báo cáo Định kỳ", name: "", link: "none-43252", description: "", status: "Menu" },
+          { label: "Thiết lập Kỳ Báo cáo Định kỳ", name: "", link: "set-up-periodic-report", description: "", status: "Prototype" },
         ],
       },
       {
@@ -95,7 +95,7 @@ export const menuData_Program: I0LinkItem[] = [
         label: "Tự đánh giá Tiêu chí",
         links: [
           { label: "Phân tích và Xử lý Thông tin, Minh chứng (Biểu 03)", name: "", link: "analysis-and-processing-proof-03", description: "", status: "Prototype" },
-          { label: "Kiểm tra phân tích tiêu chí", name: "", link: "", description: "", status: "Menu" },
+          { label: "Kiểm tra phân tích tiêu chí", name: "", link: "check-criteria-analysis", description: "", status: "Prototype" },
           { label: "Tổng hợp danh sách minh chứng dự kiến", name: "", link: "evidence-list-summary-expected", description: "", status: "Prototype" },
           { label: "Ghi nhận Kết quả Thu thập Minh chứng Thực tế", name: "", link: "record-results-collect-real-world-evidence", description: "", status: "Prototype" },
           { label: "Kiểm duyệt Minh chứng thu thập", name: "", link: "evidence-collection-review", description: "", status: "Prototype" },
@@ -142,7 +142,7 @@ export const menuData_Program: I0LinkItem[] = [
     label: "Kế hoạch Cải tiến Chất lượng",
     links: [
       { label: "Quản lý Kế hoạch Cải tiến", name: "Improvement Plan", link: "improvement-plan", status: "Prototype", description: "" },
-      { label: "Cập nhật cải tiến theo tiêu chí", name: "", link: "none-631417455662", status: "Menu", description: "" },
+      { label: "Cập nhật cải tiến theo tiêu chí", name: "", link: "criterion-improvement", status: "Prototype", description: "" },
       { label: "Cập nhật Báo cáo Giữa Chu kỳ Kiểm định Chất lượng CTĐT (Biểu 15)", name: "", link: "none-631417455663", status: "Menu", description: "" },
       { label: "Quản lý Báo cáo Giữa Chu kỳ Kiểm định Chất lượng CTĐT (Biểu 15)", name: "", link: "management-mid-cycle-quality-assurance-report", status: "Prototype", description: "" },
       { label: "Theo dõi Tiến độ Hoạt động Cải tiến", name: "", link: "none-631417455664", status: "Menu", description: "" },

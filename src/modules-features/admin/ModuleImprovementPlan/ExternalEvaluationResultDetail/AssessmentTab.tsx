@@ -1,6 +1,5 @@
-import { Grid, Group, Radio, Stack, Text } from "@mantine/core";
-import { useForm } from "@mantine/form";
-import { MyFieldset, MyFlexColumn, MyTextArea, MyTextInput } from "aq-fe-framework/components";
+import { Group, Radio, Stack, Text } from "@mantine/core";
+import { MyFieldset, MyFlexColumn } from "aq-fe-framework/components";
 import { useState } from "react";
 
 export default function AssessmentTab() {
@@ -10,7 +9,7 @@ export default function AssessmentTab() {
     <MyFlexColumn gap={4}>
       <Stack gap={2}>
         <Text size="md" fw={500}>
-          4. Đánh giá mức đạt
+          d. Đánh giá mức đạt
         </Text>
       </Stack>
       <MyFieldset title="Nội dung đánh giá" mt={8}>

@@ -2,23 +2,22 @@ import { Stack, Text } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { MyFieldset, MyFlexColumn, MyTextEditor } from "aq-fe-framework/components";
 
-interface IFormUpdateForm {
+interface IContent {
   content: string;
 }
 
 export default function AdvantageTab() {
-  const form = useForm<IFormUpdateForm>({
+  const form = useForm<IContent>({
     initialValues: {
       ...mockContent,
     },
-    validate: { content: (v) => (v ? null : "Không được để trống") },
   });
 
   return (
     <MyFlexColumn gap={4}>
       <Stack gap={2}>
         <Text size="md" fw={500}>
-          1. Điểm mạnh
+          a. Điểm mạnh
         </Text>
       </Stack>
       <MyFieldset title="Nội dung chi tiết đánh giá" mt={8}>
@@ -33,7 +32,7 @@ export default function AdvantageTab() {
   );
 }
 
-const mockContent: IFormUpdateForm = {
+const mockContent: IContent = {
   content: `
   <p>
     Chương trình đào tạo có mục tiêu rõ ràng, định hướng cụ thể cho người học.

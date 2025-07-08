@@ -1,25 +1,25 @@
+import { Box, Button, Grid } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { MyActionIconUpdate, MyTab } from "aq-fe-framework/components";
-import { IExternalReviewInputViewModel } from "./interface";
-import { Box, Grid, Tabs } from "@mantine/core";
-import TabStrengths from "./TabsDetail/TabStrengths";
-import TabWeaknesses from "./TabsDetail/TabWeaknesses";
-import TabAreasForImprovement from "./TabsDetail/TabAreasForImprovement";
-import TabAchievementLevel from "./TabsDetail/TabAchievementLevel";
-import { useCustomScrollSpy } from "./useCustomScrollSpy";
+import { MyActionIconUpdate } from "aq-fe-framework/components";
 import { useState } from "react";
+import { CriterionImprovementViewModel } from "./interface";
+import { useCustomScrollSpy } from "./useCustomScrollSpy";
+import {
+  Form04ActionPlanLayout,
+  Form04CurrentSituationLayout,
+  Form04SelfEvaluationLayout,
+  Form04StrengthsLayout,
+  Form04WeaknessesLayout,
+} from "../ModuleSelfAssessmentForm04";
 
-export default function ExternalReviewInputUpdate({
+export default function CriterionImprovementUpdate({
   data,
 }: {
-  data: IExternalReviewInputViewModel;
+  data: CriterionImprovementViewModel;
 }) {
   const form = useForm({
-    initialValues: {
-      ...data,
-    },
+    initialValues: {},
   });
-
   const [scrollContainer, setScrollContainer] = useState<HTMLElement | null>(
     null
   );
@@ -40,7 +40,7 @@ export default function ExternalReviewInputUpdate({
     <MyActionIconUpdate
       modalSize={"100%"}
       form={form}
-      title="Chi tiết kết quả đánh giá ngoài"
+      title="Chi tiết phiếu tự đánh giá"
       onSubmit={() => {}}
     >
       <Grid style={{ minHeight: "75vh", position: "relative" }}>
@@ -54,10 +54,11 @@ export default function ExternalReviewInputUpdate({
           }}
         >
           {[
-            { id: "section-1", label: "a. Điểm mạnh" },
-            { id: "section-2", label: "b. Điểm tồn tại" },
-            { id: "section-3", label: "c. Lĩnh vực cần cải tiến" },
-            { id: "section-4", label: "d. Đánh giá mức đạt" },
+            { id: "section-1", label: "1. Mô tả hiện trạng" },
+            { id: "section-2", label: "2. Điểm mạnh" },
+            { id: "section-3", label: "3. Điểm tồn tại" },
+            { id: "section-4", label: "4. Kế hoạch hành động" },
+            { id: "section-5", label: "5. Tự đánh giá" },
           ].map((item) => (
             <Box
               key={item.id}
@@ -110,16 +111,19 @@ export default function ExternalReviewInputUpdate({
             }}
           >
             <Box id="section-1" style={{ paddingBottom: 40, minHeight: 200 }}>
-              <TabStrengths />
+              <Form04CurrentSituationLayout />
             </Box>
             <Box id="section-2" style={{ paddingBottom: 40, minHeight: 200 }}>
-              <TabWeaknesses />
+              <Form04StrengthsLayout />
             </Box>
             <Box id="section-3" style={{ paddingBottom: 40, minHeight: 200 }}>
-              <TabAreasForImprovement />
+              <Form04WeaknessesLayout />
             </Box>
             <Box id="section-4" style={{ paddingBottom: 40, minHeight: 200 }}>
-              <TabAchievementLevel status={data.status ?? null} />
+              <Form04ActionPlanLayout />
+            </Box>
+            <Box id="section-5" style={{ paddingBottom: 40, minHeight: 200 }}>
+              <Form04SelfEvaluationLayout />
             </Box>
           </Box>
         </Grid.Col>

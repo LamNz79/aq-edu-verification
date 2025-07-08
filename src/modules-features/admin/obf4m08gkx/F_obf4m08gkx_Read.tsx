@@ -1,4 +1,4 @@
-import { Card, Flex, Group, Paper, Text } from '@mantine/core'
+import { Card, Flex, Group, Paper, SimpleGrid, Text } from '@mantine/core'
 import React from 'react'
 import F_obf4m08gkx_ReportCycleProgressChart from './F_obf4m08gkx_ReportCycleProgressChart';
 import F_obf4m08gkx_RequestOfUnitBarChart from './F_obf4m08gkx_RequestOfUnitBarChart';
@@ -8,51 +8,72 @@ import F_obf4m08gkx_UpdateRatePieChart from './F_obf4m08gkx_UpdateRatePieChart';
 import F_obf4m08gkx_SyntheticRatePieChart from './F_obf4m08gkx_SyntheticRatePieChart';
 import F_obf4m08gkx_DistributionProofOfUnitBarChart from './F_obf4m08gkx_DistributionProofOfUnitBarChart';
 import F_obf4m08gkx_ExpiredProofBarChar from './F_obf4m08gkx_ExpiredProofBarChar';
+import StatCard from './obf4m08gkx_StatCard';
+import { IconCertificate, IconChecklist, IconFileCertificate, IconTargetArrow } from '@tabler/icons-react';
+
 
 export default function F_obf4m08gkx_Read() {
     return (
-        <Paper p={20}>
-            <Flex
-                justify={'space-between'}
-                align={'center'}
-            >
-                <Card shadow="xl" w={'24%'} padding="lg" bg={'#d3f9d8'} radius="md" withBorder>
-                    <Text fz={30}>Tiêu chuẩn</Text>
-                    <Text fz={30} fw={'bold'}>12/14</Text>
-                </Card>
-                <Card shadow="xl" w={'24%'} padding="lg" bg={'#f3d9fa'} radius="md" withBorder>
-                    <Text fz={30}>Tiêu chí</Text>
-                    <Text fz={30} fw={'bold'}>23/29</Text>
-                </Card>
-                <Card shadow="xl" w={'24%'} padding="lg" bg={'#d0ebff'} radius="md" withBorder>
-                    <Text fz={30}>Mốc chuẩn</Text>
-                    <Text fz={30} fw={'bold'}>58/75</Text>
-                </Card>
-                <Card shadow="xl" w={'24%'} padding="lg" bg={'#fff3bf'} radius="md" withBorder>
-                    <Text fz={30}>Minh chứng</Text>
-                    <Text fz={30} fw={'bold'}>586</Text>
-                </Card>
-            </Flex>
+        <>
+            <SimpleGrid cols={4} spacing="lg" pt={20} pb={20}>
+                <StatCard
+                    title={'Tiêu chuẩn'}
+                    value={'12/14'}
+                    bg={'#d3f9d8'}
+                    gradient={{ from: '#112A46', to: 'teal.7', deg: 45 }}
+                    icons={<IconCertificate color='#112A46' />}
+                />
+                <StatCard
+                    title={'Tiêu chí'}
+                    value={'23/29'}
+                    bg={'#f3d9fa'}
+                    gradient={{ from: '#112A46', to: 'violet.7', deg: 45 }}
+                    icons={<IconChecklist color='#112A46' />}
+                />
+                <StatCard
+                    title={'Mốc chuẩn'}
+                    value={'58/75'}
+                    bg={'#d0ebff'}
+                    gradient={{ from: '#112A46', to: 'cyan.7', deg: 45 }}
+                    icons={<IconTargetArrow color='#112A46' />}
+                />
+                <StatCard
+                    title={'Minh chứng'}
+                    value={'586'}
+                    bg={'#fff3bf'}
+                    gradient={{ from: '#112A46', to: 'orange.8', deg: 45 }}
+                    icons={<IconFileCertificate color='#112A46' />}
+                />
+            </SimpleGrid>
+
             <F_obf4m08gkx_ReportCycleProgressChart />
+
             <F_obf4m08gkx_ReviewResultsBarChart />
-            <Paper p={30} mt={20}>
-                <Group gap={"5%"} align='flex-start'>
+
+            <Group align='flex-start' pt={20} >
+                <Paper p={30} flex={1}>
                     <F_obf4m08gkx_RequestOfUnitBarChart />
+                </Paper>
+                <Paper p={30} flex={1}>
                     <F_obf4m08gkx_ReportResultOfUnitBarChart />
-                </Group>
-            </Paper>
-            <Paper p={30} mt={20}>
-                <Group gap={"5%"} align='flex-start'>
+                </Paper>
+            </Group>
+            <Group align='flex-start' pt={20}>
+                <Paper p={30} flex={1}>
                     <F_obf4m08gkx_SyntheticRatePieChart />
+                </Paper>
+                <Paper p={30} flex={1}>
                     <F_obf4m08gkx_UpdateRatePieChart />
-                </Group>
-            </Paper>
-            <Paper p={30} mt={20}>
-                <Group gap={"5%"} align='flex-start'>
-                    <F_obf4m08gkx_ExpiredProofBarChar/>
-                    <F_obf4m08gkx_DistributionProofOfUnitBarChart/>
-                </Group>
-            </Paper>
-        </Paper>
+                </Paper>
+            </Group>
+            <Group align='flex-start' pt={20}>
+                <Paper p={30} flex={1}>
+                    <F_obf4m08gkx_ExpiredProofBarChar />
+                </Paper>
+                <Paper p={30} flex={1}>
+                    <F_obf4m08gkx_DistributionProofOfUnitBarChart />
+                </Paper>
+            </Group>
+        </>
     )
 }

@@ -5,15 +5,17 @@ import React from 'react';
 export default function F_obf4m08gkx_UpdateRatePieChart() {
 
     return (
-        <Stack w={{ base: '100%', sm: '47.5%' }}>
-            <Text>Biểu đồ theo dõi tỷ lệ hoàn thành cập nhật nội dung báo cáo</Text>
-            <Grid>
-                <Grid.Col span={{ base: 8, sm: 8, md: 9 }}>
+        <Stack w={{ base: '100%' }}>
+            <Stack gap={0} align='center'>
+                <Center><Text fw={600} fz={18} pt={5}>Biểu đồ theo dõi tỷ lệ hoàn thành cập nhật nội dung báo cáo</Text></Center>
+            </Stack>
+            <Grid pt={30}>
+                <Grid.Col span={{ base: 8, sm: 8, md: 9 }} >
                     <Center>
                         <PieChart
                             startAngle={90}
                             endAngle={-270}
-                            h="60vh"
+                            h="35vh"
                             w='80%'
                             data={pieData}
                             withTooltip
@@ -25,7 +27,7 @@ export default function F_obf4m08gkx_UpdateRatePieChart() {
                                 cx: "50%",
                                 cy: "50%",
                                 innerRadius: 0,
-                                outerRadius: 130,
+                                outerRadius: 110,
                                 paddingAngle: 0
                             }}
                         />

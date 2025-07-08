@@ -1,9 +1,8 @@
+import { MyButtonModal } from "@/components/Buttons/ButtonModal/MyButtonModal";
 import { Box, Grid } from "@mantine/core";
-import { useForm } from "@mantine/form";
+import { useDisclosure } from "@mantine/hooks";
 import { MyButton } from "aq-fe-framework/components";
 import { useState } from "react";
-import { MyButtonModal } from "@/components/Buttons/ButtonModal/MyButtonModal";
-import { useDisclosure } from "@mantine/hooks";
 import { useCustomScrollSpy } from "../useCustomScrollSpy";
 import AdvantageTab from "./AdvantageTab";
 import AssessmentTab from "./AssessmentTab";
@@ -62,6 +61,7 @@ export default function ExternalEvaluationResultDetailLayout({}: {}) {
                 textAlign: "left",
                 cursor: "pointer",
                 padding: "6px 10px",
+                transition: "all 0.3s ease",
                 borderLeft: activeId === item.id ? "4px solid var(--mantine-color-blue-4)" : "none",
                 backgroundColor:
                   activeId === item.id ? "var(--mantine-color-blue-1)" : "transparent",

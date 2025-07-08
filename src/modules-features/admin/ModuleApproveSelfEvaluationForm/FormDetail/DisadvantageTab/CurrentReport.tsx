@@ -1,16 +1,15 @@
 import { useForm } from "@mantine/form";
 import { MyFieldset, MyTextEditor } from "aq-fe-framework/components";
 
-interface IFormUpdateForm {
+interface IContent {
   content: string;
 }
 
 export default function CurrentReport() {
-  const form = useForm<IFormUpdateForm>({
+  const form = useForm<IContent>({
     initialValues: {
       ...mockContent,
     },
-    validate: { content: (v) => (v ? null : "Không được để trống") },
   });
 
   return (
@@ -25,7 +24,7 @@ export default function CurrentReport() {
   );
 }
 
-const mockContent: IFormUpdateForm = {
+const mockContent: IContent = {
   content: `
   <p>
     Khuôn viên chưa có nhiều cây xanh, thiếu không gian sinh hoạt chung

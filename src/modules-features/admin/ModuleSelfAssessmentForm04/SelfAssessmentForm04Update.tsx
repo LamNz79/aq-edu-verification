@@ -1,4 +1,4 @@
-import { Box, Button, Grid } from "@mantine/core";
+import { Box, Grid } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { MyActionIconUpdate } from "aq-fe-framework/components";
 import { useState } from "react";
@@ -64,6 +64,7 @@ export default function SelfAssessmentForm04Update({
                 textAlign: "left",
                 cursor: "pointer",
                 padding: "6px 10px",
+                transition: "all 0.3s ease",
                 borderLeft:
                   activeId === item.id
                     ? "4px solid var(--mantine-color-blue-4)"
