@@ -142,7 +142,7 @@ export const menuData_Program: I0LinkItem[] = [
     label: "Kế hoạch Cải tiến Chất lượng",
     links: [
       { label: "Quản lý Kế hoạch Cải tiến", name: "Improvement Plan", link: "improvement-plan", status: "Prototype", description: "" },
-      { label: "Cập nhật cải tiến theo tiêu chí", name: "", link: "none-631417455662", status: "Menu", description: "" },
+      { label: "Cập nhật cải tiến theo tiêu chí", name: "", link: "criterion-improvement", status: "Prototype", description: "" },
       { label: "Cập nhật Báo cáo Giữa Chu kỳ Kiểm định Chất lượng CTĐT (Biểu 15)", name: "", link: "none-631417455663", status: "Menu", description: "" },
       { label: "Quản lý Báo cáo Giữa Chu kỳ Kiểm định Chất lượng CTĐT (Biểu 15)", name: "", link: "management-mid-cycle-quality-assurance-report", status: "Prototype", description: "" },
       { label: "Theo dõi Tiến độ Hoạt động Cải tiến", name: "", link: "none-631417455664", status: "Menu", description: "" },
