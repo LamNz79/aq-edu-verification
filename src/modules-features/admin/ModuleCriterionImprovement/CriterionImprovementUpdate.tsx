@@ -1,19 +1,21 @@
-import { Box, Grid } from "@mantine/core";
+import { Box, Button, Grid } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { MyActionIconUpdate } from "aq-fe-framework/components";
 import { useState } from "react";
-import Form04ActionPlanLayout from "./Form04ActionPlan/Form04ActionPlanLayout";
-import Form04CurrentSituationLayout from "./Form04CurrentSituation/Form04CurrentSituationLayout";
-import Form04SelfEvaluationLayout from "./Form04SelfEvaluation/Form04SelfEvaluationLayout";
-import Form04StrengthsLayout from "./Form04Strengths/Form04StrengthsLayout";
-import Form04WeaknessesLayout from "./Form04Weaknesses/Form04WeaknessesLayout";
-import { ISelfAssessmentForm04ViewModel } from "./interface";
+import { CriterionImprovementViewModel } from "./interface";
 import { useCustomScrollSpy } from "./useCustomScrollSpy";
+import {
+  Form04ActionPlanLayout,
+  Form04CurrentSituationLayout,
+  Form04SelfEvaluationLayout,
+  Form04StrengthsLayout,
+  Form04WeaknessesLayout,
+} from "../ModuleSelfAssessmentForm04";
 
-export default function SelfAssessmentForm04Update({
+export default function CriterionImprovementUpdate({
   data,
 }: {
-  data: ISelfAssessmentForm04ViewModel;
+  data: CriterionImprovementViewModel;
 }) {
   const form = useForm({
     initialValues: {},

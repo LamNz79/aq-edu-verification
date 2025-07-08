@@ -37,8 +37,7 @@ export default function Form04WeaknessesRow({
           rows={10}
           minRows={8}
           maxRows={8}
-          value="Trường đã xây dựng môi trường sư phạm hiện tại, năng động, mở phạm, thân thiện,
-          sạch đẹp và an toàn tạo không khí và tâm lý thoản mái, phục vụ hiệu quả cho hoạt động dạy học.
+          value="Khuôn viên chưa có nhiều cây xanh, thiếu không gian sinh hoạt chung, không gian làm việc mỏ đôi khi tạo ra sự bất tiện trong công việc (Không tập chung, ồn, do,..)
           "
         />
       </Accordion.Panel>
