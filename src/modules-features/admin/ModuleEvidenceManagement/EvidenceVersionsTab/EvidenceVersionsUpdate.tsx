@@ -38,6 +38,7 @@ export default function EvidenceVersionsUpdate({ values, onSubmit }: EvidenceVer
       crudType="update"
       disclosure={[opened, { open, close, toggle: () => open() }]}
       modalSize="xl"
+      title="Chi tiết phiên bản minh chứng"
     >
       <form onSubmit={handleSubmit}>
         <Stack gap="md">

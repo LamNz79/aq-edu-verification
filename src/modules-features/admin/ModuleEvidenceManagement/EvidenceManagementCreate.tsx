@@ -27,12 +27,7 @@ export default function EvidenceManagementCreate() {
   });
 
   return (
-    <MyButtonCreate
-      objectName="Chi tiết minh chứng"
-      form={form}
-      onSubmit={() => {}}
-      modalSize="80%"
-    >
+    <MyButtonCreate form={form} onSubmit={() => {}} modalSize="80%" title="Chi tiết minh chứng">
       <Stack gap="md">
         <Tabs defaultValue="general" keepMounted={false}>
           <Tabs.List>

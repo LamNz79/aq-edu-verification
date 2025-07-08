@@ -35,6 +35,7 @@ export default function EvidenceManagementUpdate({ values }: { values: IEvidence
       crudType="update"
       disclosure={[opened, { open, close, toggle: () => open() }]}
       modalSize="80%"
+      title="Chi tiết minh chứng"
     >
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <Stack gap="md">

@@ -43,7 +43,7 @@ export default function EvidenceVersionsCreate() {
     <>
       <MyButtonModal
         crudType="create"
-        title="Thêm phiên bản minh chứng"
+        title="Chi tiết phiên bản minh chứng"
         disclosure={[opened, { open, close, toggle: () => {} }]}
         modalSize="xl"
       >
