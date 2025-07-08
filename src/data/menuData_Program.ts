@@ -233,7 +233,7 @@ export const menuData_Program: I0LinkItem[] = [
   {
     label: "Kết quả Đánh giá ngoài",
     links: [
-      { label: "Nhập Đánh giá Tiêu chí của Đoàn đánh giá ngoài", name: "", link: "none-63141745566", status: "Menu", description: "" },
+      { label: "Nhập Đánh giá Tiêu chí của Đoàn đánh giá ngoài", name: "", link: "external-review-input", status: "Prototype", description: "" },
     ],
   },
   {
