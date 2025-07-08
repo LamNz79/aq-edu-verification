@@ -1,15 +1,17 @@
 
 import { BarChart } from '@mantine/charts';
-import { Group, Paper, Stack, Text } from '@mantine/core';
+import { Center, Group, Paper, Stack, Text } from '@mantine/core';
 
 
 
 export default function F_obf4m08gkx_RequestOfUnitBarChart() {
 
     return (
-        <Stack w={{ base: '100%', sm: '47.5%' }}>
-            <Text>Biểu đồ theo dõi phân bố yêu cầu/ mốc chuẩn theo đơn vị</Text>
-            <Group gap={0} align='flex-start' wrap='nowrap'>
+        <Stack w={{ base: '100%' }}>
+            <Stack gap={0} align='center'>
+                <Center><Text fw={600} fz={18} pt={5}>Biểu đồ theo dõi phân bố yêu cầu/ mốc chuẩn theo đơn vị</Text></Center>
+            </Stack>
+            <Group gap={0} align='flex-start' wrap='nowrap' pt={30}>
                 <Paper h={120} p={8} w={60} ta="center">Danh sách đơn vị</Paper>
                 <BarChart
                     h="60vh"
