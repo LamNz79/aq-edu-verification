@@ -1,8 +1,5 @@
 import { Accordion, Box, Stack, Text } from "@mantine/core";
-import {
-  MyFieldset,
-  MyFlexColumn
-} from "aq-fe-framework/components";
+import { MyFieldset, MyFlexColumn } from "aq-fe-framework/components";
 import TrackSelfAssessmentProgressActionPlanContent from "./TrackSelfAssessmentProgressActionPlanContent";
 import TrackSelfAssessmentProgressActionPlanRow from "./TrackSelfAssessmentProgressActionPlanRow";
 import { ITrackSelfAssessmentProgressActionPlanRowHistory } from "./interface";
@@ -15,8 +12,8 @@ export default function TrackSelfAssessmentProgressActionPlanLayout() {
           4. Kế hoạch hành động
         </Text>
         <Text mb="md" size="sm">
-          (Phân tích những điểm tồn tại của CTĐT trong đáp ứng yêu cầu của tiêu
-          chí và các khuyến nghị cải tiến cần thiết)
+          (Phân tích những điểm tồn tại của CTĐT trong đáp ứng yêu cầu của tiêu chí và các khuyến
+          nghị cải tiến cần thiết)
         </Text>
       </Stack>
       <MyFieldset title={`Lịch sử soạn thảo`}>

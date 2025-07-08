@@ -1,12 +1,17 @@
 "use client";
+
 import { useMemo } from "react";
 import { ITrackSelfAssessmentProgressViewModel } from "./interface";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { MyDataTable } from "@/components/DataDisplay/DataTable/MyDataTable";
 import MyFieldset from "@/components/Inputs/Fieldset/MyFieldset";
 import { useQuery } from "@tanstack/react-query";
-import TrackSelfAssessmentProgressUpdate from "./TrackSelfAssessmentProgressUpdate";
-import { Center } from "@mantine/core";
+import { Checkbox } from "@mantine/core";
+import { U0DateToDDMMYYYString } from "@/utils/date";
+import TrackSelfAssessmentProgressDetail from "./TrackSelfAssessmentProgressDetail";
+import { MyButton, MyCenterFull } from "aq-fe-framework/components";
+import TrackSelfAssessmentProgressSendNoti from "./TrackSelfAssessmentProgressSendNoti";
+import TrackSelfAssessmentProgressNotiDetail from "./TrackSelfAssessmentProgressNotiDetail";
 
 export default function TrackSelfAssessmentProgressTable() {
   const TrackSelfAssessmentProgressList = useQuery({
@@ -50,12 +55,62 @@ export default function TrackSelfAssessmentProgressTable() {
         accessorKey: "evaluator",
       },
       {
+        header: "Ngày phụ trách",
+        accessorKey: "assignDate",
+        Cell: ({ cell }) => {
+          const date = cell.getValue<Date>();
+          return date ? U0DateToDDMMYYYString(date) : "";
+        },
+      },
+      {
+        header: "Ngày kết thúc",
+        accessorKey: "endDate",
+        Cell: ({ cell }) => {
+          const date = cell.getValue<Date>();
+          return date ? U0DateToDDMMYYYString(date) : "";
+        },
+      },
+      {
         header: "Tự đánh giá",
         accessorKey: "selfAssessmentStatus",
       },
       {
+        header: "Chi tiết tự đánh giá",
+        accessorKey: "detailSelfAssessmentId",
+        Cell: () => {
+          return (
+            <MyCenterFull>
+              <TrackSelfAssessmentProgressDetail />
+            </MyCenterFull>
+          );
+        },
+      },
+      {
         header: "Trạng thái kiểm tra",
         accessorKey: "checkStatus",
+      },
+      {
+        header: "Đã gửi thông báo",
+        accessorKey: "notificationSent",
+        Cell: ({ cell }) => {
+          const sent = cell.getValue<boolean>();
+          return (
+            <MyCenterFull>
+              <Checkbox checked={sent} readOnly />
+            </MyCenterFull>
+          );
+        },
+      },
+      {
+        header: "Nội dung thông báo",
+        accessorKey: "notificationContentId",
+        Cell: ({ cell }) => {
+          return (
+            <MyCenterFull>
+              <TrackSelfAssessmentProgressNotiDetail />
+            </MyCenterFull>
+          );
+        },
       },
     ],
     []
@@ -69,10 +124,11 @@ export default function TrackSelfAssessmentProgressTable() {
         enableRowNumbers={true}
         columns={columns}
         enableRowActions={true}
-        renderRowActions={({ row }) => (
-          <Center>
-            <TrackSelfAssessmentProgressUpdate data={row.original} />
-          </Center>
+        renderTopToolbarCustomActions={() => <MyButton crudType="export" />}
+        renderRowActions={() => (
+          <MyCenterFull>
+            <TrackSelfAssessmentProgressSendNoti />
+          </MyCenterFull>
         )}
       />
     </MyFieldset>
@@ -82,67 +138,110 @@ export default function TrackSelfAssessmentProgressTable() {
 const mockData: ITrackSelfAssessmentProgressViewModel[] = [
   {
     id: 1,
-    code: "TC_05.02",
-    name: "Đảm bảo tính thống nhất, công khai của quy định về đào tạo và các quy định khác có liên quan",
     planCode: "KH-KTPM-2024",
     programCode: "KTPM",
-    courseCode: "KTPM_K20",
-    standardCode: "TC_05",
-    groupCode: "NCT_TC5-7",
-    evaluator: "ThS. Hoàng Thị E",
-    selfAssessmentStatus: "Đạt yêu cầu",
-    checkStatus: "Đã kiểm tra",
+    courseCode: "K2020",
+    standardCode: "TC_01",
+    code: "TC_01.01",
+    name: "Mục tiêu và chuẩn đầu ra",
+    groupCode: "Nhóm tiêu chí 1-3",
+    evaluator: "Nguyễn Văn A",
+    assignDate: new Date("2025-07-01"),
+    endDate: new Date("2025-07-30"),
+    selfAssessmentStatus: "Đạt",
+    detailSelfAssessmentId: 1,
+    checkStatus: "Đạt yêu cầu",
+    notificationSent: true,
+    notificationContentId: 1,
   },
   {
     id: 2,
-    code: "TC_01.01",
-    name: "Đảm bảo tính công khai, minh bạch của mục tiêu và chuẩn đầu ra",
     planCode: "KH-KTPM-2024",
     programCode: "KTPM",
-    courseCode: "KTPM_K20",
-    standardCode: "TC_01",
-    groupCode: "NCT_TC1-3",
-    evaluator: "TS. Trần Văn C",
-    selfAssessmentStatus: "Không đạt",
-    checkStatus: "Cần hiệu chính",
+    courseCode: "K2020",
+    standardCode: "TC_02",
+    code: "TC_02.03",
+    name: "Cấu trúc và nội dung CTĐT",
+    groupCode: "Nhóm tiêu chí 1-3",
+    evaluator: "Trần Thị B",
+    assignDate: new Date("2025-07-01"),
+    endDate: new Date("2025-07-30"),
+    selfAssessmentStatus: "Đạt",
+    detailSelfAssessmentId: 1,
+    checkStatus: "Đang kiểm tra",
+    notificationSent: true,
+    notificationContentId: 2,
   },
   {
     id: 3,
-    code: "TC_05.02",
-    name: "Đảm bảo tính thống nhất, công khai của quy định về đào tạo và các quy định khác có liên quan",
     planCode: "KH-KTPM-2024",
     programCode: "KTPM",
-    courseCode: "KTPM_K21",
-    standardCode: "TC_05",
-    groupCode: "NCT_TC5-7",
-    evaluator: "ThS. Hoàng Thị E",
-    selfAssessmentStatus: "Chưa đánh giá",
+    courseCode: "K2020",
+    standardCode: "TC_03",
+    code: "TC_03.02",
+    name: "Đội ngũ giảng viên",
+    groupCode: "Nhóm tiêu chí 1-3",
+    evaluator: "Lê Văn C",
+    assignDate: new Date("2025-07-01"),
+    endDate: new Date("2025-07-30"),
+    selfAssessmentStatus: "Không đạt",
+    detailSelfAssessmentId: 1,
     checkStatus: "Chưa kiểm tra",
+    notificationSent: false,
+    notificationContentId: 0,
   },
   {
     id: 4,
-    code: "TC_03.02",
-    name: "Đảm bảo chất lượng đội ngũ giảng viên; đáp ứng yêu cầu của chương trình đào tạo",
-    planCode: "KH-KTPM-2024",
-    programCode: "KTPM",
-    courseCode: "KTPM_K20",
-    standardCode: "TC_03",
-    groupCode: "NCT_TC3-4",
-    evaluator: "CN. Bùi Thị L",
-    selfAssessmentStatus: "Đạt yêu cầu",
-    checkStatus: "Đã kiểm tra",
+    planCode: "KH-QTKD-2025",
+    programCode: "QTKD",
+    courseCode: "K2021",
+    standardCode: "TC_01",
+    code: "TC_01.01",
+    name: "Mục tiêu và chuẩn đầu ra",
+    groupCode: "Nhóm tiêu chí 1-3",
+    evaluator: "Phạm Thị D",
+    assignDate: new Date("2025-08-01"),
+    endDate: new Date("2025-08-31"),
+    selfAssessmentStatus: "Chưa đánh giá",
+    detailSelfAssessmentId: 1,
+    checkStatus: "Chưa kiểm tra",
+    notificationSent: false,
+    notificationContentId: 0,
   },
   {
     id: 5,
-    code: "TC_06.01",
-    name: "Đảm bảo hoạt động nghiên cứu khoa học và chuyển giao công nghệ phù hợp với định hướng phát triển",
-    planCode: "KH-KTPM-2024",
-    programCode: "KTPM",
-    courseCode: "KTPM_K20",
-    standardCode: "TC_06",
-    groupCode: "NCT_TC6-7",
-    evaluator: "ThS. Lê Thị M",
+    planCode: "KH-QTKD-2025",
+    programCode: "QTKD",
+    courseCode: "K2021",
+    standardCode: "TC_02",
+    code: "TC_02.03",
+    name: "Cấu trúc và nội dung CTĐT",
+    groupCode: "Nhóm tiêu chí 1-2",
+    evaluator: "Hoàng Văn E",
+    assignDate: new Date("2025-08-01"),
+    endDate: new Date("2025-08-31"),
     selfAssessmentStatus: "Chưa đánh giá",
-    checkStatus: "Chưa kiểm tra",
+    detailSelfAssessmentId: 1,
+    checkStatus: "Đang kiểm tra",
+    notificationSent: true,
+    notificationContentId: 1,
+  },
+  {
+    id: 6,
+    planCode: "KH-KHMT-2025",
+    programCode: "KHMT",
+    courseCode: "K2022",
+    standardCode: "TC_03",
+    code: "TC_03.02",
+    name: "Đội ngũ giảng viên",
+    groupCode: "Nhóm tiêu chí 3-5",
+    evaluator: "Nguyễn Thị G",
+    assignDate: new Date("2025-09-01"),
+    endDate: new Date("2025-09-30"),
+    selfAssessmentStatus: "Đạt",
+    detailSelfAssessmentId: 1,
+    checkStatus: "Đang kiểm tra",
+    notificationSent: false,
+    notificationContentId: 0,
   },
 ];

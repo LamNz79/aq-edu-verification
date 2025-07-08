@@ -1,6 +1,12 @@
 import { Box, Checkbox, Grid, Group } from "@mantine/core";
 import { IconCheck } from "@tabler/icons-react";
-import { MyActionIcon, MyDataTable, MyFieldset, MyTextEditor } from "aq-fe-framework/components";
+import {
+  MyActionIcon,
+  MyCenterFull,
+  MyDataTable,
+  MyFieldset,
+  MyTextEditor,
+} from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo, useState } from "react";
 import { ITrackSelfAssessmentProgressCurrentSituationRowHistoryProof } from "./interface";
@@ -32,7 +38,7 @@ export default function TrackSelfAssessmentProgressCurrentSituationContent() {
         header: "Đã sử dụng",
         accessorKey: "isUsed",
         accessorFn: (row) => {
-          return <Checkbox checked={row.isUsed} readOnly />;
+          return <MyCenterFull><Checkbox checked={row.isUsed} readOnly /></MyCenterFull>;
         },
       },
       {
@@ -40,13 +46,13 @@ export default function TrackSelfAssessmentProgressCurrentSituationContent() {
         accessorKey: "action",
         accessorFn: (row) => {
           return (
-            <Group gap="4">
+            <MyCenterFull>
               <TrackSelfAssessmentProgressCurrentSituationDetail data={row} />
 
               <MyActionIcon onClick={() => handleUse(row.code, row.content || "")}>
                 <IconCheck />
               </MyActionIcon>
-            </Group>
+            </MyCenterFull>
           );
         },
         size: 100,

@@ -1,6 +1,7 @@
+"use client";
+
 import { Box, Grid } from "@mantine/core";
-import { useForm } from "@mantine/form";
-import { MyActionIconUpdate } from "aq-fe-framework/components";
+import { MyButtonModal } from "aq-fe-framework/components";
 import { useState } from "react";
 import TrackSelfAssessmentProgressActionPlanLayout from "./TrackSelfAssessmentProgressActionPlan/TrackSelfAssessmentProgressActionPlanLayout";
 import TrackSelfAssessmentProgressCurrentSituationLayout from "./TrackSelfAssessmentProgressCurrentSituation/TrackSelfAssessmentProgressCurrentSituationLayout";
@@ -9,16 +10,11 @@ import TrackSelfAssessmentProgressStrengthsLayout from "./TrackSelfAssessmentPro
 import TrackSelfAssessmentProgressWeaknessesLayout from "./TrackSelfAssessmentProgressWeaknesses/TrackSelfAssessmentProgressWeaknessesLayout";
 import { ITrackSelfAssessmentProgressViewModel } from "./interface";
 import { useCustomScrollSpy } from "./useCustomScrollSpy";
+import { useDisclosure } from "@mantine/hooks";
 
-export default function TrackSelfAssessmentProgress({
-  data,
-}: {
-  data: ITrackSelfAssessmentProgressViewModel;
-}) {
-  const form = useForm({
-    initialValues: {},
-  });
+export default function TrackSelfAssessmentProgressDetail() {
   const [scrollContainer, setScrollContainer] = useState<HTMLElement | null>(null);
+  const [opened, { open, close }] = useDisclosure(false);
 
   const scrollRef = (element: HTMLDivElement | null) => {
     if (element) {
@@ -33,10 +29,13 @@ export default function TrackSelfAssessmentProgress({
   });
 
   return (
-    <MyActionIconUpdate
+    <MyButtonModal
+      disclosure={[opened, { open, close, toggle: () => open() }]}
+      variant="subtle"
+      size="xs"
       modalSize={"100%"}
-      form={form}
       title="Chi tiết phiếu tự đánh giá"
+      label="Xem chi tiết"
       onSubmit={() => {}}
     >
       <Grid style={{ minHeight: "75vh", position: "relative" }}>
@@ -115,6 +114,6 @@ export default function TrackSelfAssessmentProgress({
           </Box>
         </Grid.Col>
       </Grid>
-    </MyActionIconUpdate>
+    </MyButtonModal>
   );
 }

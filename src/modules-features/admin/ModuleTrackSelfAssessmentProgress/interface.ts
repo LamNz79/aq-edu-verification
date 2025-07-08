@@ -1,14 +1,27 @@
 export interface ITrackSelfAssessmentProgressViewModel {
   id?: number;
-  code?: string; // mã tiêu chí
-  name?: string; // tên tiêu chí
+  planCode?: string;
+  programCode?: string;
+  courseCode?: string;
+  standardCode?: string;
+  code?: string;
+  name?: string;
   description?: string;
-  planCode?: string;              // Mã Kế hoạch TDG (KH-KTPM-2024)
-  programCode?: string;           // Mã CTĐT (KTPM)
-  courseCode?: string;            // Mã Khóa (KTPM_K20)
-  standardCode?: string;          // Mã Tiêu chuẩn (TC_05)
-  groupCode?: string;          // Mã nhóm nghiên cứu (NCT_TC5-7)
-  evaluator?: string;             // Thành viên phụ trách (ThS. Hoàng Thị E)
-  selfAssessmentStatus?: 'Đạt yêu cầu' | 'Không đạt' | 'Chưa đánh giá';
-  checkStatus?: 'Đã kiểm tra' | 'Chưa kiểm tra' | 'Cần hiệu chính';
+  groupCode?: string;
+  evaluator?: string;
+  assignDate?: Date;
+  endDate?: Date;
+  selfAssessmentStatus?: "Đạt" | "Không đạt" | "Chưa đánh giá";
+  detailSelfAssessmentId?: number;
+  checkStatus?: "Đạt yêu cầu" | "Đang kiểm tra" | "Chưa kiểm tra";
+  notificationSent?: boolean;
+  notificationContentId?: number;
+}
+
+export interface ITrackSelfAssessmentProgressNotificationDetail {
+  id?: number;
+  sendDate?: Date; // Ngày gửi
+  sender?: string; // Người gửi
+  receiver?: string; // Người nhận
+  content?: string; // Nội dung thông báo
 }

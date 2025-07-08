@@ -1,13 +1,5 @@
-import {
-  Accordion,
-  Box,
-  Checkbox,
-  Flex,
-  Grid,
-  Group,
-  Text,
-} from "@mantine/core";
-import { MyDataTable, MyTextArea } from "aq-fe-framework/components";
+import { Accordion, Box, Checkbox, Flex, Grid, Group, Text } from "@mantine/core";
+import { MyCenterFull, MyDataTable, MyTextArea } from "aq-fe-framework/components";
 import { utils_date_dateToDDMMYYYString } from "aq-fe-framework/utils";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
@@ -42,8 +34,24 @@ export default function TrackSelfAssessmentProgressCurrentSituationRowHistory({
         header: "Đã sử dụng",
         accessorKey: "isUsed",
         accessorFn: (row) => {
-          return <Checkbox checked={row.isUsed} readOnly />;
+          return (
+            <MyCenterFull>
+              <Checkbox checked={row.isUsed} readOnly />
+            </MyCenterFull>
+          );
         },
+      },
+      {
+        header: "Thao tác",
+        accessorKey: "action",
+        accessorFn: (row) => {
+          return (
+            <MyCenterFull>
+              <TrackSelfAssessmentProgressCurrentSituationDetail data={row} />
+            </MyCenterFull>
+          );
+        },
+        size: 100,
       },
     ],
     []
@@ -57,8 +65,7 @@ export default function TrackSelfAssessmentProgressCurrentSituationRowHistory({
             {data?.name}
           </Text>
           <Text size="sm" fw={500}>
-            Ngày cập nhật:{" "}
-            {utils_date_dateToDDMMYYYString(new Date(data?.ngayCapNhat ?? ""))}
+            Ngày cập nhật: {utils_date_dateToDDMMYYYString(new Date(data?.ngayCapNhat ?? ""))}
           </Text>
           <Text size="sm" fw={500}>
             Người cập nhật: {data?.nguoiCapNhat}
@@ -102,9 +109,6 @@ Trường và Khoa đã ban hành bộ Quy tắc ứng xử cho SV, trong đó n
               columns={columns}
               data={mockData}
               enableRowNumbers={false}
-              renderRowActions={({ row }) => {
-                return <TrackSelfAssessmentProgressCurrentSituationDetail data={row.original} />;
-              }}
               initialState={{
                 columnSizing: {
                   "mrt-row-numbers": 60,
