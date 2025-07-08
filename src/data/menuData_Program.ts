@@ -221,7 +221,7 @@ export const menuData_Program: I0LinkItem[] = [
     links: [
       { label: "Quản lý Kế hoạch Đánh giá ngoài CTĐT (Biểu 07)", name: "Manage External Evaluation Plan for Programs (Form 07)", link: "program-external-eval-plan-07", status: "Prototype", description: "" },
       { label: "Quản lý Biên bản Ghi nhớ sau Khảo sát Sơ bộ CTĐT (Biểu 08)", name: "Manage Memorandum after Preliminary Program Survey (Form 08)", link: "program-survey-memo-08", status: "Prototype", description: "" },
-      { label: "Quản lý Biên bản Hoàn thành Đợt Khảo sát Chính thức CTĐT (Biểu 09)", name: "", link: "none-24324", status: "Menu", description: "" },
+      { label: "Quản lý Biên bản Hoàn thành Đợt Khảo sát Chính thức CTĐT (Biểu 09)", name: "Official Survey Completion Report (Form 09)", link: "official-survey-completion-report-09", status: "Prototype", description: "" },
       { label: "Quản lý Báo cáo Đánh giá ngoài CTĐT (Biểu 10)", name: "", link: "none-234234", status: "Menu", description: "" },
       { label: "Quản lý  Bảng Tổng hợp Kết quả Tự đánh giá và Đánh giá ngoài (Biểu 11)", name: "", link: "none-234332424", status: "Menu", description: "" },
       { label: "Quản lý Nhận xét về Hồ sơ Thẩm định Kết quả Đánh giá CLCTĐT (Biểu 13)", name: "Manage Comments on Program Quality Evaluation Dossier Review (Form 13)", link: "program-eval-comments-13", status: "Prototype", description: "" },
