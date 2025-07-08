@@ -17,13 +17,13 @@ export default function Form04SelfEvaluationRow({
             </Text>
           </Grid.Col>
           <Grid.Col span={3}>
-            <Text size="sm">Ngày cập nhật: {data.ngayCapNhat}</Text>
+            <Text size="sm" fw={500}>Ngày cập nhật: {data.ngayCapNhat}</Text>
           </Grid.Col>
           <Grid.Col span={3}>
-            <Text size="sm">Người cập nhật: {data.nguoiCapNhat}</Text>
+            <Text size="sm" fw={500}>Người cập nhật: {data.nguoiCapNhat}</Text>
           </Grid.Col>
           <Grid.Col span={3}>
-            <Text size="sm" span>
+            <Text size="sm" span fw={500}>
               Tự đánh giá:{" "}
               <Text span c={data.status === true ? "green" : "red"} fw={600}>
                 {data.status ? "Đạt" : "Không đạt"}
