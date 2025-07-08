@@ -193,7 +193,7 @@ export const menuData_Program: I0LinkItem[] = [
         label: "Tự đánh giá Tiêu chí",
         links: [
           { label: "Phân tích và Xử lý Thông tin, Minh chứng (Biểu 03)", name: "", link: "analysis-and-processing-proof-03", description: "", status: "Prototype" },
-          { label: "Kiểm tra phân tích tiêu chí", name: "", link: "", description: "", status: "Menu" },
+          { label: "Kiểm tra phân tích tiêu chí", name: "", link: "check-criteria-analysis", description: "", status: "Prototype" },
           { label: "Tổng hợp danh sách minh chứng dự kiến", name: "", link: "evidence-list-summary-expected", description: "", status: "Prototype" },
           { label: "Ghi nhận Kết quả Thu thập Minh chứng Thực tế", name: "", link: "record-results-collect-real-world-evidence", description: "", status: "Prototype" },
           { label: "Kiểm duyệt Minh chứng thu thập", name: "", link: "evidence-collection-review", description: "", status: "Prototype" },

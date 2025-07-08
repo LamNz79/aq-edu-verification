@@ -57,3 +57,10 @@ object {
     font-size: 14px;
   }
 }
+
+.my-bordered-table th,
+.my-bordered-table td,
+.my-bordered-table tr {
+  border: 1px solid black;
+}
+
