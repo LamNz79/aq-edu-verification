@@ -27,20 +27,24 @@ export default function Form04ActionPlanRow({
       <Accordion.Control>
         <Grid>
           <Grid.Col span={3}>
-            <Text size="sm" c="green" fw={600}>
+            <Text size="sm" c="green" fw={500}>
               {data.name}
             </Text>
           </Grid.Col>
           <Grid.Col span={3}>
-            <Text size="sm">Ngày cập nhật: {data.ngayCapNhat}</Text>
+            <Text size="sm" fw={500}>
+              Ngày cập nhật: {data.ngayCapNhat}
+            </Text>
           </Grid.Col>
           <Grid.Col span={3}>
-            <Text size="sm">Người cập nhật: {data.nguoiCapNhat}</Text>
+            <Text size="sm" fw={500}>
+              Người cập nhật: {data.nguoiCapNhat}
+            </Text>
           </Grid.Col>
           <Grid.Col span={3}>
-            <Text size="sm" span>
+            <Text size="sm" fw={500} span>
               Tự đánh giá:{" "}
-              <Text span c={data.status === true ? "green" : "red"} fw={600}>
+              <Text span c={data.status === true ? "green" : "red"} fw={500}>
                 {data.status ? "Đạt" : "Không đạt"}
               </Text>
             </Text>

@@ -91,7 +91,7 @@ export default function QualityAssessmentPage() {
                                                     if (type.id == "education") {
                                                         store.setProperty("accreditationType", "Institutional")
                                                     }
-                                                    if (type.id = "program") {
+                                                    if (type.id == "program") {
                                                         store.setProperty("accreditationType", "Program")
                                                     }
                                                     router.push("/auth/login")
