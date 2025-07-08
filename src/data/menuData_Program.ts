@@ -53,7 +53,7 @@ export const menuData_Program: I0LinkItem[] = [
       {
         label: "Chu kỳ báo cáo định kỳ",
         links: [
-          { label: "Thiết lập Kỳ Báo cáo Định kỳ", name: "", link: "none-43252", description: "", status: "Menu" },
+          { label: "Thiết lập Kỳ Báo cáo Định kỳ", name: "", link: "set-up-periodic-report", description: "", status: "Prototype" },
         ],
       },
       {
