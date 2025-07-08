@@ -61,6 +61,7 @@ export default function ExternalEvaluationResultDetailLayout({}: {}) {
                 textAlign: "left",
                 cursor: "pointer",
                 padding: "6px 10px",
+                transition: "all 0.3s ease",
                 borderLeft: activeId === item.id ? "4px solid var(--mantine-color-blue-4)" : "none",
                 backgroundColor:
                   activeId === item.id ? "var(--mantine-color-blue-1)" : "transparent",
