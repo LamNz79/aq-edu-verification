@@ -6,11 +6,7 @@ import { MyButton, MyButtonModal } from "aq-fe-framework/components";
 import { useDisclosure } from "@mantine/hooks";
 import { IEvidenceVersion } from "../interfaces/EvidenceManagementViewModel";
 
-interface EvidenceVersionsCreateProps {
-  evidenceCode: string;
-}
-
-export default function EvidenceVersionsCreate({ evidenceCode }: EvidenceVersionsCreateProps) {
+export default function EvidenceVersionsCreate() {
   const [opened, { open, close }] = useDisclosure(false);
 
   const form = useForm<IEvidenceVersion>({
@@ -25,7 +21,7 @@ export default function EvidenceVersionsCreate({ evidenceCode }: EvidenceVersion
       effectiveTo: "",
       versionNote: "",
       isCurrent: false,
-      evidenceCode: evidenceCode,
+      evidenceCode: "",
     },
     validate: {
       fileName: (value) => (!value ? "Tên file là bắt buộc" : null),
@@ -136,9 +132,7 @@ export default function EvidenceVersionsCreate({ evidenceCode }: EvidenceVersion
               </Grid.Col>
             </Grid>
 
-            <MyButton type="submit" w="full">
-              Lưu
-            </MyButton>
+            <MyButton type="submit" w="full" crudType="create" />
           </Stack>
         </form>
       </MyButtonModal>

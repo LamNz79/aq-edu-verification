@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Checkbox, CopyButton } from "@mantine/core";
+import { Anchor, Checkbox, Text } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import { MyButtonDeleteList, MyCenterFull, MyDataTable } from "aq-fe-framework/components";
 import { MyButtonViewPDF } from "aq-fe-framework/components";
@@ -12,13 +12,14 @@ import EvidenceVersionsCreate from "./EvidenceVersionsCreate";
 import EvidenceVersionsUpdate from "./EvidenceVersionsUpdate";
 
 interface EvidenceVersionsTabProps {
-  evidenceCode: string;
+  evidenceCode?: string;
 }
 
 export default function EvidenceVersionsTab({ evidenceCode }: EvidenceVersionsTabProps) {
   const query = useQuery({
     queryKey: ["evidence-versions", evidenceCode],
     queryFn: () => {
+      if (!evidenceCode) return [];
       return mockVersionData.filter((item) => item.evidenceCode === evidenceCode);
     },
   });
@@ -39,7 +40,7 @@ export default function EvidenceVersionsTab({ evidenceCode }: EvidenceVersionsTa
         header: "File đính kèm",
         accessorKey: "attachedFile",
         size: 120,
-        Cell: ({ cell }) => {
+        accessorFn: () => {
           return (
             <MyCenterFull>
               <MyButtonViewPDF />
@@ -51,18 +52,13 @@ export default function EvidenceVersionsTab({ evidenceCode }: EvidenceVersionsTa
         header: "Link liên kết",
         accessorKey: "link",
         size: 120,
-        Cell: ({ cell }) => {
-          const link = cell.getValue();
+        accessorFn: (row) => {
           return (
-            <MyCenterFull>
-              <CopyButton value={link as string}>
-                {({ copied, copy }) => (
-                  <Button variant="transparent" onClick={copy}>
-                    {copied ? "Đã copy" : `${link}`}
-                  </Button>
-                )}
-              </CopyButton>
-            </MyCenterFull>
+            <Anchor href={row.link} target="_blank">
+              <Text truncate maw={200}>
+                {row.link}
+              </Text>
+            </Anchor>
           );
         },
       },
@@ -105,46 +101,26 @@ export default function EvidenceVersionsTab({ evidenceCode }: EvidenceVersionsTa
     []
   );
 
-  const handleCreateVersion = (newVersion: IEvidenceVersion) => {
-    console.log("Created new version:", newVersion);
-    // TODO: Integrate with API to create version
-    // You can also update the query cache here
-  };
-
-  const handleUpdateVersion = (updatedVersion: IEvidenceVersion) => {
-    console.log("Updated version:", updatedVersion);
-    // TODO: Integrate with API to update version
-    // You can also update the query cache here
-  };
-
   return (
     <MyDataTable
       columns={columns}
       enableRowSelection={true}
       renderTopToolbarCustomActions={({ table }) => (
         <>
-          <EvidenceVersionsCreate evidenceCode={evidenceCode} />
+          <EvidenceVersionsCreate />
           <MyButtonDeleteList
-            onSubmit={() => {
-              const selectedIds = table
-                .getSelectedRowModel()
-                .flatRows.flatMap((item) => item.original)
-                .map((item) => item.fileId)
-                .join(", ");
-              console.log("Deleting versions with IDs:", selectedIds);
-              // TODO: Integrate with API to delete versions
-            }}
+            onSubmit={() => {}}
             contextData={table
               .getSelectedRowModel()
               .flatRows.flatMap((item) => item.original)
-              .map((item) => item.fileName)
+              .map((item) => item.fileId)
               .join(", ")}
           />
         </>
       )}
       renderRowActions={({ row }) => (
         <MyCenterFull>
-          <EvidenceVersionsUpdate values={row.original} onSubmit={handleUpdateVersion} />
+          <EvidenceVersionsUpdate values={row.original} />
           <EvidenceVersionsDelete id={row.original.fileId} code={row.original.evidenceCode} />
         </MyCenterFull>
       )}

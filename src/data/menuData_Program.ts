@@ -152,7 +152,7 @@ export const menuData_Program: I0LinkItem[] = [
   {
     label: "Kho Minh chứng",
     links: [
-      { label: "Quản lý Minh chứng", name: "", link: "none-6314174556615", status: "Menu", description: "" },
+      { label: "Quản lý Minh chứng", name: "Evidence management", link: "evidence-management", status: "Prototype", description: "Lưu trữ và tra cứu minh chứng phục vụ công tác đánh giá." },
     ],
   },
   {

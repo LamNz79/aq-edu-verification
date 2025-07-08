@@ -1,20 +1,21 @@
 "use client";
 
-import { CopyButton, Button } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import { MyButtonViewPDF, MyCenterFull, MyDataTable } from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
 import { IEvidenceUsage } from "../interfaces/EvidenceManagementViewModel";
+import { Anchor, Text } from "@mantine/core";
 
 interface EvidenceUsageTabProps {
-  evidenceCode: string;
+  evidenceCode?: string;
 }
 
 export default function EvidenceUsageTab({ evidenceCode }: EvidenceUsageTabProps) {
   const query = useQuery({
     queryKey: ["evidence-usage", evidenceCode],
     queryFn: () => {
+      if (!evidenceCode) return [];
       return mockUsageData.filter((item) => item.evidenceCode === evidenceCode);
     },
   });
@@ -60,7 +61,7 @@ export default function EvidenceUsageTab({ evidenceCode }: EvidenceUsageTabProps
         header: "File đính kèm",
         accessorKey: "attachedFile",
         size: 120,
-        Cell: ({ cell }) => {
+        accessorFn: () => {
           return (
             <MyCenterFull>
               <MyButtonViewPDF />
@@ -72,18 +73,13 @@ export default function EvidenceUsageTab({ evidenceCode }: EvidenceUsageTabProps
         header: "Link liên kết",
         accessorKey: "link",
         size: 120,
-        Cell: ({ cell }) => {
-          const link = cell.getValue();
+        accessorFn: (row) => {
           return (
-            <MyCenterFull>
-              <CopyButton value={link as string}>
-                {({ copied, copy }) => (
-                  <Button variant="transparent" onClick={copy}>
-                    {copied ? "Đã copy" : `${link}`}
-                  </Button>
-                )}
-              </CopyButton>
-            </MyCenterFull>
+            <Anchor href={row.link} target="_blank">
+              <Text truncate maw={200}>
+                {row.link}
+              </Text>
+            </Anchor>
           );
         },
       },
