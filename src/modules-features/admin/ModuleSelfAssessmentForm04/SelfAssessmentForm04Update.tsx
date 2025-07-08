@@ -1,15 +1,14 @@
-import { Box, Flex, Grid, Group, Text } from "@mantine/core";
+import { Box, Button, Grid } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { MyActionIconUpdate } from "aq-fe-framework/components";
-import cx from "clsx";
-import { ISelfAssessmentForm04ViewModel } from "./interface";
-import classes from "./style.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Form04ActionPlanLayout from "./Form04ActionPlan/Form04ActionPlanLayout";
 import Form04CurrentSituationLayout from "./Form04CurrentSituation/Form04CurrentSituationLayout";
+import Form04SelfEvaluationLayout from "./Form04SelfEvaluation/Form04SelfEvaluationLayout";
 import Form04StrengthsLayout from "./Form04Strengths/Form04StrengthsLayout";
 import Form04WeaknessesLayout from "./Form04Weaknesses/Form04WeaknessesLayout";
-import Form04ActionPlanLayout from "./Form04ActionPlan/Form04ActionPlanLayout";
-import Form04SelfEvaluationLayout from "./Form04SelfEvaluation/Form04SelfEvaluationLayout";
+import { ISelfAssessmentForm04ViewModel } from "./interface";
+import { useCustomScrollSpy } from "./useCustomScrollSpy";
 
 export default function SelfAssessmentForm04Update({
   data,
@@ -19,42 +18,25 @@ export default function SelfAssessmentForm04Update({
   const form = useForm({
     initialValues: {},
   });
-  const [active, setActive] = useState(window.location.hash || "#1");
+  const [scrollContainer, setScrollContainer] = useState<HTMLElement | null>(
+    null
+  );
 
-  useEffect(() => {
-    const handleHashChange = () => {
-      setActive(window.location.hash);
-    };
+  const scrollRef = (element: HTMLDivElement | null) => {
+    if (element) {
+      setScrollContainer(element);
+    }
+  };
 
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, []);
-
-  const links = [
-    { label: "1. Mô tả hiện trạng", link: "#1", order: 1 },
-    { label: "2. Điểm mạnh", link: "#2", order: 1 },
-    { label: "3. Điểm tồn tại", link: "#3", order: 1 },
-    { label: "4. Kế hoạch hành động", link: "#4", order: 1 },
-    { label: "5. Tự đánh giá", link: "#5", order: 1 },
-  ];
-
-  const items = links.map((item) => (
-    <Box<"a">
-      component="a"
-      href={item.link}
-      key={item.label}
-      className={cx(classes.link, {
-        [classes.linkActive]: active === item.link,
-      })}
-      style={{ paddingLeft: `calc(${item.order} * var(--mantine-spacing-md))` }}
-    >
-      {item.label}
-    </Box>
-  ));
+  const { activeId } = useCustomScrollSpy({
+    root: scrollContainer,
+    selector: "[id]",
+    offset: 20,
+  });
 
   return (
     <MyActionIconUpdate
-      modalSize={"90%"}
+      modalSize={"100%"}
       form={form}
       title="Chi tiết phiếu tự đánh giá"
       onSubmit={() => {}}
@@ -69,25 +51,79 @@ export default function SelfAssessmentForm04Update({
             overflowY: "auto",
           }}
         >
-          <Flex mb="md" direction={"column"} gap={0} style={{ marginTop: 10 }}>
-            {items}
-          </Flex>
+          {[
+            { id: "section-1", label: "1. Mô tả hiện trạng" },
+            { id: "section-2", label: "2. Điểm mạnh" },
+            { id: "section-3", label: "3. Điểm tồn tại" },
+            { id: "section-4", label: "4. Kế hoạch hành động" },
+            { id: "section-5", label: "5. Tự đánh giá" },
+          ].map((item) => (
+            <Box
+              key={item.id}
+              style={{
+                textAlign: "left",
+                cursor: "pointer",
+                padding: "6px 10px",
+                borderLeft:
+                  activeId === item.id
+                    ? "4px solid var(--mantine-color-blue-4)"
+                    : "none",
+                backgroundColor:
+                  activeId === item.id
+                    ? "var(--mantine-color-blue-1)"
+                    : "transparent",
+                color:
+                  activeId === item.id
+                    ? "var(--mantine-color-blue-8)"
+                    : "black",
+              }}
+              mt={2}
+              onClick={() => {
+                const element = document.getElementById(item.id);
+                if (element && scrollContainer) {
+                  // Tính position relative trong scroll container
+                  const containerRect = scrollContainer.getBoundingClientRect();
+                  const elementRect = element.getBoundingClientRect();
+                  const currentScrollTop = scrollContainer.scrollTop;
+                  const relativeTop =
+                    elementRect.top - containerRect.top + currentScrollTop;
+
+                  scrollContainer.scrollTo({
+                    top: relativeTop - 30, // offset 30px từ top
+                    behavior: "smooth",
+                  });
+                }
+              }}
+            >
+              {item.label}
+            </Box>
+          ))}
         </Grid.Col>
         <Grid.Col span={10}>
-          <Box id="1" style={{ paddingTop: 80 }}>
-            <Form04CurrentSituationLayout />
-          </Box>
-          <Box id="2" style={{ paddingTop: 80 }}>
-            <Form04StrengthsLayout />
-          </Box>
-          <Box id="3" style={{ paddingTop: 80 }}>
-            <Form04WeaknessesLayout />
-          </Box>
-          <Box id="4" style={{ paddingTop: 80 }}>
-            <Form04ActionPlanLayout />
-          </Box>
-          <Box id="5" style={{ paddingTop: 80 }}>
-            <Form04SelfEvaluationLayout />
+          <Box
+            ref={scrollRef}
+            style={{
+              maxHeight: "75vh",
+              overflowY: "auto",
+              border: "1px solid #ccc",
+              padding: 20,
+            }}
+          >
+            <Box id="section-1" style={{ paddingBottom: 40, minHeight: 200 }}>
+              <Form04CurrentSituationLayout />
+            </Box>
+            <Box id="section-2" style={{ paddingBottom: 40, minHeight: 200 }}>
+              <Form04StrengthsLayout />
+            </Box>
+            <Box id="section-3" style={{ paddingBottom: 40, minHeight: 200 }}>
+              <Form04WeaknessesLayout />
+            </Box>
+            <Box id="section-4" style={{ paddingBottom: 40, minHeight: 200 }}>
+              <Form04ActionPlanLayout />
+            </Box>
+            <Box id="section-5" style={{ paddingBottom: 40, minHeight: 200 }}>
+              <Form04SelfEvaluationLayout />
+            </Box>
           </Box>
         </Grid.Col>
       </Grid>
