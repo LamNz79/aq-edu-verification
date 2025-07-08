@@ -11,7 +11,7 @@ import { useMemo } from "react";
 import { IOfficialSurveyCompletionReportInfoViewModel } from "./interfaces/IOfficialSurveyCompletionReportInfoViewModel";
 import OfficialSurveyCompletionReportCreateButton from "./OfficialSurveyCompletionReportCreateButton";
 import OfficialSurveyCompletionReportDeleteButton from "./OfficialSurveyCompletionReportDeleteButton";
-import OfficialSurveyCompletionReportDeleteList from "./OfficialSurveyCompletionReportDeleteList";
+import OfficialSurveyCompletionReportDeleteListButton from "./OfficialSurveyCompletionReportDeleteListButton";
 import OfficialSurveyCompletionReportUpdateButton from "./OfficialSurveyCompletionReportUpdateButton";
 
 export default function OfficialSurveyCompletionReportTable() {
@@ -65,7 +65,7 @@ export default function OfficialSurveyCompletionReportTable() {
             <OfficialSurveyCompletionReportCreateButton />
             <MyButton crudType="import">Import</MyButton>
             <MyButton crudType="export">Export</MyButton>
-            <OfficialSurveyCompletionReportDeleteList
+            <OfficialSurveyCompletionReportDeleteListButton
               values={table.getSelectedRowModel().flatRows.flatMap((item) => item.original)}
             />
           </MyCenterFull>
@@ -76,7 +76,7 @@ export default function OfficialSurveyCompletionReportTable() {
               <OfficialSurveyCompletionReportUpdateButton values={row.original} />
               <OfficialSurveyCompletionReportDeleteButton
                 id={row.original.id || 0}
-                code={row.original.programName}
+                code={row.original.id?.toString() || ""}
               />
             </MyCenterFull>
           );
