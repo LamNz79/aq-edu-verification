@@ -226,7 +226,7 @@ export const menuData_Program: I0LinkItem[] = [
       { label: "Quản lý  Bảng Tổng hợp Kết quả Tự đánh giá và Đánh giá ngoài (Biểu 11)", name: "", link: "none-234332424", status: "Menu", description: "" },
       { label: "Quản lý Nhận xét về Hồ sơ Thẩm định Kết quả Đánh giá CLCTĐT (Biểu 13)", name: "Manage Comments on Program Quality Evaluation Dossier Review (Form 13)", link: "program-eval-comments-13", status: "Prototype", description: "" },
       { label: "Quản lý Nghị quyết của Hội đồng Kiểm định Chất lượng Giáo dục (Biểu 14)", name: "Manage Resolutions of the Education Quality Accreditation Council (Form 14)", link: "accreditation-council-resolution-14", status: "Prototype", description: "" },
-      { label: "Giấy Chứng nhận Kiểm định Chất lượng CTĐT", name: "", link: "none-89053775", status: "Menu", description: "" },
+      { label: "Giấy Chứng nhận Kiểm định Chất lượng CTĐT", name: "Quality Assurance Certificate for Education Programs", link: "quality-assurance-certificate-for-education-programs", status: "Prototype", description: "" },
     ],
   },
   {
