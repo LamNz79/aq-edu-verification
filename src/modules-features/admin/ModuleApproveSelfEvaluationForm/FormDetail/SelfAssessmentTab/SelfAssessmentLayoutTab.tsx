@@ -5,10 +5,12 @@ import CurrentReport from "./CurrentReport";
 
 export default function SelfAssessmentLayoutTab() {
   return (
-    <MyFlexColumn gap={16} ml={20}>
+    <MyFlexColumn gap={16}>
       <Stack gap={2}>
-        <Text fw={600}>5. Tự đánh giá:</Text>
-        <Text>
+        <Text size="md" fw={500}>
+          5. Tự đánh giá:
+        </Text>
+        <Text size="sm">
           (Phân tích những điểm tồn tại của CTĐT trong đáp ứng yêu cầu của tiêu chí và các khuyến
           nghị cải tiến cần thiết)
         </Text>

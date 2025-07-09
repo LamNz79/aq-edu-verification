@@ -1,7 +1,6 @@
 "use client";
 
 import { SimpleGrid, Stack } from "@mantine/core";
-import { UseFormReturnType } from "@mantine/form";
 import {
     MyDateInput,
     MyFileInput,
@@ -25,9 +24,9 @@ export default function GenralInfoForm({ form }: { form: any }) {
                         data={programDataOption}
                         {...form.getInputProps("programCode")} />
                     <MySelect
-                        label="Khóa đào tạo áp dụng"
-                        data={courseDataOption}
-                        {...form.getInputProps("appliedCohort")} />
+                        label="Giai đoạn"
+                        data={stageOptions}
+                        {...form.getInputProps("stage")} />
                     <MyTextInput label="Người ký" {...form.getInputProps("signer")} />
                 </Stack>
             </SimpleGrid>
@@ -107,43 +106,8 @@ const programDataOption = mockDataProgram.map(item => ({
 }))
 
 
-const mockDataCourse = [
-    {
-        id: 1,
-        courseCode: "K.IT24",
-    },
-    {
-        id: 2,
-        courseCode: "K.QTKD23",
-    },
-    {
-        id: 3,
-        courseCode: "K.CNTT20",
-    },
-    {
-        id: 4,
-        courseCode: "K.DL22",
-    },
-    {
-        id: 5,
-        courseCode: "K60",
-    },
-    {
-        id: 6,
-        courseCode: "K61",
-    },
-    {
-        id: 7,
-        courseCode: "K62",
-    },
-    {
-        id: 8,
-        courseCode: "K20",
-    },
-];
-
-
-const courseDataOption = mockDataCourse.map(item => ({
-    value: item.courseCode,
-    label: `${item.courseCode}`
-}))
+const stageOptions = [
+    "2021-2026",
+    "2022-2027",
+    "2023-2028",
+]

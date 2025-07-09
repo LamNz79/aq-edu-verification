@@ -8,7 +8,7 @@ import { IEvidenceData } from "./interfaces/EvidenceManagementViewModel";
 import EvidenceVersionsTab from "./EvidenceVersionsTab/EvidenceVersionsTab";
 import EvidenceUsageTab from "./EvidenceUsageTab/EvidenceUsageTab";
 
-export default function EvidenceManagementActionUpdate({ values }: { values: IEvidenceData }) {
+export default function EvidenceManagementUpdate({ values }: { values: IEvidenceData }) {
   const [opened, { open, close }] = useDisclosure(false);
 
   // const query = useQuery({
@@ -35,6 +35,7 @@ export default function EvidenceManagementActionUpdate({ values }: { values: IEv
       crudType="update"
       disclosure={[opened, { open, close, toggle: () => open() }]}
       modalSize="80%"
+      title="Chi tiết minh chứng"
     >
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <Stack gap="md">
@@ -84,7 +85,7 @@ export default function EvidenceManagementActionUpdate({ values }: { values: IEv
             </Tabs.Panel>
           </Tabs>
 
-          <MyButton type="submit" w="full">
+          <MyButton type="submit" w="full" crudType="update">
             Lưu
           </MyButton>
         </Stack>

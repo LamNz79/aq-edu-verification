@@ -1,14 +1,18 @@
 import { BarChart } from '@mantine/charts';
-import { Group, Paper, Stack, Text } from '@mantine/core';
+import { Center, Group, Paper, Stack, Text } from '@mantine/core';
 
 export default function F_obf4m08gkx_ChartPired() {
     return (
-        <Stack w={{ base: '100%', sm: '47.5%' }}>
-            <Text>Biểu đồ theo dõi phân bố minh chứng theo đơn vị so với ngày hết hạn đánh giá ngoài</Text>
-            <Group gap={0} align='flex-start' wrap='nowrap'>
+        <Stack w={{ base: '100%' }}>
+            <Stack gap={0} align='center'>
+                <Center><Text fw={600} fz={18} pt={5}>Biểu đồ theo dõi phân bố minh chứng theo đơn vị</Text></Center>
+                <Center><Text >so với ngày hết hạn đánh giá ngoài</Text></Center>
+            </Stack>
+
+            <Group gap={0} align='flex-start' wrap='nowrap' pt={25}>
                 <Paper h={120} p={8} w={60} ta="center" mr={5}>Danh sách đơn vị</Paper>
                 <BarChart
-                    h={400}
+                    h={"450px"}
                     data={data}
                     withBarValueLabel
                     dataKey="donVi"
@@ -26,7 +30,7 @@ export default function F_obf4m08gkx_ChartPired() {
 }
 
 const data = [
-  { donVi: 'Phòng Tổ chức', tongSoMinhChung: 100, soMinhChungConHan: 70, soMinhChungHetHan: 30 },
-  { donVi: 'Phòng Đào tạo', tongSoMinhChung: 150, soMinhChungConHan: 105, soMinhChungHetHan: 45 },
-  { donVi: 'Khoa CNTT', tongSoMinhChung: 180, soMinhChungConHan: 126, soMinhChungHetHan: 54 },
+    { donVi: 'Phòng Tổ chức', tongSoMinhChung: 100, soMinhChungConHan: 70, soMinhChungHetHan: 30 },
+    { donVi: 'Phòng Đào tạo', tongSoMinhChung: 150, soMinhChungConHan: 105, soMinhChungHetHan: 45 },
+    { donVi: 'Khoa CNTT', tongSoMinhChung: 180, soMinhChungConHan: 126, soMinhChungHetHan: 54 },
 ];

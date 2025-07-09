@@ -1,5 +1,5 @@
 import { BarChart } from '@mantine/charts';
-import { Box, Flex, Paper, Text } from '@mantine/core';
+import { Box, Center, Flex, Paper, Stack, Text } from '@mantine/core';
 import React from 'react';
 
 const series = [
@@ -15,8 +15,10 @@ export default function F_obf4m08gkx_ReviewResultsBarChart() {
     return (
         <Paper mt={20} p={20}>
             <Box>
-                <Text>Biểu đồ theo dõi kết quả đánh giá</Text>
-                <Flex mt={10}>
+                <Stack gap={0} align='center'>
+                    <Center><Text fw={600} fz={18} pt={5}>Biểu đồ theo dõi kết quả đánh giá</Text></Center>
+                </Stack>
+                <Flex mt={10} pt={30}>
                     <Paper h={170} p={8} w={60} ta="center">
                         Số lượng yêu cầu mốc chuẩn
                     </Paper>
@@ -37,8 +39,8 @@ export default function F_obf4m08gkx_ReviewResultsBarChart() {
 }
 
 const data = [
-  { tieuChuan: 'TC1', soLuongMocChuan: 400, soLuongMocChuanDat: 100, soLuongMocChuanCanCaiTien: 150, soLuongMocChuanKhongDat: 150 },
-  { tieuChuan: 'TC2', soLuongMocChuan: 420, soLuongMocChuanDat: 130, soLuongMocChuanCanCaiTien: 140, soLuongMocChuanKhongDat: 150 },
-  { tieuChuan: 'TC3', soLuongMocChuan: 440, soLuongMocChuanDat: 160, soLuongMocChuanCanCaiTien: 140, soLuongMocChuanKhongDat: 140 },
-  { tieuChuan: 'TC4', soLuongMocChuan: 460, soLuongMocChuanDat: 190, soLuongMocChuanCanCaiTien: 130, soLuongMocChuanKhongDat: 140 },
+    { tieuChuan: 'TC1', soLuongMocChuan: 400, soLuongMocChuanDat: 100, soLuongMocChuanCanCaiTien: 150, soLuongMocChuanKhongDat: 150 },
+    { tieuChuan: 'TC2', soLuongMocChuan: 420, soLuongMocChuanDat: 130, soLuongMocChuanCanCaiTien: 140, soLuongMocChuanKhongDat: 150 },
+    { tieuChuan: 'TC3', soLuongMocChuan: 440, soLuongMocChuanDat: 160, soLuongMocChuanCanCaiTien: 140, soLuongMocChuanKhongDat: 140 },
+    { tieuChuan: 'TC4', soLuongMocChuan: 460, soLuongMocChuanDat: 190, soLuongMocChuanCanCaiTien: 130, soLuongMocChuanKhongDat: 140 },
 ];

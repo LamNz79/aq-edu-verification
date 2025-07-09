@@ -7,7 +7,7 @@ export const menuData_Institutional: I0LinkItem[] = [
   {
     label: "Quản lý hệ thống",
     links: [
-      { pageId: 1, name: "Account management", label: "Quản lí tài khoản", link: "core71678", },
+      { pageId: 1, name: "Account management", label: "Quản lí tài ádakhoản", link: "core71678", },
       { pageId: 2, name: "Access control level", label: "Phân quyền cấp đơn vị", link: "core38677" },
       { pageId: 3, name: "Access control", label: "Phân quyền sử dụng", link: "core83092", },
       { pageId: 4, name: "Document categories", label: "Danh mục loại văn bản", link: "core18256", },

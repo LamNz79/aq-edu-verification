@@ -38,12 +38,7 @@ export default function Form04WeaknessesLayout() {
       <MyFieldset title={`Nội dung báo cáo hiện tại`}>
         <MyTextEditor
           value={`
-              <p>Trường đã xây dựng môi trường sư phạm hiện tại, năng động, mở phạm, thân thiện, 
-            sạch đẹp và an toàn tạo không khí và tâm lý thoản mái, phục vụ hiệu quả cho hoạt động dạy học </p>
-                      
-             <p>Khuôn viên trường có đầy đủ các bảng nội quy, hướng dẫn, các thông điệp mang ý nghĩa tích cực giúp 
-            nguời học thêm năng động, sáng tạoh trong học tập và rèn luyện
-            </p>
+              <p>Khuôn viên chưa có nhiều cây xanh thiếu không gian sinh hoạt chung</p>
               `}
           contentHeight={"220px"}
           onChange={() => {}}
