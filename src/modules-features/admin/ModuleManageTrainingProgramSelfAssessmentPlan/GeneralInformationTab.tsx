@@ -11,8 +11,8 @@ import {
 import MySelect from "@/components/Combobox/Select/MySelect";
 import {
   selectChuongTrinhDaoTaoApDung,
+  selectGiaiDoan,
   selectHoiDongTuDanhGia,
-  selectKhoaDaoTaoApDung,
 } from "./mockData";
 
 export default function GeneralInformationTab({
@@ -57,14 +57,15 @@ export default function GeneralInformationTab({
         </Grid.Col>
         <Grid.Col span={6}>
           <MySelect
+            data={selectHoiDongTuDanhGia}
+            label={"Hội đồng tự đánh giá"}
+            {...form.getInputProps("quyetDinhThanhLapHoiDong")}
+          />
+          <MySelect
             data={selectChuongTrinhDaoTaoApDung}
             label={"Chương trình Đào tạo áp dụng"}
             {...form.getInputProps("chuongTrinhDaoTaoApDung")}
-          />
-          <MySelect
-            data={selectKhoaDaoTaoApDung}
-            label={"Khóa đào tạo áp dụng"}
-            {...form.getInputProps("khoaDaoTaoApDung")}
+            disabled={!!values}
           />
         </Grid.Col>
         <Grid.Col span={6}>
@@ -74,10 +75,11 @@ export default function GeneralInformationTab({
           />
         </Grid.Col>
         <Grid.Col span={6}>
-          <MySelect
-            data={selectHoiDongTuDanhGia}
-            label={"Hội đồng tự đánh giá"}
-            {...form.getInputProps("quyetDinhThanhLapHoiDong")}
+        <MySelect
+            data={selectGiaiDoan}
+            label={"Giai đoạn"}
+            {...form.getInputProps("maGiaiDoan")}
+            disabled={!!values}
           />
           <MyTextInput label={"Người ký"} {...form.getInputProps("nguoiKy")} />
         </Grid.Col>
