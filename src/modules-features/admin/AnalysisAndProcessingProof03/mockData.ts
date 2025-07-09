@@ -7,6 +7,8 @@ import {
 export const mockData: I_CriteriaAssignment[] = [
   {
     planCode: "KH-KTPM-2024",
+    curriculumName: "Kỹ thuật phần mềm",
+    curriculumCode: "2021-2026",
     groupCode: '"NCT_TC5-7; Nhóm tiêu chí 5-7"',
     responsibleMember: '"ThS. Hoàng Thị E"',
     criteriaCode: "TC_05.02",
@@ -16,6 +18,9 @@ export const mockData: I_CriteriaAssignment[] = [
   },
   {
     planCode: "KH-KTPM-2024",
+    curriculumName: "Kỹ thuật phần mềm",
+    curriculumCode: "2021-2026",
+
     groupCode: '"NCT_TC5-7, Nhóm tiêu chí 5-7"',
     responsibleMember: '"ThS. Hoàng Thị E"',
     criteriaCode: "TC_05.01",
@@ -25,6 +30,9 @@ export const mockData: I_CriteriaAssignment[] = [
   },
   {
     planCode: "KH-KTPM-2024",
+    curriculumName: "Kỹ thuật phần mềm",
+    curriculumCode: "2021-2026",
+
     groupCode: '"NCT_TC1-3, Nhóm tiêu chí 1-3"',
     responsibleMember: '"TS. Trần Văn C"',
     criteriaCode: "TC_01.01",
@@ -34,6 +42,9 @@ export const mockData: I_CriteriaAssignment[] = [
   },
   {
     planCode: "KH-QTKD-2025",
+    curriculumName: "Quản trị Kinh doanh",
+    curriculumCode: "2022-2027",
+
     groupCode: '"NCT_TC7-9, Nhóm tiêu chí 7-9"',
     responsibleMember: '"CN. Bùi Thị L"',
     criteriaCode: "TC_07.03",
@@ -43,6 +54,8 @@ export const mockData: I_CriteriaAssignment[] = [
   },
   {
     planCode: "KH-KHMT-2025",
+    curriculumName: "Khoa học Máy tính",
+    curriculumCode: "2023-2028",
     groupCode: '"NCT_TC2-4, Nhóm tiêu chí 2-4"',
     responsibleMember: '"ThS. Nguyễn Thị K"',
     criteriaCode: "TC_02.01",
@@ -55,19 +68,23 @@ export const mockData: I_CriteriaAssignment[] = [
 export const mockRequirementData: I_Requirement[] = [
   {
     code: "YC1.1",
-    description: "Các quy định về đánh giá kết quả học tập của NH (bao gồm thời gian; phương pháp, tiêu chí; trọng số; cơ chế phản hồi và các nội dung liên quan) rõ ràng.",
+    description:
+      "Các quy định về đánh giá kết quả học tập của NH (bao gồm thời gian; phương pháp, tiêu chí; trọng số; cơ chế phản hồi và các nội dung liên quan) rõ ràng.",
     outputStandard: `Các tài liệu/hướng dẫn được xác định rõ ràng về thời gian; hình thức; phương pháp, tiêu chí, trọng số; cơ chế phản hồi và các nội dung liên quan đến đánh giá kết quả học tập của NH.`,
     collectEvidence: `Quy định đào tạo/thi; kiểm tra; đánh giá*; Mẫu phiếu/bản rubrics đánh giá khóa học/môn học; học phần/đề tài/đồ án/luận văn; luận án/bài thi cuối kỳ/cuối khóa.`,
     collectPlace: `ĐHDN; Khoa Kinh tế; P.ĐT`,
-    collectMethod: "Lấy từ P.ĐT; Khoa Kinh tế hoặc tham mưu các đơn vị; chức năng ban hành nếu thiếu",
+    collectMethod:
+      "Lấy từ P.ĐT; Khoa Kinh tế hoặc tham mưu các đơn vị; chức năng ban hành nếu thiếu",
   },
   {
     code: "YC1.1",
-    description: "Các quy định về đánh giá kết quả học tập của NH (bao gồm thời gian; phương pháp, tiêu chí; trọng số; cơ chế phản hồi và các nội dung liên quan) được thông báo công khai tới NH",
+    description:
+      "Các quy định về đánh giá kết quả học tập của NH (bao gồm thời gian; phương pháp, tiêu chí; trọng số; cơ chế phản hồi và các nội dung liên quan) được thông báo công khai tới NH",
     outputStandard: `Các tài liệu/hướng dẫn quy định cụ thể về thời gian; phương pháp; tiêu chí, trọng số; các nội dung liên quan đến đánh giá kết quả học tập của NH được công khai tới NH trước mỗi khóa học/học phần; Thông báo về các quy định và tiêu chuẩn đánh giá kết quả học tập.`,
     collectEvidence: `Bản mô tả CTĐT/bản mô tả môn học/học phần*, Sổ tay sinh viên*, Trang thông tin điện tử của CSGD có các quy định về đánh giá, Đề cương các môn học; học phần.`,
     collectPlace: "ĐHDN; Khoa Kinh tế; P.ĐT",
-    collectMethod:"Lấy từ P.ĐT; Khoa Kinh tế hoặc tham mưu các đơn vị; chức năng ban hành nếu thiếu",
+    collectMethod:
+      "Lấy từ P.ĐT; Khoa Kinh tế hoặc tham mưu các đơn vị; chức năng ban hành nếu thiếu",
   },
 ];
 
@@ -106,7 +123,8 @@ export const mockEvidenceForecastData: I_EvidenceForecast[] = [
     criteriaGroupCode: "TC_04",
     criteriaCode: "TC_0403",
     evidenceCode: "H4.04.03.25",
-    evidenceName: '"Biên bản họp Hội đồng khoa học cấp Khoa về hoạt động NCKH của SV"',
+    evidenceName:
+      '"Biên bản họp Hội đồng khoa học cấp Khoa về hoạt động NCKH của SV"',
     evidenceBelongToCode: "",
     issuedInfo: "Từ 2023-01-01 đến 2025-06-30",
     issuingDept: "Khoa CNTT",
@@ -136,7 +154,8 @@ export const mockEvidenceForecastData: I_EvidenceForecast[] = [
     criteriaGroupCode: "TC_06",
     criteriaCode: "TC_0601",
     evidenceCode: "H6.06.01.08",
-    evidenceName: '"Minh chứng về bài báo khoa học của giảng viên (trích yếu/bìa tạp chí)"',
+    evidenceName:
+      '"Minh chứng về bài báo khoa học của giảng viên (trích yếu/bìa tạp chí)"',
     evidenceBelongToCode: "H6.06.01.07",
     issuedInfo: "“Năm 2024”",
     issuingDept: "Khoa CNTT",
