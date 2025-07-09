@@ -113,7 +113,7 @@ export const menuData_Program: I0LinkItem[] = [
       {
         label: "Giám sát Thực hiện Tự đánh giá",
         links: [
-          { label: "Theo dõi Tiến độ Tự đánh giá Tiêu chí", name: "", link: "", description: "", status: "Menu" },
+          { label: "Theo dõi Tiến độ Tự đánh giá Tiêu chí", name: "", link: "track-self-assessment-progress", description: "", status: "Prototype" },
           { label: "Xem Nhiệm vụ của tôi/đơn vị tôi", name: "", link: "", description: "", status: "Menu" },
         ],
       },
@@ -145,16 +145,16 @@ export const menuData_Program: I0LinkItem[] = [
       { label: "Cập nhật cải tiến theo tiêu chí", name: "", link: "criterion-improvement", status: "Prototype", description: "" },
       { label: "Cập nhật Báo cáo Giữa Chu kỳ Kiểm định Chất lượng CTĐT (Biểu 15)", name: "", link: "none-631417455663", status: "Menu", description: "" },
       { label: "Quản lý Báo cáo Giữa Chu kỳ Kiểm định Chất lượng CTĐT (Biểu 15)", name: "", link: "management-mid-cycle-quality-assurance-report", status: "Prototype", description: "" },
-      { label: "Theo dõi Tiến độ Hoạt động Cải tiến", name: "", link: "none-631417455664", status: "Menu", description: "" },
-      { label: "Xuất Báo cáo Thực hiện Cải tiến", name: "", link: "none-631417455665", status: "Menu", description: "" },
+      { label: "Theo dõi Tiến độ Hoạt động Cải tiến", name: "", link: "improvement-progress-tracking", status: "Prototype", description: "" },
+      { label: "Xuất Báo cáo Thực hiện Cải tiến", name: "", link: "improvement-report-export", status: "Prototype", description: "" },
     ],
   },
   {
     label: "Kho Minh chứng",
     links: [
-      { label: "Quản lý Minh chứng", name: "", link: "none-6314174556615", status: "Menu", description: "" },
+      { label: "Quản lý Minh chứng", name: "Evidence management", link: "evidence-management", status: "Prototype", description: "Lưu trữ và tra cứu minh chứng phục vụ công tác đánh giá." },
     ],
-  },
+  },  
   {
     label: "Báo cáo",
     links: [],

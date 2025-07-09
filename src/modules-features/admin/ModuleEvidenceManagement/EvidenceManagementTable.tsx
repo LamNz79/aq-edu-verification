@@ -13,9 +13,10 @@ import {
 } from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
-import { Badge, Button, CopyButton, Text } from "@mantine/core";
+import { Anchor, Text } from "@mantine/core";
 import { IEvidenceData } from "./interfaces/EvidenceManagementViewModel";
-import EvidenceManagementActionUpdate from "./EvidenceManagementActionUpdate";
+import EvidenceManagementUpdate from "./EvidenceManagementUpdate";
+import EvidenceManagementCreate from "./EvidenceManagementCreate";
 
 export default function EvidenceManagementTable() {
   const query = useQuery({
@@ -104,18 +105,13 @@ export default function EvidenceManagementTable() {
         header: "Link liên kết",
         accessorKey: "link",
         size: 120,
-        Cell: ({ cell }) => {
-          const link = cell.getValue();
+        accessorFn: (row) => {
           return (
-            <MyCenterFull>
-              <CopyButton value={link as string}>
-                {({ copied, copy }) => (
-                  <Button variant="transparent" onClick={copy}>
-                    {copied ? "Đã copy" : `${link}`}
-                  </Button>
-                )}
-              </CopyButton>
-            </MyCenterFull>
+            <Anchor href={row.link} target="_blank">
+              <Text truncate maw={200}>
+                {row.link}
+              </Text>
+            </Anchor>
           );
         },
       },
@@ -136,6 +132,7 @@ export default function EvidenceManagementTable() {
         renderTopToolbarCustomActions={({ table }) => {
           return (
             <>
+              <EvidenceManagementCreate />
               <AQButtonCreateByImportFile onSubmit={() => {}} form={form_multiple} />
               <MyButton crudType="export" />
               <MyButtonDeleteList
@@ -150,7 +147,11 @@ export default function EvidenceManagementTable() {
           );
         }}
         renderRowActions={({ row }) => {
-          return <EvidenceManagementActionUpdate values={row.original} />;
+          return (
+            <MyCenterFull>
+              <EvidenceManagementUpdate values={row.original} />
+            </MyCenterFull>
+          );
         }}
         data={query.data || []}
       />

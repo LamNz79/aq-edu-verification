@@ -1,13 +1,8 @@
-import { Tabs, Box } from "@mantine/core";
+import { Box, Grid } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import {
-  IconAlertTriangle,
-  IconBook,
-  IconCertificate,
-  IconInfoCircle,
-  IconStar,
-} from "@tabler/icons-react";
 import { MyButtonModal } from "aq-fe-framework/components";
+import { useState } from "react";
+import { useCustomScrollSpy } from "../useCustomScrollSpy";
 import ActionTabLayoutTab from "./ActionTab/ActionTabLayoutTab";
 import AdvantageLayoutTab from "./AdvantageTab/AdvantageLayoutTab";
 import DisadvantageLayoutTab from "./DisadvantageTab/DisadvantageLayoutTab";
@@ -15,7 +10,20 @@ import SelfAssessmentLayoutTab from "./SelfAssessmentTab/SelfAssessmentLayoutTab
 import StatusLayoutTab from "./StatusTab/StatusLayoutTab";
 
 export default function FormDetailButton() {
+  const [scrollContainer, setScrollContainer] = useState<HTMLElement | null>(null);
   const disclosure = useDisclosure();
+  const scrollRef = (element: HTMLDivElement | null) => {
+    if (element) {
+      setScrollContainer(element);
+    }
+  };
+
+  const { activeId } = useCustomScrollSpy({
+    root: scrollContainer,
+    selector: "[id]",
+    offset: 20,
+  });
+
   return (
     <MyButtonModal
       label="Xem chi tiết"
@@ -25,81 +33,82 @@ export default function FormDetailButton() {
       modalSize="98vw"
       disclosure={disclosure}
     >
-      <Box>
-        <Tabs defaultValue="status" orientation="vertical">
-          <Tabs.List>
-            <Tabs.Tab
-              bg="rgba(131, 204, 235, 0.3)"
-              color="rgba(131, 204, 235, 1)"
-              value="status"
-              leftSection={<IconInfoCircle />}
-            >
-              1. Mô tả hiện trạng
-            </Tabs.Tab>
+      <Grid style={{ minHeight: "75vh", position: "relative" }}>
+        <Grid.Col
+          span={{ base: 4, md: 2 }}
+          style={{
+            position: "sticky",
+            top: 50,
+            height: "100%",
+            overflowY: "auto",
+          }}
+        >
+          {[
+            { id: "section-1", label: "1. Mô tả hiện trạng" },
+            { id: "section-2", label: "2. Điểm mạnh" },
+            { id: "section-3", label: "3. Điểm tồn tại" },
+            { id: "section-4", label: "4. Kế hoạch hành động" },
+            { id: "section-5", label: "5. Tự đánh giá" },
+          ].map((item) => (
+            <Box
+              key={item.id}
+              style={{
+                textAlign: "left",
+                cursor: "pointer",
+                padding: "6px 10px",
+                transition: "all 0.3s ease",
+                borderLeft: activeId === item.id ? "4px solid var(--mantine-color-blue-4)" : "none",
+                backgroundColor:
+                  activeId === item.id ? "var(--mantine-color-blue-1)" : "transparent",
+                color: activeId === item.id ? "var(--mantine-color-blue-8)" : "black",
+              }}
+              mt={2}
+              onClick={() => {
+                const element = document.getElementById(item.id);
+                if (element && scrollContainer) {
+                  const containerRect = scrollContainer.getBoundingClientRect();
+                  const elementRect = element.getBoundingClientRect();
+                  const currentScrollTop = scrollContainer.scrollTop;
+                  const relativeTop = elementRect.top - containerRect.top + currentScrollTop;
 
-            <Tabs.Tab
-              bg="rgba(247, 216, 54, 0.3)"
-              color="rgba(247, 216, 54, 1)"
-              value="advantages"
-              leftSection={<IconStar />}
+                  scrollContainer.scrollTo({
+                    top: relativeTop - 30,
+                  });
+                }
+              }}
             >
-              2. Điểm mạnh
-            </Tabs.Tab>
-
-            <Tabs.Tab
-              bg="rgba(112, 219, 186, 0.3)"
-              color="rgba(112, 219, 186, 1)"
-              value="disadvantages"
-              leftSection={<IconAlertTriangle />}
-            >
-              3. Điểm tồn tại
-            </Tabs.Tab>
-
-            <Tabs.Tab
-              bg="rgba(248, 177, 149, 0.3)"
-              color="rgba(248, 177, 149, 1)"
-              value="action"
-              leftSection={<IconBook />}
-            >
-              4. Kế hoạch hành động
-            </Tabs.Tab>
-
-            <Tabs.Tab
-              bg="rgba(255, 163, 200, 0.3)"
-              color="rgba(255, 163, 200, 1)"
-              value="selfassessment"
-              leftSection={<IconCertificate />}
-            >
-              5. Tự đánh giá
-            </Tabs.Tab>
-          </Tabs.List>
-
+              {item.label}
+            </Box>
+          ))}
+        </Grid.Col>
+        <Grid.Col span={{ base: 8, md: 10 }}>
           <Box
+            ref={scrollRef}
             style={{
-              flex: 1,
-              width: 0,
-              minWidth: 0,
-              maxWidth: "100%",
+              maxHeight: "75vh",
+              overflowY: "auto",
+              border: "1px solid #ccc",
+              padding: 20,
             }}
           >
-            <Tabs.Panel value="status">
+            <Box id="section-1" style={{ paddingBottom: 40, minHeight: 200 }}>
               <StatusLayoutTab />
-            </Tabs.Panel>
-            <Tabs.Panel value="advantages">
+            </Box>
+            <Box id="section-2" style={{ paddingBottom: 40, minHeight: 200 }}>
               <AdvantageLayoutTab />
-            </Tabs.Panel>
-            <Tabs.Panel value="disadvantages">
+            </Box>
+            <Box id="section-3" style={{ paddingBottom: 40, minHeight: 200 }}>
               <DisadvantageLayoutTab />
-            </Tabs.Panel>
-            <Tabs.Panel value="action">
+            </Box>
+            <Box id="section-4" style={{ paddingBottom: 40, minHeight: 200 }}>
               <ActionTabLayoutTab />
-            </Tabs.Panel>
-            <Tabs.Panel value="selfassessment">
+            </Box>
+            <Box id="section-5" style={{ paddingBottom: 40, minHeight: 200 }}>
               <SelfAssessmentLayoutTab />
-            </Tabs.Panel>
+            </Box>
           </Box>
-        </Tabs>
-      </Box>
+        </Grid.Col>
+      </Grid>
     </MyButtonModal>
   );
 }

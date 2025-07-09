@@ -10,7 +10,7 @@ export interface IFormEvidence {
   used: boolean;
 }
 
-export default function EvidenceListTable() {
+export default function EvidenceListTable({ onAddEvidence }: { onAddEvidence: (code: string) => void }) {
   const columns: MRT_ColumnDef<IFormEvidence>[] = [
     { header: "Mã minh chứng", accessorKey: "code", size: 140 },
     { header: "Tên minh chứng", accessorKey: "name", size: 300 },
@@ -41,7 +41,7 @@ export default function EvidenceListTable() {
                 <MyButton variant="transparent" crudType="default">
                   Xem chi tiết
                 </MyButton>
-                <MyButton variant="transparent" crudType="default">
+                <MyButton variant="transparent" crudType="default" onClick={() => onAddEvidence(row.original.code)}>
                   Sử dụng
                 </MyButton>
               </Stack>
