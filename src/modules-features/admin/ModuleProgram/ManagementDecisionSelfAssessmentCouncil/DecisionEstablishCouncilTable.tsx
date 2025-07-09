@@ -21,6 +21,7 @@ export interface SelfAssessmentDecision {
     appliedProgram: string;
     programCode: string;
     appliedCohort: string;
+    stage: string
     signer: string;
     fileUrl: string;
 }
@@ -34,6 +35,7 @@ export default function DecisionEstablishCouncilTable() {
             { accessorKey: 'decisionTitle', header: 'Tên Quyết định' },
             { accessorKey: 'appliedProgram', header: 'Chương trình Đào tạo áp dụng' },
             { accessorKey: 'appliedCohort', header: 'Khóa đào tạo áp dụng' },
+            { accessorKey: 'stage', header: 'Giai đoạn' },
             { accessorKey: 'signer', header: 'Người ký' },
             {
                 accessorKey: 'fileUrl',
@@ -86,7 +88,8 @@ export const selfAssessmentDecisions: SelfAssessmentDecision[] = [
         appliedCohort: "K60",
         signer: "Tô Ngọc Báo",
         fileUrl: "",
-        programCode: "7480201"
+        programCode: "7480201",
+        stage: "2021-2026"
     },
     {
         id: 2,
@@ -97,7 +100,8 @@ export const selfAssessmentDecisions: SelfAssessmentDecision[] = [
         appliedCohort: "K61",
         signer: "Nguyễn Văn C",
         fileUrl: "",
-        programCode: "7510301H"
+        programCode: "7510301H",
+        stage: "2022-2027"
     },
     {
         id: 3,
@@ -108,7 +112,8 @@ export const selfAssessmentDecisions: SelfAssessmentDecision[] = [
         appliedCohort: "K62",
         signer: "Trần Thị D",
         fileUrl: "",
-        programCode: "7480101C"
+        programCode: "7480101C",
+        stage: "2023-2028"
     },
     {
         id: 4,
@@ -119,6 +124,7 @@ export const selfAssessmentDecisions: SelfAssessmentDecision[] = [
         appliedCohort: "K20",
         signer: "Tô Ngọc Báo",
         fileUrl: "",
-        programCode: "7480201C"
+        programCode: "7480201C",
+        stage: "2023-2028"
     },
 ];
