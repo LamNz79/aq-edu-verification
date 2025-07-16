@@ -7,7 +7,7 @@ export interface IForm04ActionPlanRowHistory {
 }
 
 export interface IForm04ActionPlanRowHistoryTable {
-  id: string;
+  id: number;
   code: string;
   name: string;
   description?: string;
