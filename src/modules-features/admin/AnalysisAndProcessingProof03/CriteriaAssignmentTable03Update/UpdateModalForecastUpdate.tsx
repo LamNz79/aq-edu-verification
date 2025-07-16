@@ -10,23 +10,33 @@ import {
 import { I_EvidenceForecast } from "../interfaces";
 import MyActionIconUpdate from "@/components/ActionIcons/ActionIconCRUD/MyActionIconUpdate";
 
-export default function UpdateModalRequirementUpdate({ data }: { data: I_EvidenceForecast}) {
+export default function UpdateModalRequirementUpdate({
+  data,
+}: {
+  data: I_EvidenceForecast;
+}) {
   const form = useForm<I_EvidenceForecast>({
     initialValues: {
-      ...data
+      ...data,
     },
     validate: {},
   });
 
   return (
     <Group>
-      <MyActionIconUpdate form={form} onSubmit={() => {}} modalSize={"60%"}>
+      <MyActionIconUpdate
+        title="Chi tiết minh chứng dự kiến"
+        form={form}
+        onSubmit={() => {}}
+        modalSize={"60%"}
+      >
         <SimpleGrid pt={10} cols={2}>
           <Stack>
             <MyTextInput
               label="Mã Minh chứng"
               placeholder="Mã Minh chứng"
               {...form.getInputProps("evidenceCode")}
+              readOnly
             />
           </Stack>
           <Stack>
@@ -50,8 +60,12 @@ export default function UpdateModalRequirementUpdate({ data }: { data: I_Evidenc
         />
         <SimpleGrid cols={2}>
           <Stack>
-            <MyTextArea minRows={8}
-              maxRows={8} label="Ghi chú" {...form.getInputProps("note")} />
+            <MyTextArea
+              minRows={8}
+              maxRows={8}
+              label="Ghi chú"
+              {...form.getInputProps("note")}
+            />
           </Stack>
           <Stack>
             <MyTextArea

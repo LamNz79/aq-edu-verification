@@ -17,7 +17,7 @@ export default function UpdateModalRequirementCreate() {
 
   return (
     <Group>
-      <MyButtonCreate form={form} onSubmit={() => {}} modalSize={"60%"}>
+      <MyButtonCreate title="Tạo minh chứng dự kiến mới" form={form} onSubmit={() => {}} modalSize={"60%"}>
         <SimpleGrid pt={10} cols={2}>
           <Stack>
             <MyTextInput

@@ -1,6 +1,6 @@
 "use client";
 
-import { Group } from "@mantine/core";
+import { Button, Group } from "@mantine/core";
 import {
   AQButtonCreateByImportFile,
   AQButtonExportData,
@@ -18,6 +18,8 @@ import UpdateModalRequirementCreate from "./UpdateModalForecastCreate";
 import UpdateModalRequirementUpdate from "./UpdateModalForecastUpdate";
 import UpdateModalRequirementTableDeleteListButton from "./UpdateModalForecastTableDeleteListButton";
 import UpdateModalForecastTableDeleteButton from "./UpdateModalForecastTableDeleteButton";
+import { notifications } from "@mantine/notifications";
+import { IconTableExport } from "@tabler/icons-react";
 
 type Props = {
   data: I_EvidenceForecast[];
@@ -44,26 +46,10 @@ export default function UpdateModalForecastTable({ data }: Props) {
         size: 240,
       },
       { header: "Nơi ban hành", accessorKey: "issuingDept" },
-      { header: "Ghi chú", accessorKey: "note", size: 200 },
+      { header: "Ghi chú", accessorKey: "note", size: 250 },
     ],
     []
   );
-
-  const exportConfig = {
-    fields: [
-      { fieldName: "criteriaGroupCode", header: "Mã Tiêu chuẩn" },
-      { fieldName: "criteriaCode", header: "Mã Tiêu chí" },
-      { fieldName: "evidenceCode", header: "Mã Minh chứng" },
-      { fieldName: "evidenceName", header: "Tên Minh chứng" },
-      { fieldName: "evidenceBelongToCode", header: "Trực thuộc minh chứng" },
-      {
-        fieldName: "issuedInfo",
-        header: "Số - ngày ban hành - thời điểm khảo sát",
-      },
-      { fieldName: "issuingDept", header: "Nơi ban hành" },
-      { fieldName: "note", header: "Ghi chú" },
-    ],
-  };
 
   return (
     <MyFieldset title="Danh danh yêu cầu">
@@ -86,12 +72,23 @@ export default function UpdateModalForecastTable({ data }: Props) {
                 form={form_multiple}
                 onSubmit={() => console.log(form_multiple.values)}
               />
-              <AQButtonExportData
-                isAllData
-                objectName="criteriaAssignments"
-                data={data || []}
-                exportConfig={exportConfig}
-              />
+              <Button
+              leftSection={<IconTableExport />}
+              color="teal"
+              size="sm"
+              radius="sm"
+              onClick={() => {
+                notifications.show({
+                  title: "Thông báo",
+                  message:
+                    "Chức năng này đang được phát triển, vui lòng quay lại sau.",
+                  color: "blue",
+                  autoClose: 5000,
+                });
+              }}
+            >
+              Export
+            </Button>
               <UpdateModalRequirementTableDeleteListButton values={table.table.getSelectedRowModel().flatRows.flatMap(item => item.original)} />
             </Group>
           )}
