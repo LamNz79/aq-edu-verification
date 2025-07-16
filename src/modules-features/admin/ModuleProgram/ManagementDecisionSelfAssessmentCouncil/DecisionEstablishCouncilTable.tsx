@@ -34,8 +34,7 @@ export default function DecisionEstablishCouncilTable() {
             { accessorKey: 'decisionDate', header: 'Ngày Quyết định' },
             { accessorKey: 'decisionTitle', header: 'Tên Quyết định' },
             { accessorKey: 'appliedProgram', header: 'Chương trình Đào tạo áp dụng' },
-            { accessorKey: 'appliedCohort', header: 'Khóa đào tạo áp dụng' },
-            { accessorKey: 'stage', header: 'Giai đoạn' },
+            { accessorKey: 'stage', header: 'Mã giai đoạn' },
             { accessorKey: 'signer', header: 'Người ký' },
             {
                 accessorKey: 'fileUrl',
