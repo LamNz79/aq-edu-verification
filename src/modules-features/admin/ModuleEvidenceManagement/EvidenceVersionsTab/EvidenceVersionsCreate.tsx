@@ -1,8 +1,15 @@
 "use client";
 
-import { Stack, TextInput, Textarea, Checkbox, Grid, FileInput } from "@mantine/core";
+import {
+  Stack,
+  TextInput,
+  Textarea,
+  Checkbox,
+  Grid,
+  FileInput,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { MyButton, MyButtonModal } from "aq-fe-framework/components";
+import { MyButton, MyButtonModal, MySelect } from "aq-fe-framework/components";
 import { useDisclosure } from "@mantine/hooks";
 import { IEvidenceVersion } from "../interfaces/EvidenceManagementViewModel";
 
@@ -51,10 +58,10 @@ export default function EvidenceVersionsCreate() {
           <Stack gap="md">
             <Grid>
               <Grid.Col span={6}>
-                <TextInput
-                  label="ID File"
-                  placeholder="Để trống để tự động tạo"
-                  {...form.getInputProps("fileId")}
+                <FileInput
+                  label="File đính kèm"
+                  placeholder="Chọn file"
+                  accept=".pdf,.doc,.docx"
                 />
               </Grid.Col>
 
@@ -64,14 +71,6 @@ export default function EvidenceVersionsCreate() {
                   placeholder="Nhập tên file"
                   withAsterisk
                   {...form.getInputProps("fileName")}
-                />
-              </Grid.Col>
-
-              <Grid.Col span={6}>
-                <FileInput
-                  label="File đính kèm"
-                  placeholder="Chọn file"
-                  accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                 />
               </Grid.Col>
 
@@ -93,14 +92,6 @@ export default function EvidenceVersionsCreate() {
 
               <Grid.Col span={6}>
                 <TextInput
-                  label="Đơn vị ban hành/ cấp"
-                  placeholder="Nhập đơn vị ban hành"
-                  {...form.getInputProps("issuingUnit")}
-                />
-              </Grid.Col>
-
-              <Grid.Col span={6}>
-                <TextInput
                   label="Hiệu lực từ ngày"
                   placeholder="dd/mm/yyyy"
                   {...form.getInputProps("effectiveFrom")}
@@ -115,6 +106,17 @@ export default function EvidenceVersionsCreate() {
                 />
               </Grid.Col>
 
+              <Grid.Col span={6}>
+                <MySelect
+                  label="Đơn vị ban hành/ cấp"
+                  data={[
+                    "Trường Đại học Đồng Nai",
+                    "Hội đồng Khoa học Trường",
+                    "Khoa Khoa học Máy tính",
+                  ]}
+                  {...form.getInputProps("issuingUnit")}
+                />
+              </Grid.Col>
               <Grid.Col span={12}>
                 <Textarea
                   label="Ghi chú phiên bản"
