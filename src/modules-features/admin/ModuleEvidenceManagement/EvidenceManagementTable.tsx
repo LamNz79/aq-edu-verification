@@ -15,8 +15,11 @@ import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
 import { Anchor, Text } from "@mantine/core";
 import { IEvidenceData } from "./interfaces/EvidenceManagementViewModel";
-import EvidenceManagementUpdate from "./EvidenceManagementUpdate";
+import EvidenceManagementUpdate from "./EvidenceManagementViewOrUpdate";
 import EvidenceManagementCreate from "./EvidenceManagementCreate";
+import EvidenceManagementViewOrUpdate from "./EvidenceManagementViewOrUpdate";
+import EvidenceManagementDelete from "./EvidenceManagementDelete";
+import { CLIENT_RENEG_WINDOW } from "tls";
 
 export default function EvidenceManagementTable() {
   const query = useQuery({
@@ -149,7 +152,9 @@ export default function EvidenceManagementTable() {
         renderRowActions={({ row }) => {
           return (
             <MyCenterFull>
-              <EvidenceManagementUpdate values={row.original} />
+              <EvidenceManagementViewOrUpdate editMode={false} values={row.original} />
+              <EvidenceManagementViewOrUpdate values={row.original} />
+              <EvidenceManagementDelete id={0} code={row.original.evidenceCode}  />
             </MyCenterFull>
           );
         }}

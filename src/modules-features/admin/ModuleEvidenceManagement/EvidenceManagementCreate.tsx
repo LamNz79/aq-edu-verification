@@ -33,7 +33,6 @@ export default function EvidenceManagementCreate() {
           <Tabs.List>
             <Tabs.Tab value="general">Thông tin chung</Tabs.Tab>
             <Tabs.Tab value="versions">Phiên bản minh chứng</Tabs.Tab>
-            <Tabs.Tab value="usage">Nơi sử dụng</Tabs.Tab>
           </Tabs.List>
 
           <Tabs.Panel value="general" pt="md">
@@ -69,9 +68,7 @@ export default function EvidenceManagementCreate() {
             <EvidenceVersionsTab />
           </Tabs.Panel>
 
-          <Tabs.Panel value="usage" pt="md">
-            <EvidenceUsageTab />
-          </Tabs.Panel>
+         
         </Tabs>
       </Stack>
     </MyButtonCreate>
