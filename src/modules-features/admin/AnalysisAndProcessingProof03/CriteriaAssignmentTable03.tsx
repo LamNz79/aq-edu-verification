@@ -27,7 +27,7 @@ export default function CriteriaAssignmentTable03() {
     () => [
       { header: "Mã kế hoạch TDG", accessorKey: "planCode" },
       { header: "Chương trình đào tạo", accessorKey: "curriculumName"},
-      { header: "Mã đào tạo", accessorKey: "curriculumCode" },
+      { header: "Mã giai đoạn", accessorKey: "curriculumCode" },
       { header: "Nhóm công tác", accessorKey: "groupCode" },
       { header: "Thành viên phụ trách", accessorKey: "responsibleMember" },
       { header: "Mã Tiêu chí", accessorKey: "criteriaCode" },
