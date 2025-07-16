@@ -86,9 +86,8 @@ export const menuData_Program: I0LinkItem[] = [
         label: "Quản lý Lộ trình Chuẩn bị Kiểm định",
         links: [
           { label: "Quản lý Quyết định Thành lập Hội đồng Tự đánh giá CTĐT (Biểu 01)", name: "", link: "management-self-assessment-decision-council", description: "", status: "Prototype" },
-          { label: "Quản lý Kế hoạch Tự đánh giá CTĐT (Biểu 02)", name: "", link: "", description: "", status: "Menu" },
-          { label: "Nhóm Phân công Nhiệm vụ theo Tiêu chí", name: "", link: "task-assignment-group-by-criteria", description: "", status: "Prototype" },
           { label: "Quản lý Kế hoạch Tự đánh giá CTĐT (Biểu 02)", name: "", link: "manage-training-program-self-assessment-plan", description: "", status: "Prototype" },
+          { label: "Nhóm Phân công Nhiệm vụ theo Tiêu chí", name: "", link: "task-assignment-group-by-criteria", description: "", status: "Prototype" },
         ],
       },
       {
