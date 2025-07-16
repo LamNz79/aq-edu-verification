@@ -10,14 +10,14 @@ import {
   MyDataTable,
   AQButtonExportData,
 } from "aq-fe-framework/components";
-import {
-  utils_date_dateToDDMMYYYString,
-} from "aq-fe-framework/utils";
+import { utils_date_dateToDDMMYYYString } from "aq-fe-framework/utils";
 import { useMemo } from "react";
 
 export interface I_Criteria {
   id?: number;
   planCode?: string; // Mã kế hoạch TDG
+  trainingProgram?: string;
+  phaseCode?: string;
   groupCode?: string; // Mã nhóm CT
   standardCode?: string; // Mã Tiêu chuẩn
   criteriaCode?: string; // Mã Tiêu chí
@@ -38,54 +38,62 @@ export default function CriteriaAssignmentTable() {
     queryFn: async () => mockData,
   });
 
-  const columns = useMemo<MRT_ColumnDef<I_Criteria>[]> (
+  const columns = useMemo<MRT_ColumnDef<I_Criteria>[]>(
     () => [
-    { header: "Mã kế hoạch TDG", accessorKey: "planCode" },
-    { header: "Mã nhóm CT", accessorKey: "groupCode" },
-    { header: "Mã Tiêu chuẩn", accessorKey: "standardCode" },
-    { header: "Mã Tiêu chí", accessorKey: "criteriaCode" },
-    { header: "Tên Tiêu chí", accessorKey: "criteriaName", size: 300 },
-    { header: "Mã MC dự kiến", accessorKey: "expectedEvidenceCode" },
-    { 
-      header: "Tên MC dự kiến",
-      accessorKey: "expectedEvidenceName",
-      size: 250,
-    },
-    {
-      header: "Số - Ngày ban hành (dự kiến)", accessorKey: "expectedIssuedNumberAndDate",
-    },
-    { header: "Đơn vị ban hành (dự kiến)", accessorKey: "expectedIssuedBy" },
-    { header: "Thành viên phụ trách", accessorKey: "responsibleMember" },
-    {
-      header: "Ngày bắt đầu nhiệm vụ",
-      id: "startDate",
-      accessorFn: (row) =>
-        row.startDate
-          ? utils_date_dateToDDMMYYYString(new Date(row.startDate))
-          : "",
-    },
-    {
-      header: "Ngày kết thúc nhiệm vụ",
-      id: "endDate",
-      accessorFn: (row) =>
-        row.endDate
-          ? utils_date_dateToDDMMYYYString(new Date(row.endDate))
-          : "",
-    },
-  ],
+      { header: "Mã kế hoạch TDG", accessorKey: "planCode" },
+      { header: "Chương trình đào tạo", accessorKey: "trainingProgram" },
+      { header: "Mã giai đoạn", accessorKey: "phaseCode" },
+      { header: "Mã nhóm CT", accessorKey: "groupCode" },
+      { header: "Mã Tiêu chuẩn", accessorKey: "standardCode" },
+      { header: "Mã Tiêu chí", accessorKey: "criteriaCode" },
+      { header: "Tên Tiêu chí", accessorKey: "criteriaName", size: 300 },
+      { header: "Mã MC dự kiến", accessorKey: "expectedEvidenceCode" },
+      {
+        header: "Tên MC dự kiến",
+        accessorKey: "expectedEvidenceName",
+        size: 250,
+      },
+      {
+        header: "Số - Ngày ban hành (dự kiến)",
+        accessorKey: "expectedIssuedNumberAndDate",
+      },
+      { header: "Đơn vị ban hành (dự kiến)", accessorKey: "expectedIssuedBy" },
+      { header: "Thành viên phụ trách", accessorKey: "responsibleMember" },
+      {
+        header: "Ngày bắt đầu nhiệm vụ",
+        id: "startDate",
+        accessorFn: (row) =>
+          row.startDate
+            ? utils_date_dateToDDMMYYYString(new Date(row.startDate))
+            : "",
+      },
+      {
+        header: "Ngày kết thúc nhiệm vụ",
+        id: "endDate",
+        accessorFn: (row) =>
+          row.endDate
+            ? utils_date_dateToDDMMYYYString(new Date(row.endDate))
+            : "",
+      },
+    ],
     []
   );
 
   const exportConfig = {
     fields: [
       { fieldName: "planCode", header: "Mã kế hoạch TDG" },
+      { fieldName: "trainingProgram", header: "Chương trình đào tạo" },
+      { fieldName: "phaseCode", header: "Mã giai đoạn" },
       { fieldName: "groupCode", header: "Mã nhóm CT" },
       { fieldName: "standardCode", header: "Mã Tiêu chuẩn" },
       { fieldName: "criteriaCode", header: "Mã Tiêu chí" },
       { fieldName: "criteriaName", header: "Tên Tiêu chí" },
       { fieldName: "expectedEvidenceCode", header: "Mã MC dự kiến" },
       { fieldName: "expectedEvidenceName", header: "Tên MC dự kiến" },
-      { fieldName: "expectedIssuedNumberAndDate", header: "Ngày ban hành dự kiến" },
+      {
+        fieldName: "expectedIssuedNumberAndDate",
+        header: "Ngày ban hành dự kiến",
+      },
       { fieldName: "expectedIssuedBy", header: "Đơn vị ban hành" },
       { fieldName: "responsibleMember", header: "Thành viên phụ trách" },
       { fieldName: "startDate", header: "Ngày bắt đầu" },
@@ -128,6 +136,8 @@ export default function CriteriaAssignmentTable() {
 const mockData: I_Criteria[] = [
   {
     planCode: "KH-KTPM-2024",
+    trainingProgram: "Kỹ thuật phần mềm",
+    phaseCode: "2021-2026",
     groupCode: "NCT_TC5-7",
     standardCode: "TC_05",
     criteriaCode: "TC_05.02",
@@ -144,6 +154,8 @@ const mockData: I_Criteria[] = [
   },
   {
     planCode: "KH-KTPM-2024",
+    trainingProgram: "Kỹ thuật phần mềm",
+    phaseCode: "2021-2026",
     groupCode: "NCT_TC5-7",
     standardCode: "TC_05",
     criteriaCode: "TC_05.02",
@@ -160,6 +172,8 @@ const mockData: I_Criteria[] = [
   },
   {
     planCode: "KH-KTPM-2024",
+    trainingProgram: "Kỹ thuật phần mềm",
+    phaseCode: "2021-2026",
     groupCode: "NCT_TC1-3",
     standardCode: "TC_01",
     criteriaCode: "TC_01.01",
@@ -176,6 +190,8 @@ const mockData: I_Criteria[] = [
   },
   {
     planCode: "KH-KTPM-2024",
+    trainingProgram: "Kỹ thuật phần mềm",
+    phaseCode: "2021-2026",
     groupCode: "NCT_TC3-4",
     standardCode: "TC_03",
     criteriaCode: "TC_03.02",
@@ -191,6 +207,8 @@ const mockData: I_Criteria[] = [
   },
   {
     planCode: "KH-KTPM-2024",
+    trainingProgram: "Kỹ thuật phần mềm",
+    phaseCode: "2021-2026",
     groupCode: "NCT_TC6-7",
     standardCode: "TC_06",
     criteriaCode: "TC_06.01",

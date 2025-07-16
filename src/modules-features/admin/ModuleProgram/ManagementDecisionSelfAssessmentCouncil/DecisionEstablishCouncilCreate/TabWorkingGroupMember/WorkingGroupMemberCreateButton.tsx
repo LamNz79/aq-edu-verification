@@ -34,7 +34,7 @@ export default function WorkingGroupMemberCreateButton() {
     return (
         <MyButtonModal
             disclosure={dics}
-            title="Danh sách thành viên hội đồng"
+            title="Danh sách viên chức"
             label="Thêm"
             modalSize="100%"
             leftSection={<IconPlus />}

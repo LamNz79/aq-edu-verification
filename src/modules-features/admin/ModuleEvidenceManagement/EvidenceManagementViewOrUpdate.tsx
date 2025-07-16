@@ -3,12 +3,23 @@
 import { Stack, Tabs, TextInput, Textarea } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
-import { MyButton, MyActionIconModal } from "aq-fe-framework/components";
+import {
+  MyButton,
+  MyActionIconModal,
+  MySelect,
+} from "aq-fe-framework/components";
 import { IEvidenceData } from "./interfaces/EvidenceManagementViewModel";
 import EvidenceVersionsTab from "./EvidenceVersionsTab/EvidenceVersionsTab";
 import EvidenceUsageTab from "./EvidenceUsageTab/EvidenceUsageTab";
+import { IconEdit, IconEye } from "@tabler/icons-react";
 
-export default function EvidenceManagementUpdate({ values }: { values: IEvidenceData }) {
+export default function EvidenceManagementViewOrUpdate({
+  values,
+  editMode = true,
+}: {
+  values: IEvidenceData;
+  editMode?: boolean;
+}) {
   const [opened, { open, close }] = useDisclosure(false);
 
   // const query = useQuery({
@@ -32,9 +43,10 @@ export default function EvidenceManagementUpdate({ values }: { values: IEvidence
 
   return (
     <MyActionIconModal
-      crudType="update"
+      color={editMode ? "yellow" : "blue"}
+      icon={editMode ? <IconEdit /> : <IconEye />}
       disclosure={[opened, { open, close, toggle: () => open() }]}
-      modalSize="80%"
+      modalSize="100%"
       title="Chi tiết minh chứng"
     >
       <form onSubmit={form.onSubmit(handleSubmit)}>
@@ -59,12 +71,19 @@ export default function EvidenceManagementUpdate({ values }: { values: IEvidence
                   label="Tên minh chứng"
                   placeholder="Nhập tên minh chứng"
                   {...form.getInputProps("evidenceName")}
+                  readOnly={!editMode}
                 />
 
-                <TextInput
+                <MySelect
+                  data={[
+                    "H5.05.02.01",
+                    "H5.05.02.02",
+                    "H1.01.01.01",
+                    "H1.01.01.01.01",
+                  ]}
                   label="Trực thuộc minh chứng"
-                  placeholder="Nhập mã minh chứng cha"
                   {...form.getInputProps("parentEvidenceCode")}
+                  readOnly={!editMode}
                 />
 
                 <Textarea
@@ -77,7 +96,10 @@ export default function EvidenceManagementUpdate({ values }: { values: IEvidence
             </Tabs.Panel>
 
             <Tabs.Panel value="versions" pt="md">
-              <EvidenceVersionsTab evidenceCode={values.evidenceCode} />
+              <EvidenceVersionsTab
+                editMode={editMode}
+                evidenceCode={values.evidenceCode}
+              />
             </Tabs.Panel>
 
             <Tabs.Panel value="usage" pt="md">
@@ -85,9 +107,11 @@ export default function EvidenceManagementUpdate({ values }: { values: IEvidence
             </Tabs.Panel>
           </Tabs>
 
-          <MyButton type="submit" w="full" crudType="update">
-            Lưu
-          </MyButton>
+          {editMode && (
+            <MyButton type="submit" fullWidth crudType="save">
+              Lưu
+            </MyButton>
+          )}
         </Stack>
       </form>
     </MyActionIconModal>
