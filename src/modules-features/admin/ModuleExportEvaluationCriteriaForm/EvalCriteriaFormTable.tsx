@@ -17,7 +17,7 @@ export default function EvalCriteriaFormTable() {
     () => [
       { header: "Mã Kế hoạch TDG", accessorKey: "code" },
       { header: "Mã CTĐT", accessorKey: "curriculum" },
-      { header: "Mã Khóa", accessorKey: "course" },
+      { header: "Mã Giai đoạn", accessorKey: "phase" },
       { header: "Mã Tiêu chuẩn", accessorKey: "standardCode" },
       { header: "Mã Tiêu chí", accessorKey: "criterionCode" },
       { header: "Tên Tiêu chí", accessorKey: "criterionName" },
@@ -53,7 +53,7 @@ export default function EvalCriteriaFormTable() {
 export interface I_EvalCriteriaTable {
   code: string; // Mã Kế hoạch TDG
   curriculum: string; // Mã CTĐT
-  course: string; // Mã Khóa
+  phase: string; // Mã Khóa
   standardCode: string; // Mã Tiêu chuẩn
   criterionCode: string; // Mã Tiêu chí
   criterionName: string; // Tên Tiêu chí
@@ -68,7 +68,7 @@ const evalCriteriaMockData: I_EvalCriteriaTable[] = [
   {
     code: "KH-KTPM-2024",
     curriculum: "KTPM",
-    course: "KTPM_K20",
+    phase: "2021-2026",
     standardCode: "TC_05",
     criterionCode: "TC_05.02",
     criterionName:
@@ -82,7 +82,7 @@ const evalCriteriaMockData: I_EvalCriteriaTable[] = [
   {
     code: "KH-KTPM-2024",
     curriculum: "KTPM",
-    course: "KTPM_K20",
+    phase: "2021-2026",
     standardCode: "TC_01",
     criterionCode: "TC_01.01",
     criterionName:
@@ -96,7 +96,7 @@ const evalCriteriaMockData: I_EvalCriteriaTable[] = [
   {
     code: "KH-KTPM-2024",
     curriculum: "KTPM",
-    course: "KTPM_K21",
+    phase: "2021-2026",
     standardCode: "TC_05",
     criterionCode: "TC_05.02",
     criterionName:
@@ -110,7 +110,7 @@ const evalCriteriaMockData: I_EvalCriteriaTable[] = [
   {
     code: "KH-KTPM-2024",
     curriculum: "KTPM",
-    course: "KTPM_K20",
+    phase: "2021-2026",
     standardCode: "TC_03",
     criterionCode: "TC_03.02",
     criterionName:
@@ -124,7 +124,7 @@ const evalCriteriaMockData: I_EvalCriteriaTable[] = [
   {
     code: "KH-KTPM-2024",
     curriculum: "KTPM",
-    course: "KTPM_K20",
+    phase: "2021-2026",
     standardCode: "TC_06",
     criterionCode: "TC_06.01",
     criterionName:
