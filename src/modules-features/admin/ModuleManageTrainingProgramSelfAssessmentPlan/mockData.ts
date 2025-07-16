@@ -82,7 +82,11 @@ export const selectChuongTrinhDaoTaoApDung: string[] = [
   "CNTT Tiên tiến",
 ];
 
-export const selectKhoaDaoTaoApDung: string[] = ["K60", "K61", "K62", "K20"];
+export const selectGiaiDoan: string[] = [
+  "2021-2026",
+  "2022-2027",
+  "2023-2028",
+];
 export const selectHoiDongTuDanhGia: string[] = [
   "QĐ-HTDG-KTPM-2024"
 ]

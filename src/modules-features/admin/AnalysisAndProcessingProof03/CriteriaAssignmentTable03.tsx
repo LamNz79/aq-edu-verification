@@ -26,6 +26,8 @@ export default function CriteriaAssignmentTable03() {
   const columns = useMemo<MRT_ColumnDef<I_CriteriaAssignment>[]>(
     () => [
       { header: "Mã kế hoạch TDG", accessorKey: "planCode" },
+      { header: "Chương trình đào tạo", accessorKey: "curriculumName"},
+      { header: "Mã đào tạo", accessorKey: "curriculumCode" },
       { header: "Nhóm công tác", accessorKey: "groupCode" },
       { header: "Thành viên phụ trách", accessorKey: "responsibleMember" },
       { header: "Mã Tiêu chí", accessorKey: "criteriaCode" },
@@ -46,6 +48,7 @@ export default function CriteriaAssignmentTable03() {
   const exportConfig = {
     fields: [
       { fieldName: "planCode", header: "Mã kế hoạch TDG" },
+      { fieldName: "curriculumName", header: "Chương trình đào tạo" },
       { fieldName: "groupCode", header: "Nhóm công tác" },
       { fieldName: "responsibleMember", header: "Thành viên phụ trách" },
       { fieldName: "criteriaCode", header: "Mã Tiêu chí" },

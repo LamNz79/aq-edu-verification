@@ -9,21 +9,21 @@ import {
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
 import DecisionEstablishCouncilCreateButton from "./DecisionEstablishCouncilCreateButton";
-import DecisionEstablishCouncilDeleteListButton from "./DecisionEstablishCouncilDeleteListButton";
 import DecisionEstablishCouncilDeleteButton from "./DecisionEstablishCouncilDeleteButton";
+import DecisionEstablishCouncilDeleteListButton from "./DecisionEstablishCouncilDeleteListButton";
 import DecisionEstablishCouncilUpdateButton from "./DecisionEstablishCouncilUpdateButton";
 
 export interface SelfAssessmentDecision {
-    id: number;
-    decisionNumber: string;
+    id?: number;
+    decisionNumber?: string;
     decisionDate?: string; // ISO string, e.g. "2024-02-01"
-    decisionTitle: string;
-    appliedProgram: string;
-    programCode: string;
-    appliedCohort: string;
-    stage: string
-    signer: string;
-    fileUrl: string;
+    decisionTitle?: string;
+    appliedProgram?: string;
+    programCode?: string;
+    appliedCohort?: string;
+    stage?: string
+    signer?: string;
+    fileUrl?: string;
 }
 
 export default function DecisionEstablishCouncilTable() {
