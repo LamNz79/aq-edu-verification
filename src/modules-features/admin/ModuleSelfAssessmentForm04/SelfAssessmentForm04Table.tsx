@@ -22,7 +22,7 @@ export default function SelfAssessmentForm04Table() {
       { header: "Mã giai đoạn", accessorKey: "courseCode" },
       { header: "Mã Tiêu chuẩn", accessorKey: "standardCode" },
       { header: "Mã tiêu chí", accessorKey: "code" },
-      { header: "Tên tiêu chí", accessorKey: "name" },
+      { header: "Tên tiêu chí", accessorKey: "name", size: 250 },
       { header: "Nhóm công tác chuyên trách", accessorKey: "groupCode" },
       { header: "Thành viên phụ trách", accessorKey: "evaluator" },
       { header: "Tự đánh giá", accessorKey: "selfAssessmentStatus" },
