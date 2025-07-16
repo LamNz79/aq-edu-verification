@@ -33,8 +33,8 @@ export default function ManageTrainingProgramSelfAssessmentPlanRead() {
         accessorKey: "chuongTrinhDaoTaoApDung",
       },
       {
-        header: "Khóa đào tạo áp dụng",
-        accessorKey: "khoaDaoTaoApDung",
+        header: "Mã giai đoạn",
+        accessorKey: "maGiaiDoan",
       },
       {
         header: "Bộ Tiêu chuẩn áp dụng",

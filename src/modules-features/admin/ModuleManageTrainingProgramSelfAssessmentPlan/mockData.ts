@@ -10,7 +10,7 @@ export const mockDataManageTrainingProgramSelfAssessmentPlan: IManageTrainingPro
       maKeHoach: "KH-KTPM-2024",
       tenKeHoach: "Kế hoạch TDG CTĐT Kỹ thuật Phần mềm K60",
       chuongTrinhDaoTaoApDung: "Kỹ thuật Phần mềm",
-      khoaDaoTaoApDung: "K60",
+      maGiaiDoan: "2021-2026",
       boTieuChuanApDung: "Thông tư 04/2025/TT-BGDĐT",
       phienBanBoTieuChuan: "Phiên bản gốc",
       mucTieuTuDanhGia:
@@ -27,7 +27,7 @@ export const mockDataManageTrainingProgramSelfAssessmentPlan: IManageTrainingPro
       maKeHoach: "KH-QTKD-2025",
       tenKeHoach: "Kế hoạch TDG CTĐT Quản trị Kinh doanh K61",
       chuongTrinhDaoTaoApDung: "Quản trị Kinh doanh",
-      khoaDaoTaoApDung: "K61",
+      maGiaiDoan: "2022-2027",
       boTieuChuanApDung: "Thông tư 04/2025/TT-BGDĐT",
       phienBanBoTieuChuan: "Sửa đổi lần 1",
       mucTieuTuDanhGia:
@@ -44,7 +44,7 @@ export const mockDataManageTrainingProgramSelfAssessmentPlan: IManageTrainingPro
       maKeHoach: "KH-KHMT-2025",
       tenKeHoach: "Kế hoạch TDG CTĐT Khoa học Máy tính K62",
       chuongTrinhDaoTaoApDung: "Khoa học Máy tính",
-      khoaDaoTaoApDung: "K62",
+      maGiaiDoan: "2023-2028",
       boTieuChuanApDung: "Thông tư 04/2025/TT-BGDĐT",
       phienBanBoTieuChuan: "Sửa đổi lần 2",
       mucTieuTuDanhGia:
@@ -61,7 +61,7 @@ export const mockDataManageTrainingProgramSelfAssessmentPlan: IManageTrainingPro
       maKeHoach: "KH-CNTTTT-2024",
       tenKeHoach: "Kế hoạch TDG CTĐT CNTT Tiên tiến K20",
       chuongTrinhDaoTaoApDung: "CNTT Tiên tiến",
-      khoaDaoTaoApDung: "K20",
+      maGiaiDoan: "2023-2028",
       boTieuChuanApDung: "AUN-QA",
       phienBanBoTieuChuan: "Version 4.0",
       mucTieuTuDanhGia:

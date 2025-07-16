@@ -2,7 +2,7 @@ export interface IManageTrainingProgramSelfAssessmentPlanInfoViewModel {
   maKeHoach?: string; // Mã kế hoạch
   tenKeHoach?: string; // Tên kế hoạch
   chuongTrinhDaoTaoApDung?: string; // Chương trình Đào tạo áp dụng
-  khoaDaoTaoApDung?: string; // Khóa đào tạo áp dụng
+  maGiaiDoan?: string; // Mã giai đoạn
   boTieuChuanApDung?: string; // Bộ Tiêu chuẩn áp dụng
   phienBanBoTieuChuan?: string; // Phiên bản Bộ Tiêu chuẩn
   mucTieuTuDanhGia?: string; // Mục tiêu tự đánh giá
