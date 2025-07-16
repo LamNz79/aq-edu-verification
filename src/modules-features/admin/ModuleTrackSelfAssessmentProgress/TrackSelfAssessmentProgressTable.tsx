@@ -19,7 +19,9 @@ export default function TrackSelfAssessmentProgressTable() {
     queryFn: () => mockData,
   });
 
-  const columns = useMemo<MRT_ColumnDef<ITrackSelfAssessmentProgressViewModel>[]>(
+  const columns = useMemo<
+    MRT_ColumnDef<ITrackSelfAssessmentProgressViewModel>[]
+  >(
     () => [
       {
         header: "Mã Kế hoạch TDG",
@@ -102,6 +104,10 @@ export default function TrackSelfAssessmentProgressTable() {
         },
       },
       {
+        header: "Số lần gửi",
+        accessorKey: "sentNumber",
+      },
+      {
         header: "Nội dung thông báo",
         accessorKey: "notificationContentId",
         Cell: ({ cell }) => {
@@ -153,6 +159,7 @@ const mockData: ITrackSelfAssessmentProgressViewModel[] = [
     checkStatus: "Đạt yêu cầu",
     notificationSent: true,
     notificationContentId: 1,
+    sentNumber: 1,
   },
   {
     id: 2,
@@ -171,6 +178,7 @@ const mockData: ITrackSelfAssessmentProgressViewModel[] = [
     checkStatus: "Đang kiểm tra",
     notificationSent: true,
     notificationContentId: 2,
+    sentNumber: 2,
   },
   {
     id: 3,
@@ -189,6 +197,7 @@ const mockData: ITrackSelfAssessmentProgressViewModel[] = [
     checkStatus: "Chưa kiểm tra",
     notificationSent: false,
     notificationContentId: 0,
+    sentNumber: 0,
   },
   {
     id: 4,
@@ -207,6 +216,7 @@ const mockData: ITrackSelfAssessmentProgressViewModel[] = [
     checkStatus: "Chưa kiểm tra",
     notificationSent: false,
     notificationContentId: 0,
+    sentNumber: 0,
   },
   {
     id: 5,
@@ -225,6 +235,7 @@ const mockData: ITrackSelfAssessmentProgressViewModel[] = [
     checkStatus: "Đang kiểm tra",
     notificationSent: true,
     notificationContentId: 1,
+    sentNumber: 1,
   },
   {
     id: 6,
@@ -243,5 +254,6 @@ const mockData: ITrackSelfAssessmentProgressViewModel[] = [
     checkStatus: "Đang kiểm tra",
     notificationSent: false,
     notificationContentId: 0,
+    sentNumber: 0,
   },
 ];

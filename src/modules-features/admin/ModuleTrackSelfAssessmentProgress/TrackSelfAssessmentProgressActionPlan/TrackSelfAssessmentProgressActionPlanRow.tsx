@@ -15,7 +15,7 @@ export default function TrackSelfAssessmentProgressActionPlanRow({
   const columns = useMemo<MRT_ColumnDef<ITrackSelfAssessmentProgressActionPlanRowHistoryTable>[]>(
     () => [
       { header: "Mục tiêu", accessorKey: "name", size: 120 },
-      { header: "Nội dung", accessorKey: "description", size: 350 },
+      { header: "Nội dung chi tiết", accessorKey: "description", size: 350 },
       { header: "Đơn vị; Người thực hiện", accessorKey: "evaluator" },
       { header: "Thời gian thực hiện hoặc hoàn thành", accessorKey: "date" },
       { header: "Ghi chú", accessorKey: "note", size: 120 },
