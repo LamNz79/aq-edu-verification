@@ -69,6 +69,8 @@ export default function StatCard({
                         letterSpacing: "-1px",
                         transition: "color 0.2s",
                     }}
+                    variant="gradient"
+                    gradient={gradient}
                 >
                     {value}
                 </Text>

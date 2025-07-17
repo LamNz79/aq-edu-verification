@@ -2,7 +2,11 @@
 
 import { Anchor, Checkbox, Text } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
-import { MyButtonDeleteList, MyCenterFull, MyDataTable } from "aq-fe-framework/components";
+import {
+  MyButtonDeleteList,
+  MyCenterFull,
+  MyDataTable,
+} from "aq-fe-framework/components";
 import { MyButtonViewPDF } from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
@@ -13,14 +17,20 @@ import EvidenceVersionsUpdate from "./EvidenceVersionsUpdate";
 
 interface EvidenceVersionsTabProps {
   evidenceCode?: string;
+  editMode?: boolean;
 }
 
-export default function EvidenceVersionsTab({ evidenceCode }: EvidenceVersionsTabProps) {
+export default function EvidenceVersionsTab({
+  evidenceCode,
+  editMode = true,
+}: EvidenceVersionsTabProps) {
   const query = useQuery({
     queryKey: ["evidence-versions", evidenceCode],
     queryFn: () => {
       if (!evidenceCode) return [];
-      return mockVersionData.filter((item) => item.evidenceCode === evidenceCode);
+      return mockVersionData.filter(
+        (item) => item.evidenceCode === evidenceCode
+      );
     },
   });
 
@@ -102,29 +112,34 @@ export default function EvidenceVersionsTab({ evidenceCode }: EvidenceVersionsTa
   );
 
   return (
-    <MyDataTable
+    <MyDataTable<IEvidenceVersion>
       columns={columns}
       enableRowSelection={true}
-      renderTopToolbarCustomActions={({ table }) => (
-        <>
-          <EvidenceVersionsCreate />
-          <MyButtonDeleteList
-            onSubmit={() => {}}
-            contextData={table
-              .getSelectedRowModel()
-              .flatRows.flatMap((item) => item.original)
-              .map((item) => item.fileId)
-              .join(", ")}
-          />
-        </>
-      )}
-      renderRowActions={({ row }) => (
-        <MyCenterFull>
-          <EvidenceVersionsUpdate values={row.original} />
-          <EvidenceVersionsDelete id={row.original.fileId} code={row.original.evidenceCode} />
-        </MyCenterFull>
-      )}
       data={query.data || []}
+      {...(editMode && {
+        renderTopToolbarCustomActions: ({ table }) => (
+          <>
+            <EvidenceVersionsCreate />
+            <MyButtonDeleteList
+              onSubmit={() => {}}
+              contextData={table
+                .getSelectedRowModel()
+                .flatRows.flatMap((item) => item.original)
+                .map((item) => item.fileId)
+                .join(", ")}
+            />
+          </>
+        ),
+        renderRowActions: ({ row }) => (
+          <MyCenterFull>
+            <EvidenceVersionsUpdate values={row.original} />
+            <EvidenceVersionsDelete
+              id={row.original.fileId}
+              code={row.original.evidenceCode}
+            />
+          </MyCenterFull>
+        ),
+      })}
     />
   );
 }
@@ -165,7 +180,8 @@ const mockVersionData: IEvidenceVersion[] = [
     issuingUnit: "Hội đồng Khoa học Trường",
     effectiveFrom: "10/01/2025",
     effectiveTo: "",
-    versionNote: "Là tài liệu nền tảng cho Quyết định ban hành Quy chế đào tạo 2025",
+    versionNote:
+      "Là tài liệu nền tảng cho Quyết định ban hành Quy chế đào tạo 2025",
     isCurrent: false,
     evidenceCode: "H5.05.02.01",
   },

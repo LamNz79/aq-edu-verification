@@ -1,5 +1,7 @@
 export interface I_CriteriaAssignment {
-    id?: number;
+  id?: number;
+  curriculumName?: string; 
+  curriculumCode?: string;
   planCode?: string;
   groupCode?: string;
   responsibleMember?: string;
@@ -22,12 +24,12 @@ export interface I_Requirement {
 export interface I_EvidenceForecast {
   id?: number;
   code?: string;
-  criteriaGroupCode?: string;           // Mã Tiêu chí
-  criteriaCode?: string;                // Mã Tiêu chí con
-  evidenceCode?: string;                // Mã Minh chứng
-  evidenceName?: string;                // Tên Minh chứng
-  evidenceBelongToCode?: string;        // Trực thuộc minh chứng
-  issuedInfo?: string;                  // Số - ngày ban hành - thời điểm khảo sát
-  issuingDept?: string;                 // Nơi ban hành
-  note?: string;                        // Ghi chú
+  criteriaGroupCode?: string; // Mã Tiêu chí
+  criteriaCode?: string; // Mã Tiêu chí con
+  evidenceCode?: string; // Mã Minh chứng
+  evidenceName?: string; // Tên Minh chứng
+  evidenceBelongToCode?: string; // Trực thuộc minh chứng
+  issuedInfo?: string; // Số - ngày ban hành - thời điểm khảo sát
+  issuingDept?: string; // Nơi ban hành
+  note?: string; // Ghi chú
 }

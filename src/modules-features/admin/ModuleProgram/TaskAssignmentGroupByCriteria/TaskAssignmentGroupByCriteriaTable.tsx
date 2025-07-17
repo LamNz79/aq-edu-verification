@@ -14,7 +14,7 @@ export interface EvaluationPlan {
     id: number;
     code: string; // Mã Kế hoạch TDG
     trainingProgram: string; // Chương trình đào tạo
-    course: string; // Khóa
+    stage: string; // Khóa
     groupCode: string; // Mã Nhóm Công tác
     groupName: string; // Tên nhóm
     standardCode: string; // Mã Tiêu chuẩn phụ trách
@@ -31,9 +31,9 @@ export default function DecisionEstablishCouncilTable() {
         () => [
             { accessorKey: "code", header: "Mã Kế hoạch TDG" },
             { accessorKey: "trainingProgram", header: "Chương trình đào tạo" },
-            { accessorKey: "course", header: "Khóa" },
+            { accessorKey: "stage", header: "Giai đoạn" },
             { accessorKey: "groupCode", header: "Mã Nhóm Công tác" },
-            { accessorKey: "groupName", header: "Tên nhóm" },
+            { accessorKey: "groupName", header: "Tên nhóm" },   
             { accessorKey: "standardCode", header: "Mã Tiêu chuẩn phụ trách" },
             { accessorKey: "standardName", header: "Tên Tiêu chuẩn phụ trách" },
             { accessorKey: "startDate", header: "Ngày bắt đầu" },
@@ -75,7 +75,7 @@ export const evaluationPlans: EvaluationPlan[] = [
         id: 1,
         code: "KH-KTPM-2024",
         trainingProgram: "Kỹ thuật phần mềm",
-        course: "K2020",
+        stage: "2021-2026",
         groupCode: "NCT_TC1-3",
         groupName: "Nhóm Tiêu chí 1-3",
         standardCode: "TC_01",
@@ -88,7 +88,7 @@ export const evaluationPlans: EvaluationPlan[] = [
         id: 2,
         code: "KH-KTPM-2024",
         trainingProgram: "Kỹ thuật phần mềm",
-        course: "K2020",
+        stage: "2021-2026",
         groupCode: "NCT_TC1-3",
         groupName: "Nhóm Tiêu chí 1-3",
         standardCode: "TC_02",
@@ -101,7 +101,7 @@ export const evaluationPlans: EvaluationPlan[] = [
         id: 3,
         code: "KH-KTPM-2024",
         trainingProgram: "Kỹ thuật phần mềm",
-        course: "K2020",
+        stage: "2021-2026",
         groupCode: "NCT_TC4-6",
         groupName: "Nhóm Tiêu chí 4-6",
         standardCode: "TC_04",
@@ -114,7 +114,7 @@ export const evaluationPlans: EvaluationPlan[] = [
         id: 4,
         code: "KH-QTKD-2025",
         trainingProgram: "Quản trị Kinh doanh",
-        course: "K2021",
+        stage: "2022-2027",
         groupCode: "NCT_TC1",
         groupName: "Nhóm Tiêu chí 1-2",
         standardCode: "TC_01",
@@ -127,7 +127,7 @@ export const evaluationPlans: EvaluationPlan[] = [
         id: 5,
         code: "KH-QTKD-2025",
         trainingProgram: "Quản trị Kinh doanh",
-        course: "K2021",
+        stage: "2022-2027",
         groupCode: "NCT_TC1",
         groupName: "Nhóm Tiêu chí 1-2",
         standardCode: "TC_02",
@@ -140,7 +140,7 @@ export const evaluationPlans: EvaluationPlan[] = [
         id: 6,
         code: "KH-KHMT-2025",
         trainingProgram: "Khoa học Máy tính",
-        course: "K2022",
+        stage: "2023-2028",
         groupCode: "NCT_TC3-5",
         groupName: "Nhóm Tiêu chí 3-5",
         standardCode: "TC_03",

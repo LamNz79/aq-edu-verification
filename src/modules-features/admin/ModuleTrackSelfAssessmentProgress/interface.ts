@@ -16,6 +16,7 @@ export interface ITrackSelfAssessmentProgressViewModel {
   checkStatus?: "Đạt yêu cầu" | "Đang kiểm tra" | "Chưa kiểm tra";
   notificationSent?: boolean;
   notificationContentId?: number;
+  sentNumber?:number
 }
 
 export interface ITrackSelfAssessmentProgressNotificationDetail {

@@ -24,8 +24,8 @@ export interface CriterionAssignment {
 export default function AssignmentTaskTable() {
 
     const columns = useMemo<MRT_ColumnDef<CriterionAssignment>[]>(() => [
-        { accessorKey: "criterionCode", header: "Mã Tiêu chí/Chỉ báo" },
-        { accessorKey: "criterionName", header: "Tên Tiêu chí/Chỉ báo" },
+        { accessorKey: "criterionCode", header: "Mã Tiêu chí" },
+        { accessorKey: "criterionName", header: "Tên Tiêu chí" },
         { accessorKey: "memberCode", header: "Mã Thành viên" },
         { accessorKey: "fullName", header: "Họ và Tên Thành viên" },
         { accessorKey: "phoneNumber", header: "Số điện thoại" },

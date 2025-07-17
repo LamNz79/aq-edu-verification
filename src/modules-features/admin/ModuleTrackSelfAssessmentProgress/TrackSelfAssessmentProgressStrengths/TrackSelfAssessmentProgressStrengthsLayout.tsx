@@ -35,10 +35,10 @@ export default function TrackSelfAssessmentProgressStrengthsLayout() {
         <MyTextEditor
           value={`
               <p>Trường đã xây dựng môi trường sư phạm hiện tại, năng động, mở phạm, thân thiện, 
-            sạch đẹp và an toàn tạo không khí và tâm lý thoản mái, phục vụ hiệu quả cho hoạt động dạy học </p>
+            sạch đẹp và an toàn tạo không khí và tâm lý thoản mái, phục vụ hiệu quả cho hoạt động dạy học. </p>
                       
              <p>Khuôn viên trường có đầy đủ các bảng nội quy, hướng dẫn, các thông điệp mang ý nghĩa tích cực giúp 
-            nguời học thêm năng động, sáng tạoh trong học tập và rèn luyện
+            nguời học thêm năng động, sáng tạo trong học tập và rèn luyện.
             </p>
               `}
           contentHeight={"220px"}

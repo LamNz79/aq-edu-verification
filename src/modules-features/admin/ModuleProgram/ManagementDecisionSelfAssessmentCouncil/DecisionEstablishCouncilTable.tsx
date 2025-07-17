@@ -9,20 +9,21 @@ import {
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
 import DecisionEstablishCouncilCreateButton from "./DecisionEstablishCouncilCreateButton";
-import DecisionEstablishCouncilDeleteListButton from "./DecisionEstablishCouncilDeleteListButton";
 import DecisionEstablishCouncilDeleteButton from "./DecisionEstablishCouncilDeleteButton";
+import DecisionEstablishCouncilDeleteListButton from "./DecisionEstablishCouncilDeleteListButton";
 import DecisionEstablishCouncilUpdateButton from "./DecisionEstablishCouncilUpdateButton";
 
 export interface SelfAssessmentDecision {
-    id: number;
-    decisionNumber: string;
+    id?: number;
+    decisionNumber?: string;
     decisionDate?: string; // ISO string, e.g. "2024-02-01"
-    decisionTitle: string;
-    appliedProgram: string;
-    programCode: string;
-    appliedCohort: string;
-    signer: string;
-    fileUrl: string;
+    decisionTitle?: string;
+    appliedProgram?: string;
+    programCode?: string;
+    appliedCohort?: string;
+    stage?: string
+    signer?: string;
+    fileUrl?: string;
 }
 
 export default function DecisionEstablishCouncilTable() {
@@ -33,7 +34,7 @@ export default function DecisionEstablishCouncilTable() {
             { accessorKey: 'decisionDate', header: 'Ngày Quyết định' },
             { accessorKey: 'decisionTitle', header: 'Tên Quyết định' },
             { accessorKey: 'appliedProgram', header: 'Chương trình Đào tạo áp dụng' },
-            { accessorKey: 'appliedCohort', header: 'Khóa đào tạo áp dụng' },
+            { accessorKey: 'stage', header: 'Mã giai đoạn' },
             { accessorKey: 'signer', header: 'Người ký' },
             {
                 accessorKey: 'fileUrl',
@@ -86,7 +87,8 @@ export const selfAssessmentDecisions: SelfAssessmentDecision[] = [
         appliedCohort: "K60",
         signer: "Tô Ngọc Báo",
         fileUrl: "",
-        programCode: "7480201"
+        programCode: "7480201",
+        stage: "2021-2026"
     },
     {
         id: 2,
@@ -97,7 +99,8 @@ export const selfAssessmentDecisions: SelfAssessmentDecision[] = [
         appliedCohort: "K61",
         signer: "Nguyễn Văn C",
         fileUrl: "",
-        programCode: "7510301H"
+        programCode: "7510301H",
+        stage: "2022-2027"
     },
     {
         id: 3,
@@ -108,7 +111,8 @@ export const selfAssessmentDecisions: SelfAssessmentDecision[] = [
         appliedCohort: "K62",
         signer: "Trần Thị D",
         fileUrl: "",
-        programCode: "7480101C"
+        programCode: "7480101C",
+        stage: "2023-2028"
     },
     {
         id: 4,
@@ -119,6 +123,7 @@ export const selfAssessmentDecisions: SelfAssessmentDecision[] = [
         appliedCohort: "K20",
         signer: "Tô Ngọc Báo",
         fileUrl: "",
-        programCode: "7480201C"
+        programCode: "7480201C",
+        stage: "2023-2028"
     },
 ];

@@ -1,8 +1,19 @@
 "use client";
 
-import { Stack, TextInput, Textarea, Checkbox, Grid, FileInput } from "@mantine/core";
+import {
+  Stack,
+  TextInput,
+  Textarea,
+  Checkbox,
+  Grid,
+  FileInput,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { MyButton, MyActionIconModal } from "aq-fe-framework/components";
+import {
+  MyButton,
+  MyActionIconModal,
+  MySelect,
+} from "aq-fe-framework/components";
 import { useDisclosure } from "@mantine/hooks";
 import { IEvidenceVersion } from "../interfaces/EvidenceManagementViewModel";
 
@@ -11,7 +22,10 @@ interface EvidenceVersionsUpdateProps {
   onSubmit?: (values: IEvidenceVersion) => void;
 }
 
-export default function EvidenceVersionsUpdate({ values, onSubmit }: EvidenceVersionsUpdateProps) {
+export default function EvidenceVersionsUpdate({
+  values,
+  onSubmit,
+}: EvidenceVersionsUpdateProps) {
   const [opened, { open, close }] = useDisclosure(false);
 
   const form = useForm<IEvidenceVersion>({
@@ -44,11 +58,10 @@ export default function EvidenceVersionsUpdate({ values, onSubmit }: EvidenceVer
         <Stack gap="md">
           <Grid>
             <Grid.Col span={6}>
-              <TextInput
-                label="ID File"
-                placeholder="ID File"
-                readOnly
-                {...form.getInputProps("fileId")}
+              <FileInput
+                label="File đính kèm"
+                placeholder="Chọn file"
+                accept=".pdf,.doc,.docx"
               />
             </Grid.Col>
 
@@ -59,10 +72,6 @@ export default function EvidenceVersionsUpdate({ values, onSubmit }: EvidenceVer
                 withAsterisk
                 {...form.getInputProps("fileName")}
               />
-            </Grid.Col>
-
-            <Grid.Col span={6}>
-              <FileInput label="File đính kèm" placeholder="Chọn file" accept=".pdf,.doc,.docx" />
             </Grid.Col>
 
             <Grid.Col span={6}>
@@ -83,14 +92,6 @@ export default function EvidenceVersionsUpdate({ values, onSubmit }: EvidenceVer
 
             <Grid.Col span={6}>
               <TextInput
-                label="Đơn vị ban hành/ cấp"
-                placeholder="Nhập đơn vị ban hành"
-                {...form.getInputProps("issuingUnit")}
-              />
-            </Grid.Col>
-
-            <Grid.Col span={6}>
-              <TextInput
                 label="Hiệu lực từ ngày"
                 placeholder="dd/mm/yyyy"
                 {...form.getInputProps("effectiveFrom")}
@@ -105,6 +106,17 @@ export default function EvidenceVersionsUpdate({ values, onSubmit }: EvidenceVer
               />
             </Grid.Col>
 
+            <Grid.Col span={6}>
+              <MySelect
+                label="Đơn vị ban hành/ cấp"
+                data={[
+                  "Trường Đại học Đồng Nai",
+                  "Hội đồng Khoa học Trường",
+                  "Khoa Khoa học Máy tính",
+                ]}
+                {...form.getInputProps("issuingUnit")}
+              />
+            </Grid.Col>
             <Grid.Col span={12}>
               <Textarea
                 label="Ghi chú phiên bản"

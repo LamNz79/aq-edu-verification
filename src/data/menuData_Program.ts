@@ -86,9 +86,8 @@ export const menuData_Program: I0LinkItem[] = [
         label: "Quản lý Lộ trình Chuẩn bị Kiểm định",
         links: [
           { label: "Quản lý Quyết định Thành lập Hội đồng Tự đánh giá CTĐT (Biểu 01)", name: "", link: "management-self-assessment-decision-council", description: "", status: "Prototype" },
-          { label: "Quản lý Kế hoạch Tự đánh giá CTĐT (Biểu 02)", name: "", link: "", description: "", status: "Menu" },
+          { label: "Quản lý Kế hoạch Tự đánh giá CTĐT (Biểu 02)", name: "", link: "manage-training-program-self-assessment-plan-02", description: "", status: "Prototype" },
           { label: "Nhóm Phân công Nhiệm vụ theo Tiêu chí", name: "", link: "task-assignment-group-by-criteria", description: "", status: "Prototype" },
-          { label: "Quản lý Kế hoạch Tự đánh giá CTĐT (Biểu 02)", name: "", link: "manage-training-program-self-assessment-plan", description: "", status: "Prototype" },
         ],
       },
       {
@@ -97,7 +96,7 @@ export const menuData_Program: I0LinkItem[] = [
           { label: "Phân tích và Xử lý Thông tin, Minh chứng (Biểu 03)", name: "", link: "analysis-and-processing-proof-03", description: "", status: "Prototype" },
           { label: "Kiểm tra phân tích tiêu chí", name: "", link: "check-criteria-analysis", description: "", status: "Prototype" },
           { label: "Tổng hợp danh sách minh chứng dự kiến", name: "", link: "evidence-list-summary-expected", description: "", status: "Prototype" },
-          { label: "Ghi nhận Kết quả Thu thập Minh chứng Thực tế", name: "", link: "record-results-collect-real-world-evidence", description: "", status: "Prototype" },
+          { label: "Đối chiếu minh chứng hiện có", name: "", link: "record-results-collect-real-world-evidence", description: "", status: "Prototype" },
           { label: "Kiểm duyệt Minh chứng thu thập", name: "", link: "evidence-collection-review", description: "", status: "Prototype" },
         ],
       },
@@ -105,7 +104,7 @@ export const menuData_Program: I0LinkItem[] = [
         label: "Báo cáo Tự đánh giá (Cuối chu kỳ 5 năm)",
         links: [
           { label: "Phiếu Tự đánh giá Tiêu chí (Biểu 04)", name: "Self assessment form 04", link: "self-assessment-form-04", description: "", status: "Prototype" },
-          { label: "Phê duyệt Phiếu Tự đánh giá", name: "", link: "approve-self-evaluation-form", description: "Phê duyệt Phiếu Tự đánh giá.", status: "Prototype" },
+          { label: "Kiểm tra và nhận xét Phiếu tự đánh giá", name: "", link: "approve-self-evaluation-form", description: "Phê duyệt Phiếu Tự đánh giá.", status: "Prototype" },
           { label: "Xuất phiếu đánh giá tiêu chí", name: "Export Evaluation Criteria Form", link: "export-evaluation-criteria-form", description: "", status: "Prototype" },
           { label: "Danh sách Báo cáo Tự đánh giá", name: "List of Self-Assessment Reports", link: "self-assessment-report", description: "", status: "Prototype" },
         ],
@@ -154,7 +153,7 @@ export const menuData_Program: I0LinkItem[] = [
     links: [
       { label: "Quản lý Minh chứng", name: "Evidence management", link: "evidence-management", status: "Prototype", description: "Lưu trữ và tra cứu minh chứng phục vụ công tác đánh giá." },
     ],
-  },  
+  },
   {
     label: "Báo cáo",
     links: [],

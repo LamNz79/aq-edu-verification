@@ -14,8 +14,8 @@ export default function Form04ActionPlanRow({
 }) {
   const columns = useMemo<MRT_ColumnDef<IForm04ActionPlanRowHistoryTable>[]>(
     () => [
-      { header: "Mục tiêu", accessorKey: "name", size: 120 },
-      { header: "Nội dung", accessorKey: "description", size: 350 },
+      { header: "Mục tiêu", accessorKey: "name", size: 200 },
+      { header: "Nội dung chi tiết", accessorKey: "description", size: 350 },
       { header: "Đơn vị; Người thực hiện", accessorKey: "evaluator" },
       { header: "Thời gian thực hiện hoặc hoàn thành", accessorKey: "date" },
       { header: "Ghi chú", accessorKey: "note", size: 120 },
@@ -61,7 +61,7 @@ export default function Form04ActionPlanRow({
             },
           }}
           mantineTableContainerProps={{
-            style: { height: "180px", overflowY: "auto" },
+            style: { height: "250px", overflowY: "auto" },
           }}
         />
       </Accordion.Panel>
@@ -71,23 +71,47 @@ export default function Form04ActionPlanRow({
 
 const mockData: IForm04ActionPlanRowHistoryTable[] = [
   {
-    id: "1",
+    id: 1,
     code: "MT1",
     name: "Khắc phục điểm tồn tại",
-    description:
-      "Nhà trường tăng cường một số chậu cây cảnh tạo thêm không gian xanh. Bố trí thêm không gian sinh hoạt chung và không gian riêng yên tĩnh phục vụ cho nhu cầu nghiên cứu dựa trên khảo sát nhu cầu sử dụng của CB-GV-NV.",
+    description: "Tăng cường trồng cây cảnh tạo thêm không gian xanh",
     evaluator: "Trường Đại học Đồng Nai",
-    date: "Năm học 2022–2024",
-    note: "",
+    date: "Năm học 2022 - 2024",
   },
   {
-    id: "2",
+    id: 2,
     code: "MT2",
+    name: "Khắc phục điểm tồn tại",
+    description:
+      "Thiếu không gian sinh hoạt chung, bố trí thêm không gian sinh hoạt chung",
+    evaluator: "Trường Đại học Đồng Nai",
+    date: "Năm học 2022 - 2024",
+  },
+  {
+    id: 3,
+    code: "MT3",
+    name: "Khắc phục điểm tồn tại",
+    description:
+      "Thiếu không gian riêng yên tĩnh phục vụ nhu cầu nghiên cứu; bố trí thêm không gian riêng yên tĩnh phục vụ cho nhu cầu nghiên cứu dựa trên khảo sát nhu cầu sử dụng của CB-GV-NV",
+    evaluator: "Trường Đại học Đồng Nai",
+    date: "Năm học 2022 - 2024",
+  },
+  {
+    id: 4,
+    code: "MT4",
     name: "Phát huy điểm mạnh",
     description:
-      "Nhà trường tiến hành bố trí thêm các phòng làm việc để các GV có môi trường làm việc thuận lợi, nâng cao hiệu quả hoạt động tư vấn; hỗ trợ người học.",
+      "Có nhu cầu/khả năng nâng cao môi trường làm việc cho giảng viên, bố trí thêm các phòng làm việc để các GV có môi trường làm việc thuận lợi",
     evaluator: "Trường Đại học Đồng Nai",
     date: "Hằng năm",
-    note: "",
+  },
+  {
+    id: 5,
+    code: "MT5",
+    name: "Phát huy điểm mạnh",
+    description:
+      "Có khả năng/mong muốn nâng cao hiệu quả hoạt động tư vấn, hỗ trợ người học",
+    evaluator: "Trường Đại học Đồng Nai",
+    date: "Hằng năm",
   },
 ];

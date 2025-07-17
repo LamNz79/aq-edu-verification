@@ -1,7 +1,6 @@
 import { Accordion, Box, Card, Grid, Text } from "@mantine/core";
 import { MyFieldset, MyFlexColumn, MyHtmlWrapper } from "aq-fe-framework/components";
 
-
 export interface IFormEvidence {
   id: number;
   code: string;
@@ -21,7 +20,6 @@ export interface IFormHistoryItem {
 }
 
 export default function FormHistory() {
-
   return (
     <MyFlexColumn gap={16}>
       <MyFieldset title="Lịch sử soạn thảo">
@@ -32,20 +30,24 @@ export default function FormHistory() {
                 <Accordion.Control>
                   <Grid>
                     <Grid.Col span={3}>
-                      <Text size="sm" c="green" fw={600}>
+                      <Text size="sm" c="green" fw={500}>
                         {item.type}
                       </Text>
                     </Grid.Col>
                     <Grid.Col span={3}>
-                      <Text size="sm">Ngày cập nhật: {item.updatedAt}</Text>
+                      <Text size="sm" fw={500}>
+                        Ngày cập nhật: {item.updatedAt}
+                      </Text>
                     </Grid.Col>
                     <Grid.Col span={3}>
-                      <Text size="sm">Người cập nhật: {item.updatedBy}</Text>
+                      <Text size="sm" fw={500}>
+                        Người cập nhật: {item.updatedBy}
+                      </Text>
                     </Grid.Col>
-                    <Grid.Col span={3}>
-                      <Text size="sm" span>
+                    <Grid.Col span={3} fw={500}>
+                      <Text size="sm" span fw={500}>
                         Tự đánh giá:{" "}
-                        <Text span c={item.selfAssessment === "Đạt" ? "green" : "red"} fw={600}>
+                        <Text span c={item.selfAssessment === "Đạt" ? "green" : "red"} fw={500}>
                           {item.selfAssessment}
                         </Text>
                       </Text>
