@@ -1,40 +1,156 @@
-import { Box, Divider, Flex, Grid, Text } from "@mantine/core";
-import { MyTextArea, MyTextInput } from "aq-fe-framework/components";
+"use client";
+
+import { Button, Flex } from "@mantine/core";
+import { ITrackSelfAssessmentProgressActionPlanRowHistoryTable } from "./interface";
+import { useMemo, useState } from "react";
+import { IconPlus } from "@tabler/icons-react";
+import { MyCenterFull, MyDataTable, MySelect } from "aq-fe-framework/components";
+import { MRT_ColumnDef } from "mantine-react-table";
+import TrackSelfAssessmentProgressActionPlanContentDelete from "./TrackSelfAssessmentProgressActionPlanDelete";
 
 export default function TrackSelfAssessmentProgressActionPlanContent() {
+  const [data, setData] = useState<ITrackSelfAssessmentProgressActionPlanRowHistoryTable[]>([
+    ...mockData,
+  ]);
+
+  const addRowData = {
+    id: -1,
+    code: "",
+    name: "",
+    description: "",
+    evaluator: "",
+    date: "",
+    isAddRow: true,
+  };
+
+  const handleChangeSelect = (value: string | null, rowIndex: number) => {
+    const values = mockData.find((item) => item.code === value);
+    if (values) {
+      setData((prev) => prev.map((item, index) => (index === rowIndex ? { ...values } : item)));
+    }
+  };
+
+  const handleAdd = () => {
+    setData((prev) => [...prev, mockData[0]]);
+  };
+
+  const handleDelete = (rowIndex: number) => {
+    setData((prev) => prev.filter((_, index) => index !== rowIndex));
+  };
+
+  const tableData = [...data, addRowData];
+
+  const columns = useMemo<MRT_ColumnDef<any>[]>(
+    () => [
+      {
+        header: "Mục tiêu",
+        accessorKey: "name",
+        size: 200,
+        Cell: ({ row }) => {
+          if (row.original.isAddRow) {
+            return (
+              <Button
+                leftSection={<IconPlus size={16} />}
+                variant="outline"
+                size="sm"
+                onClick={handleAdd}
+                fullWidth
+              >
+                Thêm
+              </Button>
+            );
+          }
+          return (
+            <MySelect
+              value={row.original.code}
+              onChange={(value) => handleChangeSelect(value, row.index)}
+              data={mockData.map((item) => ({
+                value: item.code,
+                label: item.name,
+              }))}
+            />
+          );
+        },
+      },
+      { header: "Nội dung chi tiết", accessorKey: "description", size: 350, editVariant: "text" },
+      { header: "Đơn vị; Người thực hiện", accessorKey: "evaluator", editVariant: "text" },
+      { header: "Thời gian thực hiện hoặc hoàn thành", accessorKey: "date", editVariant: "text" },
+      { header: "Ghi chú", accessorKey: "note", size: 120, editVariant: "text" },
+    ],
+    []
+  );
+
   return (
-    <Flex
-      direction={"column"}
-      style={{ width: "100%" }}
-      title="Nội dung báo cáo hiện tại"
-    >
-      <Box>
-        <Text fw={600}>4.1 Khắc phục điểm tồn tại:</Text>
-        <Grid>
-          <Grid.Col span={{ base: 12, md: 7 }}>
-            <MyTextArea label="Nội dung" minRows={4} autosize mb={8} />
-            <MyTextInput label="Ghi chú" mb={8} />
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, md: 5 }}>
-            <MyTextInput label="Đơn vị/ người thực hiện" mb={8} />
-            <MyTextInput label="Thời gian thực hiện/ hoàn thành" mb={8} />
-          </Grid.Col>
-        </Grid>
-      </Box>
-      <Divider />
-      <Box>
-        <Text fw={600}>4.2 Phát huy điểm mạnh:</Text>
-        <Grid>
-          <Grid.Col span={{ base: 12, md: 7 }}>
-            <MyTextArea label="Nội dung" minRows={4} autosize mb={8} />
-            <MyTextInput label="Ghi chú" mb={8} />
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, md: 5 }}>
-            <MyTextInput label="Đơn vị/ người thực hiện" mb={8} />
-            <MyTextInput label="Thời gian thực hiện/ hoàn thành" mb={8} />
-          </Grid.Col>
-        </Grid>
-      </Box>
+    <Flex direction={"column"} style={{ width: "100%" }} title="Nội dung báo cáo hiện tại">
+      <MyDataTable
+        data={tableData}
+        columns={columns}
+        editDisplayMode="row"
+        initialState={{
+          columnSizing: {
+            "mrt-row-numbers": 60,
+          },
+        }}
+        mantineTableContainerProps={{
+          style: { height: "300px", overflowY: "auto" },
+        }}
+        renderRowActions={({ row }) => {
+          if (row.original.isAddRow) return "";
+          return (
+            <MyCenterFull>
+              <TrackSelfAssessmentProgressActionPlanContentDelete
+                id={row.original.id}
+                code={row.original.code}
+              />
+            </MyCenterFull>
+          );
+        }}
+      />
     </Flex>
   );
 }
+
+const mockData: ITrackSelfAssessmentProgressActionPlanRowHistoryTable[] = [
+  {
+    id: 1,
+    code: "MT1",
+    name: "Khắc phục điểm tồn tại",
+    description: "Tăng cường trồng cây cảnh tạo thêm không gian xanh",
+    evaluator: "Trường Đại học Đồng Nai",
+    date: "Năm học 2022 - 2024",
+  },
+  {
+    id: 2,
+    code: "MT2",
+    name: "Khắc phục điểm tồn tại",
+    description: "Thiếu không gian sinh hoạt chung, bố trí thêm không gian sinh hoạt chung",
+    evaluator: "Trường Đại học Đồng Nai",
+    date: "Năm học 2022 - 2024",
+  },
+  {
+    id: 3,
+    code: "MT3",
+    name: "Khắc phục điểm tồn tại",
+    description:
+      "Thiếu không gian riêng yên tĩnh phục vụ nhu cầu nghiên cứu; bố trí thêm không gian riêng yên tĩnh phục vụ cho nhu cầu nghiên cứu dựa trên khảo sát nhu cầu sử dụng của CB-GV-NV",
+    evaluator: "Trường Đại học Đồng Nai",
+    date: "Năm học 2022 - 2024",
+  },
+  {
+    id: 4,
+    code: "MT4",
+    name: "Phát huy điểm mạnh",
+    description:
+      "Có nhu cầu/khả năng nâng cao môi trường làm việc cho giảng viên, bố trí thêm các phòng làm việc để các GV có môi trường làm việc thuận lợi",
+    evaluator: "Trường Đại học Đồng Nai",
+    date: "Hằng năm",
+  },
+  {
+    id: 5,
+    code: "MT5",
+    name: "Phát huy điểm mạnh",
+    description: "Có khả năng/mong muốn nâng cao hiệu quả hoạt động tư vấn, hỗ trợ người học",
+    evaluator: "Trường Đại học Đồng Nai",
+    date: "Hằng năm",
+  },
+];

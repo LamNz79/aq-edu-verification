@@ -12,9 +12,8 @@ export default function TrackSelfAssessmentProgressCurrentSituationLayout() {
           1. Mô tả hiện trạng
         </Text>
         <Text mb="md" size="sm">
-          (Căn cứ yêu cầu của tiêu chí, mô tả hoạt động của cơ sở đào tạo có
-          CTĐT được đnash giá kèm theo các thông tin minh chứng để chứng minh
-          mức độ đạt được của tiêu chí)
+          (Căn cứ yêu cầu của tiêu chí, mô tả các hoạt động của cơ sở đào tạo có CTĐT được đánh giá
+          kèm theo các thông tin minh chứng để chứng minh độ đạt được tiêu chí)
         </Text>
       </Stack>
 

@@ -9,11 +9,11 @@ export default function TrackSelfAssessmentProgressActionPlanLayout() {
     <MyFlexColumn gap={4}>
       <Stack gap={2}>
         <Text size="md" fw={500}>
-          4. Kế hoạch hành động
+          4. Điểm tồn tại và khuyến nghị:
         </Text>
         <Text mb="md" size="sm">
-          (Phân tích những điểm tồn tại của CTĐT trong đáp ứng yêu cầu của tiêu chí và các khuyến
-          nghị cải tiến cần thiết)
+          (Phân tích những điểm tồn tại của CTĐT trong đáp ứng yêu cầu và các khuyến nghị cải tiến
+          cần thiết)
         </Text>
       </Stack>
       <MyFieldset title={`Lịch sử soạn thảo`}>
