@@ -8,7 +8,6 @@ import TrackSelfAssessmentProgressCurrentSituationLayout from "./TrackSelfAssess
 import TrackSelfAssessmentProgressSelfEvaluationLayout from "./TrackSelfAssessmentProgressSelfEvaluation/TrackSelfAssessmentProgressSelfEvaluationLayout";
 import TrackSelfAssessmentProgressStrengthsLayout from "./TrackSelfAssessmentProgressStrengths/TrackSelfAssessmentProgressStrengthsLayout";
 import TrackSelfAssessmentProgressWeaknessesLayout from "./TrackSelfAssessmentProgressWeaknesses/TrackSelfAssessmentProgressWeaknessesLayout";
-import { ITrackSelfAssessmentProgressViewModel } from "./interface";
 import { useCustomScrollSpy } from "./useCustomScrollSpy";
 import { useDisclosure } from "@mantine/hooks";
 
