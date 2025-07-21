@@ -37,14 +37,14 @@ export default function EvidenceCollectionReviewApprovalButton({
             Mã minh chứng dự kiến: <Text span>{value.expectedCode}</Text>
           </Text>
         </SimpleGrid>
-        <Text fw={500}>
+        <Text fw={500} mt="xl">
           Tên minh chứng dự kiến: <Text span>{value.expectedName}</Text>
         </Text>
-        <Divider m={4} />
-        <Text fw={500}>
+        <Divider m={4} color="black" />
+        <Text fw={500} mb={"xs"}>
           Tên minh chứng: <Text span>{value.actualName}</Text>
         </Text>
-        <Text fw={500}>
+        <Text fw={500} mb={"xs"}>
           Số - Ngày ban hành:&nbsp;
           <Text span>
             {[value.issueNumber, value.issueDate].filter(Boolean).join(", ")}
@@ -57,11 +57,11 @@ export default function EvidenceCollectionReviewApprovalButton({
           Trạng thái kiểm duyệt minh chứng
         </Text>
         <MySelect
-          defaultValue={"Chưa kiểm duyệt"}
+          defaultValue={value.approvalStatus.toString()}
           data={[
-            "Chưa kiểm duyệt",
-            "Đã kiểm duyệt",
-            "Yêu cầu bổ sung/hiệu chỉnh",
+            { value: "1", label: "Chưa kiểm duyệt" },
+            { value: "2", label: "Đã kiểm duyệt" },
+            { value: "3", label: "Yêu cầu bổ sung/hiệu chỉnh" },
           ]}
         />
         <Text fw={500} mt="xs">
