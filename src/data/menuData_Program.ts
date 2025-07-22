@@ -37,6 +37,7 @@ export const menuData_Program: I0LinkItem[] = [
     label: "Chương trình Đào tạo (CTĐT)",
     links: [
       { pageId: 81, name: "Program List", label: "Danh sách Chương trình đào tạo", link: "program-list", status: "Prototype", description: "Danh sách các chương trình đào tạo đã được tạo." },
+      { pageId: 811, name: "Accreditation Phase", label: "Giai đoạn kiểm định", link: "accreditation-phase", status: "Prototype", description: "" },
       {
         label: "Lịch sử kiểm định",
         links: [
