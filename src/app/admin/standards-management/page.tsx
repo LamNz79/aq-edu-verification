@@ -1,10 +1,10 @@
 "use client";
-import MyPageContent from "@/components/Layouts/PageContent/MyPageContent";
 import StandardsManagementTable from "@/modules-features/admin/ModuleStandardsManagement/StandardsManagementTable";
+import { MyPageContent } from "aq-fe-framework/components";
 
 export default function Page() {
   return (
-    <MyPageContent canBack>
+    <MyPageContent>
       <StandardsManagementTable />
     </MyPageContent>
   );
