@@ -1,11 +1,11 @@
 'use client';
 
-import MyPageContent from "@/components/Layouts/PageContent/MyPageContent";
 import ProgramListTable from "@/modules-features/admin/ModuleProgram/ProgramList/ProgramListTable";
+import { MyPageContent } from "aq-fe-framework/components";
 
 export default function Page() {
     return (
-        <MyPageContent canBack>
+        <MyPageContent>
             <ProgramListTable />
         </MyPageContent>
     )

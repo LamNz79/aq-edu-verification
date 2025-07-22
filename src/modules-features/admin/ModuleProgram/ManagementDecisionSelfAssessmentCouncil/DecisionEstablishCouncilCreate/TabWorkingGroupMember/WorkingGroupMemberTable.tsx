@@ -5,10 +5,11 @@ import {
     MyDataTable,
     MySelect,
 } from "aq-fe-framework/components";
-import { MRT_ColumnDef, TableMeta } from "mantine-react-table";
+import { MyButton } from "aq-fe-framework/core";
+import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
-import WorkingGroupMemberDeleteButton from "./WorkingGroupMemberDeleteButton";
 import WorkingGroupMemberCreateButton from "./WorkingGroupMemberCreateButton";
+import WorkingGroupMemberDeleteButton from "./WorkingGroupMemberDeleteButton";
 import WorkingGroupMemberDeleteListButton from "./WorkingGroupMemberDeleteListButton";
 
 // Extend TableMeta to include updateRow
@@ -84,6 +85,7 @@ export default function WorkingGroupMemberTable() {
                 return (
                     <>
                         <WorkingGroupMemberCreateButton />
+                        <MyButton actionType="import" />
                         <WorkingGroupMemberDeleteListButton values={table.getSelectedRowModel().flatRows.flatMap((item) => item.original)} />
                     </>
                 );

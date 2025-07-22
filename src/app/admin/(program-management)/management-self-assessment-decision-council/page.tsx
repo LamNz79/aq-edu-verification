@@ -1,11 +1,11 @@
 'use client'
-import MyPageContent from "@/components/Layouts/PageContent/MyPageContent";
 import DecisionEstablishCouncilTable from "@/modules-features/admin/ModuleProgram/ManagementDecisionSelfAssessmentCouncil/DecisionEstablishCouncilTable";
+import { MyPageContent } from "aq-fe-framework/components";
 
 
 export default function Page() {
     return (
-        <MyPageContent canBack>
+        <MyPageContent>
             <DecisionEstablishCouncilTable />
         </MyPageContent>
     )
