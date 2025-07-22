@@ -7,7 +7,7 @@ import { ReactNode } from "react";
 
 export default function Layout({ children }: { children?: ReactNode }) {
     const store = useS_Global()
-    return <BasicAppShell menu={store.state.accreditationType == "Institutional" ? menuData_Institutional : menuData_Program}>{children}</BasicAppShell>;
+    return <BasicAppShell logoutRedirect="/navigate" menu={store.state.accreditationType == "Institutional" ? menuData_Institutional : menuData_Program}>{children}</BasicAppShell>;
 }
 
 
