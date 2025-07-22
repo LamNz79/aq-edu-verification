@@ -142,7 +142,6 @@ export const menuData_Program: I0LinkItem[] = [
     links: [
       { label: "Quản lý Kế hoạch Cải tiến", name: "Improvement Plan", link: "improvement-plan", status: "Prototype", description: "" },
       { label: "Cập nhật cải tiến theo tiêu chí", name: "", link: "criterion-improvement", status: "Prototype", description: "" },
-      { label: "Cập nhật Báo cáo Giữa Chu kỳ Kiểm định Chất lượng CTĐT (Biểu 15)", name: "", link: "none-631417455663", status: "Menu", description: "" },
       { label: "Quản lý Báo cáo Giữa Chu kỳ Kiểm định Chất lượng CTĐT (Biểu 15)", name: "", link: "management-mid-cycle-quality-assurance-report", status: "Prototype", description: "" },
       { label: "Theo dõi Tiến độ Hoạt động Cải tiến", name: "", link: "improvement-progress-tracking", status: "Prototype", description: "" },
       { label: "Xuất Báo cáo Thực hiện Cải tiến", name: "", link: "improvement-report-export", status: "Prototype", description: "" },
@@ -158,7 +157,15 @@ export const menuData_Program: I0LinkItem[] = [
     label: "Báo cáo",
     links: [],
   },
-
+  {
+    label: "Danh mục hệ thống",
+    links: [
+      { pageId: 999, name: "", label: "Cấu hình thông tin chủ quản", link: "k683h5xrg3", status: "Prototype", description: "Cài đặt và cập nhật thông tin của đơn vị chủ quản hệ thống.", },
+      { pageId: 1000, name: "", label: "Danh mục đơn vị", link: "o4e65ewrwy", status: "Prototype", description: "Quản lý danh sách các đơn vị trực thuộc hoặc liên quan.", },
+      { pageId: 1003, name: "", label: "Danh mục cấu hình mail", link: "zwgpy0521g", status: "Prototype", description: "Thiết lập cấu hình gửi/nhận email của hệ thống.", },
+      { pageId: 4353, name: "", label: "Danh mục vai trò trong hội đồng", link: "council-role", status: "Prototype", description: "" },
+    ],
+  },
 
 
 
