@@ -13,4 +13,5 @@ export interface IStandardManagementViewModel {
     fileBase64String: string;
   };
   status?: boolean;
+  inspectionType: string;
 }

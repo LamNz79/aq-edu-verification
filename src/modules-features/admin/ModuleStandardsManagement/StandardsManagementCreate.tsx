@@ -3,6 +3,7 @@ import {
   MyButtonCreate,
   MyDateInput,
   MyFileInput,
+  MySelect,
   MyTextArea,
   MyTextInput,
 } from "aq-fe-framework/components";
@@ -17,7 +18,7 @@ export default function StandardsManagementCreate() {
       modalSize={"xl"}
       form={form}
       title={"Chi tiết bộ tiêu chuẩn"}
-      onSubmit={() => {}}
+      onSubmit={() => { }}
     >
       <Grid gutter="md" columns={12}>
         <Grid.Col span={6}>
@@ -29,31 +30,32 @@ export default function StandardsManagementCreate() {
             label="Tên bộ tiêu chuẩn"
             {...form.getInputProps("name")}
           />
-          <MyTextArea
-            label="File bộ tiêu chuẩn"
-            {...form.getInputProps("description")}
-          />
           <MyFileInput
-            label="File đính kèm"
+            label="File bộ tiêu chuẩn"
             placeholder="Nhập file đính kèm"
             {...form.getInputProps("file")}
           />
         </Grid.Col>
         <Grid.Col span={6}>
           <MyDateInput
-            label="Ngày ban hành gốc"
+            label="Ngày ban hành"
             {...form.getInputProps("date")}
           />
           <MyTextInput
             label="Tên phiên bản"
             {...form.getInputProps("nameVersion")}
           />
-          <MyTextArea
-            label="Mô tả phiên bản"
-            {...form.getInputProps("descriptionVersion")}
+          <MySelect
+            label="Loại kiểm định"
+            data={['Chuơng trình đào tạo', "Cơ sở giáo dục"]}
+            {...form.getInputProps("inspectionType")}
           />
         </Grid.Col>
       </Grid>
+      <MyTextArea
+        label="Mô tả bộ tiêu chuẩn"
+        {...form.getInputProps("description")}
+      />
     </MyButtonCreate>
   );
 }

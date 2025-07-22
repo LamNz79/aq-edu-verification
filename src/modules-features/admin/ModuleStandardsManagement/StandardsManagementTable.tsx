@@ -38,18 +38,22 @@ export default function StandardsManagementTable() {
       {
         header: "Mô tả Bộ Tiêu chuẩn",
         accessorKey: "description",
-        size: 300,
+        size: 500,
       },
       {
-        header: "Ngày ban hành Gốc",
+        header: "Ngày ban hành",
         accessorKey: "date",
       },
       {
-        header: "Tên Phiên bản (Gốc)",
+        header: "Tên Phiên bản",
         accessorKey: "nameVersion",
       },
       {
-        header: "File đính kèm",
+        header: "Loại kiểm định",
+        accessorKey: "inspectionType",
+      },
+      {
+        header: "File Bộ tiêu chuẩn",
         accessorKey: "fileDetail.fileName",
         Cell: ({ row }) => (
           <MyCenterFull>
@@ -71,7 +75,6 @@ export default function StandardsManagementTable() {
         renderTopToolbarCustomActions={() => (
           <Group>
             <StandardsManagementCreate />
-            <StandardsManagementVersion data={Query.data || []} />
             <MyButton color="green" leftSection={<IconUpload />}>
               Import
             </MyButton>
@@ -100,12 +103,12 @@ const mockData: IStandardManagementViewModel[] = [
     code: "TT04_2025",
     date: "2025-01-04",
     name: "Thông tư 04/2025/TT-BGDĐT",
-    description:
-      "Quy định về loại kiểm định chất lượng chương trình đào tạo các trình độ của giáo dục đại học.",
+    description: "Quy định về loại kiểm định chất lượng chương trình đào tạo các trình độ của giáo dục đại học.",
     nameVersion: "Phiên bản gốc",
     status: true,
     descriptionVersion: "Phiên bản gốc của bộ tiêu chuẩn",
     filePath: "TT04_2025.pdf",
+    inspectionType: "Chuơng trình đào tạo"
   },
   {
     id: "2",
@@ -117,29 +120,30 @@ const mockData: IStandardManagementViewModel[] = [
     status: true,
     descriptionVersion: "Phiên bản gốc của bộ tiêu chuẩn",
     filePath: "TT12_2017.pdf",
+    inspectionType: "Cơ sở giáo dục"
   },
   {
     id: "3",
     code: "AUNQA_2020",
     date: "2025-01-06",
     name: "AUN-QA Version 4.0",
-    description:
-      "Loại đánh giá chất lượng chương trình đào tạo khu vực Đông Nam Á, phiên bản mới nhất.",
+    description: "Loại đánh giá chất lượng chương trình đào tạo khu vực Đông Nam Á, phiên bản mới nhất.",
     nameVersion: "Version 4.0",
     status: true,
     descriptionVersion: "Phiên bản gốc của bộ tiêu chuẩn",
     filePath: "AUNQA_2020.pdf",
+    inspectionType: "Chuơng trình đào tạo"
   },
   {
     id: "4",
     code: "ABET_2023",
     date: "2023-01-01",
     name: "ABET Criteria for Accrediting Engineering Programs ",
-    description:
-      "Loại kiểm định các chương trình kỹ thuật của ABET, áp dụng cho các CTĐT đạt chuẩn quốc tế.",
-    nameVersion: "2023-2024",
+    description: "Loại kiểm định các chương trình kỹ thuật của ABET, áp dụng cho các CTĐT đạt chuẩn quốc tế.",
+    nameVersion: "2023-2024 Criteria",
     status: true,
     descriptionVersion: "Phiên bản gốc của bộ tiêu chuẩn",
     filePath: "ABET_2023.pdf",
+    inspectionType: "Chuơng trình đào tạo"
   },
 ];
