@@ -71,7 +71,7 @@ export default function TrackSelfAssessmentProgressActionPlanRow({
 
 const mockData: ITrackSelfAssessmentProgressActionPlanRowHistoryTable[] = [
   {
-    id: "1",
+    id: 1,
     code: "MT1",
     name: "Khắc phục điểm tồn tại",
     description:
@@ -81,7 +81,7 @@ const mockData: ITrackSelfAssessmentProgressActionPlanRowHistoryTable[] = [
     note: "",
   },
   {
-    id: "2",
+    id: 2,
     code: "MT2",
     name: "Phát huy điểm mạnh",
     description:
