@@ -1,9 +1,12 @@
 export default interface IProgramViewModel {
-  code?: string;
-  name?: string;
-  startYear?: number;
-  standardDuration?: number;
-  managingFaculty?: string;
-  educationLevel?: string;
-  educationType?: string;
+  id?: number;
+  code?: string | null;
+  name?: string | null;
+  startYear?: number | null;
+  standardDuration?: number | null;
+  managingFaculty?: string | null;
+  educationLevel?: string | null;
+  educationType?: string | null;
+  firstGraduatedYear?: number | null;
+  note?: string | null;
 }

@@ -7,20 +7,20 @@ import {
 } from "aq-fe-framework/components";
 import { MRT_ColumnDef } from "mantine-react-table";
 import { useMemo } from "react";
-import IProgramInfoViewModel from "./interfaces/IProgramInfoViewModel";
 import ProgramDeleteListButton from "./ProgramDeleteListButton";
 import ProgramDeleteButton from "./ProgramDeleteButton";
 import ProgramUpdateButton from "./ProgramUpdateButton";
 import ProgramCreateButton from "./ProgramCreateButton";
+import IProgramViewModel from "./interfaces/IProgramViewModel";
 
 export default function ProgramListTable() {
-  const columns = useMemo<MRT_ColumnDef<IProgramInfoViewModel>[]>(
+  const columns = useMemo<MRT_ColumnDef<IProgramViewModel>[]>(
     () => [
       { header: "Mã CTĐT", accessorKey: "code" },
       { header: "Tên CTĐT", accessorKey: "name", size: 300 },
-      { header: "Khoa/Viện quản lý", accessorKey: "managingFaculty" },
+      { header: "Đơn vị quản lý", accessorKey: "managingFaculty" },
       { header: "Trình độ đào tạo", accessorKey: "educationLevel" },
-      { header: "Loại hình đào tạo", accessorKey: "educationType" },
+      { header: "Loại đào tạo", accessorKey: "educationType" },
       {
         header: "Thời gian đào tạo chuẩn",
         accessorKey: "standardDuration",
@@ -29,6 +29,7 @@ export default function ProgramListTable() {
         },
       },
       { header: "Năm bắt đầu tuyển sinh", accessorKey: "startYear" },
+      { header: "Năm tốt nghiệp khóa đầu", accessorKey: "firstGraduatedYear" },
     ],
     []
   );
@@ -43,7 +44,6 @@ export default function ProgramListTable() {
           return (
             <>
               <ProgramCreateButton />
-              <MyButton crudType="create">Thêm phiên bản</MyButton>
               <MyButton crudType="import" />
               <MyButton crudType="export" />
               <ProgramDeleteListButton
@@ -56,7 +56,7 @@ export default function ProgramListTable() {
           return (
             <MyCenterFull>
               <ProgramUpdateButton values={row.original} />
-              <ProgramDeleteButton id={row.original.id || 0} code={row.original.code} />
+              <ProgramDeleteButton id={row.original.id || 0} code={row.original.code??""} />
             </MyCenterFull>
           );
         }}
@@ -65,7 +65,7 @@ export default function ProgramListTable() {
   );
 }
 
-const mockData: IProgramInfoViewModel[] = [
+const mockData: IProgramViewModel[] = [
   {
     id: 1,
     code: "7480201",
@@ -75,6 +75,7 @@ const mockData: IProgramInfoViewModel[] = [
     educationType: "Chính quy",
     standardDuration: 4,
     startYear: 2010,
+    firstGraduatedYear: 2022,
   },
   {
     id: 2,
@@ -85,6 +86,7 @@ const mockData: IProgramInfoViewModel[] = [
     educationType: "Chính quy",
     standardDuration: 4,
     startYear: 2015,
+    firstGraduatedYear: 2023,
   },
   {
     id: 3,
@@ -95,6 +97,7 @@ const mockData: IProgramInfoViewModel[] = [
     educationType: "Chính quy",
     standardDuration: 4,
     startYear: 2012,
+    firstGraduatedYear: 2024,
   },
   {
     id: 4,
@@ -105,6 +108,7 @@ const mockData: IProgramInfoViewModel[] = [
     educationType: "Chính quy",
     standardDuration: 2,
     startYear: 2018,
+    firstGraduatedYear: 2025,
   },
   {
     id: 5,
@@ -115,5 +119,6 @@ const mockData: IProgramInfoViewModel[] = [
     educationType: "Từ xa",
     standardDuration: 4.5,
     startYear: 2020,
+    firstGraduatedYear: 2024,
   },
 ];

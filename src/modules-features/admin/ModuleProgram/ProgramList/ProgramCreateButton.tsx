@@ -17,8 +17,9 @@ export default function ProgramCreateButton() {
     initialValues: {
       code: "",
       name: "",
-      startYear: 0,
-      standardDuration: 0,
+      startYear: undefined,
+      standardDuration: undefined,
+      firstGraduatedYear: undefined,
       managingFaculty: "",
       educationLevel: "",
       educationType: "",
@@ -28,7 +29,7 @@ export default function ProgramCreateButton() {
     <MyButtonCreate
       form={form}
       modalSize={"70vw"}
-      onSubmit={() => {}}
+      onSubmit={() => { }}
       objectName="chương trình đào tạo"
     >
       <SimpleGrid cols={{ base: 1, md: 2 }} spacing={24}>
@@ -40,6 +41,7 @@ export default function ProgramCreateButton() {
             label="Thời gian đào tạo chuẩn"
             {...form.getInputProps("standardDuration")}
           />
+          <MyNumberInput label="Năm tốt nghiệp khóa đầu" {...form.getInputProps("firstGraduatedYear")} />
         </Stack>
         <Stack>
           <MySelect

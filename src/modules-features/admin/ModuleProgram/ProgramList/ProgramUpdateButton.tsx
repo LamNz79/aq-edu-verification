@@ -9,10 +9,10 @@ import {
   MyTextArea,
   MyTextInput,
 } from "aq-fe-framework/components";
-import IProgramInfoViewModel from "./interfaces/IProgramInfoViewModel";
+import IProgramViewModel from "./interfaces/IProgramViewModel";
 
-export default function ProgramUpdateButton({ values }: { values: IProgramInfoViewModel }) {
-  const form = useForm<IProgramInfoViewModel>({
+export default function ProgramUpdateButton({ values }: { values: IProgramViewModel }) {
+  const form = useForm<IProgramViewModel>({
     initialValues: values,
   });
   return (
@@ -20,7 +20,7 @@ export default function ProgramUpdateButton({ values }: { values: IProgramInfoVi
       title="Chi tiết chương trình đào tạo"
       modalSize="70vw"
       form={form}
-      onSubmit={() => {}}
+      onSubmit={() => { }}
     >
       <SimpleGrid cols={{ base: 1, md: 2 }} spacing={24}>
         <Stack>
@@ -31,6 +31,8 @@ export default function ProgramUpdateButton({ values }: { values: IProgramInfoVi
             label="Thời gian đào tạo chuẩn"
             {...form.getInputProps("standardDuration")}
           />
+          <MyNumberInput label="Năm tốt nghiệp khóa đầu" {...form.getInputProps("firstGraduatedYear")} />
+
         </Stack>
         <Stack>
           <MySelect
